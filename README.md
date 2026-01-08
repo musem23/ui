@@ -1,17 +1,39 @@
-# shadcn/ui
+# brand-ui
 
-A set of beautifully designed components that you can customize, extend, and build on. Start here then make it your own. Open Source. Open Code. **Use this to build your own component library**.
+A customizable UI component library built with React, Tailwind CSS v4, and shadcn/ui components.
 
-![hero](apps/v4/public/opengraph-image.png)
+## Setup
 
-## Documentation
+```bash
+bun install
+```
 
-Visit http://ui.shadcn.com/docs to view the documentation.
+## Development
 
-## Contributing
+```bash
+bun dev
+```
 
-Please read the [contributing guide](/CONTRIBUTING.md).
+Runs on http://localhost:4000
 
-## License
+## Build
 
-Licensed under the [MIT license](https://github.com/shadcn/ui/blob/main/LICENSE.md).
+```bash
+bun build
+```
+
+## Project Structure
+
+```
+src/
+├── brand/           # Brand configuration (colors, fonts, themes)
+├── components/ui/   # shadcn/ui components
+├── lib/             # Utilities and hooks
+└── styles/          # Global CSS and theme styles
+```
+
+## Sync Brand Tokens
+
+```bash
+bun sync-brand
+```

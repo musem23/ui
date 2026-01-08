@@ -3,5 +3,5 @@ node_modules
 .next
 build
 .contentlayer
-**/fixtures
-deprecated
+registry/__index__.tsx
+content/docs/components/calendar.mdx
