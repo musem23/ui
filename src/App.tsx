@@ -207,6 +207,21 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
+import {
+  Combobox,
+  ComboboxInput,
+  ComboboxContent,
+  ComboboxList,
+  ComboboxItem,
+  ComboboxEmpty,
+} from "@/components/ui/combobox"
+import {
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+  type ChartConfig,
+} from "@/components/ui/chart"
+import { Bar, BarChart, XAxis } from "recharts"
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -363,6 +378,21 @@ export default function ShowcasePage() {
                 <option value="1">Option 1</option>
                 <option value="2">Option 2</option>
               </NativeSelect>
+            </ComponentCard>
+
+            <ComponentCard name="Combobox">
+              <Combobox>
+                <ComboboxInput placeholder="Search framework..." />
+                <ComboboxContent>
+                  <ComboboxList>
+                    <ComboboxEmpty>No results found.</ComboboxEmpty>
+                    <ComboboxItem value="react">React</ComboboxItem>
+                    <ComboboxItem value="vue">Vue</ComboboxItem>
+                    <ComboboxItem value="angular">Angular</ComboboxItem>
+                    <ComboboxItem value="svelte">Svelte</ComboboxItem>
+                  </ComboboxList>
+                </ComboboxContent>
+              </Combobox>
             </ComponentCard>
 
             <ComponentCard name="Slider">
@@ -843,8 +873,36 @@ export default function ShowcasePage() {
             </ComponentCard>
           </Section>
 
-          {/* 7. LAYOUT */}
-          <Section title="7. Layout">
+          {/* 7. DATA VISUALIZATION */}
+          <Section title="7. Data Visualization">
+            <ComponentCard name="Chart">
+              <ChartContainer
+                config={{
+                  desktop: { label: "Desktop", color: "var(--chart-1)" },
+                  mobile: { label: "Mobile", color: "var(--chart-2)" },
+                } satisfies ChartConfig}
+                className="h-[200px] w-full"
+              >
+                <BarChart
+                  data={[
+                    { month: "Jan", desktop: 186, mobile: 80 },
+                    { month: "Feb", desktop: 305, mobile: 200 },
+                    { month: "Mar", desktop: 237, mobile: 120 },
+                    { month: "Apr", desktop: 73, mobile: 190 },
+                    { month: "May", desktop: 209, mobile: 130 },
+                  ]}
+                >
+                  <XAxis dataKey="month" tickLine={false} axisLine={false} />
+                  <ChartTooltip content={<ChartTooltipContent />} />
+                  <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
+                  <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
+                </BarChart>
+              </ChartContainer>
+            </ComponentCard>
+          </Section>
+
+          {/* 8. LAYOUT */}
+          <Section title="8. Layout">
             <ComponentCard name="Accordion">
               <Accordion type="single" collapsible>
                 <AccordionItem value="1">
@@ -895,7 +953,7 @@ export default function ShowcasePage() {
 
         <footer className="border-t py-8 mt-12">
           <div className="container mx-auto px-4 text-center text-muted-foreground">
-            <p>Brand UI Kit - 55 Components</p>
+            <p>Brand UI Kit</p>
           </div>
         </footer>
         <Toaster />
