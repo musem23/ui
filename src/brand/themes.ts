@@ -1,6 +1,14 @@
-import { type RegistryItem } from "shadcn/schema"
+type ThemeItem = {
+  name: string
+  title: string
+  type: string
+  cssVars: {
+    light: Record<string, string>
+    dark: Record<string, string>
+  }
+}
 
-export const THEMES: RegistryItem[] = [
+export const THEMES: ThemeItem[] = [
   {
     name: "neutral",
     title: "Neutral",
@@ -859,6 +867,6 @@ export const THEMES: RegistryItem[] = [
       },
     },
   },
-] as const satisfies RegistryItem[]
+] as const
 
 export type Theme = (typeof THEMES)[number]

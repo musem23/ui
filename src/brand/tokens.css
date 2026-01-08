@@ -1,4 +1,7 @@
 :root {
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
 
@@ -27,7 +30,7 @@
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
 
-  --radius: 0.625rem;
+  --radius: 1.25rem;
 
   --chart-1: oklch(0.809 0.105 251.813);
   --chart-2: oklch(0.623 0.214 259.815);

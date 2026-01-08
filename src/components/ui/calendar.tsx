@@ -162,7 +162,7 @@ function Calendar({
             <ChevronDownIcon className={cn("size-4", className)} {...props} />
           )
         },
-        DayButton: CalendarDayButton,
+        DayButton: CalendarDayButton as unknown as typeof DayButton,
         WeekNumber: ({ children, ...props }) => {
           return (
             <td {...props}>
@@ -179,22 +179,24 @@ function Calendar({
   )
 }
 
-function CalendarDayButton({
-  className,
-  day,
-  modifiers,
-  ...props
-}: React.ComponentProps<typeof DayButton>) {
+const CalendarDayButton = React.forwardRef<
+  HTMLButtonElement,
+  React.ComponentProps<typeof DayButton>
+>(({ className, day, modifiers, ...props }, forwardedRef) => {
   const defaultClassNames = getDefaultClassNames()
 
-  const ref = React.useRef<HTMLButtonElement>(null)
+  const innerRef = React.useRef<HTMLButtonElement>(null)
+  const ref = forwardedRef || innerRef
+
   React.useEffect(() => {
-    if (modifiers.focused) ref.current?.focus()
-  }, [modifiers.focused])
+    if (modifiers.focused && typeof ref === "object" && ref?.current) {
+      ref.current.focus()
+    }
+  }, [modifiers.focused, ref])
 
   return (
     <Button
-      ref={ref}
+      ref={ref as React.Ref<HTMLButtonElement>}
       variant="ghost"
       size="icon"
       data-day={day.date.toLocaleDateString()}
@@ -215,6 +217,7 @@ function CalendarDayButton({
       {...props}
     />
   )
-}
+})
+CalendarDayButton.displayName = "CalendarDayButton"
 
 export { Calendar, CalendarDayButton }

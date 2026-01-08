@@ -1,10 +1,8 @@
-import { fonts, radius } from "./tokens"
+import { fonts } from "./fonts"
+import { radius } from "./tokens"
 
 export const brandConfig = {
-  fonts: {
-    sans: fonts.sans,
-    mono: fonts.mono,
-  },
+  fonts,
   radius: {
     default: "0.625rem",
     values: radius,

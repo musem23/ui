@@ -22,7 +22,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import {
   Breadcrumb,
@@ -431,8 +431,7 @@ export default function ShowcasePage() {
             <ComponentCard name="Avatar">
               <div className="flex gap-4">
                 <Avatar>
-                  <AvatarImage src="https://github.com/shadcn.png" />
-                  <AvatarFallback>CN</AvatarFallback>
+                  <AvatarFallback>AB</AvatarFallback>
                 </Avatar>
                 <Avatar>
                   <AvatarFallback>JD</AvatarFallback>

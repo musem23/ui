@@ -1,6 +1,6 @@
 # brand-ui
 
-A customizable UI component library built with React, Tailwind CSS v4, and shadcn/ui components.
+A customizable UI component library built with React and Tailwind CSS v4.
 
 ## Setup
 
@@ -27,7 +27,7 @@ bun build
 ```
 src/
 ├── brand/           # Brand configuration (colors, fonts, themes)
-├── components/ui/   # shadcn/ui components
+├── components/ui/   # UI components
 ├── lib/             # Utilities and hooks
 └── styles/          # Global CSS and theme styles
 ```

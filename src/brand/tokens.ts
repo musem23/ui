@@ -67,11 +67,6 @@ export const colors = {
   },
 } as const
 
-export const fonts = {
-  sans: "var(--font-sans)",
-  mono: "var(--font-mono)",
-} as const
-
 export const radius = {
   none: "0",
   sm: "calc(var(--radius) - 4px)",
@@ -84,5 +79,4 @@ export const radius = {
 } as const
 
 export type Colors = typeof colors
-export type Fonts = typeof fonts
 export type Radius = typeof radius
