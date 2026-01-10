@@ -1,0 +1,120 @@
+/**
+ * Brand UI - Scroll Area Component
+ * Custom styled scrollbar with hidden native scrollbar
+ */
+
+/* Base scroll area container */
+.scroll-area {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Viewport - the scrollable content container */
+.scroll-area-viewport {
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  border-radius: inherit;
+  outline: none;
+  transition: color var(--transition-fast), box-shadow var(--transition-fast);
+
+  /* Hide native scrollbar */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.scroll-area-viewport::-webkit-scrollbar {
+  display: none; /* Chrome/Safari/Opera */
+}
+
+/* Focus visible styles */
+.scroll-area-viewport:focus-visible {
+  box-shadow: 0 0 0 3px oklch(from var(--ring) l c h / 50%);
+  outline: 1px solid var(--ring);
+}
+
+/* Scrollbar track - vertical */
+.scroll-area-scrollbar {
+  position: absolute;
+  display: flex;
+  touch-action: none;
+  user-select: none;
+  padding: 1px;
+  transition: opacity var(--transition-fast), background-color var(--transition-fast);
+  opacity: 0;
+}
+
+.scroll-area:hover .scroll-area-scrollbar,
+.scroll-area-scrollbar[data-scrolling="true"],
+.scroll-area-scrollbar:hover {
+  opacity: 1;
+}
+
+/* Vertical scrollbar positioning */
+.scroll-area-scrollbar[data-orientation="vertical"] {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 10px;
+  border-left: 1px solid transparent;
+}
+
+/* Horizontal scrollbar positioning */
+.scroll-area-scrollbar[data-orientation="horizontal"] {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 10px;
+  flex-direction: column;
+  border-top: 1px solid transparent;
+}
+
+/* Scrollbar thumb */
+.scroll-area-thumb {
+  position: relative;
+  flex: 1;
+  background-color: var(--border);
+  border-radius: var(--radius-full);
+  transition: background-color var(--transition-fast);
+}
+
+.scroll-area-thumb:hover {
+  background-color: var(--muted-foreground);
+}
+
+/* Active/dragging state */
+.scroll-area-thumb[data-dragging="true"] {
+  background-color: var(--foreground);
+}
+
+/* Corner piece for when both scrollbars are visible */
+.scroll-area-corner {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 10px;
+  height: 10px;
+  background-color: transparent;
+}
+
+/* Size variants */
+.scroll-area-sm .scroll-area-scrollbar[data-orientation="vertical"] {
+  width: 6px;
+}
+
+.scroll-area-sm .scroll-area-scrollbar[data-orientation="horizontal"] {
+  height: 6px;
+}
+
+.scroll-area-lg .scroll-area-scrollbar[data-orientation="vertical"] {
+  width: 14px;
+}
+
+.scroll-area-lg .scroll-area-scrollbar[data-orientation="horizontal"] {
+  height: 14px;
+}
+
+/* Always visible variant */
+.scroll-area-always-visible .scroll-area-scrollbar {
+  opacity: 1;
+}

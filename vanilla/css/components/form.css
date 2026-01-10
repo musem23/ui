@@ -1,0 +1,226 @@
+/**
+ * Brand UI - Form Component
+ * Form field wrapper with validation states, labels, descriptions, and messages.
+ */
+
+/* ============================================
+   FORM
+   ============================================ */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ============================================
+   FORM ITEM
+   ============================================ */
+
+.form-item {
+  display: grid;
+  gap: 0.5rem;
+}
+
+/* ============================================
+   FORM LABEL
+   ============================================ */
+
+.form-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--foreground);
+  user-select: none;
+}
+
+/* Required field indicator */
+.form-label[data-required="true"]::after {
+  content: " *";
+  color: var(--destructive);
+}
+
+/* Error state label */
+.form-label[data-error="true"] {
+  color: var(--destructive);
+}
+
+/* Disabled label */
+.form-item[data-disabled="true"] .form-label {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* ============================================
+   FORM CONTROL
+   ============================================ */
+
+.form-control {
+  /* Container for form input elements */
+}
+
+/* Apply error styling to inputs within form-control */
+.form-item[data-error="true"] .form-control input,
+.form-item[data-error="true"] .form-control textarea,
+.form-item[data-error="true"] .form-control select {
+  border-color: var(--destructive);
+  box-shadow: 0 0 0 3px oklch(from var(--destructive) l c h / 10%);
+}
+
+.form-item[data-error="true"] .form-control input:focus,
+.form-item[data-error="true"] .form-control textarea:focus,
+.form-item[data-error="true"] .form-control select:focus {
+  border-color: var(--destructive);
+  box-shadow: 0 0 0 3px oklch(from var(--destructive) l c h / 20%);
+}
+
+/* Dark mode error state */
+.dark .form-item[data-error="true"] .form-control input,
+.dark .form-item[data-error="true"] .form-control textarea,
+.dark .form-item[data-error="true"] .form-control select {
+  box-shadow: 0 0 0 3px oklch(from var(--destructive) l c h / 20%);
+}
+
+.dark .form-item[data-error="true"] .form-control input:focus,
+.dark .form-item[data-error="true"] .form-control textarea:focus,
+.dark .form-item[data-error="true"] .form-control select:focus {
+  box-shadow: 0 0 0 3px oklch(from var(--destructive) l c h / 30%);
+}
+
+/* ============================================
+   FORM DESCRIPTION
+   ============================================ */
+
+.form-description {
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: var(--muted-foreground);
+  margin: 0;
+}
+
+/* ============================================
+   FORM MESSAGE
+   ============================================ */
+
+.form-message {
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  margin: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.375rem;
+}
+
+/* Error message (default) */
+.form-message[data-type="error"],
+.form-message:not([data-type]) {
+  color: var(--destructive);
+}
+
+/* Success message */
+.form-message[data-type="success"] {
+  color: oklch(0.55 0.15 145);
+}
+
+.dark .form-message[data-type="success"] {
+  color: oklch(0.65 0.15 145);
+}
+
+/* Warning message */
+.form-message[data-type="warning"] {
+  color: oklch(0.55 0.15 65);
+}
+
+.dark .form-message[data-type="warning"] {
+  color: oklch(0.7 0.15 65);
+}
+
+/* Hidden message (for animation purposes) */
+.form-message[aria-hidden="true"] {
+  display: none;
+}
+
+/* Message icon */
+.form-message-icon {
+  flex-shrink: 0;
+  width: 0.875rem;
+  height: 0.875rem;
+  margin-top: 0.0625rem;
+}
+
+/* ============================================
+   FORM GROUP
+   ============================================ */
+
+/* Horizontal layout for form items */
+.form-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.form-group > .form-item {
+  flex: 1;
+  min-width: 200px;
+}
+
+/* ============================================
+   FORM INLINE
+   ============================================ */
+
+/* Inline form item (label and control on same line) */
+.form-item-inline {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.form-item-inline .form-label {
+  flex-shrink: 0;
+  margin-bottom: 0;
+}
+
+.form-item-inline .form-control {
+  flex: 1;
+}
+
+/* ============================================
+   FORM FIELDSET
+   ============================================ */
+
+.form-fieldset {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  margin: 0;
+}
+
+.form-fieldset legend {
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0 0.5rem;
+  color: var(--foreground);
+}
+
+/* ============================================
+   FORM ACTIONS
+   ============================================ */
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-top: 0.5rem;
+}
+
+.form-actions-end {
+  justify-content: flex-end;
+}
+
+.form-actions-between {
+  justify-content: space-between;
+}
+
+.form-actions-center {
+  justify-content: center;
+}

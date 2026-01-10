@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Context Menu - Brand UI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/ui.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="app-sidebar">
+      <div class="app-sidebar-header">
+        <a href="../index.html">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m15 18-6-6 6-6"/>
+          </svg>
+          <span>Overview</span>
+        </a>
+      </div>
+      <div class="app-sidebar-content">
+        <div class="app-sidebar-group-label">Components</div>
+        <ul class="sidebar-menu" id="sidebar-menu"></ul>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="app-main">
+      <header class="app-header">
+        <div class="header-left">
+          <span>Context Menu</span>
+        </div>
+        <button class="btn btn-ghost btn-sm" id="theme-toggle">Dark</button>
+      </header>
+
+      <div class="app-content">
+        <h1 class="page-title">Context Menu</h1>
+        <p class="page-desc">A right-click triggered dropdown menu with keyboard navigation.</p>
+
+        <!-- Installation -->
+        <div class="install-box">
+          <p>Installation</p>
+          <code>&lt;link rel="stylesheet" href="css/components/context-menu.css"&gt;</code>
+          <code>&lt;script src="js/core.js"&gt;&lt;/script&gt;</code>
+          <code>&lt;script src="js/components/context-menu.js"&gt;&lt;/script&gt;</code>
+        </div>
+
+        <!-- Basic Context Menu -->
+        <section class="section">
+          <h2 class="section-title">Basic Context Menu</h2>
+          <p class="section-desc">Right-click anywhere in the dashed area to open the menu.</p>
+          <div class="demo-box">
+            <div class="context-menu-trigger" data-context-menu data-context-menu-content="basic-menu" style="display: flex; align-items: center; justify-content: center; min-height: 150px; background: var(--muted); border: 2px dashed var(--border); border-radius: var(--radius); cursor: context-menu; user-select: none;">
+              <span style="color: var(--muted-foreground); text-align: center;">Right-click here</span>
+            </div>
+
+            <div id="basic-menu" class="context-menu-content">
+              <div class="context-menu-item" data-value="back">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m15 18-6-6 6-6"/>
+                </svg>
+                Back
+                <span class="context-menu-shortcut">Ctrl+[</span>
+              </div>
+              <div class="context-menu-item" data-value="forward" data-disabled>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m9 18 6-6-6-6"/>
+                </svg>
+                Forward
+                <span class="context-menu-shortcut">Ctrl+]</span>
+              </div>
+              <div class="context-menu-item" data-value="reload">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                  <path d="M3 3v5h5"/>
+                  <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/>
+                  <path d="M16 16h5v5"/>
+                </svg>
+                Reload
+                <span class="context-menu-shortcut">Ctrl+R</span>
+              </div>
+              <div class="context-menu-separator"></div>
+              <div class="context-menu-item" data-value="save">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M15.2 3a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/>
+                  <path d="M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7"/>
+                  <path d="M7 3v4a1 1 0 0 0 1 1h7"/>
+                </svg>
+                Save
+                <span class="context-menu-shortcut">Ctrl+S</span>
+              </div>
+              <div class="context-menu-item" data-value="print">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+                  <path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"/>
+                  <rect x="6" y="14" width="12" height="8" rx="1"/>
+                </svg>
+                Print
+                <span class="context-menu-shortcut">Ctrl+P</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Context Menu with Labels and Groups -->
+        <section class="section">
+          <h2 class="section-title">With Labels and Groups</h2>
+          <p class="section-desc">Context menu with labeled sections.</p>
+          <div class="demo-box">
+            <div class="context-menu-trigger" data-context-menu data-context-menu-content="grouped-menu" style="display: flex; align-items: center; justify-content: center; min-height: 150px; background: var(--muted); border: 2px dashed var(--border); border-radius: var(--radius); cursor: context-menu; user-select: none;">
+              <span style="color: var(--muted-foreground); text-align: center;">Right-click here</span>
+            </div>
+
+            <div id="grouped-menu" class="context-menu-content">
+              <div class="context-menu-label">Edit</div>
+              <div class="context-menu-group">
+                <div class="context-menu-item" data-value="cut">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="6" cy="6" r="3"/>
+                    <path d="M8.12 8.12 12 12"/>
+                    <path d="M20 4 8.12 15.88"/>
+                    <circle cx="6" cy="18" r="3"/>
+                    <path d="M14.8 14.8 20 20"/>
+                  </svg>
+                  Cut
+                  <span class="context-menu-shortcut">Ctrl+X</span>
+                </div>
+                <div class="context-menu-item" data-value="copy">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                  </svg>
+                  Copy
+                  <span class="context-menu-shortcut">Ctrl+C</span>
+                </div>
+                <div class="context-menu-item" data-value="paste">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M15 2H9a1 1 0 0 0-1 1v2c0 .6.4 1 1 1h6c.6 0 1-.4 1-1V3c0-.6-.4-1-1-1Z"/>
+                    <path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2M16 4h2a2 2 0 0 1 2 2v2M11 14h10"/>
+                    <path d="m17 10 4 4-4 4"/>
+                  </svg>
+                  Paste
+                  <span class="context-menu-shortcut">Ctrl+V</span>
+                </div>
+              </div>
+              <div class="context-menu-separator"></div>
+              <div class="context-menu-label">Actions</div>
+              <div class="context-menu-group">
+                <div class="context-menu-item" data-value="select-all">
+                  Select All
+                  <span class="context-menu-shortcut">Ctrl+A</span>
+                </div>
+                <div class="context-menu-item" data-value="find">
+                  Find...
+                  <span class="context-menu-shortcut">Ctrl+F</span>
+                </div>
+              </div>
+              <div class="context-menu-separator"></div>
+              <div class="context-menu-item" data-variant="destructive" data-value="delete">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 6h18"/>
+                  <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
+                  <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
+                  <line x1="10" x2="10" y1="11" y2="17"/>
+                  <line x1="14" x2="14" y1="11" y2="17"/>
+                </svg>
+                Delete
+                <span class="context-menu-shortcut">Del</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Context Menu with Checkboxes -->
+        <section class="section">
+          <h2 class="section-title">With Checkbox Items</h2>
+          <p class="section-desc">Toggle options on and off.</p>
+          <div class="demo-box">
+            <div class="context-menu-trigger" data-context-menu data-context-menu-content="checkbox-menu" style="display: flex; align-items: center; justify-content: center; min-height: 150px; background: var(--muted); border: 2px dashed var(--border); border-radius: var(--radius); cursor: context-menu; user-select: none;">
+              <span style="color: var(--muted-foreground); text-align: center;">Right-click here</span>
+            </div>
+
+            <div id="checkbox-menu" class="context-menu-content">
+              <div class="context-menu-label">View Options</div>
+              <div class="context-menu-checkbox-item" data-value="toolbar" data-checked="true">
+                <span class="context-menu-indicator">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6 9 17l-5-5"/>
+                  </svg>
+                </span>
+                Show Toolbar
+              </div>
+              <div class="context-menu-checkbox-item" data-value="sidebar" data-checked="true">
+                <span class="context-menu-indicator">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6 9 17l-5-5"/>
+                  </svg>
+                </span>
+                Show Sidebar
+              </div>
+              <div class="context-menu-checkbox-item" data-value="statusbar" data-checked="false">
+                <span class="context-menu-indicator">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6 9 17l-5-5"/>
+                  </svg>
+                </span>
+                Show Status Bar
+              </div>
+              <div class="context-menu-separator"></div>
+              <div class="context-menu-checkbox-item" data-value="fullscreen" data-checked="false">
+                <span class="context-menu-indicator">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6 9 17l-5-5"/>
+                  </svg>
+                </span>
+                Full Screen
+                <span class="context-menu-shortcut">F11</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Context Menu with Radio Items -->
+        <section class="section">
+          <h2 class="section-title">With Radio Items</h2>
+          <p class="section-desc">Select one option from a group.</p>
+          <div class="demo-box">
+            <div class="context-menu-trigger" data-context-menu data-context-menu-content="radio-menu" style="display: flex; align-items: center; justify-content: center; min-height: 150px; background: var(--muted); border: 2px dashed var(--border); border-radius: var(--radius); cursor: context-menu; user-select: none;">
+              <span style="color: var(--muted-foreground); text-align: center;">Right-click here</span>
+            </div>
+
+            <div id="radio-menu" class="context-menu-content">
+              <div class="context-menu-label">Text Size</div>
+              <div class="context-menu-radio-group">
+                <div class="context-menu-radio-item" data-value="small" data-checked="false">
+                  <span class="context-menu-indicator">
+                    <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor">
+                      <circle cx="12" cy="12" r="6"/>
+                    </svg>
+                  </span>
+                  Small
+                </div>
+                <div class="context-menu-radio-item" data-value="medium" data-checked="true">
+                  <span class="context-menu-indicator">
+                    <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor">
+                      <circle cx="12" cy="12" r="6"/>
+                    </svg>
+                  </span>
+                  Medium
+                </div>
+                <div class="context-menu-radio-item" data-value="large" data-checked="false">
+                  <span class="context-menu-indicator">
+                    <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor">
+                      <circle cx="12" cy="12" r="6"/>
+                    </svg>
+                  </span>
+                  Large
+                </div>
+              </div>
+              <div class="context-menu-separator"></div>
+              <div class="context-menu-label">Theme</div>
+              <div class="context-menu-radio-group">
+                <div class="context-menu-radio-item" data-value="light" data-checked="true">
+                  <span class="context-menu-indicator">
+                    <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor">
+                      <circle cx="12" cy="12" r="6"/>
+                    </svg>
+                  </span>
+                  Light
+                </div>
+                <div class="context-menu-radio-item" data-value="dark" data-checked="false">
+                  <span class="context-menu-indicator">
+                    <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor">
+                      <circle cx="12" cy="12" r="6"/>
+                    </svg>
+                  </span>
+                  Dark
+                </div>
+                <div class="context-menu-radio-item" data-value="system" data-checked="false">
+                  <span class="context-menu-indicator">
+                    <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor">
+                      <circle cx="12" cy="12" r="6"/>
+                    </svg>
+                  </span>
+                  System
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Context Menu with Submenus -->
+        <section class="section">
+          <h2 class="section-title">With Submenus</h2>
+          <p class="section-desc">Nested menus for complex actions.</p>
+          <div class="demo-box">
+            <div class="context-menu-trigger" data-context-menu data-context-menu-content="submenu-menu" style="display: flex; align-items: center; justify-content: center; min-height: 150px; background: var(--muted); border: 2px dashed var(--border); border-radius: var(--radius); cursor: context-menu; user-select: none;">
+              <span style="color: var(--muted-foreground); text-align: center;">Right-click here</span>
+            </div>
+
+            <div id="submenu-menu" class="context-menu-content">
+              <div class="context-menu-item" data-value="new-file">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/>
+                  <path d="M14 2v4a2 2 0 0 0 2 2h4"/>
+                  <path d="M9 15h6"/>
+                  <path d="M12 18v-6"/>
+                </svg>
+                New File
+                <span class="context-menu-shortcut">Ctrl+N</span>
+              </div>
+              <div class="context-menu-sub-trigger" data-submenu="share-submenu">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="18" cy="5" r="3"/>
+                  <circle cx="6" cy="12" r="3"/>
+                  <circle cx="18" cy="19" r="3"/>
+                  <line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/>
+                  <line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/>
+                </svg>
+                Share
+                <svg class="context-menu-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m9 18 6-6-6-6"/>
+                </svg>
+              </div>
+              <div id="share-submenu" class="context-menu-sub-content">
+                <div class="context-menu-item" data-value="share-email">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="20" height="16" x="2" y="4" rx="2"/>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                  </svg>
+                  Email
+                </div>
+                <div class="context-menu-item" data-value="share-message">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
+                  </svg>
+                  Message
+                </div>
+                <div class="context-menu-separator"></div>
+                <div class="context-menu-item" data-value="share-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                  </svg>
+                  Copy Link
+                </div>
+              </div>
+              <div class="context-menu-sub-trigger" data-submenu="export-submenu">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="17 8 12 3 7 8"/>
+                  <line x1="12" x2="12" y1="3" y2="15"/>
+                </svg>
+                Export
+                <svg class="context-menu-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m9 18 6-6-6-6"/>
+                </svg>
+              </div>
+              <div id="export-submenu" class="context-menu-sub-content">
+                <div class="context-menu-item" data-value="export-pdf">PDF</div>
+                <div class="context-menu-item" data-value="export-png">PNG</div>
+                <div class="context-menu-item" data-value="export-svg">SVG</div>
+                <div class="context-menu-separator"></div>
+                <div class="context-menu-item" data-value="export-json">JSON</div>
+                <div class="context-menu-item" data-value="export-csv">CSV</div>
+              </div>
+              <div class="context-menu-separator"></div>
+              <div class="context-menu-item" data-value="settings">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+                Settings
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Inset Items -->
+        <section class="section">
+          <h2 class="section-title">Inset Items</h2>
+          <p class="section-desc">Items with extra left padding to align with icons.</p>
+          <div class="demo-box">
+            <div class="context-menu-trigger" data-context-menu data-context-menu-content="inset-menu" style="display: flex; align-items: center; justify-content: center; min-height: 150px; background: var(--muted); border: 2px dashed var(--border); border-radius: var(--radius); cursor: context-menu; user-select: none;">
+              <span style="color: var(--muted-foreground); text-align: center;">Right-click here</span>
+            </div>
+
+            <div id="inset-menu" class="context-menu-content">
+              <div class="context-menu-item" data-value="profile">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+                Profile
+                <span class="context-menu-shortcut">Ctrl+P</span>
+              </div>
+              <div class="context-menu-item" data-value="billing">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="20" height="14" x="2" y="5" rx="2"/>
+                  <line x1="2" x2="22" y1="10" y2="10"/>
+                </svg>
+                Billing
+                <span class="context-menu-shortcut">Ctrl+B</span>
+              </div>
+              <div class="context-menu-item" data-value="settings">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+                Settings
+                <span class="context-menu-shortcut">Ctrl+,</span>
+              </div>
+              <div class="context-menu-separator"></div>
+              <div class="context-menu-label" data-inset="true">Team</div>
+              <div class="context-menu-item" data-inset="true" data-value="invite">
+                Invite Members
+              </div>
+              <div class="context-menu-item" data-inset="true" data-value="team-settings">
+                Team Settings
+              </div>
+              <div class="context-menu-separator"></div>
+              <div class="context-menu-item" data-value="logout">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                  <polyline points="16 17 21 12 16 7"/>
+                  <line x1="21" x2="9" y1="12" y2="12"/>
+                </svg>
+                Log out
+                <span class="context-menu-shortcut">Ctrl+Q</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Brand UI JS -->
+  <script src="../js/core.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/components/context-menu.js"></script>
+
+  <script>
+    // Listen for context menu events
+    document.addEventListener('context-menu:select', (e) => {
+      console.log('Selected:', e.detail.value, e.detail.item);
+    });
+
+    document.addEventListener('context-menu:check', (e) => {
+      console.log('Checkbox changed:', e.detail.value, 'checked:', e.detail.checked);
+    });
+
+    document.addEventListener('context-menu:radio-change', (e) => {
+      console.log('Radio changed:', e.detail.value);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+/**
+ * Input Component
+ * Vanilla CSS conversion from React/Tailwind
+ */
+
+.input {
+  height: 2.25rem; /* h-9 = 36px */
+  width: 100%;
+  min-width: 0;
+  padding: 0.25rem 0.75rem; /* py-1 px-3 */
+  border: 1px solid var(--input);
+  border-radius: var(--radius-md);
+  background-color: transparent;
+  font-family: var(--font-sans);
+  font-size: 1rem; /* text-base */
+  line-height: 1.5;
+  color: var(--foreground);
+  box-shadow: var(--shadow-xs);
+  outline: none;
+  transition: color var(--transition-fast) var(--ease-default),
+              box-shadow var(--transition-fast) var(--ease-default),
+              border-color var(--transition-fast) var(--ease-default);
+}
+
+/* Medium screens and up */
+@media (min-width: 768px) {
+  .input {
+    font-size: 0.875rem; /* md:text-sm */
+  }
+}
+
+/* Dark mode background adjustment */
+.dark .input {
+  background-color: oklch(from var(--input) l c h / 30%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) .input {
+    background-color: oklch(from var(--input) l c h / 30%);
+  }
+}
+
+/* Placeholder */
+.input::placeholder {
+  color: var(--muted-foreground);
+}
+
+/* Selection */
+.input::selection {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+/* Focus visible state */
+.input:focus-visible {
+  border-color: var(--ring);
+  box-shadow: var(--shadow-xs), 0 0 0 3px oklch(from var(--ring) l c h / 50%);
+}
+
+/* Disabled state */
+.input:disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Invalid/error state (aria-invalid) */
+.input[aria-invalid="true"] {
+  border-color: var(--destructive);
+  box-shadow: var(--shadow-xs), 0 0 0 3px oklch(from var(--destructive) l c h / 20%);
+}
+
+.dark .input[aria-invalid="true"] {
+  box-shadow: var(--shadow-xs), 0 0 0 3px oklch(from var(--destructive) l c h / 40%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) .input[aria-invalid="true"] {
+    box-shadow: var(--shadow-xs), 0 0 0 3px oklch(from var(--destructive) l c h / 40%);
+  }
+}
+
+/* File input styling */
+.input[type="file"]::file-selector-button {
+  display: inline-flex;
+  align-items: center;
+  height: 1.75rem; /* file:h-7 */
+  margin-right: 0.75rem;
+  padding: 0 0.5rem;
+  border: 0;
+  background-color: transparent;
+  font-family: var(--font-sans);
+  font-size: 0.875rem; /* file:text-sm */
+  font-weight: 500;
+  color: var(--foreground);
+  cursor: pointer;
+}

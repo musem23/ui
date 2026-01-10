@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Breadcrumb - Brand UI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/ui.css">
+  <style>
+    /* Screen reader only - utility class */
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }
+  </style>
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="app-sidebar">
+      <div class="app-sidebar-header">
+        <a href="../index.html">← Overview</a>
+      </div>
+      <div class="app-sidebar-content">
+        <div class="app-sidebar-group-label">Components</div>
+        <ul class="sidebar-menu" id="sidebar-menu"></ul>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="app-main">
+      <header class="app-header">
+        <span style="font-size: 0.875rem; font-weight: 500;">Breadcrumb</span>
+        <button class="btn btn-ghost btn-sm" id="theme-toggle">Dark</button>
+      </header>
+
+      <div class="app-content">
+        <h1 class="page-title">Breadcrumb</h1>
+        <p class="page-desc">Displays the path to the current resource using a hierarchy of links.</p>
+
+        <!-- Installation -->
+        <div class="install-box">
+          <p>Installation</p>
+          <code>&lt;link rel="stylesheet" href="css/components/breadcrumb.css"&gt;</code>
+        </div>
+
+        <!-- Basic -->
+        <div class="section">
+          <h2 class="section-title">Basic</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <nav class="breadcrumb" aria-label="breadcrumb">
+                <ol class="breadcrumb-list">
+                  <li class="breadcrumb-item">
+                    <a href="#" class="breadcrumb-link">Home</a>
+                  </li>
+                  <li class="breadcrumb-separator" role="presentation" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m9 18 6-6-6-6"/>
+                    </svg>
+                  </li>
+                  <li class="breadcrumb-item">
+                    <a href="#" class="breadcrumb-link">Components</a>
+                  </li>
+                  <li class="breadcrumb-separator" role="presentation" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m9 18 6-6-6-6"/>
+                    </svg>
+                  </li>
+                  <li class="breadcrumb-item">
+                    <span class="breadcrumb-page" aria-current="page">Breadcrumb</span>
+                  </li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'basic-html')">HTML</button>
+            <button class="code-tab" onclick="BrandUILayout.showTab(this, 'basic-css')">CSS</button>
+          </div>
+          <div class="code-block">
+            <div id="basic-html" class="code-panel active">
+              <div class="code-wrapper">
+                <pre><code>&lt;nav class="breadcrumb" aria-label="breadcrumb"&gt;
+  &lt;ol class="breadcrumb-list"&gt;
+    &lt;li class="breadcrumb-item"&gt;
+      &lt;a href="#" class="breadcrumb-link"&gt;Home&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="breadcrumb-separator" role="presentation" aria-hidden="true"&gt;
+      &lt;svg&gt;...&lt;/svg&gt;
+    &lt;/li&gt;
+    &lt;li class="breadcrumb-item"&gt;
+      &lt;a href="#" class="breadcrumb-link"&gt;Components&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="breadcrumb-separator" role="presentation" aria-hidden="true"&gt;
+      &lt;svg&gt;...&lt;/svg&gt;
+    &lt;/li&gt;
+    &lt;li class="breadcrumb-item"&gt;
+      &lt;span class="breadcrumb-page" aria-current="page"&gt;Breadcrumb&lt;/span&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+              </div>
+            </div>
+            <div id="basic-css" class="code-panel">
+              <pre><code>/* Required CSS */
+@import "css/tokens.css";
+@import "css/components/breadcrumb.css";</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- With Ellipsis -->
+        <div class="section">
+          <h2 class="section-title">With Ellipsis</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <nav class="breadcrumb" aria-label="breadcrumb">
+                <ol class="breadcrumb-list">
+                  <li class="breadcrumb-item">
+                    <a href="#" class="breadcrumb-link">Home</a>
+                  </li>
+                  <li class="breadcrumb-separator" role="presentation" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m9 18 6-6-6-6"/>
+                    </svg>
+                  </li>
+                  <li class="breadcrumb-item">
+                    <span class="breadcrumb-ellipsis" role="presentation" aria-hidden="true">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="1"/>
+                        <circle cx="19" cy="12" r="1"/>
+                        <circle cx="5" cy="12" r="1"/>
+                      </svg>
+                      <span class="sr-only">More</span>
+                    </span>
+                  </li>
+                  <li class="breadcrumb-separator" role="presentation" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m9 18 6-6-6-6"/>
+                    </svg>
+                  </li>
+                  <li class="breadcrumb-item">
+                    <a href="#" class="breadcrumb-link">Components</a>
+                  </li>
+                  <li class="breadcrumb-separator" role="presentation" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m9 18 6-6-6-6"/>
+                    </svg>
+                  </li>
+                  <li class="breadcrumb-item">
+                    <span class="breadcrumb-page" aria-current="page">Breadcrumb</span>
+                  </li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'ellipsis-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="ellipsis-html" class="code-panel active">
+              <pre><code>&lt;li class="breadcrumb-item"&gt;
+  &lt;span class="breadcrumb-ellipsis" role="presentation" aria-hidden="true"&gt;
+    &lt;svg&gt;...&lt;/svg&gt;
+    &lt;span class="sr-only"&gt;More&lt;/span&gt;
+  &lt;/span&gt;
+&lt;/li&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Longer Path -->
+        <div class="section">
+          <h2 class="section-title">Longer Path</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <nav class="breadcrumb" aria-label="breadcrumb">
+                <ol class="breadcrumb-list">
+                  <li class="breadcrumb-item">
+                    <a href="#" class="breadcrumb-link">Home</a>
+                  </li>
+                  <li class="breadcrumb-separator" role="presentation" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m9 18 6-6-6-6"/>
+                    </svg>
+                  </li>
+                  <li class="breadcrumb-item">
+                    <a href="#" class="breadcrumb-link">Dashboard</a>
+                  </li>
+                  <li class="breadcrumb-separator" role="presentation" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m9 18 6-6-6-6"/>
+                    </svg>
+                  </li>
+                  <li class="breadcrumb-item">
+                    <a href="#" class="breadcrumb-link">Settings</a>
+                  </li>
+                  <li class="breadcrumb-separator" role="presentation" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m9 18 6-6-6-6"/>
+                    </svg>
+                  </li>
+                  <li class="breadcrumb-item">
+                    <a href="#" class="breadcrumb-link">Account</a>
+                  </li>
+                  <li class="breadcrumb-separator" role="presentation" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m9 18 6-6-6-6"/>
+                    </svg>
+                  </li>
+                  <li class="breadcrumb-item">
+                    <span class="breadcrumb-page" aria-current="page">Profile</span>
+                  </li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'longer-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="longer-html" class="code-panel active">
+              <pre><code>&lt;nav class="breadcrumb" aria-label="breadcrumb"&gt;
+  &lt;ol class="breadcrumb-list"&gt;
+    &lt;li class="breadcrumb-item"&gt;
+      &lt;a href="#" class="breadcrumb-link"&gt;Home&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="breadcrumb-separator"&gt;...&lt;/li&gt;
+    &lt;li class="breadcrumb-item"&gt;
+      &lt;a href="#" class="breadcrumb-link"&gt;Dashboard&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;!-- More items... --&gt;
+    &lt;li class="breadcrumb-item"&gt;
+      &lt;span class="breadcrumb-page" aria-current="page"&gt;Profile&lt;/span&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Custom Separator -->
+        <div class="section">
+          <h2 class="section-title">Custom Separator</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <nav class="breadcrumb" aria-label="breadcrumb">
+                <ol class="breadcrumb-list">
+                  <li class="breadcrumb-item">
+                    <a href="#" class="breadcrumb-link">Home</a>
+                  </li>
+                  <li class="breadcrumb-separator" role="presentation" aria-hidden="true">/</li>
+                  <li class="breadcrumb-item">
+                    <a href="#" class="breadcrumb-link">Products</a>
+                  </li>
+                  <li class="breadcrumb-separator" role="presentation" aria-hidden="true">/</li>
+                  <li class="breadcrumb-item">
+                    <span class="breadcrumb-page" aria-current="page">Category</span>
+                  </li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'custom-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="custom-html" class="code-panel active">
+              <pre><code>&lt;!-- Using text separator instead of SVG --&gt;
+&lt;li class="breadcrumb-separator" role="presentation" aria-hidden="true"&gt;/&lt;/li&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Two-Level -->
+        <div class="section">
+          <h2 class="section-title">Two-Level</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <nav class="breadcrumb" aria-label="breadcrumb">
+                <ol class="breadcrumb-list">
+                  <li class="breadcrumb-item">
+                    <a href="#" class="breadcrumb-link">Home</a>
+                  </li>
+                  <li class="breadcrumb-separator" role="presentation" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m9 18 6-6-6-6"/>
+                    </svg>
+                  </li>
+                  <li class="breadcrumb-item">
+                    <span class="breadcrumb-page" aria-current="page">Current Page</span>
+                  </li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'twolevel-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="twolevel-html" class="code-panel active">
+              <pre><code>&lt;nav class="breadcrumb" aria-label="breadcrumb"&gt;
+  &lt;ol class="breadcrumb-list"&gt;
+    &lt;li class="breadcrumb-item"&gt;
+      &lt;a href="#" class="breadcrumb-link"&gt;Home&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="breadcrumb-separator" role="presentation" aria-hidden="true"&gt;
+      &lt;svg&gt;...&lt;/svg&gt;
+    &lt;/li&gt;
+    &lt;li class="breadcrumb-item"&gt;
+      &lt;span class="breadcrumb-page" aria-current="page"&gt;Current Page&lt;/span&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- CSS Classes Reference -->
+        <div class="section">
+          <h2 class="section-title">CSS Classes Reference</h2>
+          <div class="demo-box" style="padding: 0; overflow: hidden;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+              <thead>
+                <tr style="background: var(--muted);">
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Class</th>
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.breadcrumb</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Base nav container element</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.breadcrumb-list</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Ordered list wrapper with flexbox layout</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.breadcrumb-item</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">List item containing link or page text</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.breadcrumb-link</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Clickable link with hover state</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.breadcrumb-page</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Current page text (non-clickable)</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.breadcrumb-separator</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Separator between items (SVG or text)</td></tr>
+                <tr><td style="padding: 0.75rem 1rem;"><code>.breadcrumb-ellipsis</code></td><td style="padding: 0.75rem 1rem;">Ellipsis indicator for collapsed items</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/core.js"></script>
+  <script src="../js/layout.js"></script>
+</body>
+</html>

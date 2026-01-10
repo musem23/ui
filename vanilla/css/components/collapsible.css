@@ -1,0 +1,76 @@
+/**
+ * Brand UI - Collapsible Component
+ * An interactive component that expands/collapses content.
+ */
+
+/* Base Collapsible */
+.collapsible {
+  width: 100%;
+}
+
+/* Trigger Button */
+.collapsible-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  outline: none;
+}
+
+.collapsible-trigger:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.collapsible-trigger:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Trigger Icon (chevron) */
+.collapsible-trigger-icon {
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+  transition: transform var(--transition-normal) var(--ease-default);
+}
+
+.collapsible[data-state="open"] .collapsible-trigger-icon {
+  transform: rotate(180deg);
+}
+
+/* Content Container */
+.collapsible-content {
+  overflow: hidden;
+  transition: height var(--transition-normal) var(--ease-default),
+              opacity var(--transition-normal) var(--ease-default);
+}
+
+.collapsible[data-state="closed"] .collapsible-content {
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.collapsible[data-state="open"] .collapsible-content {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Content Inner (for padding without affecting animation) */
+.collapsible-content-inner {
+  padding-top: 0.5rem;
+}
+
+/* Animation states for JS control */
+.collapsible-content[data-animating="true"] {
+  visibility: visible;
+}

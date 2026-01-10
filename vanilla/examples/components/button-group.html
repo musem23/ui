@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Button Group - Brand UI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/ui.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="app-sidebar">
+      <div class="app-sidebar-header">
+        <a href="../index.html">← Overview</a>
+      </div>
+      <div class="app-sidebar-content">
+        <div class="app-sidebar-group-label">Components</div>
+        <ul class="sidebar-menu" id="sidebar-menu"></ul>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="app-main">
+      <header class="app-header">
+        <span style="font-size: 0.875rem; font-weight: 500;">Button Group</span>
+        <button class="btn btn-ghost btn-sm" id="theme-toggle">Dark</button>
+      </header>
+
+      <div class="app-content">
+        <h1 class="page-title">Button Group</h1>
+        <p class="page-desc">Group a series of buttons together on a single line or vertically.</p>
+
+        <!-- Installation -->
+        <div class="install-box">
+          <p>Installation</p>
+          <code>&lt;link rel="stylesheet" href="css/components/button-group.css"&gt;</code>
+          <code>&lt;link rel="stylesheet" href="css/components/button.css"&gt;</code>
+        </div>
+
+        <!-- Horizontal -->
+        <div class="section">
+          <h2 class="section-title">Horizontal (Default)</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <div class="btn-group" role="group">
+                <button class="btn btn-outline">Left</button>
+                <button class="btn btn-outline">Middle</button>
+                <button class="btn btn-outline">Right</button>
+              </div>
+
+              <div class="btn-group" role="group">
+                <button class="btn btn-default">Previous</button>
+                <button class="btn btn-default">Next</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'horizontal-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="horizontal-html" class="code-panel active">
+              <pre><code>&lt;div class="btn-group" role="group"&gt;
+  &lt;button class="btn btn-outline"&gt;Left&lt;/button&gt;
+  &lt;button class="btn btn-outline"&gt;Middle&lt;/button&gt;
+  &lt;button class="btn btn-outline"&gt;Right&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vertical -->
+        <div class="section">
+          <h2 class="section-title">Vertical</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <div class="btn-group btn-group-vertical" role="group">
+                <button class="btn btn-outline">Top</button>
+                <button class="btn btn-outline">Middle</button>
+                <button class="btn btn-outline">Bottom</button>
+              </div>
+
+              <div class="btn-group btn-group-vertical" role="group">
+                <button class="btn btn-secondary">Option A</button>
+                <button class="btn btn-secondary">Option B</button>
+                <button class="btn btn-secondary">Option C</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'vertical-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="vertical-html" class="code-panel active">
+              <pre><code>&lt;div class="btn-group btn-group-vertical" role="group"&gt;
+  &lt;button class="btn btn-outline"&gt;Top&lt;/button&gt;
+  &lt;button class="btn btn-outline"&gt;Middle&lt;/button&gt;
+  &lt;button class="btn btn-outline"&gt;Bottom&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- With Icons -->
+        <div class="section">
+          <h2 class="section-title">With Icons</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <div class="btn-group" role="group">
+                <button class="btn btn-outline btn-icon" aria-label="Bold">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 12h9a4 4 0 0 1 0 8H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a4 4 0 0 1 0 8"/>
+                  </svg>
+                </button>
+                <button class="btn btn-outline btn-icon" aria-label="Italic">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" x2="10" y1="4" y2="4"/>
+                    <line x1="14" x2="5" y1="20" y2="20"/>
+                    <line x1="15" x2="9" y1="4" y2="20"/>
+                  </svg>
+                </button>
+                <button class="btn btn-outline btn-icon" aria-label="Underline">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 4v6a6 6 0 0 0 12 0V4"/>
+                    <line x1="4" x2="20" y1="20" y2="20"/>
+                  </svg>
+                </button>
+              </div>
+
+              <div class="btn-group" role="group">
+                <button class="btn btn-outline btn-icon" aria-label="Align Left">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="21" x2="3" y1="6" y2="6"/>
+                    <line x1="15" x2="3" y1="12" y2="12"/>
+                    <line x1="17" x2="3" y1="18" y2="18"/>
+                  </svg>
+                </button>
+                <button class="btn btn-outline btn-icon" aria-label="Align Center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="21" x2="3" y1="6" y2="6"/>
+                    <line x1="18" x2="6" y1="12" y2="12"/>
+                    <line x1="19" x2="5" y1="18" y2="18"/>
+                  </svg>
+                </button>
+                <button class="btn btn-outline btn-icon" aria-label="Align Right">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="21" x2="3" y1="6" y2="6"/>
+                    <line x1="21" x2="9" y1="12" y2="12"/>
+                    <line x1="21" x2="7" y1="18" y2="18"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'icons-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="icons-html" class="code-panel active">
+              <pre><code>&lt;div class="btn-group" role="group"&gt;
+  &lt;button class="btn btn-outline btn-icon" aria-label="Bold"&gt;
+    &lt;svg&gt;...&lt;/svg&gt;
+  &lt;/button&gt;
+  &lt;button class="btn btn-outline btn-icon" aria-label="Italic"&gt;
+    &lt;svg&gt;...&lt;/svg&gt;
+  &lt;/button&gt;
+  &lt;button class="btn btn-outline btn-icon" aria-label="Underline"&gt;
+    &lt;svg&gt;...&lt;/svg&gt;
+  &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mixed Variants -->
+        <div class="section">
+          <h2 class="section-title">Mixed Button Variants</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <div class="btn-group" role="group">
+                <button class="btn btn-default">Save</button>
+                <button class="btn btn-outline btn-icon" aria-label="More options">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m6 9 6 6 6-6"/>
+                  </svg>
+                </button>
+              </div>
+
+              <div class="btn-group" role="group">
+                <button class="btn btn-destructive">Delete</button>
+                <button class="btn btn-outline btn-icon" aria-label="More options">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m6 9 6 6 6-6"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'mixed-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="mixed-html" class="code-panel active">
+              <pre><code>&lt;div class="btn-group" role="group"&gt;
+  &lt;button class="btn btn-default"&gt;Save&lt;/button&gt;
+  &lt;button class="btn btn-outline btn-icon" aria-label="More options"&gt;
+    &lt;svg&gt;...&lt;/svg&gt;
+  &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- With Text Addon -->
+        <div class="section">
+          <h2 class="section-title">With Text Addon</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <div class="btn-group" role="group">
+                <span class="btn-group-text">Sort by:</span>
+                <button class="btn btn-outline">Name</button>
+                <button class="btn btn-outline">Date</button>
+                <button class="btn btn-outline">Size</button>
+              </div>
+
+              <div class="btn-group" role="group">
+                <span class="btn-group-text">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="m21 21-4.3-4.3"/>
+                  </svg>
+                </span>
+                <button class="btn btn-outline">Search</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'addon-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="addon-html" class="code-panel active">
+              <pre><code>&lt;div class="btn-group" role="group"&gt;
+  &lt;span class="btn-group-text"&gt;Sort by:&lt;/span&gt;
+  &lt;button class="btn btn-outline"&gt;Name&lt;/button&gt;
+  &lt;button class="btn btn-outline"&gt;Date&lt;/button&gt;
+  &lt;button class="btn btn-outline"&gt;Size&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sizes -->
+        <div class="section">
+          <h2 class="section-title">Sizes</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <div class="btn-group" role="group">
+                <button class="btn btn-outline btn-sm">Small</button>
+                <button class="btn btn-outline btn-sm">Group</button>
+                <button class="btn btn-outline btn-sm">Buttons</button>
+              </div>
+
+              <div class="btn-group" role="group">
+                <button class="btn btn-outline">Default</button>
+                <button class="btn btn-outline">Size</button>
+                <button class="btn btn-outline">Buttons</button>
+              </div>
+
+              <div class="btn-group" role="group">
+                <button class="btn btn-outline btn-lg">Large</button>
+                <button class="btn btn-outline btn-lg">Group</button>
+                <button class="btn btn-outline btn-lg">Buttons</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'sizes-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="sizes-html" class="code-panel active">
+              <pre><code>&lt;!-- Small --&gt;
+&lt;div class="btn-group" role="group"&gt;
+  &lt;button class="btn btn-outline btn-sm"&gt;Small&lt;/button&gt;
+  &lt;button class="btn btn-outline btn-sm"&gt;Group&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;!-- Default --&gt;
+&lt;div class="btn-group" role="group"&gt;
+  &lt;button class="btn btn-outline"&gt;Default&lt;/button&gt;
+  &lt;button class="btn btn-outline"&gt;Size&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;!-- Large --&gt;
+&lt;div class="btn-group" role="group"&gt;
+  &lt;button class="btn btn-outline btn-lg"&gt;Large&lt;/button&gt;
+  &lt;button class="btn btn-outline btn-lg"&gt;Group&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- With Separator -->
+        <div class="section">
+          <h2 class="section-title">With Separator</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <div class="btn-group" role="group">
+                <button class="btn btn-outline">Cut</button>
+                <div class="btn-group-separator btn-group-separator-vertical"></div>
+                <button class="btn btn-outline">Copy</button>
+                <div class="btn-group-separator btn-group-separator-vertical"></div>
+                <button class="btn btn-outline">Paste</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'separator-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="separator-html" class="code-panel active">
+              <pre><code>&lt;div class="btn-group" role="group"&gt;
+  &lt;button class="btn btn-outline"&gt;Cut&lt;/button&gt;
+  &lt;div class="btn-group-separator btn-group-separator-vertical"&gt;&lt;/div&gt;
+  &lt;button class="btn btn-outline"&gt;Copy&lt;/button&gt;
+  &lt;div class="btn-group-separator btn-group-separator-vertical"&gt;&lt;/div&gt;
+  &lt;button class="btn btn-outline"&gt;Paste&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- CSS Classes Reference -->
+        <div class="section">
+          <h2 class="section-title">CSS Classes Reference</h2>
+          <div class="demo-box" style="padding: 0; overflow: hidden;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+              <thead>
+                <tr style="background: var(--muted);">
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Class</th>
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.btn-group</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Base button group container</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.btn-group-vertical</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Vertical button group layout</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.btn-group-text</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Text addon element</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.btn-group-separator</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Separator between buttons</td></tr>
+                <tr><td style="padding: 0.75rem 1rem;"><code>.btn-group-separator-vertical</code></td><td style="padding: 0.75rem 1rem;">Vertical separator line</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/core.js"></script>
+  <script src="../js/layout.js"></script>
+</body>
+</html>

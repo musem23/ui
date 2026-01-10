@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Native Select - Brand UI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- All CSS -->
+  <link rel="stylesheet" href="../css/ui.css">
+
+  <style>
+    .demo {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.5rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .demo-vertical {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-group label {
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .output {
+      padding: 0.75rem 1rem;
+      background: var(--muted);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="app-sidebar">
+      <div class="app-sidebar-header">
+        <a href="../index.html">← Overview</a>
+      </div>
+      <div class="app-sidebar-content">
+        <div class="app-sidebar-group-label">Components</div>
+        <ul class="sidebar-menu" id="sidebar-menu"></ul>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="app-main">
+      <header class="app-header">
+        <div class="header-left">
+          <span>Native Select</span>
+        </div>
+        <button id="theme-toggle" class="btn btn-ghost btn-sm">Dark</button>
+      </header>
+
+      <main class="app-content">
+        <h1 class="page-title">Native Select</h1>
+        <p class="page-desc">A styled native browser select element with custom arrow icon. Uses the browser's native dropdown for maximum accessibility and mobile support.</p>
+
+        <!-- Basic Select -->
+        <div class="section">
+          <h2 class="section-title">Basic Select</h2>
+          <p class="section-desc">A simple native select with options.</p>
+          <div class="demo">
+            <div class="native-select">
+              <select>
+                <option value="" disabled selected>Select a fruit</option>
+                <option value="apple">Apple</option>
+                <option value="banana">Banana</option>
+                <option value="cherry">Cherry</option>
+                <option value="date">Date</option>
+                <option value="elderberry">Elderberry</option>
+              </select>
+              <span class="native-select-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m6 9 6 6 6-6"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- With Default Value -->
+        <div class="section">
+          <h2 class="section-title">With Default Value</h2>
+          <p class="section-desc">Select with a pre-selected value.</p>
+          <div class="demo">
+            <div class="native-select">
+              <select>
+                <option value="small">Small</option>
+                <option value="medium" selected>Medium</option>
+                <option value="large">Large</option>
+                <option value="xlarge">Extra Large</option>
+              </select>
+              <span class="native-select-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m6 9 6 6 6-6"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- With Option Groups -->
+        <div class="section">
+          <h2 class="section-title">With Option Groups</h2>
+          <p class="section-desc">Options organized in labeled groups using native optgroup.</p>
+          <div class="demo">
+            <div class="native-select">
+              <select>
+                <option value="" disabled selected>Select a timezone</option>
+                <optgroup label="North America">
+                  <option value="est">Eastern Standard Time (EST)</option>
+                  <option value="cst">Central Standard Time (CST)</option>
+                  <option value="mst">Mountain Standard Time (MST)</option>
+                  <option value="pst">Pacific Standard Time (PST)</option>
+                </optgroup>
+                <optgroup label="Europe">
+                  <option value="gmt">Greenwich Mean Time (GMT)</option>
+                  <option value="cet">Central European Time (CET)</option>
+                  <option value="eet">Eastern European Time (EET)</option>
+                </optgroup>
+                <optgroup label="Asia">
+                  <option value="jst">Japan Standard Time (JST)</option>
+                  <option value="cst-asia">China Standard Time (CST)</option>
+                  <option value="ist">India Standard Time (IST)</option>
+                </optgroup>
+              </select>
+              <span class="native-select-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m6 9 6 6 6-6"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Size Variants -->
+        <div class="section">
+          <h2 class="section-title">Size Variants</h2>
+          <p class="section-desc">Different select sizes.</p>
+          <div class="demo">
+            <div class="native-select native-select--sm">
+              <select>
+                <option value="" disabled selected>Small select</option>
+                <option value="opt1">Option 1</option>
+                <option value="opt2">Option 2</option>
+                <option value="opt3">Option 3</option>
+              </select>
+              <span class="native-select-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m6 9 6 6 6-6"/>
+                </svg>
+              </span>
+            </div>
+
+            <div class="native-select">
+              <select>
+                <option value="" disabled selected>Default select</option>
+                <option value="opt1">Option 1</option>
+                <option value="opt2">Option 2</option>
+                <option value="opt3">Option 3</option>
+              </select>
+              <span class="native-select-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m6 9 6 6 6-6"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Disabled State -->
+        <div class="section">
+          <h2 class="section-title">Disabled State</h2>
+          <p class="section-desc">Disabled select and disabled options.</p>
+          <div class="demo">
+            <div class="native-select">
+              <select disabled>
+                <option value="" disabled selected>Disabled select</option>
+                <option value="opt1">Option 1</option>
+                <option value="opt2">Option 2</option>
+              </select>
+              <span class="native-select-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m6 9 6 6 6-6"/>
+                </svg>
+              </span>
+            </div>
+
+            <div class="native-select">
+              <select>
+                <option value="" disabled selected>With disabled option</option>
+                <option value="available">Available</option>
+                <option value="disabled" disabled>Disabled Option</option>
+                <option value="also-available">Also Available</option>
+              </select>
+              <span class="native-select-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m6 9 6 6 6-6"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Error State -->
+        <div class="section">
+          <h2 class="section-title">Error State</h2>
+          <p class="section-desc">Select with validation error.</p>
+          <div class="demo">
+            <div class="form-group">
+              <label for="required-select">Required Field</label>
+              <div class="native-select native-select--full-width">
+                <select id="required-select" aria-invalid="true" required>
+                  <option value="" disabled selected>Please select an option</option>
+                  <option value="opt1">Option 1</option>
+                  <option value="opt2">Option 2</option>
+                  <option value="opt3">Option 3</option>
+                </select>
+                <span class="native-select-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m6 9 6 6 6-6"/>
+                  </svg>
+                </span>
+              </div>
+              <span style="font-size: 0.8125rem; color: var(--destructive);">This field is required</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Full Width -->
+        <div class="section">
+          <h2 class="section-title">Full Width</h2>
+          <p class="section-desc">Select that spans the full width of its container.</p>
+          <div class="demo demo-vertical">
+            <div class="form-group">
+              <label for="country-select">Country</label>
+              <div class="native-select native-select--full-width">
+                <select id="country-select" name="country">
+                  <option value="" disabled selected>Select a country</option>
+                  <option value="us">United States</option>
+                  <option value="uk">United Kingdom</option>
+                  <option value="ca">Canada</option>
+                  <option value="au">Australia</option>
+                  <option value="de">Germany</option>
+                  <option value="fr">France</option>
+                  <option value="jp">Japan</option>
+                </select>
+                <span class="native-select-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m6 9 6 6 6-6"/>
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form Integration -->
+        <div class="section">
+          <h2 class="section-title">Form Integration</h2>
+          <p class="section-desc">Native select integrated with a form, showing change events.</p>
+          <div class="demo demo-vertical">
+            <form id="demo-form" style="display: flex; flex-direction: column; gap: 1rem;">
+              <div class="form-group">
+                <label for="framework-select">Favorite Framework</label>
+                <div class="native-select native-select--full-width">
+                  <select id="framework-select" name="framework">
+                    <option value="" disabled selected>Select a framework</option>
+                    <option value="react">React</option>
+                    <option value="vue">Vue</option>
+                    <option value="angular">Angular</option>
+                    <option value="svelte">Svelte</option>
+                    <option value="solid">Solid</option>
+                  </select>
+                  <span class="native-select-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m6 9 6 6 6-6"/>
+                    </svg>
+                  </span>
+                </div>
+              </div>
+
+              <div class="output" id="form-output">
+                Selected: <span id="selected-value">none</span>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Programmatic Control -->
+        <div class="section">
+          <h2 class="section-title">Programmatic Control</h2>
+          <p class="section-desc">Control the native select via JavaScript.</p>
+          <div class="demo demo-vertical">
+            <div class="native-select native-select--full-width">
+              <select id="controlled-select">
+                <option value="" disabled selected>Controlled select</option>
+                <option value="first">First Option</option>
+                <option value="second">Second Option</option>
+                <option value="third">Third Option</option>
+              </select>
+              <span class="native-select-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m6 9 6 6 6-6"/>
+                </svg>
+              </span>
+            </div>
+
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+              <button type="button" onclick="setSelectValue('first')" class="btn btn-secondary btn-sm">
+                Set "First"
+              </button>
+              <button type="button" onclick="setSelectValue('second')" class="btn btn-secondary btn-sm">
+                Set "Second"
+              </button>
+              <button type="button" onclick="clearSelect()" class="btn btn-secondary btn-sm">
+                Clear
+              </button>
+              <button type="button" onclick="toggleSelectState()" class="btn btn-secondary btn-sm">
+                Toggle Disabled
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- When to Use Native Select -->
+        <div class="section">
+          <h2 class="section-title">When to Use Native Select</h2>
+          <p class="section-desc">Native select is ideal when:</p>
+          <ul style="margin: 1rem 0; padding-left: 1.5rem; color: var(--muted-foreground); font-size: 0.875rem;">
+            <li>You need maximum accessibility and screen reader support</li>
+            <li>Mobile-friendly UI is a priority (uses native OS picker)</li>
+            <li>Simple option selection without custom styling needs</li>
+            <li>Form submissions with standard select behavior</li>
+            <li>Performance is critical (no JavaScript required for basic functionality)</li>
+          </ul>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Core JS -->
+  <script src="../js/core.js"></script>
+  <script src="../js/layout.js"></script>
+
+  <script>
+    // Form integration demo
+    document.getElementById('framework-select').addEventListener('change', function(e) {
+      document.getElementById('selected-value').textContent = e.target.value || 'none';
+    });
+
+    // Programmatic control demo
+    let controlledSelectDisabled = false;
+
+    function setSelectValue(value) {
+      const selectEl = document.getElementById('controlled-select');
+      selectEl.value = value;
+      selectEl.dispatchEvent(new Event('change'));
+    }
+
+    function clearSelect() {
+      const selectEl = document.getElementById('controlled-select');
+      selectEl.selectedIndex = 0;
+      selectEl.dispatchEvent(new Event('change'));
+    }
+
+    function toggleSelectState() {
+      const selectEl = document.getElementById('controlled-select');
+      controlledSelectDisabled = !controlledSelectDisabled;
+      selectEl.disabled = controlledSelectDisabled;
+    }
+  </script>
+</body>
+</html>

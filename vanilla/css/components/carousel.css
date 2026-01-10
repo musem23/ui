@@ -1,0 +1,205 @@
+/**
+ * Brand UI - Carousel Component
+ * Slide carousel with navigation and optional dots
+ */
+
+/* Base carousel container */
+.carousel {
+  position: relative;
+  width: 100%;
+}
+
+.carousel:focus {
+  outline: none;
+}
+
+.carousel:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: var(--radius);
+}
+
+/* Viewport - clips overflowing slides */
+.carousel-content {
+  overflow: hidden;
+}
+
+/* Track - holds all slides, transforms for sliding */
+.carousel-track {
+  display: flex;
+  transition: transform var(--transition-normal) var(--ease-default);
+  will-change: transform;
+}
+
+/* Vertical orientation */
+.carousel[data-orientation="vertical"] .carousel-track {
+  flex-direction: column;
+}
+
+/* Disable transition during drag */
+.carousel.is-dragging .carousel-track {
+  transition: none;
+}
+
+/* Individual slide */
+.carousel-item {
+  flex: 0 0 100%;
+  min-width: 0;
+  padding-left: 1rem;
+}
+
+.carousel[data-orientation="vertical"] .carousel-item {
+  padding-left: 0;
+  padding-top: 1rem;
+}
+
+/* First item has no gap */
+.carousel-item:first-child {
+  padding-left: 0;
+}
+
+.carousel[data-orientation="vertical"] .carousel-item:first-child {
+  padding-top: 0;
+}
+
+/* Navigation buttons - shared styles */
+.carousel-previous,
+.carousel-next {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background-color: var(--background);
+  color: var(--foreground);
+  cursor: pointer;
+  transition:
+    background-color var(--transition-fast) var(--ease-default),
+    border-color var(--transition-fast) var(--ease-default),
+    opacity var(--transition-fast) var(--ease-default);
+}
+
+.carousel-previous:hover,
+.carousel-next:hover {
+  background-color: var(--accent);
+  border-color: var(--accent);
+}
+
+.carousel-previous:focus-visible,
+.carousel-next:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.carousel-previous:disabled,
+.carousel-next:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.carousel-previous:disabled:hover,
+.carousel-next:disabled:hover {
+  background-color: var(--background);
+  border-color: var(--border);
+}
+
+/* Horizontal positioning */
+.carousel-previous {
+  top: 50%;
+  left: -3rem;
+  transform: translateY(-50%);
+}
+
+.carousel-next {
+  top: 50%;
+  right: -3rem;
+  transform: translateY(-50%);
+}
+
+/* Vertical positioning */
+.carousel[data-orientation="vertical"] .carousel-previous {
+  top: -3rem;
+  left: 50%;
+  transform: translateX(-50%) rotate(90deg);
+}
+
+.carousel[data-orientation="vertical"] .carousel-next {
+  top: auto;
+  bottom: -3rem;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%) rotate(90deg);
+}
+
+/* Arrow icons */
+.carousel-previous svg,
+.carousel-next svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Dots/indicators container */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.carousel[data-orientation="vertical"] .carousel-dots {
+  flex-direction: column;
+  position: absolute;
+  right: -2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-top: 0;
+}
+
+/* Individual dot */
+.carousel-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-full);
+  background-color: var(--muted);
+  cursor: pointer;
+  transition: background-color var(--transition-fast) var(--ease-default);
+}
+
+.carousel-dot:hover {
+  background-color: var(--muted-foreground);
+}
+
+.carousel-dot:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.carousel-dot.is-active {
+  background-color: var(--primary);
+}
+
+/* Screen reader only text */
+.carousel .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .carousel-track {
+    transition: none;
+  }
+}

@@ -1,0 +1,55 @@
+/**
+ * Brand UI - Progress Component
+ * A progress bar indicating completion status
+ */
+
+/* Base progress container */
+.progress {
+  position: relative;
+  width: 100%;
+  height: 0.5rem;
+  overflow: hidden;
+  border-radius: var(--radius-full);
+  background-color: oklch(from var(--primary) l c h / 20%);
+}
+
+/* Progress indicator - the filled portion */
+.progress-indicator {
+  height: 100%;
+  width: 100%;
+  flex: 1 1 0%;
+  background-color: var(--primary);
+  transition: all var(--transition-normal) var(--ease-default);
+}
+
+/* Indeterminate state - animated loading */
+.progress[data-state="indeterminate"] .progress-indicator {
+  animation: progress-indeterminate 1.5s ease-in-out infinite;
+  width: 50%;
+}
+
+@keyframes progress-indeterminate {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Size variants */
+.progress-sm {
+  height: 0.25rem;
+}
+
+.progress-lg {
+  height: 0.75rem;
+}
+
+/* Dark mode adjustments */
+.dark .progress {
+  background-color: oklch(from var(--primary) l c h / 20%);
+}

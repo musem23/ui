@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Combobox - Brand UI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/ui.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="app-sidebar">
+      <div class="app-sidebar-header">
+        <a href="../index.html">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m15 18-6-6 6-6"/>
+          </svg>
+          <span>Overview</span>
+        </a>
+      </div>
+      <div class="app-sidebar-content">
+        <div class="app-sidebar-group-label">Components</div>
+        <ul class="sidebar-menu" id="sidebar-menu"></ul>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="app-main">
+      <header class="app-header">
+        <div class="header-left">
+          <span>Combobox</span>
+        </div>
+        <button class="btn btn-ghost btn-sm" id="theme-toggle">Dark</button>
+      </header>
+
+      <div class="app-content">
+        <h1 class="page-title">Combobox</h1>
+        <p class="page-desc">A searchable select component with filtering and keyboard navigation.</p>
+
+        <!-- Installation -->
+        <div class="install-box">
+          <p>Installation</p>
+          <code>&lt;link rel="stylesheet" href="css/components/combobox.css"&gt;</code>
+          <code>&lt;script src="js/core.js"&gt;&lt;/script&gt;</code>
+          <code>&lt;script src="js/components/combobox.js"&gt;&lt;/script&gt;</code>
+        </div>
+
+        <!-- Basic Example -->
+        <section class="section">
+          <h2 class="section-title">Basic Combobox</h2>
+          <p class="section-desc">Type to filter options or use arrow keys to navigate.</p>
+          <div class="demo-box">
+            <div style="max-width: 280px;">
+              <label class="label" style="margin-bottom: 0.5rem; display: block;">Select a framework</label>
+              <div class="combobox" data-combobox id="framework-combobox">
+                <div class="combobox-trigger">
+                  <input
+                    type="text"
+                    class="combobox-input"
+                    placeholder="Search frameworks..."
+                    autocomplete="off"
+                  >
+                  <svg class="combobox-trigger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9l6 6 6-6"/>
+                  </svg>
+                </div>
+                <div class="combobox-content">
+                  <div class="combobox-list">
+                    <div class="combobox-item" data-value="react">React</div>
+                    <div class="combobox-item" data-value="vue">Vue</div>
+                    <div class="combobox-item" data-value="angular">Angular</div>
+                    <div class="combobox-item" data-value="svelte">Svelte</div>
+                    <div class="combobox-item" data-value="solid">Solid</div>
+                    <div class="combobox-item" data-value="preact">Preact</div>
+                  </div>
+                  <div class="combobox-empty">No framework found.</div>
+                </div>
+              </div>
+            </div>
+            <div class="output" id="basic-output" style="margin-top: 1rem; padding: 0.75rem; background: var(--muted); border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.8125rem;">Selected: none</div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'basic-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="basic-html" class="code-panel active">
+              <pre><code>&lt;div class="combobox" data-combobox&gt;
+  &lt;div class="combobox-trigger"&gt;
+    &lt;input type="text" class="combobox-input" placeholder="Search..." autocomplete="off"&gt;
+    &lt;svg class="combobox-trigger-icon" ...&gt;...&lt;/svg&gt;
+  &lt;/div&gt;
+  &lt;div class="combobox-content"&gt;
+    &lt;div class="combobox-list"&gt;
+      &lt;div class="combobox-item" data-value="react"&gt;React&lt;/div&gt;
+      &lt;div class="combobox-item" data-value="vue"&gt;Vue&lt;/div&gt;
+      ...
+    &lt;/div&gt;
+    &lt;div class="combobox-empty"&gt;No results found.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- With Preselected Value -->
+        <section class="section">
+          <h2 class="section-title">Preselected Value</h2>
+          <p class="section-desc">Combobox with an initially selected option.</p>
+          <div class="demo-box">
+            <div style="max-width: 280px;">
+              <label class="label" style="margin-bottom: 0.5rem; display: block;">Select a country</label>
+              <div class="combobox" data-combobox id="country-combobox">
+                <div class="combobox-trigger">
+                  <input
+                    type="text"
+                    class="combobox-input"
+                    placeholder="Search countries..."
+                    value="United States"
+                    autocomplete="off"
+                  >
+                  <svg class="combobox-trigger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9l6 6 6-6"/>
+                  </svg>
+                </div>
+                <div class="combobox-content">
+                  <div class="combobox-list">
+                    <div class="combobox-item" data-value="us" data-selected="true">
+                      United States
+                      <span class="combobox-item-indicator">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                      </span>
+                    </div>
+                    <div class="combobox-item" data-value="ca">
+                      Canada
+                      <span class="combobox-item-indicator">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                      </span>
+                    </div>
+                    <div class="combobox-item" data-value="uk">
+                      United Kingdom
+                      <span class="combobox-item-indicator">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                      </span>
+                    </div>
+                    <div class="combobox-item" data-value="de">
+                      Germany
+                      <span class="combobox-item-indicator">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                      </span>
+                    </div>
+                    <div class="combobox-item" data-value="fr">
+                      France
+                      <span class="combobox-item-indicator">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                      </span>
+                    </div>
+                    <div class="combobox-item" data-value="jp">
+                      Japan
+                      <span class="combobox-item-indicator">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="combobox-empty">No country found.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- With Clear Button -->
+        <section class="section">
+          <h2 class="section-title">With Clear Button</h2>
+          <p class="section-desc">Allows clearing the selection with a button.</p>
+          <div class="demo-box">
+            <div style="max-width: 280px;">
+              <label class="label" style="margin-bottom: 0.5rem; display: block;">Select a status</label>
+              <div class="combobox" data-combobox id="status-combobox">
+                <div class="combobox-trigger">
+                  <input
+                    type="text"
+                    class="combobox-input"
+                    placeholder="Choose status..."
+                    autocomplete="off"
+                  >
+                  <button type="button" class="combobox-clear" aria-label="Clear selection">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M18 6L6 18M6 6l12 12"/>
+                    </svg>
+                  </button>
+                  <svg class="combobox-trigger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9l6 6 6-6"/>
+                  </svg>
+                </div>
+                <div class="combobox-content">
+                  <div class="combobox-list">
+                    <div class="combobox-item" data-value="active">Active</div>
+                    <div class="combobox-item" data-value="inactive">Inactive</div>
+                    <div class="combobox-item" data-value="pending">Pending</div>
+                    <div class="combobox-item" data-value="archived">Archived</div>
+                  </div>
+                  <div class="combobox-empty">No status found.</div>
+                </div>
+              </div>
+            </div>
+            <div class="output" id="status-output" style="margin-top: 1rem; padding: 0.75rem; background: var(--muted); border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.8125rem;">Selected: none</div>
+          </div>
+        </section>
+
+        <!-- With Disabled Options -->
+        <section class="section">
+          <h2 class="section-title">Disabled Options</h2>
+          <p class="section-desc">Some options can be disabled.</p>
+          <div class="demo-box">
+            <div style="max-width: 280px;">
+              <label class="label" style="margin-bottom: 0.5rem; display: block;">Select a plan</label>
+              <div class="combobox" data-combobox>
+                <div class="combobox-trigger">
+                  <input
+                    type="text"
+                    class="combobox-input"
+                    placeholder="Choose a plan..."
+                    autocomplete="off"
+                  >
+                  <svg class="combobox-trigger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9l6 6 6-6"/>
+                  </svg>
+                </div>
+                <div class="combobox-content">
+                  <div class="combobox-list">
+                    <div class="combobox-item" data-value="free">Free</div>
+                    <div class="combobox-item" data-value="starter">Starter - $9/mo</div>
+                    <div class="combobox-item" data-value="pro">Pro - $29/mo</div>
+                    <div class="combobox-item" data-value="enterprise" data-disabled="true">Enterprise (Contact sales)</div>
+                  </div>
+                  <div class="combobox-empty">No plan found.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Size Variants -->
+        <section class="section">
+          <h2 class="section-title">Size Variants</h2>
+          <p class="section-desc">Available in small, default, and large sizes.</p>
+          <div class="demo-box">
+            <div class="demo-row" style="align-items: flex-start;">
+              <div style="min-width: 180px; max-width: 220px;">
+                <label class="label" style="margin-bottom: 0.5rem; display: block;">Small</label>
+                <div class="combobox combobox-sm" data-combobox>
+                  <div class="combobox-trigger">
+                    <input
+                      type="text"
+                      class="combobox-input"
+                      placeholder="Small..."
+                      autocomplete="off"
+                    >
+                    <svg class="combobox-trigger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                  </div>
+                  <div class="combobox-content">
+                    <div class="combobox-list">
+                      <div class="combobox-item" data-value="1">Option 1</div>
+                      <div class="combobox-item" data-value="2">Option 2</div>
+                      <div class="combobox-item" data-value="3">Option 3</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="min-width: 180px; max-width: 220px;">
+                <label class="label" style="margin-bottom: 0.5rem; display: block;">Default</label>
+                <div class="combobox" data-combobox>
+                  <div class="combobox-trigger">
+                    <input
+                      type="text"
+                      class="combobox-input"
+                      placeholder="Default..."
+                      autocomplete="off"
+                    >
+                    <svg class="combobox-trigger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                  </div>
+                  <div class="combobox-content">
+                    <div class="combobox-list">
+                      <div class="combobox-item" data-value="1">Option 1</div>
+                      <div class="combobox-item" data-value="2">Option 2</div>
+                      <div class="combobox-item" data-value="3">Option 3</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="min-width: 180px; max-width: 220px;">
+                <label class="label" style="margin-bottom: 0.5rem; display: block;">Large</label>
+                <div class="combobox combobox-lg" data-combobox>
+                  <div class="combobox-trigger">
+                    <input
+                      type="text"
+                      class="combobox-input"
+                      placeholder="Large..."
+                      autocomplete="off"
+                    >
+                    <svg class="combobox-trigger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                  </div>
+                  <div class="combobox-content">
+                    <div class="combobox-list">
+                      <div class="combobox-item" data-value="1">Option 1</div>
+                      <div class="combobox-item" data-value="2">Option 2</div>
+                      <div class="combobox-item" data-value="3">Option 3</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- With Groups -->
+        <section class="section">
+          <h2 class="section-title">Grouped Options</h2>
+          <p class="section-desc">Options organized into labeled groups.</p>
+          <div class="demo-box">
+            <div style="max-width: 280px;">
+              <label class="label" style="margin-bottom: 0.5rem; display: block;">Select a fruit or vegetable</label>
+              <div class="combobox" data-combobox>
+                <div class="combobox-trigger">
+                  <input
+                    type="text"
+                    class="combobox-input"
+                    placeholder="Search produce..."
+                    autocomplete="off"
+                  >
+                  <svg class="combobox-trigger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9l6 6 6-6"/>
+                  </svg>
+                </div>
+                <div class="combobox-content">
+                  <div class="combobox-list">
+                    <div class="combobox-group">
+                      <div class="combobox-label">Fruits</div>
+                      <div class="combobox-item" data-value="apple">Apple</div>
+                      <div class="combobox-item" data-value="banana">Banana</div>
+                      <div class="combobox-item" data-value="orange">Orange</div>
+                      <div class="combobox-item" data-value="grape">Grape</div>
+                    </div>
+                    <div class="combobox-group">
+                      <div class="combobox-label">Vegetables</div>
+                      <div class="combobox-item" data-value="carrot">Carrot</div>
+                      <div class="combobox-item" data-value="broccoli">Broccoli</div>
+                      <div class="combobox-item" data-value="spinach">Spinach</div>
+                      <div class="combobox-item" data-value="tomato">Tomato</div>
+                    </div>
+                  </div>
+                  <div class="combobox-empty">No produce found.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Keyboard Navigation Reference -->
+        <section class="section">
+          <h2 class="section-title">Keyboard Navigation</h2>
+          <div class="demo-box" style="padding: 0; overflow: hidden;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+              <thead>
+                <tr style="background: var(--muted);">
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Key</th>
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><kbd class="kbd">Arrow Down</kbd></td>
+                  <td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Open dropdown / Move to next item</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><kbd class="kbd">Arrow Up</kbd></td>
+                  <td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Move to previous item</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><kbd class="kbd">Enter</kbd></td>
+                  <td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Select highlighted item</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><kbd class="kbd">Escape</kbd></td>
+                  <td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Close dropdown</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><kbd class="kbd">Home</kbd></td>
+                  <td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Jump to first item</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem;"><kbd class="kbd">End</kbd></td>
+                  <td style="padding: 0.75rem 1rem;">Jump to last item</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Brand UI JS -->
+  <script src="../js/core.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/components/combobox.js"></script>
+
+  <script>
+    // Listen to change events
+    document.getElementById('framework-combobox').addEventListener('combobox:change', (e) => {
+      document.getElementById('basic-output').textContent =
+        `Selected: ${e.detail.value || 'none'} (${e.detail.text || '-'})`;
+    });
+
+    document.getElementById('status-combobox').addEventListener('combobox:change', (e) => {
+      document.getElementById('status-output').textContent =
+        `Selected: ${e.detail.value || 'none'}`;
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sidebar - Brand UI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- All CSS via ui.css bundle -->
+  <link rel="stylesheet" href="../css/ui.css">
+
+  <style>
+    /* Sidebar demo-specific styles */
+    .sidebar-avatar {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background-color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-foreground);
+      font-weight: 600;
+      font-size: 0.75rem;
+    }
+
+    .sidebar-user {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.5rem;
+    }
+
+    .sidebar-user-info {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .sidebar-user-name {
+      font-size: 0.875rem;
+      font-weight: 500;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .sidebar-user-email {
+      font-size: 0.75rem;
+      color: var(--muted-foreground);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .sidebar-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem;
+      font-weight: 600;
+    }
+
+    .sidebar-logo svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .info-card {
+      background: var(--muted);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .info-card p {
+      color: var(--muted-foreground);
+      font-size: 0.875rem;
+      margin: 0;
+    }
+
+    .code-inline {
+      background: var(--muted);
+      padding: 0.125rem 0.375rem;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+    }
+
+    .code {
+      background: var(--muted);
+      padding: 1rem;
+      border-radius: var(--radius);
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      overflow-x: auto;
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="app-sidebar">
+      <div class="app-sidebar-header">
+        <a href="../index.html">← Overview</a>
+      </div>
+      <div class="app-sidebar-content">
+        <div class="app-sidebar-group-label">Components</div>
+        <ul class="sidebar-menu" id="sidebar-menu"></ul>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="app-main">
+      <header class="app-header">
+        <span style="font-size: 0.875rem; font-weight: 500;">Sidebar</span>
+        <button class="btn btn-ghost btn-sm" id="theme-toggle">Toggle Theme</button>
+      </header>
+
+      <div class="app-content">
+        <h1 class="page-title">Sidebar</h1>
+        <p class="page-desc">A responsive collapsible sidebar with mobile sheet support. Supports offcanvas collapse, icon mode, and multiple variants.</p>
+
+        <!-- Installation -->
+        <div class="install-box">
+          <p>Installation</p>
+          <code>&lt;link rel="stylesheet" href="css/components/sidebar.css"&gt;</code>
+          <code>&lt;script src="js/core.js"&gt;&lt;/script&gt;</code>
+          <code>&lt;script src="js/components/sidebar.js"&gt;&lt;/script&gt;</code>
+        </div>
+
+        <!-- Overview -->
+        <div class="section">
+          <h2 class="section-title">Overview</h2>
+          <div class="info-card">
+            <p>
+              The Sidebar component provides a responsive navigation panel that collapses to slide off-screen (offcanvas) by default.
+              On mobile devices, it becomes a sheet overlay. Use keyboard shortcut <span class="code-inline">Cmd/Ctrl + B</span> to toggle.
+            </p>
+          </div>
+        </div>
+
+        <!-- Collapsible Modes -->
+        <div class="section">
+          <h2 class="section-title">Collapsible Modes</h2>
+          <p class="section-desc">The sidebar supports three collapse modes via the <span class="code-inline">data-collapsible</span> attribute:</p>
+          <ul style="margin-left: 1.5rem; margin-bottom: 1rem; color: var(--muted-foreground); font-size: 0.875rem;">
+            <li><strong>offcanvas</strong> - Slides completely off-screen (default)</li>
+            <li><strong>icon</strong> - Collapses to show only icons</li>
+            <li><strong>none</strong> - Non-collapsible, always visible</li>
+          </ul>
+        </div>
+
+        <!-- Variants -->
+        <div class="section">
+          <h2 class="section-title">Variants</h2>
+          <p class="section-desc">Use the <span class="code-inline">data-variant</span> attribute to change the sidebar style:</p>
+          <ul style="margin-left: 1.5rem; margin-bottom: 1rem; color: var(--muted-foreground); font-size: 0.875rem;">
+            <li><strong>sidebar</strong> - Default style with border</li>
+            <li><strong>floating</strong> - Rounded corners with shadow</li>
+            <li><strong>inset</strong> - Inset style with background</li>
+          </ul>
+        </div>
+
+        <!-- HTML Structure -->
+        <div class="section">
+          <h2 class="section-title">HTML Structure</h2>
+          <pre class="code">&lt;!-- Sidebar Wrapper --&gt;
+&lt;div class="sidebar-wrapper" data-sidebar data-variant="sidebar"&gt;
+  &lt;!-- Desktop Sidebar --&gt;
+  &lt;aside class="sidebar" data-side="left" data-collapsible="offcanvas" data-state="expanded"&gt;
+    &lt;div class="sidebar-gap"&gt;&lt;/div&gt;
+    &lt;div class="sidebar-container"&gt;
+      &lt;div class="sidebar-inner"&gt;
+        &lt;div class="app-sidebar-header"&gt;...&lt;/div&gt;
+        &lt;div class="app-sidebar-content"&gt;
+          &lt;div class="sidebar-group"&gt;
+            &lt;div class="app-sidebar-group-label"&gt;Section&lt;/div&gt;
+            &lt;div class="sidebar-group-content"&gt;
+              &lt;ul class="sidebar-menu"&gt;
+                &lt;li class="sidebar-menu-item"&gt;
+                  &lt;a href="#" class="sidebar-menu-button"&gt;
+                    &lt;svg&gt;...&lt;/svg&gt;
+                    &lt;span&gt;Menu Item&lt;/span&gt;
+                  &lt;/a&gt;
+                &lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="sidebar-footer"&gt;...&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;button class="sidebar-rail"&gt;&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/aside&gt;
+
+  &lt;!-- Mobile Overlay --&gt;
+  &lt;div class="sidebar-overlay" data-open="false"&gt;&lt;/div&gt;
+
+  &lt;!-- Mobile Sheet --&gt;
+  &lt;div class="sidebar-mobile" data-side="left" data-open="false"&gt;
+    &lt;div class="sidebar-mobile-inner"&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Main Content --&gt;
+  &lt;div class="sidebar-inset"&gt;
+    &lt;button class="sidebar-trigger" data-sidebar-trigger&gt;Toggle&lt;/button&gt;
+    ...
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+        </div>
+
+        <!-- JavaScript API -->
+        <div class="section">
+          <h2 class="section-title">JavaScript API</h2>
+          <pre class="code">// Get sidebar instance
+const wrapper = document.querySelector('.sidebar-wrapper');
+const sidebar = BrandUI.getInstance(wrapper, 'sidebar');
+
+// Toggle sidebar
+sidebar.toggle();
+
+// Open/close programmatically
+sidebar.open();
+sidebar.close();
+
+// Mobile specific
+sidebar.openMobile();
+sidebar.closeMobile();
+
+// Set open state
+sidebar.setOpen(true);
+sidebar.setOpen(false);
+
+// Get current state
+const state = sidebar.getState();
+// { state: 'expanded'|'collapsed', open: boolean, openMobile: boolean, isMobile: boolean }
+
+// Properties
+sidebar.isOpen;       // boolean
+sidebar.isMobileOpen; // boolean
+sidebar.isMobile;     // boolean
+sidebar.state;        // 'expanded' | 'collapsed'
+
+// Listen for events
+wrapper.addEventListener('sidebar:open', (e) => {
+  console.log('Sidebar opened');
+});
+
+wrapper.addEventListener('sidebar:close', (e) => {
+  console.log('Sidebar collapsed');
+});
+
+wrapper.addEventListener('sidebar:open-mobile', (e) => {
+  console.log('Mobile sidebar opened');
+});
+
+wrapper.addEventListener('sidebar:close-mobile', (e) => {
+  console.log('Mobile sidebar closed');
+});
+
+wrapper.addEventListener('sidebar:change', (e) => {
+  console.log('State changed:', e.detail);
+});
+
+// Destroy instance
+sidebar.destroy();</pre>
+        </div>
+
+        <!-- Menu Components -->
+        <div class="section">
+          <h2 class="section-title">Menu Components</h2>
+          <p class="section-desc">Available menu-related classes:</p>
+          <ul style="margin-left: 1.5rem; margin-bottom: 1rem; color: var(--muted-foreground); font-size: 0.875rem;">
+            <li><span class="code-inline">.sidebar-menu</span> - Menu container (ul)</li>
+            <li><span class="code-inline">.sidebar-menu-item</span> - Menu item wrapper (li)</li>
+            <li><span class="code-inline">.sidebar-menu-button</span> - Clickable menu button/link</li>
+            <li><span class="code-inline">.sidebar-menu-badge</span> - Badge for notifications/counts</li>
+            <li><span class="code-inline">.sidebar-menu-action</span> - Action button (e.g., more options)</li>
+            <li><span class="code-inline">.sidebar-menu-sub</span> - Submenu container</li>
+            <li><span class="code-inline">.sidebar-menu-sub-item</span> - Submenu item</li>
+            <li><span class="code-inline">.sidebar-menu-sub-button</span> - Submenu button/link</li>
+            <li><span class="code-inline">.sidebar-menu-skeleton</span> - Loading skeleton</li>
+          </ul>
+        </div>
+
+        <!-- Button Sizes -->
+        <div class="section">
+          <h2 class="section-title">Button Sizes</h2>
+          <p class="section-desc">Use <span class="code-inline">data-size</span> attribute on menu buttons:</p>
+          <pre class="code">&lt;!-- Small --&gt;
+&lt;a class="sidebar-menu-button" data-size="sm"&gt;Small&lt;/a&gt;
+
+&lt;!-- Default --&gt;
+&lt;a class="sidebar-menu-button"&gt;Default&lt;/a&gt;
+&lt;a class="sidebar-menu-button" data-size="default"&gt;Default&lt;/a&gt;
+
+&lt;!-- Large --&gt;
+&lt;a class="sidebar-menu-button" data-size="lg"&gt;Large&lt;/a&gt;</pre>
+        </div>
+
+        <!-- Active State -->
+        <div class="section">
+          <h2 class="section-title">Active State</h2>
+          <p class="section-desc">Mark a menu item as active with <span class="code-inline">data-active="true"</span>:</p>
+          <pre class="code">&lt;a class="sidebar-menu-button" data-active="true"&gt;
+  &lt;svg&gt;...&lt;/svg&gt;
+  &lt;span&gt;Active Item&lt;/span&gt;
+&lt;/a&gt;</pre>
+        </div>
+
+        <!-- Tooltips -->
+        <div class="section">
+          <h2 class="section-title">Tooltips (Icon Mode)</h2>
+          <p class="section-desc">When using <span class="code-inline">data-collapsible="icon"</span>, add tooltips with the <span class="code-inline">data-tooltip</span> attribute:</p>
+          <pre class="code">&lt;a class="sidebar-menu-button" data-tooltip="Dashboard"&gt;
+  &lt;svg&gt;...&lt;/svg&gt;
+  &lt;span&gt;Dashboard&lt;/span&gt;
+&lt;/a&gt;</pre>
+        </div>
+
+        <!-- Keyboard Shortcuts -->
+        <div class="section">
+          <h2 class="section-title">Keyboard Shortcuts</h2>
+          <p class="section-desc">The sidebar supports keyboard navigation:</p>
+          <ul style="margin-left: 1.5rem; margin-bottom: 1rem; color: var(--muted-foreground); font-size: 0.875rem;">
+            <li><span class="code-inline">Cmd/Ctrl + B</span> - Toggle sidebar</li>
+            <li><span class="code-inline">Escape</span> - Close mobile sidebar</li>
+          </ul>
+        </div>
+
+        <!-- CSS Variables -->
+        <div class="section">
+          <h2 class="section-title">CSS Variables</h2>
+          <pre class="code">:root {
+  --sidebar-width: 16rem;        /* Desktop width */
+  --sidebar-width-mobile: 18rem; /* Mobile sheet width */
+  --sidebar-width-icon: 3rem;    /* Collapsed icon width */
+}</pre>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../js/core.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/components/sidebar.js"></script>
+</body>
+</html>

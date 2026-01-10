@@ -1,0 +1,443 @@
+/**
+ * Navigation Menu Component
+ * Mega menu / navigation menu with viewport-based content positioning
+ */
+
+/* ============================================
+   ROOT
+   ============================================ */
+
+.nav-menu {
+  position: relative;
+  display: flex;
+  flex: 1;
+  max-width: max-content;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============================================
+   LIST
+   ============================================ */
+
+.nav-menu-list {
+  display: flex;
+  flex: 1;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+/* ============================================
+   ITEM
+   ============================================ */
+
+.nav-menu-item {
+  position: relative;
+}
+
+/* ============================================
+   TRIGGER
+   ============================================ */
+
+.nav-menu-trigger {
+  display: inline-flex;
+  height: 2.25rem;
+  width: max-content;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  border-radius: var(--radius-md);
+  background: var(--background);
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: color var(--transition-fast) var(--ease-default),
+              background-color var(--transition-fast) var(--ease-default),
+              box-shadow var(--transition-fast) var(--ease-default);
+}
+
+.nav-menu-trigger:hover {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.nav-menu-trigger:focus-visible {
+  outline: 1px solid var(--ring);
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--ring) 50%, transparent);
+}
+
+.nav-menu-trigger:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.nav-menu-trigger[aria-expanded="true"] {
+  background: color-mix(in oklch, var(--accent) 50%, transparent);
+  color: var(--accent-foreground);
+}
+
+.nav-menu-trigger[aria-expanded="true"]:hover {
+  background: var(--accent);
+}
+
+/* Chevron icon */
+.nav-menu-trigger-icon {
+  position: relative;
+  top: 1px;
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-left: 0.25rem;
+  transition: transform var(--transition-slow) var(--ease-default);
+}
+
+.nav-menu-trigger[aria-expanded="true"] .nav-menu-trigger-icon {
+  transform: rotate(180deg);
+}
+
+/* ============================================
+   LINK (standalone, no dropdown)
+   ============================================ */
+
+.nav-menu-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  border-radius: var(--radius-sm);
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+  transition: all var(--transition-fast) var(--ease-default);
+}
+
+.nav-menu-link:hover {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.nav-menu-link:focus-visible {
+  outline: 1px solid var(--ring);
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--ring) 50%, transparent);
+}
+
+.nav-menu-link[data-active="true"] {
+  background: color-mix(in oklch, var(--accent) 50%, transparent);
+  color: var(--accent-foreground);
+}
+
+.nav-menu-link[data-active="true"]:hover,
+.nav-menu-link[data-active="true"]:focus {
+  background: var(--accent);
+}
+
+/* Link SVG icons */
+.nav-menu-link svg:not([class*='size-']) {
+  width: 1rem;
+  height: 1rem;
+}
+
+.nav-menu-link svg:not([class*='text-']) {
+  color: var(--muted-foreground);
+}
+
+/* ============================================
+   CONTENT (dropdown panel)
+   ============================================ */
+
+.nav-menu-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.5rem;
+  padding-right: 0.625rem;
+}
+
+@media (min-width: 768px) {
+  .nav-menu-content {
+    width: auto;
+  }
+}
+
+/* Hidden state */
+.nav-menu-content[data-state="closed"] {
+  display: none;
+}
+
+/* Animations for content when using viewport */
+.nav-menu-content[data-motion="from-start"] {
+  animation: nav-menu-slide-in-from-left var(--transition-normal) var(--ease-out);
+}
+
+.nav-menu-content[data-motion="from-end"] {
+  animation: nav-menu-slide-in-from-right var(--transition-normal) var(--ease-out);
+}
+
+.nav-menu-content[data-motion="to-start"] {
+  animation: nav-menu-slide-out-to-left var(--transition-normal) var(--ease-in);
+}
+
+.nav-menu-content[data-motion="to-end"] {
+  animation: nav-menu-slide-out-to-right var(--transition-normal) var(--ease-in);
+}
+
+/* Non-viewport mode: content appears directly under trigger */
+.nav-menu:not([data-viewport="true"]) .nav-menu-content {
+  top: 100%;
+  margin-top: 0.375rem;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--popover);
+  color: var(--popover-foreground);
+  box-shadow: var(--shadow-md);
+}
+
+.nav-menu:not([data-viewport="true"]) .nav-menu-content[data-state="open"] {
+  animation: nav-menu-fade-zoom-in var(--transition-normal) var(--ease-out);
+}
+
+.nav-menu:not([data-viewport="true"]) .nav-menu-content .nav-menu-link:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* ============================================
+   VIEWPORT (container for dropdown content)
+   ============================================ */
+
+.nav-menu-viewport-wrapper {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: var(--z-dropdown);
+  display: flex;
+  justify-content: center;
+  isolation: isolate;
+}
+
+.nav-menu-viewport {
+  position: relative;
+  margin-top: 0.375rem;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--popover);
+  color: var(--popover-foreground);
+  box-shadow: var(--shadow-md);
+  transform-origin: top center;
+  transition: width var(--transition-normal) var(--ease-default),
+              height var(--transition-normal) var(--ease-default);
+}
+
+@media (min-width: 768px) {
+  .nav-menu-viewport {
+    width: var(--nav-menu-viewport-width, auto);
+  }
+}
+
+.nav-menu-viewport[data-state="closed"] {
+  display: none;
+}
+
+.nav-menu-viewport[data-state="open"] {
+  animation: nav-menu-zoom-in var(--transition-normal) var(--ease-out);
+}
+
+/* ============================================
+   INDICATOR
+   ============================================ */
+
+.nav-menu-indicator {
+  position: absolute;
+  top: 100%;
+  z-index: 1;
+  display: flex;
+  height: 0.375rem;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+  transition: transform var(--transition-fast) var(--ease-default),
+              width var(--transition-fast) var(--ease-default);
+}
+
+.nav-menu-indicator[data-state="hidden"] {
+  opacity: 0;
+  animation: nav-menu-fade-out var(--transition-fast) var(--ease-out);
+}
+
+.nav-menu-indicator[data-state="visible"] {
+  opacity: 1;
+  animation: nav-menu-fade-in var(--transition-fast) var(--ease-in);
+}
+
+.nav-menu-indicator-arrow {
+  position: relative;
+  top: 60%;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--border);
+  border-radius: var(--radius-sm) 0 0 0;
+  box-shadow: var(--shadow-md);
+  transform: rotate(45deg);
+}
+
+/* ============================================
+   LINK CONTENT HELPERS
+   ============================================ */
+
+.nav-menu-link-title {
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.nav-menu-link-description {
+  line-height: 1.4;
+  color: var(--muted-foreground);
+}
+
+/* ============================================
+   COMMON LAYOUTS
+   ============================================ */
+
+/* Grid layout for mega menu content */
+.nav-menu-grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.nav-menu-grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.nav-menu-grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* Featured item (larger, with highlight) */
+.nav-menu-featured {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-radius: var(--radius-md);
+  background: linear-gradient(to bottom right, var(--muted), var(--muted));
+  padding: 1.5rem;
+  text-decoration: none;
+}
+
+.nav-menu-featured:focus-visible {
+  outline: 1px solid var(--ring);
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--ring) 50%, transparent);
+}
+
+.nav-menu-featured-title {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.nav-menu-featured-description {
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: var(--muted-foreground);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes nav-menu-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes nav-menu-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes nav-menu-zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes nav-menu-fade-zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes nav-menu-slide-in-from-left {
+  from {
+    opacity: 0;
+    transform: translateX(-13rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes nav-menu-slide-in-from-right {
+  from {
+    opacity: 0;
+    transform: translateX(13rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes nav-menu-slide-out-to-left {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-13rem);
+  }
+}
+
+@keyframes nav-menu-slide-out-to-right {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(13rem);
+  }
+}

@@ -1,0 +1,121 @@
+/**
+ * Brand UI - Radio Group Component
+ * A set of radio buttons for selecting a single option from a list.
+ */
+
+/* Radio Group Container */
+.radio-group {
+  display: grid;
+  gap: 0.75rem;
+}
+
+/* Horizontal orientation */
+.radio-group[data-orientation="horizontal"] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Radio Group Item */
+.radio-group-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  aspect-ratio: 1;
+  flex-shrink: 0;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-full);
+  background-color: transparent;
+  box-shadow: var(--shadow-xs);
+  cursor: pointer;
+  transition: box-shadow var(--transition-fast) var(--ease-default),
+              border-color var(--transition-fast) var(--ease-default),
+              background-color var(--transition-fast) var(--ease-default);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* Dark mode background */
+.dark .radio-group-item {
+  background-color: oklch(from var(--input) l c h / 30%);
+}
+
+/* Checked state */
+.radio-group-item[aria-checked="true"] {
+  border-color: var(--primary);
+}
+
+/* Focus visible */
+.radio-group-item:focus-visible {
+  border-color: var(--ring);
+  box-shadow: var(--shadow-xs), 0 0 0 3px oklch(from var(--ring) l c h / 50%);
+}
+
+/* Invalid state */
+.radio-group-item[aria-invalid="true"] {
+  border-color: var(--destructive);
+  box-shadow: var(--shadow-xs), 0 0 0 3px oklch(from var(--destructive) l c h / 20%);
+}
+
+.dark .radio-group-item[aria-invalid="true"] {
+  box-shadow: var(--shadow-xs), 0 0 0 3px oklch(from var(--destructive) l c h / 40%);
+}
+
+/* Disabled state */
+.radio-group-item:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Indicator container */
+.radio-group-indicator {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* The inner circle indicator */
+.radio-group-indicator::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: var(--radius-full);
+  background-color: var(--primary);
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  transition: transform var(--transition-fast) var(--ease-default),
+              opacity var(--transition-fast) var(--ease-default);
+}
+
+/* Show indicator when checked */
+.radio-group-item[aria-checked="true"] .radio-group-indicator::after {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+/* Radio item with label wrapper */
+.radio-group-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.radio-group-wrapper label {
+  cursor: pointer;
+  user-select: none;
+}
+
+.radio-group-wrapper:has(.radio-group-item:disabled) label {
+  cursor: not-allowed;
+  opacity: 0.5;
+}

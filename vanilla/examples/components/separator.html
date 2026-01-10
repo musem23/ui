@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Separator - Brand UI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/ui.css">
+
+  <style>
+    /* Demo-specific styles */
+    .demo-content {
+      padding: 0.75rem 0;
+    }
+
+    .demo-content h4 {
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin: 0 0 0.25rem;
+    }
+
+    .demo-content p {
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+      margin: 0;
+    }
+
+    .vertical-demo {
+      display: flex;
+      align-items: center;
+      height: 1.25rem;
+      gap: 1rem;
+    }
+
+    .vertical-demo span {
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="app-sidebar">
+      <div class="app-sidebar-header">
+        <a href="../index.html">← Overview</a>
+      </div>
+      <div class="app-sidebar-content">
+        <div class="app-sidebar-group-label">Components</div>
+        <ul class="sidebar-menu" id="sidebar-menu"></ul>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="app-main">
+      <header class="app-header">
+        <span style="font-size: 0.875rem; font-weight: 500;">Separator</span>
+        <button class="btn btn-ghost btn-sm" id="theme-toggle">Dark</button>
+      </header>
+
+      <div class="app-content">
+        <h1 class="page-title">Separator</h1>
+        <p class="page-desc">A visual divider that separates content sections horizontally or vertically.</p>
+
+        <!-- Installation -->
+        <div class="install-box">
+          <p>Installation</p>
+          <code>&lt;link rel="stylesheet" href="css/components/separator.css"&gt;</code>
+        </div>
+
+        <!-- Horizontal Separator -->
+        <div class="section">
+          <h2 class="section-title">Horizontal Separator</h2>
+          <div class="demo-box">
+            <div class="demo-content">
+              <h4>Radix Primitives</h4>
+              <p>An open-source UI component library.</p>
+            </div>
+            <div class="separator separator-horizontal" role="separator" aria-orientation="horizontal"></div>
+            <div class="demo-content">
+              <h4>Brand UI</h4>
+              <p>A CSS-only component library.</p>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'horizontal-html')">HTML</button>
+            <button class="code-tab" onclick="BrandUILayout.showTab(this, 'horizontal-css')">CSS</button>
+          </div>
+          <div class="code-block">
+            <div id="horizontal-html" class="code-panel active">
+              <div class="code-wrapper">
+                <pre><code>&lt;div class="separator separator-horizontal" role="separator" aria-orientation="horizontal"&gt;&lt;/div&gt;</code></pre>
+              </div>
+            </div>
+            <div id="horizontal-css" class="code-panel">
+              <pre><code>/* Required CSS */
+@import "css/tokens.css";
+@import "css/components/separator.css";
+
+/* Separator CSS */
+.separator {
+  flex-shrink: 0;
+  background-color: var(--border);
+}
+
+.separator-horizontal {
+  height: 1px;
+  width: 100%;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vertical Separator -->
+        <div class="section">
+          <h2 class="section-title">Vertical Separator</h2>
+          <div class="demo-box">
+            <div class="vertical-demo">
+              <span>Blog</span>
+              <div class="separator separator-vertical" role="separator" aria-orientation="vertical"></div>
+              <span>Docs</span>
+              <div class="separator separator-vertical" role="separator" aria-orientation="vertical"></div>
+              <span>Source</span>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'vertical-html')">HTML</button>
+            <button class="code-tab" onclick="BrandUILayout.showTab(this, 'vertical-css')">CSS</button>
+          </div>
+          <div class="code-block">
+            <div id="vertical-html" class="code-panel active">
+              <div class="code-wrapper">
+                <pre><code>&lt;div style="display: flex; align-items: center; height: 1.25rem; gap: 1rem;"&gt;
+  &lt;span&gt;Blog&lt;/span&gt;
+  &lt;div class="separator separator-vertical" role="separator" aria-orientation="vertical"&gt;&lt;/div&gt;
+  &lt;span&gt;Docs&lt;/span&gt;
+  &lt;div class="separator separator-vertical" role="separator" aria-orientation="vertical"&gt;&lt;/div&gt;
+  &lt;span&gt;Source&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+            </div>
+            <div id="vertical-css" class="code-panel">
+              <pre><code>/* Required CSS */
+@import "css/tokens.css";
+@import "css/components/separator.css";
+
+/* Separator CSS */
+.separator {
+  flex-shrink: 0;
+  background-color: var(--border);
+}
+
+.separator-vertical {
+  height: 100%;
+  width: 1px;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Decorative Separator -->
+        <div class="section">
+          <h2 class="section-title">Decorative (No Semantic Meaning)</h2>
+          <div class="demo-box">
+            <div class="demo-content">
+              <p>Content above the separator.</p>
+            </div>
+            <div class="separator separator-horizontal" role="none"></div>
+            <div class="demo-content">
+              <p>Content below the separator.</p>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'decorative-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="decorative-html" class="code-panel active">
+              <pre><code>&lt;!-- Use role="none" for purely decorative separators --&gt;
+&lt;div class="separator separator-horizontal" role="none"&gt;&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- CSS Classes Reference -->
+        <div class="section">
+          <h2 class="section-title">CSS Classes Reference</h2>
+          <div class="demo-box" style="padding: 0; overflow: hidden;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+              <thead>
+                <tr style="background: var(--muted);">
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Class</th>
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.separator</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Base separator class (required)</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.separator-horizontal</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Horizontal divider (full width, 1px height)</td></tr>
+                <tr><td style="padding: 0.75rem 1rem;"><code>.separator-vertical</code></td><td style="padding: 0.75rem 1rem;">Vertical divider (full height, 1px width)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Accessibility -->
+        <div class="section">
+          <h2 class="section-title">Accessibility</h2>
+          <div class="demo-box" style="padding: 0; overflow: hidden;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+              <thead>
+                <tr style="background: var(--muted);">
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Attribute</th>
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>role="separator"</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Indicates a semantic separator for assistive technologies</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>aria-orientation</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Set to "horizontal" or "vertical" to match visual orientation</td></tr>
+                <tr><td style="padding: 0.75rem 1rem;"><code>role="none"</code></td><td style="padding: 0.75rem 1rem;">Use for purely decorative separators with no semantic meaning</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/core.js"></script>
+  <script src="../js/layout.js"></script>
+</body>
+</html>

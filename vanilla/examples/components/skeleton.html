@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skeleton - Brand UI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- All CSS via ui.css bundle -->
+  <link rel="stylesheet" href="../css/ui.css">
+
+  <style>
+    /* Demo-specific styles */
+    .demo-stack { display: flex; flex-direction: column; gap: 0.5rem; }
+
+    /* Card demo */
+    .demo-card { border: 1px solid var(--border); border-radius: 8px; padding: 1rem; max-width: 20rem; }
+    .demo-card-header { display: flex; gap: 0.75rem; align-items: center; margin-bottom: 1rem; }
+    .demo-card-content { display: flex; flex-direction: column; gap: 0.5rem; }
+  </style>
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="app-sidebar">
+      <div class="app-sidebar-header">
+        <a href="../index.html">← Overview</a>
+      </div>
+      <div class="app-sidebar-content">
+        <div class="app-sidebar-group-label">Components</div>
+        <ul class="sidebar-menu" id="sidebar-menu"></ul>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="app-main">
+      <header class="app-header">
+        <span style="font-size: 0.875rem; font-weight: 500;">Skeleton</span>
+        <button class="btn btn-ghost btn-sm" id="theme-toggle">Toggle Theme</button>
+      </header>
+
+      <div class="app-content">
+        <h1 class="page-title">Skeleton</h1>
+        <p class="page-desc">A loading placeholder with pulse animation that shows content structure while data is being loaded.</p>
+
+        <!-- Installation -->
+        <div class="install-box">
+          <p>Installation</p>
+          <code>&lt;link rel="stylesheet" href="css/components/skeleton.css"&gt;</code>
+        </div>
+
+        <!-- Text Skeleton -->
+        <div class="section">
+          <h2 class="section-title">Text Skeleton</h2>
+          <div class="demo-box">
+            <div class="demo-stack" style="max-width: 20rem;">
+              <div class="skeleton skeleton-text"></div>
+              <div class="skeleton skeleton-text" style="width: 80%;"></div>
+              <div class="skeleton skeleton-text" style="width: 60%;"></div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'text-html')">HTML</button>
+            <button class="code-tab" onclick="BrandUILayout.showTab(this, 'text-css')">CSS</button>
+          </div>
+          <div class="code-block">
+            <div id="text-html" class="code-panel active">
+              <div class="code-wrapper">
+                <pre><code>&lt;div class="skeleton skeleton-text"&gt;&lt;/div&gt;
+&lt;div class="skeleton skeleton-text" style="width: 80%;"&gt;&lt;/div&gt;
+&lt;div class="skeleton skeleton-text" style="width: 60%;"&gt;&lt;/div&gt;</code></pre>
+              </div>
+            </div>
+            <div id="text-css" class="code-panel">
+              <pre><code>/* Required CSS */
+@import "css/tokens.css";
+@import "css/components/skeleton.css";
+
+/* Animation */
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.skeleton {
+  background-color: var(--accent);
+  border-radius: var(--radius-md);
+  animation: skeleton-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.skeleton-text {
+  height: 1rem;
+  width: 100%;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text Sizes -->
+        <div class="section">
+          <h2 class="section-title">Text Sizes</h2>
+          <div class="demo-box">
+            <div class="demo-stack" style="max-width: 20rem;">
+              <div class="skeleton skeleton-text-sm" style="width: 50%;"></div>
+              <div class="skeleton skeleton-text"></div>
+              <div class="skeleton skeleton-text-lg" style="width: 70%;"></div>
+              <div class="skeleton skeleton-heading"></div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'sizes-html')">HTML</button>
+            <button class="code-tab" onclick="BrandUILayout.showTab(this, 'sizes-css')">CSS</button>
+          </div>
+          <div class="code-block">
+            <div id="sizes-html" class="code-panel active">
+              <div class="code-wrapper">
+                <pre><code>&lt;div class="skeleton skeleton-text-sm"&gt;&lt;/div&gt;
+&lt;div class="skeleton skeleton-text"&gt;&lt;/div&gt;
+&lt;div class="skeleton skeleton-text-lg"&gt;&lt;/div&gt;
+&lt;div class="skeleton skeleton-heading"&gt;&lt;/div&gt;</code></pre>
+              </div>
+            </div>
+            <div id="sizes-css" class="code-panel">
+              <pre><code>.skeleton-text-sm { height: 0.75rem; width: 100%; }
+.skeleton-text { height: 1rem; width: 100%; }
+.skeleton-text-lg { height: 1.25rem; width: 100%; }
+.skeleton-heading { height: 1.5rem; width: 60%; }</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Circle / Avatar -->
+        <div class="section">
+          <h2 class="section-title">Circle (Avatar)</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <div class="skeleton skeleton-avatar-sm"></div>
+              <div class="skeleton skeleton-avatar"></div>
+              <div class="skeleton skeleton-avatar-lg"></div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'avatar-html')">HTML</button>
+            <button class="code-tab" onclick="BrandUILayout.showTab(this, 'avatar-css')">CSS</button>
+          </div>
+          <div class="code-block">
+            <div id="avatar-html" class="code-panel active">
+              <div class="code-wrapper">
+                <pre><code>&lt;div class="skeleton skeleton-avatar-sm"&gt;&lt;/div&gt;
+&lt;div class="skeleton skeleton-avatar"&gt;&lt;/div&gt;
+&lt;div class="skeleton skeleton-avatar-lg"&gt;&lt;/div&gt;</code></pre>
+              </div>
+            </div>
+            <div id="avatar-css" class="code-panel">
+              <pre><code>.skeleton-avatar-sm {
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-full);
+}
+
+.skeleton-avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-full);
+}
+
+.skeleton-avatar-lg {
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-full);
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Layout -->
+        <div class="section">
+          <h2 class="section-title">Card Layout</h2>
+          <div class="demo-box">
+            <div class="demo-card">
+              <div class="demo-card-header">
+                <div class="skeleton skeleton-avatar"></div>
+                <div style="flex: 1; display: flex; flex-direction: column; gap: 0.375rem;">
+                  <div class="skeleton skeleton-text" style="width: 60%;"></div>
+                  <div class="skeleton skeleton-text-sm" style="width: 40%;"></div>
+                </div>
+              </div>
+              <div class="demo-card-content">
+                <div class="skeleton skeleton-text"></div>
+                <div class="skeleton skeleton-text"></div>
+                <div class="skeleton skeleton-text" style="width: 75%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'card-html')">HTML</button>
+            <button class="code-tab" onclick="BrandUILayout.showTab(this, 'card-css')">CSS</button>
+          </div>
+          <div class="code-block">
+            <div id="card-html" class="code-panel active">
+              <div class="code-wrapper">
+                <pre><code>&lt;div class="card"&gt;
+  &lt;div class="card-header"&gt;
+    &lt;div class="skeleton skeleton-avatar"&gt;&lt;/div&gt;
+    &lt;div style="flex: 1;"&gt;
+      &lt;div class="skeleton skeleton-text" style="width: 60%;"&gt;&lt;/div&gt;
+      &lt;div class="skeleton skeleton-text-sm" style="width: 40%;"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="card-content"&gt;
+    &lt;div class="skeleton skeleton-text"&gt;&lt;/div&gt;
+    &lt;div class="skeleton skeleton-text"&gt;&lt;/div&gt;
+    &lt;div class="skeleton skeleton-text" style="width: 75%;"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+            </div>
+            <div id="card-css" class="code-panel">
+              <pre><code>/* Card layout container */
+.card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+}
+
+.card-header {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Button & Image -->
+        <div class="section">
+          <h2 class="section-title">Button & Image</h2>
+          <div class="demo-box">
+            <div class="demo-stack" style="max-width: 20rem; gap: 1rem;">
+              <div class="demo-row">
+                <div class="skeleton skeleton-button"></div>
+                <div class="skeleton skeleton-button" style="width: 8rem;"></div>
+              </div>
+              <div class="skeleton skeleton-image"></div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'extra-html')">HTML</button>
+            <button class="code-tab" onclick="BrandUILayout.showTab(this, 'extra-css')">CSS</button>
+          </div>
+          <div class="code-block">
+            <div id="extra-html" class="code-panel active">
+              <div class="code-wrapper">
+                <pre><code>&lt;!-- Button placeholders --&gt;
+&lt;div class="skeleton skeleton-button"&gt;&lt;/div&gt;
+&lt;div class="skeleton skeleton-button" style="width: 8rem;"&gt;&lt;/div&gt;
+
+&lt;!-- Image placeholder --&gt;
+&lt;div class="skeleton skeleton-image"&gt;&lt;/div&gt;
+
+&lt;!-- Custom size --&gt;
+&lt;div class="skeleton" style="height: 12rem; width: 100%;"&gt;&lt;/div&gt;</code></pre>
+              </div>
+            </div>
+            <div id="extra-css" class="code-panel">
+              <pre><code>.skeleton-button {
+  height: 2.25rem;
+  width: 5rem;
+}
+
+.skeleton-image {
+  height: 10rem;
+  width: 100%;
+}
+
+.skeleton-card {
+  height: 12rem;
+  width: 100%;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- CSS Classes Reference -->
+        <div class="section">
+          <h2 class="section-title">CSS Classes Reference</h2>
+          <div class="demo-box" style="padding: 0; overflow: hidden;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+              <thead>
+                <tr style="background: var(--muted);">
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Class</th>
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.skeleton</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Base skeleton class with pulse animation (required)</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.skeleton-text</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Text line placeholder (height: 1rem)</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.skeleton-text-sm</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Small text placeholder (height: 0.75rem)</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.skeleton-text-lg</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Large text placeholder (height: 1.25rem)</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.skeleton-heading</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Heading placeholder (height: 1.5rem, width: 60%)</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.skeleton-avatar</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Circle avatar placeholder (2.5rem)</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.skeleton-avatar-sm</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Small avatar placeholder (2rem)</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.skeleton-avatar-lg</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Large avatar placeholder (3rem)</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.skeleton-button</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Button placeholder (height: 2.25rem, width: 5rem)</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.skeleton-image</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Image placeholder (height: 10rem)</td></tr>
+                <tr><td style="padding: 0.75rem 1rem;"><code>.skeleton-card</code></td><td style="padding: 0.75rem 1rem;">Card placeholder (height: 12rem)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../js/core.js"></script>
+  <script src="../js/layout.js"></script>
+</body>
+</html>

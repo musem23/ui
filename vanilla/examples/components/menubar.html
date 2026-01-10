@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menubar - Brand UI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- All CSS -->
+  <link rel="stylesheet" href="../css/ui.css">
+
+  <style>
+    /* Icon styles */
+    .icon {
+      width: 1rem;
+      height: 1rem;
+      flex-shrink: 0;
+    }
+
+    .event-log {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: var(--muted);
+      border-radius: var(--radius);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      max-height: 150px;
+      overflow-y: auto;
+    }
+
+    .event-log-title {
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: var(--muted-foreground);
+    }
+
+    .event-log-entry {
+      padding: 0.25rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .event-log-entry:last-child {
+      border-bottom: none;
+    }
+
+    .demo {
+      margin: 0;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+  </style>
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="app-sidebar">
+      <div class="app-sidebar-header">
+        <a href="../index.html">← Overview</a>
+      </div>
+      <div class="app-sidebar-content">
+        <div class="app-sidebar-group-label">Components</div>
+        <ul class="sidebar-menu" id="sidebar-menu"></ul>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="app-main">
+      <header class="app-header">
+        <div class="header-left">
+          <span>Menubar</span>
+        </div>
+        <button id="theme-toggle" class="btn btn-ghost btn-sm">Dark</button>
+      </header>
+
+      <main class="app-content">
+        <h1 class="page-title">Menubar</h1>
+        <p class="page-desc">A horizontal menu with dropdown menus, keyboard navigation, and submenu support.</p>
+
+        <!-- Application Menubar -->
+        <div class="section">
+          <h2 class="section-title">Application Menubar</h2>
+          <p class="section-desc">A typical application menubar with File, Edit, View menus and keyboard shortcuts.</p>
+
+          <div class="demo">
+            <div class="menubar" data-menubar id="app-menubar">
+              <!-- File Menu -->
+              <div class="menubar-menu">
+                <button class="menubar-trigger">File</button>
+                <div class="menubar-content">
+                  <button class="menubar-item" data-value="new-tab">
+                    New Tab
+                    <span class="menubar-shortcut">Ctrl+T</span>
+                  </button>
+                  <button class="menubar-item" data-value="new-window">
+                    New Window
+                    <span class="menubar-shortcut">Ctrl+N</span>
+                  </button>
+                  <button class="menubar-item" data-value="new-incognito" data-disabled="true">
+                    New Incognito Window
+                  </button>
+                  <div class="menubar-separator"></div>
+                  <div class="menubar-sub">
+                    <button class="menubar-sub-trigger">
+                      Share
+                      <svg class="menubar-sub-trigger-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                      </svg>
+                    </button>
+                    <div class="menubar-sub-content">
+                      <button class="menubar-item" data-value="share-email">Email Link</button>
+                      <button class="menubar-item" data-value="share-messages">Messages</button>
+                      <button class="menubar-item" data-value="share-notes">Notes</button>
+                    </div>
+                  </div>
+                  <div class="menubar-separator"></div>
+                  <button class="menubar-item" data-value="print">
+                    Print
+                    <span class="menubar-shortcut">Ctrl+P</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Edit Menu -->
+              <div class="menubar-menu">
+                <button class="menubar-trigger">Edit</button>
+                <div class="menubar-content">
+                  <button class="menubar-item" data-value="undo">
+                    Undo
+                    <span class="menubar-shortcut">Ctrl+Z</span>
+                  </button>
+                  <button class="menubar-item" data-value="redo">
+                    Redo
+                    <span class="menubar-shortcut">Ctrl+Y</span>
+                  </button>
+                  <div class="menubar-separator"></div>
+                  <div class="menubar-sub">
+                    <button class="menubar-sub-trigger">
+                      Find
+                      <svg class="menubar-sub-trigger-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                      </svg>
+                    </button>
+                    <div class="menubar-sub-content">
+                      <button class="menubar-item" data-value="find-search">
+                        Search the Web
+                      </button>
+                      <div class="menubar-separator"></div>
+                      <button class="menubar-item" data-value="find-find">Find...</button>
+                      <button class="menubar-item" data-value="find-next">Find Next</button>
+                      <button class="menubar-item" data-value="find-prev">Find Previous</button>
+                    </div>
+                  </div>
+                  <div class="menubar-separator"></div>
+                  <button class="menubar-item" data-value="cut">
+                    Cut
+                    <span class="menubar-shortcut">Ctrl+X</span>
+                  </button>
+                  <button class="menubar-item" data-value="copy">
+                    Copy
+                    <span class="menubar-shortcut">Ctrl+C</span>
+                  </button>
+                  <button class="menubar-item" data-value="paste">
+                    Paste
+                    <span class="menubar-shortcut">Ctrl+V</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- View Menu -->
+              <div class="menubar-menu">
+                <button class="menubar-trigger">View</button>
+                <div class="menubar-content">
+                  <button class="menubar-checkbox-item" data-value="toolbar" data-checked="true">
+                    <span class="menubar-checkbox-item-indicator">
+                      <svg class="icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                      </svg>
+                    </span>
+                    Always Show Toolbar
+                  </button>
+                  <button class="menubar-checkbox-item" data-value="fullurls" data-checked="false">
+                    <span class="menubar-checkbox-item-indicator">
+                      <svg class="icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                      </svg>
+                    </span>
+                    Always Show Full URLs
+                  </button>
+                  <div class="menubar-separator"></div>
+                  <button class="menubar-item" data-inset="true" data-value="reload">
+                    Reload
+                    <span class="menubar-shortcut">Ctrl+R</span>
+                  </button>
+                  <button class="menubar-item" data-inset="true" data-value="force-reload" data-disabled="true">
+                    Force Reload
+                    <span class="menubar-shortcut">Ctrl+Shift+R</span>
+                  </button>
+                  <div class="menubar-separator"></div>
+                  <button class="menubar-item" data-inset="true" data-value="fullscreen">
+                    Toggle Fullscreen
+                  </button>
+                  <button class="menubar-item" data-inset="true" data-value="hide-sidebar">
+                    Hide Sidebar
+                  </button>
+                </div>
+              </div>
+
+              <!-- Profiles Menu -->
+              <div class="menubar-menu">
+                <button class="menubar-trigger">Profiles</button>
+                <div class="menubar-content">
+                  <div class="menubar-radio-group" data-value="profile">
+                    <button class="menubar-radio-item" data-value="andy" data-checked="true">
+                      <span class="menubar-radio-item-indicator"></span>
+                      Andy
+                    </button>
+                    <button class="menubar-radio-item" data-value="benoit" data-checked="false">
+                      <span class="menubar-radio-item-indicator"></span>
+                      Benoit
+                    </button>
+                    <button class="menubar-radio-item" data-value="luis" data-checked="false">
+                      <span class="menubar-radio-item-indicator"></span>
+                      Luis
+                    </button>
+                  </div>
+                  <div class="menubar-separator"></div>
+                  <button class="menubar-item" data-value="edit-profiles">Edit...</button>
+                  <div class="menubar-separator"></div>
+                  <button class="menubar-item" data-value="add-profile">Add Profile...</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Event Log -->
+            <div class="event-log">
+              <div class="event-log-title">Event Log</div>
+              <div id="event-log-content">
+                <div class="event-log-entry">Click a menu item to see events...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Simple Menubar -->
+        <div class="section">
+          <h2 class="section-title">Simple Menubar</h2>
+          <p class="section-desc">A minimal menubar without submenus or special items.</p>
+
+          <div class="demo">
+            <div class="menubar" data-menubar>
+              <div class="menubar-menu">
+                <button class="menubar-trigger">Account</button>
+                <div class="menubar-content">
+                  <button class="menubar-item" data-value="profile">Profile</button>
+                  <button class="menubar-item" data-value="billing">Billing</button>
+                  <button class="menubar-item" data-value="settings">Settings</button>
+                  <div class="menubar-separator"></div>
+                  <button class="menubar-item" data-value="logout" data-variant="destructive">
+                    Logout
+                  </button>
+                </div>
+              </div>
+
+              <div class="menubar-menu">
+                <button class="menubar-trigger">Team</button>
+                <div class="menubar-content">
+                  <button class="menubar-item" data-value="members">Members</button>
+                  <button class="menubar-item" data-value="invite">Invite Users</button>
+                  <button class="menubar-item" data-value="permissions">Permissions</button>
+                </div>
+              </div>
+
+              <div class="menubar-menu">
+                <button class="menubar-trigger">Help</button>
+                <div class="menubar-content">
+                  <button class="menubar-item" data-value="docs">Documentation</button>
+                  <button class="menubar-item" data-value="support">Support</button>
+                  <button class="menubar-item" data-value="feedback">Send Feedback</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Keyboard Navigation -->
+        <div class="section">
+          <h2 class="section-title">Keyboard Navigation</h2>
+          <p class="section-desc">Full keyboard support for accessible navigation.</p>
+
+          <div class="demo-box" style="padding: 0; overflow: hidden;">
+            <table style="width: 100%; font-size: 0.875rem; border-collapse: collapse;">
+              <thead>
+                <tr style="text-align: left; border-bottom: 1px solid var(--border);">
+                  <th style="padding: 0.75rem 1rem;">Key</th>
+                  <th style="padding: 0.75rem 1rem;">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--border);">
+                  <td style="padding: 0.75rem 1rem;"><kbd class="kbd">Arrow Left/Right</kbd></td>
+                  <td style="padding: 0.75rem 1rem; color: var(--muted-foreground);">Navigate between menus</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border);">
+                  <td style="padding: 0.75rem 1rem;"><kbd class="kbd">Arrow Up/Down</kbd></td>
+                  <td style="padding: 0.75rem 1rem; color: var(--muted-foreground);">Navigate within menu</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border);">
+                  <td style="padding: 0.75rem 1rem;"><kbd class="kbd">Enter</kbd> / <kbd class="kbd">Space</kbd></td>
+                  <td style="padding: 0.75rem 1rem; color: var(--muted-foreground);">Open menu or select item</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border);">
+                  <td style="padding: 0.75rem 1rem;"><kbd class="kbd">Escape</kbd></td>
+                  <td style="padding: 0.75rem 1rem; color: var(--muted-foreground);">Close current menu/submenu</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border);">
+                  <td style="padding: 0.75rem 1rem;"><kbd class="kbd">Home</kbd> / <kbd class="kbd">End</kbd></td>
+                  <td style="padding: 0.75rem 1rem; color: var(--muted-foreground);">Jump to first/last item</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem;"><kbd class="kbd">Arrow Right</kbd> on submenu</td>
+                  <td style="padding: 0.75rem 1rem; color: var(--muted-foreground);">Open submenu</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Core JS -->
+  <script src="../js/core.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/components/menubar.js"></script>
+
+  <script>
+    // Event logging
+    const logContainer = document.getElementById('event-log-content');
+    const appMenubar = document.getElementById('app-menubar');
+
+    function logEvent(name, detail) {
+      const entry = document.createElement('div');
+      entry.className = 'event-log-entry';
+      const time = new Date().toLocaleTimeString();
+      entry.textContent = `[${time}] ${name}: ${JSON.stringify(detail)}`;
+      logContainer.insertBefore(entry, logContainer.firstChild);
+
+      // Keep only last 10 entries
+      while (logContainer.children.length > 10) {
+        logContainer.removeChild(logContainer.lastChild);
+      }
+    }
+
+    appMenubar.addEventListener('menubar:select', (e) => {
+      logEvent('select', { value: e.detail.value });
+    });
+
+    appMenubar.addEventListener('menubar:checkbox-change', (e) => {
+      logEvent('checkbox', { value: e.detail.value, checked: e.detail.checked });
+    });
+
+    appMenubar.addEventListener('menubar:radio-change', (e) => {
+      logEvent('radio', { value: e.detail.value, group: e.detail.group });
+    });
+
+    appMenubar.addEventListener('menubar:open', (e) => {
+      logEvent('open', { index: e.detail.index });
+    });
+
+    appMenubar.addEventListener('menubar:close', (e) => {
+      logEvent('close', { previousIndex: e.detail.previousIndex });
+    });
+  </script>
+</body>
+</html>

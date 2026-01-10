@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slider - Brand UI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/ui.css">
+
+  <style>
+    /* Slider demo specific */
+    .slider-demo-item { display: flex; flex-direction: column; gap: 0.5rem; width: 100%; }
+    .slider-demo-item label { font-size: 0.875rem; font-weight: 500; }
+    .slider-value { font-size: 0.875rem; color: var(--muted-foreground); font-family: var(--font-mono); }
+
+    .vertical-demo { display: flex; gap: 3rem; height: 10rem; padding: 1rem 0; }
+    .vertical-item { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; height: 100%; }
+  </style>
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="app-sidebar">
+      <div class="app-sidebar-header">
+        <a href="../index.html">← Overview</a>
+      </div>
+      <div class="app-sidebar-content">
+        <div class="app-sidebar-group-label">Components</div>
+        <ul class="sidebar-menu" id="sidebar-menu"></ul>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="app-main">
+      <header class="app-header">
+        <span style="font-size: 0.875rem; font-weight: 500;">Slider</span>
+        <button class="btn btn-ghost btn-sm" id="theme-toggle">Dark</button>
+      </header>
+
+      <div class="app-content">
+        <h1 class="page-title">Slider</h1>
+        <p class="page-desc">An input for selecting a value from a range by dragging or using arrow keys.</p>
+
+        <!-- Installation -->
+        <div class="install-box">
+          <p>Installation</p>
+          <code>&lt;link rel="stylesheet" href="css/components/slider.css"&gt;</code>
+          <code>&lt;script src="js/core.js"&gt;&lt;/script&gt;</code>
+          <code>&lt;script src="js/components/slider.js"&gt;&lt;/script&gt;</code>
+        </div>
+
+        <!-- Basic Slider -->
+        <div class="section">
+          <h2 class="section-title">Basic Slider</h2>
+          <div class="demo-box">
+            <div class="slider-demo-item">
+              <label>Volume</label>
+              <div class="slider" data-slider data-value="50" id="basic-slider">
+                <div class="slider-track">
+                  <div class="slider-range"></div>
+                </div>
+                <div class="slider-thumb"></div>
+              </div>
+              <span class="slider-value" id="basic-value">50</span>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'basic-html')">HTML</button>
+            <button class="code-tab" onclick="BrandUILayout.showTab(this, 'basic-css')">CSS</button>
+            <button class="code-tab" onclick="BrandUILayout.showTab(this, 'basic-js')">JS</button>
+          </div>
+          <div class="code-block">
+            <div id="basic-html" class="code-panel active">
+              <div class="code-wrapper">
+                <pre><code>&lt;div class="slider" data-slider data-value="50"&gt;
+  &lt;div class="slider-track"&gt;
+    &lt;div class="slider-range"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="slider-thumb"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+            </div>
+            <div id="basic-css" class="code-panel">
+              <pre><code>/* Required CSS */
+@import "css/tokens.css";
+@import "css/components/slider.css";
+
+/* Structure: .slider > .slider-track > .slider-range + .slider-thumb */</code></pre>
+            </div>
+            <div id="basic-js" class="code-panel">
+              <pre><code>// Auto-initialized via data-slider attribute
+// Or manually initialize:
+const slider = BrandUI.components.Slider(element);
+
+// Listen for changes
+element.addEventListener('slider:change', (e) => {
+  console.log(e.detail.value);
+});</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Custom Range -->
+        <div class="section">
+          <h2 class="section-title">Custom Range</h2>
+          <div class="demo-box">
+            <div class="slider-demo-item" style="margin-bottom: 1.5rem;">
+              <label>Temperature (0-40, step 0.5)</label>
+              <div class="slider" data-slider data-min="0" data-max="40" data-step="0.5" data-value="22" id="temp-slider">
+                <div class="slider-track">
+                  <div class="slider-range"></div>
+                </div>
+                <div class="slider-thumb"></div>
+              </div>
+              <span class="slider-value" id="temp-value">22 °C</span>
+            </div>
+            <div class="slider-demo-item">
+              <label>Price ($0-$1000, step $50)</label>
+              <div class="slider" data-slider data-min="0" data-max="1000" data-step="50" data-value="250" id="price-slider">
+                <div class="slider-track">
+                  <div class="slider-range"></div>
+                </div>
+                <div class="slider-thumb"></div>
+              </div>
+              <span class="slider-value" id="price-value">$250</span>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'range-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="range-html" class="code-panel active">
+              <pre><code>&lt;!-- Temperature slider --&gt;
+&lt;div class="slider"
+     data-slider
+     data-min="0"
+     data-max="40"
+     data-step="0.5"
+     data-value="22"&gt;
+  &lt;div class="slider-track"&gt;
+    &lt;div class="slider-range"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="slider-thumb"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Price slider --&gt;
+&lt;div class="slider"
+     data-slider
+     data-min="0"
+     data-max="1000"
+     data-step="50"
+     data-value="250"&gt;
+  ...
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vertical Orientation -->
+        <div class="section">
+          <h2 class="section-title">Vertical Orientation</h2>
+          <div class="demo-box">
+            <div class="vertical-demo">
+              <div class="vertical-item">
+                <div class="slider" data-slider data-orientation="vertical" data-value="75" id="v1-slider">
+                  <div class="slider-track">
+                    <div class="slider-range"></div>
+                  </div>
+                  <div class="slider-thumb"></div>
+                </div>
+                <span class="slider-value" id="v1-value">75</span>
+              </div>
+              <div class="vertical-item">
+                <div class="slider" data-slider data-orientation="vertical" data-value="50" id="v2-slider">
+                  <div class="slider-track">
+                    <div class="slider-range"></div>
+                  </div>
+                  <div class="slider-thumb"></div>
+                </div>
+                <span class="slider-value" id="v2-value">50</span>
+              </div>
+              <div class="vertical-item">
+                <div class="slider" data-slider data-orientation="vertical" data-value="25" id="v3-slider">
+                  <div class="slider-track">
+                    <div class="slider-range"></div>
+                  </div>
+                  <div class="slider-thumb"></div>
+                </div>
+                <span class="slider-value" id="v3-value">25</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'vertical-html')">HTML</button>
+            <button class="code-tab" onclick="BrandUILayout.showTab(this, 'vertical-css')">CSS</button>
+          </div>
+          <div class="code-block">
+            <div id="vertical-html" class="code-panel active">
+              <pre><code>&lt;div class="slider"
+     data-slider
+     data-orientation="vertical"
+     data-value="75"&gt;
+  &lt;div class="slider-track"&gt;
+    &lt;div class="slider-range"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="slider-thumb"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <div id="vertical-css" class="code-panel">
+              <pre><code>/* Vertical slider container needs height */
+.slider[data-orientation="vertical"] {
+  height: 100%;
+  min-height: 11rem;
+  width: auto;
+  flex-direction: column;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Disabled State -->
+        <div class="section">
+          <h2 class="section-title">Disabled State</h2>
+          <div class="demo-box">
+            <div class="slider-demo-item">
+              <label>Disabled Slider</label>
+              <div class="slider" data-slider data-value="30" data-disabled="true">
+                <div class="slider-track">
+                  <div class="slider-range"></div>
+                </div>
+                <div class="slider-thumb"></div>
+              </div>
+              <span class="slider-value">30</span>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'disabled-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="disabled-html" class="code-panel active">
+              <pre><code>&lt;div class="slider" data-slider data-value="30" data-disabled="true"&gt;
+  &lt;div class="slider-track"&gt;
+    &lt;div class="slider-range"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="slider-thumb"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Programmatic Control -->
+        <div class="section">
+          <h2 class="section-title">Programmatic Control</h2>
+          <div class="demo-box">
+            <div class="slider-demo-item">
+              <label>Controlled Slider</label>
+              <div class="slider" data-slider data-value="50" id="controlled-slider">
+                <div class="slider-track">
+                  <div class="slider-range"></div>
+                </div>
+                <div class="slider-thumb"></div>
+              </div>
+              <span class="slider-value" id="controlled-value">50</span>
+            </div>
+            <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+              <button class="btn btn-outline btn-sm" onclick="setSliderValue(0)">Set 0</button>
+              <button class="btn btn-outline btn-sm" onclick="setSliderValue(25)">Set 25</button>
+              <button class="btn btn-outline btn-sm" onclick="setSliderValue(50)">Set 50</button>
+              <button class="btn btn-outline btn-sm" onclick="setSliderValue(75)">Set 75</button>
+              <button class="btn btn-outline btn-sm" onclick="setSliderValue(100)">Set 100</button>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'prog-js')">JS</button>
+          </div>
+          <div class="code-block">
+            <div id="prog-js" class="code-panel active">
+              <pre><code>// Get slider instance
+const slider = BrandUI.getInstance(element, 'slider');
+
+// Get current value
+console.log(slider.getValue()); // or slider.value
+
+// Set value programmatically
+slider.setValue(75);
+
+// Disable/enable
+slider.setDisabled(true);
+
+// Listen for changes
+element.addEventListener('slider:change', (e) => {
+  console.log(e.detail.value);
+  console.log(e.detail.min);
+  console.log(e.detail.max);
+});</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Data Attributes Reference -->
+        <div class="section">
+          <h2 class="section-title">Data Attributes Reference</h2>
+          <div class="demo-box" style="padding: 0; overflow: hidden;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+              <thead>
+                <tr style="background: var(--muted);">
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Attribute</th>
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Default</th>
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-slider</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">-</td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Required. Initializes the slider component.</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-min</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">0</td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Minimum value of the slider range.</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-max</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">100</td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Maximum value of the slider range.</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-step</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">1</td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Increment/decrement step value.</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-value</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">0</td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Initial value of the slider.</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-orientation</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">horizontal</td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Slider orientation: "horizontal" or "vertical".</td></tr>
+                <tr><td style="padding: 0.75rem 1rem;"><code>data-disabled</code></td><td style="padding: 0.75rem 1rem;">false</td><td style="padding: 0.75rem 1rem;">Set to "true" to disable the slider.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Keyboard Navigation -->
+        <div class="section">
+          <h2 class="section-title">Keyboard Navigation</h2>
+          <div class="demo-box" style="padding: 0; overflow: hidden;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+              <thead>
+                <tr style="background: var(--muted);">
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Key</th>
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>Arrow Right/Up</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Increase value by step</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>Arrow Left/Down</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Decrease value by step</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>Shift + Arrow</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Increase/decrease by 10x step</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>Home</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Jump to minimum value</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>End</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Jump to maximum value</td></tr>
+                <tr><td style="padding: 0.75rem 1rem;"><code>Page Up/Down</code></td><td style="padding: 0.75rem 1rem;">Large step (10% of range)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Brand UI JS -->
+  <script src="../js/core.js"></script>
+  <script src="../js/components/slider.js"></script>
+  <script src="../js/layout.js"></script>
+
+  <script>
+    // Update value displays when sliders change
+    document.querySelectorAll('[data-slider]').forEach((slider) => {
+      slider.addEventListener('slider:change', (e) => {
+        const value = e.detail.value;
+        const id = slider.id;
+
+        if (id === 'basic-slider') {
+          document.getElementById('basic-value').textContent = value;
+        } else if (id === 'temp-slider') {
+          document.getElementById('temp-value').textContent = value + ' °C';
+        } else if (id === 'price-slider') {
+          document.getElementById('price-value').textContent = '$' + value;
+        } else if (id === 'v1-slider') {
+          document.getElementById('v1-value').textContent = value;
+        } else if (id === 'v2-slider') {
+          document.getElementById('v2-value').textContent = value;
+        } else if (id === 'v3-slider') {
+          document.getElementById('v3-value').textContent = value;
+        } else if (id === 'controlled-slider') {
+          document.getElementById('controlled-value').textContent = value;
+        }
+      });
+    });
+
+    // Programmatic control
+    function setSliderValue(value) {
+      const sliderEl = document.getElementById('controlled-slider');
+      const sliderInstance = BrandUI.getInstance(sliderEl, 'slider');
+      if (sliderInstance) {
+        sliderInstance.setValue(value);
+        document.getElementById('controlled-value').textContent = value;
+      }
+    }
+  </script>
+</body>
+</html>

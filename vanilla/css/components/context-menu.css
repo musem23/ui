@@ -1,0 +1,261 @@
+/**
+ * Brand UI - Context Menu
+ * Right-click triggered dropdown menu
+ */
+
+/* Content Container */
+.context-menu-content {
+  position: fixed;
+  z-index: var(--z-popover);
+  min-width: 8rem;
+  max-height: 300px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0.25rem;
+  background: var(--popover);
+  color: var(--popover-foreground);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  outline: none;
+  opacity: 0;
+  transform: scale(0.95);
+  transform-origin: top left;
+  transition: opacity var(--transition-fast) var(--ease-out),
+              transform var(--transition-fast) var(--ease-out);
+  pointer-events: none;
+}
+
+.context-menu-content[data-state="open"] {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+/* Menu Item */
+.context-menu-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  cursor: default;
+  user-select: none;
+  outline: none;
+  transition: background-color var(--transition-fast) var(--ease-default),
+              color var(--transition-fast) var(--ease-default);
+}
+
+.context-menu-item:focus,
+.context-menu-item:hover:not([data-disabled]) {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.context-menu-item[data-disabled] {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.context-menu-item[data-inset="true"] {
+  padding-left: 2rem;
+}
+
+/* Destructive Variant */
+.context-menu-item[data-variant="destructive"] {
+  color: var(--destructive);
+}
+
+.context-menu-item[data-variant="destructive"]:focus,
+.context-menu-item[data-variant="destructive"]:hover:not([data-disabled]) {
+  background: oklch(from var(--destructive) l c h / 10%);
+  color: var(--destructive);
+}
+
+.dark .context-menu-item[data-variant="destructive"]:focus,
+.dark .context-menu-item[data-variant="destructive"]:hover:not([data-disabled]) {
+  background: oklch(from var(--destructive) l c h / 20%);
+}
+
+/* SVG Icons within Items */
+.context-menu-item svg {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  pointer-events: none;
+  color: var(--muted-foreground);
+}
+
+.context-menu-item:focus svg,
+.context-menu-item:hover:not([data-disabled]) svg {
+  color: currentColor;
+}
+
+.context-menu-item[data-variant="destructive"] svg {
+  color: var(--destructive);
+}
+
+/* Label */
+.context-menu-label {
+  padding: 0.375rem 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--foreground);
+  user-select: none;
+}
+
+.context-menu-label[data-inset="true"] {
+  padding-left: 2rem;
+}
+
+/* Separator */
+.context-menu-separator {
+  height: 1px;
+  margin: 0.25rem -0.25rem;
+  background: var(--border);
+}
+
+/* Shortcut */
+.context-menu-shortcut {
+  margin-left: auto;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: var(--muted-foreground);
+}
+
+/* Checkbox & Radio Items */
+.context-menu-checkbox-item,
+.context-menu-radio-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.5rem 0.375rem 2rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  cursor: default;
+  user-select: none;
+  outline: none;
+  transition: background-color var(--transition-fast) var(--ease-default),
+              color var(--transition-fast) var(--ease-default);
+}
+
+.context-menu-checkbox-item:focus,
+.context-menu-checkbox-item:hover:not([data-disabled]),
+.context-menu-radio-item:focus,
+.context-menu-radio-item:hover:not([data-disabled]) {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.context-menu-checkbox-item[data-disabled],
+.context-menu-radio-item[data-disabled] {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Indicator Container */
+.context-menu-indicator {
+  position: absolute;
+  left: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 0.875rem;
+  height: 0.875rem;
+  pointer-events: none;
+}
+
+.context-menu-indicator svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Hide indicator when not checked */
+.context-menu-checkbox-item:not([data-checked="true"]) .context-menu-indicator,
+.context-menu-radio-item:not([data-checked="true"]) .context-menu-indicator {
+  visibility: hidden;
+}
+
+/* Sub Menu Trigger */
+.context-menu-sub-trigger {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  cursor: default;
+  user-select: none;
+  outline: none;
+  transition: background-color var(--transition-fast) var(--ease-default),
+              color var(--transition-fast) var(--ease-default);
+}
+
+.context-menu-sub-trigger:focus,
+.context-menu-sub-trigger:hover,
+.context-menu-sub-trigger[data-state="open"] {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.context-menu-sub-trigger[data-inset="true"] {
+  padding-left: 2rem;
+}
+
+.context-menu-sub-trigger svg {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  pointer-events: none;
+  color: var(--muted-foreground);
+}
+
+.context-menu-sub-trigger .context-menu-chevron {
+  margin-left: auto;
+}
+
+/* Sub Content */
+.context-menu-sub-content {
+  position: fixed;
+  z-index: var(--z-popover);
+  min-width: 8rem;
+  max-height: 300px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0.25rem;
+  background: var(--popover);
+  color: var(--popover-foreground);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  outline: none;
+  opacity: 0;
+  transform: scale(0.95);
+  transform-origin: top left;
+  transition: opacity var(--transition-fast) var(--ease-out),
+              transform var(--transition-fast) var(--ease-out);
+  pointer-events: none;
+}
+
+.context-menu-sub-content[data-state="open"] {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+/* Group */
+.context-menu-group {
+  display: contents;
+}
+
+/* Radio Group */
+.context-menu-radio-group {
+  display: contents;
+}

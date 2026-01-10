@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Empty - Brand UI</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- All CSS -->
+  <link rel="stylesheet" href="../css/ui.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="app-sidebar">
+      <div class="app-sidebar-header">
+        <a href="../index.html">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          <span>Overview</span>
+        </a>
+      </div>
+      <div class="app-sidebar-content">
+        <div class="app-sidebar-group-label">Components</div>
+        <ul class="sidebar-menu" id="sidebar-menu"></ul>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="app-main">
+      <header class="app-header">
+        <div class="header-left">
+          <span>Empty</span>
+        </div>
+        <button id="theme-toggle" class="btn btn-ghost btn-sm">Dark</button>
+      </header>
+
+      <main class="app-content">
+        <h1 class="page-title">Empty</h1>
+        <p class="page-desc">A placeholder component for empty states with optional icon, title, description, and actions.</p>
+
+        <!-- Installation -->
+        <div class="install-box">
+          <p>Installation</p>
+          <code>&lt;link rel="stylesheet" href="css/components/empty.css"&gt;</code>
+        </div>
+
+        <!-- Basic Empty State -->
+        <section class="section">
+          <h2 class="section-title">Basic Empty State</h2>
+          <div class="demo-box" style="min-height: 300px; display: flex;">
+            <div class="empty">
+              <div class="empty-header">
+                <div class="empty-icon">
+                  <svg class="icon-lg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 3rem; height: 3rem;">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 13.5h3.86a2.25 2.25 0 0 1 2.012 1.244l.256.512a2.25 2.25 0 0 0 2.013 1.244h3.218a2.25 2.25 0 0 0 2.013-1.244l.256-.512a2.25 2.25 0 0 1 2.013-1.244h3.859m-19.5.338V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 0 0-2.15-1.588H6.911a2.25 2.25 0 0 0-2.15 1.588L2.35 13.177a2.25 2.25 0 0 0-.1.661Z" />
+                  </svg>
+                </div>
+                <div class="empty-title">No messages</div>
+                <div class="empty-description">You don't have any messages yet. Start a conversation to see your messages here.</div>
+              </div>
+              <div class="empty-actions">
+                <button class="btn btn-default">New Message</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'basic-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="basic-html" class="code-panel active">
+              <pre><code>&lt;div class="empty"&gt;
+  &lt;div class="empty-header"&gt;
+    &lt;div class="empty-icon"&gt;
+      &lt;svg ...&gt;...&lt;/svg&gt;
+    &lt;/div&gt;
+    &lt;div class="empty-title"&gt;No messages&lt;/div&gt;
+    &lt;div class="empty-description"&gt;You don't have any messages yet.&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="empty-actions"&gt;
+    &lt;button class="btn btn-default"&gt;New Message&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Empty State with Icon Variant -->
+        <section class="section">
+          <h2 class="section-title">Empty State with Icon Variant</h2>
+          <div class="demo-box" style="min-height: 300px; display: flex;">
+            <div class="empty">
+              <div class="empty-header">
+                <div class="empty-icon" data-variant="icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 1.5rem; height: 1.5rem;">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                  </svg>
+                </div>
+                <div class="empty-title">No documents</div>
+                <div class="empty-description">Upload your first document to get started with document management.</div>
+              </div>
+              <div class="empty-actions">
+                <button class="btn btn-default">Upload Document</button>
+                <button class="btn btn-outline">Learn More</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'icon-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="icon-html" class="code-panel active">
+              <pre><code>&lt;div class="empty-icon" data-variant="icon"&gt;
+  &lt;svg ...&gt;...&lt;/svg&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Search Empty State -->
+        <section class="section">
+          <h2 class="section-title">Search Empty State</h2>
+          <div class="demo-box" style="min-height: 300px; display: flex;">
+            <div class="empty">
+              <div class="empty-header">
+                <div class="empty-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 3rem; height: 3rem;">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                  </svg>
+                </div>
+                <div class="empty-title">No results found</div>
+                <div class="empty-description">We couldn't find anything matching your search. Try adjusting your filters or search term.</div>
+              </div>
+              <div class="empty-actions">
+                <button class="btn btn-secondary">Clear Search</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Empty State with Content -->
+        <section class="section">
+          <h2 class="section-title">Empty State with Content</h2>
+          <div class="demo-box" style="min-height: 300px; display: flex;">
+            <div class="empty">
+              <div class="empty-header">
+                <div class="empty-icon" data-variant="icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 1.5rem; height: 1.5rem;">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+                  </svg>
+                </div>
+                <div class="empty-title">No team members</div>
+                <div class="empty-description">Get started by inviting your first team member to collaborate.</div>
+              </div>
+              <div class="empty-content">
+                <p>Team members can help you manage projects, review documents, and collaborate on tasks.</p>
+              </div>
+              <div class="empty-actions">
+                <button class="btn btn-default">Invite Team Member</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'content-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="content-html" class="code-panel active">
+              <pre><code>&lt;div class="empty"&gt;
+  &lt;div class="empty-header"&gt;...&lt;/div&gt;
+  &lt;div class="empty-content"&gt;
+    &lt;p&gt;Additional content goes here.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="empty-actions"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Minimal Empty State -->
+        <section class="section">
+          <h2 class="section-title">Minimal Empty State</h2>
+          <div class="demo-box" style="min-height: 300px; display: flex;">
+            <div class="empty">
+              <div class="empty-header">
+                <div class="empty-title">Nothing here yet</div>
+                <div class="empty-description">This section is empty. <a href="#">Learn more</a> about what can go here.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'minimal-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="minimal-html" class="code-panel active">
+              <pre><code>&lt;div class="empty"&gt;
+  &lt;div class="empty-header"&gt;
+    &lt;div class="empty-title"&gt;Nothing here yet&lt;/div&gt;
+    &lt;div class="empty-description"&gt;This section is empty.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- CSS Classes Reference -->
+        <section class="section">
+          <h2 class="section-title">CSS Classes Reference</h2>
+          <div class="demo-box" style="padding: 0; overflow: hidden;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+              <thead>
+                <tr style="background: var(--muted);">
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Class</th>
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.empty</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Container for empty state</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.empty-header</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Groups icon, title, and description</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.empty-icon</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Icon container</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.empty-icon[data-variant="icon"]</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Smaller icon variant with background</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.empty-title</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Main heading text</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.empty-description</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Supporting description text</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.empty-content</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Additional content area</td></tr>
+                <tr><td style="padding: 0.75rem 1rem;"><code>.empty-actions</code></td><td style="padding: 0.75rem 1rem;">Action buttons container</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Core JS -->
+  <script src="../js/core.js"></script>
+  <script src="../js/layout.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+/**
+ * Brand UI - Switch Component
+ * Vanilla CSS for toggle switch
+ */
+
+.switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 2rem;
+  height: 1.15rem;
+  flex-shrink: 0;
+  cursor: pointer;
+  border-radius: var(--radius-full);
+  border: 1px solid transparent;
+  background-color: var(--input);
+  box-shadow: var(--shadow-xs);
+  transition: all var(--transition-fast) var(--ease-default);
+  outline: none;
+}
+
+/* Checked state */
+.switch[aria-checked="true"] {
+  background-color: var(--primary);
+}
+
+/* Focus visible */
+.switch:focus-visible {
+  border-color: var(--ring);
+  box-shadow: 0 0 0 3px oklch(from var(--ring) l c h / 50%);
+}
+
+/* Disabled state */
+.switch[aria-disabled="true"],
+.switch:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Thumb */
+.switch-thumb {
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  border-radius: var(--radius-full);
+  background-color: var(--background);
+  pointer-events: none;
+  transition: transform var(--transition-fast) var(--ease-default);
+  transform: translateX(0);
+}
+
+/* Thumb checked state */
+.switch[aria-checked="true"] .switch-thumb {
+  transform: translateX(calc(100% - 2px));
+}
+
+/* Dark mode adjustments */
+.dark .switch:not([aria-checked="true"]) {
+  background-color: oklch(from var(--input) l c h / 80%);
+}
+
+.dark .switch:not([aria-checked="true"]) .switch-thumb {
+  background-color: var(--foreground);
+}
+
+.dark .switch[aria-checked="true"] .switch-thumb {
+  background-color: var(--primary-foreground);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) .switch:not([aria-checked="true"]) {
+    background-color: oklch(from var(--input) l c h / 80%);
+  }
+
+  :root:not(.light) .switch:not([aria-checked="true"]) .switch-thumb {
+    background-color: var(--foreground);
+  }
+
+  :root:not(.light) .switch[aria-checked="true"] .switch-thumb {
+    background-color: var(--primary-foreground);
+  }
+}

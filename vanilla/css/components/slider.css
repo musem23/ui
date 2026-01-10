@@ -1,0 +1,122 @@
+/**
+ * Brand UI - Slider Component
+ * A draggable slider input for selecting numeric values
+ */
+
+/* Base slider container */
+.slider {
+  position: relative;
+  display: flex;
+  width: 100%;
+  touch-action: none;
+  user-select: none;
+  align-items: center;
+}
+
+.slider[data-disabled="true"] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Vertical orientation */
+.slider[data-orientation="vertical"] {
+  height: 100%;
+  min-height: 11rem;
+  width: auto;
+  flex-direction: column;
+}
+
+/* Track - the background bar */
+.slider-track {
+  position: relative;
+  flex-grow: 1;
+  overflow: hidden;
+  border-radius: var(--radius-full);
+  background-color: var(--muted);
+}
+
+/* Horizontal track */
+.slider[data-orientation="horizontal"] .slider-track,
+.slider:not([data-orientation]) .slider-track {
+  height: 0.375rem;
+  width: 100%;
+}
+
+/* Vertical track */
+.slider[data-orientation="vertical"] .slider-track {
+  height: 100%;
+  width: 0.375rem;
+}
+
+/* Range - the filled portion */
+.slider-range {
+  position: absolute;
+  background-color: var(--primary);
+}
+
+/* Horizontal range */
+.slider[data-orientation="horizontal"] .slider-range,
+.slider:not([data-orientation]) .slider-range {
+  height: 100%;
+}
+
+/* Vertical range */
+.slider[data-orientation="vertical"] .slider-range {
+  width: 100%;
+  bottom: 0;
+}
+
+/* Thumb - the draggable handle */
+.slider-thumb {
+  position: absolute;
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--primary);
+  background-color: white;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-fast) var(--ease-default);
+  cursor: grab;
+}
+
+.slider-thumb:active {
+  cursor: grabbing;
+}
+
+/* Thumb positioning for horizontal */
+.slider[data-orientation="horizontal"] .slider-thumb,
+.slider:not([data-orientation]) .slider-thumb {
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Thumb positioning for vertical */
+.slider[data-orientation="vertical"] .slider-thumb {
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
+/* Hover state */
+.slider-thumb:hover {
+  box-shadow: 0 0 0 4px oklch(var(--ring) / 0.5);
+}
+
+/* Focus state */
+.slider-thumb:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px oklch(var(--ring) / 0.5);
+}
+
+/* Disabled state */
+.slider[data-disabled="true"] .slider-thumb {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Dark mode adjustments */
+.dark .slider-thumb {
+  background-color: var(--background);
+  border-color: var(--primary);
+}

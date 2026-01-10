@@ -1,0 +1,53 @@
+/**
+ * Kbd Component
+ * Keyboard key indicator with border and shadow styling.
+ */
+
+/* Base Kbd */
+.kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  height: 1.25rem;
+  min-width: 1.25rem;
+  width: fit-content;
+  padding: 0 0.25rem;
+  background-color: var(--muted);
+  color: var(--muted-foreground);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* SVG icon sizing */
+.kbd > svg {
+  width: 0.75rem;
+  height: 0.75rem;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+/* Kbd Group - for combining multiple keys */
+.kbd-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* ============================================
+   Context: Inside Tooltip
+   ============================================ */
+[data-slot="tooltip-content"] .kbd {
+  background-color: oklch(from var(--background) l c h / 0.2);
+  color: var(--background);
+}
+
+.dark [data-slot="tooltip-content"] .kbd {
+  background-color: oklch(from var(--background) l c h / 0.1);
+}

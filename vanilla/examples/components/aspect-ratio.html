@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aspect Ratio - Brand UI</title>
+  <link rel="stylesheet" href="../css/ui.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="app-sidebar">
+      <div class="app-sidebar-header">
+        <a href="../index.html">← Overview</a>
+      </div>
+      <div class="app-sidebar-content">
+        <div class="app-sidebar-group-label">Components</div>
+        <ul class="sidebar-menu" id="sidebar-menu"></ul>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="app-main">
+      <header class="app-header">
+        <span>Aspect Ratio</span>
+        <button class="btn btn-ghost btn-sm" id="theme-toggle">Dark</button>
+      </header>
+
+      <div class="app-content">
+        <h1 class="page-title">Aspect Ratio</h1>
+        <p class="page-desc">Displays content within a desired ratio.</p>
+
+        <!-- 16:9 Aspect Ratio -->
+        <section class="section">
+          <h2 class="section-title">16:9 (Widescreen)</h2>
+          <p class="section-desc">
+            Common video aspect ratio for YouTube, streaming, and modern displays.
+          </p>
+          <div class="demo-box">
+            <div style="max-width: 500px;">
+              <div class="aspect-ratio aspect-ratio-16-9">
+                <img src="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80" alt="Demo image">
+              </div>
+            </div>
+          </div>
+          <div class="code-tabs">
+            <button class="code-tab active">HTML</button>
+          </div>
+          <div class="code-block">
+            <pre><code>&lt;div class="aspect-ratio aspect-ratio-16-9"&gt;
+  &lt;img src="..." alt="Image"&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </section>
+
+        <!-- 4:3 Aspect Ratio -->
+        <section class="section">
+          <h2 class="section-title">4:3 (Standard)</h2>
+          <p class="section-desc">
+            Classic photo and display aspect ratio.
+          </p>
+          <div class="demo-box">
+            <div style="max-width: 300px;">
+              <div class="aspect-ratio aspect-ratio-4-3">
+                <img src="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80" alt="Demo image">
+              </div>
+            </div>
+          </div>
+          <div class="code-tabs">
+            <button class="code-tab active">HTML</button>
+          </div>
+          <div class="code-block">
+            <pre><code>&lt;div class="aspect-ratio aspect-ratio-4-3"&gt;
+  &lt;img src="..." alt="Image"&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </section>
+
+        <!-- 1:1 Aspect Ratio -->
+        <section class="section">
+          <h2 class="section-title">1:1 (Square)</h2>
+          <p class="section-desc">
+            Perfect square, commonly used for profile pictures and thumbnails.
+          </p>
+          <div class="demo-box">
+            <div class="demo-row">
+              <div style="max-width: 200px;">
+                <div class="aspect-ratio aspect-ratio-1-1">
+                  <img src="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80" alt="Demo image">
+                </div>
+              </div>
+              <div style="max-width: 200px;">
+                <div class="aspect-ratio aspect-ratio-1-1">
+                  <div style="display: flex; align-items: center; justify-content: center; background: var(--muted); color: var(--muted-foreground); font-size: 0.875rem; border-radius: var(--radius); height: 100%;">1:1</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="code-tabs">
+            <button class="code-tab active">HTML</button>
+          </div>
+          <div class="code-block">
+            <pre><code>&lt;div class="aspect-ratio aspect-ratio-1-1"&gt;
+  &lt;img src="..." alt="Image"&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </section>
+
+        <!-- All Ratios Comparison -->
+        <section class="section">
+          <h2 class="section-title">All Ratios</h2>
+          <p class="section-desc">
+            Visual comparison of all available aspect ratios.
+          </p>
+          <div class="demo-box">
+            <div class="demo-row" style="align-items: flex-start;">
+              <div style="max-width: 150px;">
+                <div style="margin-bottom: 0.5rem; font-size: 0.875rem; color: var(--muted-foreground);">16:9</div>
+                <div class="aspect-ratio aspect-ratio-16-9">
+                  <div style="display: flex; align-items: center; justify-content: center; background: var(--muted); color: var(--muted-foreground); font-size: 0.875rem; border-radius: var(--radius); height: 100%;">16:9</div>
+                </div>
+              </div>
+              <div style="max-width: 150px;">
+                <div style="margin-bottom: 0.5rem; font-size: 0.875rem; color: var(--muted-foreground);">4:3</div>
+                <div class="aspect-ratio aspect-ratio-4-3">
+                  <div style="display: flex; align-items: center; justify-content: center; background: var(--muted); color: var(--muted-foreground); font-size: 0.875rem; border-radius: var(--radius); height: 100%;">4:3</div>
+                </div>
+              </div>
+              <div style="max-width: 150px;">
+                <div style="margin-bottom: 0.5rem; font-size: 0.875rem; color: var(--muted-foreground);">1:1</div>
+                <div class="aspect-ratio aspect-ratio-1-1">
+                  <div style="display: flex; align-items: center; justify-content: center; background: var(--muted); color: var(--muted-foreground); font-size: 0.875rem; border-radius: var(--radius); height: 100%;">1:1</div>
+                </div>
+              </div>
+              <div style="max-width: 150px;">
+                <div style="margin-bottom: 0.5rem; font-size: 0.875rem; color: var(--muted-foreground);">3:2</div>
+                <div class="aspect-ratio aspect-ratio-3-2">
+                  <div style="display: flex; align-items: center; justify-content: center; background: var(--muted); color: var(--muted-foreground); font-size: 0.875rem; border-radius: var(--radius); height: 100%;">3:2</div>
+                </div>
+              </div>
+            </div>
+            <div class="demo-row" style="margin-top: 1rem; align-items: flex-start;">
+              <div style="max-width: 150px;">
+                <div style="margin-bottom: 0.5rem; font-size: 0.875rem; color: var(--muted-foreground);">21:9</div>
+                <div class="aspect-ratio aspect-ratio-21-9">
+                  <div style="display: flex; align-items: center; justify-content: center; background: var(--muted); color: var(--muted-foreground); font-size: 0.875rem; border-radius: var(--radius); height: 100%;">21:9</div>
+                </div>
+              </div>
+              <div style="max-width: 100px;">
+                <div style="margin-bottom: 0.5rem; font-size: 0.875rem; color: var(--muted-foreground);">9:16</div>
+                <div class="aspect-ratio aspect-ratio-9-16">
+                  <div style="display: flex; align-items: center; justify-content: center; background: var(--muted); color: var(--muted-foreground); font-size: 0.875rem; border-radius: var(--radius); height: 100%;">9:16</div>
+                </div>
+              </div>
+              <div style="max-width: 100px;">
+                <div style="margin-bottom: 0.5rem; font-size: 0.875rem; color: var(--muted-foreground);">Portrait (3:4)</div>
+                <div class="aspect-ratio aspect-ratio-portrait">
+                  <div style="display: flex; align-items: center; justify-content: center; background: var(--muted); color: var(--muted-foreground); font-size: 0.875rem; border-radius: var(--radius); height: 100%;">3:4</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="code-tabs">
+            <button class="code-tab active">CSS Classes</button>
+          </div>
+          <div class="code-block">
+            <pre><code>&lt;!-- Available classes --&gt;
+.aspect-ratio-16-9    /* Widescreen video */
+.aspect-ratio-4-3     /* Standard photo */
+.aspect-ratio-1-1     /* Square */
+.aspect-ratio-3-2     /* DSLR photo */
+.aspect-ratio-21-9    /* Ultrawide */
+.aspect-ratio-9-16    /* Vertical video */
+.aspect-ratio-video   /* Same as 16:9 */
+.aspect-ratio-photo   /* Same as 4:3 */
+.aspect-ratio-portrait /* 3:4 ratio */</code></pre>
+          </div>
+        </section>
+
+        <!-- With Video -->
+        <section class="section">
+          <h2 class="section-title">With Video</h2>
+          <p class="section-desc">
+            Embedding responsive videos with maintained aspect ratio.
+          </p>
+          <div class="demo-box">
+            <div style="max-width: 500px;">
+              <div class="aspect-ratio aspect-ratio-video">
+                <iframe
+                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                  title="YouTube video"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                  style="border-radius: var(--radius);">
+                </iframe>
+              </div>
+            </div>
+          </div>
+          <div class="code-tabs">
+            <button class="code-tab active">HTML</button>
+          </div>
+          <div class="code-block">
+            <pre><code>&lt;div class="aspect-ratio aspect-ratio-video"&gt;
+  &lt;iframe src="https://youtube.com/embed/..." &gt;&lt;/iframe&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </section>
+
+        <!-- With Map -->
+        <section class="section">
+          <h2 class="section-title">With Map Embed</h2>
+          <p class="section-desc">
+            Embedding maps with consistent aspect ratio.
+          </p>
+          <div class="demo-box">
+            <div style="max-width: 500px;">
+              <div class="aspect-ratio aspect-ratio-16-9">
+                <iframe
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=-0.1304%2C51.5007%2C-0.1194%2C51.5063&layer=mapnik"
+                  style="border-radius: var(--radius); border: 1px solid var(--border);">
+                </iframe>
+              </div>
+            </div>
+          </div>
+          <div class="code-tabs">
+            <button class="code-tab active">HTML</button>
+          </div>
+          <div class="code-block">
+            <pre><code>&lt;div class="aspect-ratio aspect-ratio-16-9"&gt;
+  &lt;iframe src="https://maps.example.com/embed"&gt;&lt;/iframe&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/core.js"></script>
+  <script src="../js/layout.js"></script>
+</body>
+</html>

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tooltip - Brand UI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- All CSS -->
+  <link rel="stylesheet" href="../css/ui.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="app-sidebar">
+      <div class="app-sidebar-header">
+        <a href="../index.html">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          <span>Overview</span>
+        </a>
+      </div>
+      <div class="app-sidebar-content">
+        <div class="app-sidebar-group-label">Components</div>
+        <ul class="sidebar-menu" id="sidebar-menu"></ul>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="app-main">
+      <header class="app-header">
+        <div class="header-left">
+          <span>Tooltip</span>
+        </div>
+        <button id="theme-toggle" class="btn btn-ghost btn-sm">Dark</button>
+      </header>
+
+      <main class="app-content">
+        <h1 class="page-title">Tooltip</h1>
+        <p class="page-desc">Display helpful text when users hover over or focus on an element.</p>
+
+        <!-- Installation -->
+        <div class="install-box">
+          <p>Installation</p>
+          <code>&lt;link rel="stylesheet" href="css/components/tooltip.css"&gt;</code>
+          <code>&lt;script src="js/core.js"&gt;&lt;/script&gt;</code>
+          <code>&lt;script src="js/components/tooltip.js"&gt;&lt;/script&gt;</code>
+        </div>
+
+        <!-- Basic Tooltip -->
+        <div class="section">
+          <h2 class="section-title">Basic Tooltip</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <div class="tooltip" data-tooltip>
+                <button class="tooltip-trigger btn btn-default">Hover me</button>
+                <div class="tooltip-content">This is a tooltip</div>
+              </div>
+            </div>
+          </div>
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'basic-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="basic-html" class="code-panel active">
+              <pre><code>&lt;div class="tooltip" data-tooltip&gt;
+  &lt;button class="tooltip-trigger"&gt;Hover me&lt;/button&gt;
+  &lt;div class="tooltip-content"&gt;This is a tooltip&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Position: Top -->
+        <div class="section">
+          <h2 class="section-title">Position: Top (Default)</h2>
+          <div class="demo-box">
+            <div style="display: flex; justify-content: center; padding: 2rem;">
+              <div class="tooltip" data-tooltip data-tooltip-position="top">
+                <button class="tooltip-trigger btn btn-outline">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+                  Top
+                </button>
+                <div class="tooltip-content" data-position="top">Tooltip on top</div>
+              </div>
+            </div>
+          </div>
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'top-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="top-html" class="code-panel active">
+              <pre><code>&lt;div class="tooltip" data-tooltip data-tooltip-position="top"&gt;
+  &lt;button class="tooltip-trigger"&gt;Top&lt;/button&gt;
+  &lt;div class="tooltip-content" data-position="top"&gt;Tooltip on top&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Position: Right -->
+        <div class="section">
+          <h2 class="section-title">Position: Right</h2>
+          <div class="demo-box">
+            <div style="display: flex; justify-content: center; padding: 2rem;">
+              <div class="tooltip" data-tooltip data-tooltip-position="right">
+                <button class="tooltip-trigger btn btn-outline">
+                  Right
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
+                <div class="tooltip-content" data-position="right">Tooltip on right</div>
+              </div>
+            </div>
+          </div>
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'right-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="right-html" class="code-panel active">
+              <pre><code>&lt;div class="tooltip" data-tooltip data-tooltip-position="right"&gt;
+  &lt;button class="tooltip-trigger"&gt;Right&lt;/button&gt;
+  &lt;div class="tooltip-content" data-position="right"&gt;Tooltip on right&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Position: Bottom -->
+        <div class="section">
+          <h2 class="section-title">Position: Bottom</h2>
+          <div class="demo-box">
+            <div style="display: flex; justify-content: center; padding: 2rem;">
+              <div class="tooltip" data-tooltip data-tooltip-position="bottom">
+                <button class="tooltip-trigger btn btn-outline">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                  Bottom
+                </button>
+                <div class="tooltip-content" data-position="bottom">Tooltip on bottom</div>
+              </div>
+            </div>
+          </div>
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'bottom-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="bottom-html" class="code-panel active">
+              <pre><code>&lt;div class="tooltip" data-tooltip data-tooltip-position="bottom"&gt;
+  &lt;button class="tooltip-trigger"&gt;Bottom&lt;/button&gt;
+  &lt;div class="tooltip-content" data-position="bottom"&gt;Tooltip on bottom&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Position: Left -->
+        <div class="section">
+          <h2 class="section-title">Position: Left</h2>
+          <div class="demo-box">
+            <div style="display: flex; justify-content: center; padding: 2rem;">
+              <div class="tooltip" data-tooltip data-tooltip-position="left">
+                <button class="tooltip-trigger btn btn-outline">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                  Left
+                </button>
+                <div class="tooltip-content" data-position="left">Tooltip on left</div>
+              </div>
+            </div>
+          </div>
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'left-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="left-html" class="code-panel active">
+              <pre><code>&lt;div class="tooltip" data-tooltip data-tooltip-position="left"&gt;
+  &lt;button class="tooltip-trigger"&gt;Left&lt;/button&gt;
+  &lt;div class="tooltip-content" data-position="left"&gt;Tooltip on left&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- All Positions Grid -->
+        <div class="section">
+          <h2 class="section-title">All Positions</h2>
+          <div class="demo-box">
+            <div style="display: flex; justify-content: center; padding: 2rem;">
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; width: 240px;">
+                <div></div>
+                <div class="tooltip" data-tooltip data-tooltip-position="top">
+                  <button class="tooltip-trigger btn btn-ghost btn-icon" aria-label="Top tooltip">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+                  </button>
+                  <div class="tooltip-content" data-position="top">Top</div>
+                </div>
+                <div></div>
+
+                <div class="tooltip" data-tooltip data-tooltip-position="left">
+                  <button class="tooltip-trigger btn btn-ghost btn-icon" aria-label="Left tooltip">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                  </button>
+                  <div class="tooltip-content" data-position="left">Left</div>
+                </div>
+                <div></div>
+                <div class="tooltip" data-tooltip data-tooltip-position="right">
+                  <button class="tooltip-trigger btn btn-ghost btn-icon" aria-label="Right tooltip">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                  </button>
+                  <div class="tooltip-content" data-position="right">Right</div>
+                </div>
+
+                <div></div>
+                <div class="tooltip" data-tooltip data-tooltip-position="bottom">
+                  <button class="tooltip-trigger btn btn-ghost btn-icon" aria-label="Bottom tooltip">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                  </button>
+                  <div class="tooltip-content" data-position="bottom">Bottom</div>
+                </div>
+                <div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Custom Delay -->
+        <div class="section">
+          <h2 class="section-title">Custom Delay</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <div class="tooltip" data-tooltip data-tooltip-delay="0">
+                <button class="tooltip-trigger btn btn-secondary">No delay</button>
+                <div class="tooltip-content">Instant tooltip</div>
+              </div>
+              <div class="tooltip" data-tooltip data-tooltip-delay="200">
+                <button class="tooltip-trigger btn btn-secondary">200ms (default)</button>
+                <div class="tooltip-content">Default delay</div>
+              </div>
+              <div class="tooltip" data-tooltip data-tooltip-delay="500">
+                <button class="tooltip-trigger btn btn-secondary">500ms delay</button>
+                <div class="tooltip-content">Slower tooltip</div>
+              </div>
+            </div>
+          </div>
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'delay-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="delay-html" class="code-panel active">
+              <pre><code>&lt;div class="tooltip" data-tooltip data-tooltip-delay="0"&gt;
+  &lt;button class="tooltip-trigger"&gt;No delay&lt;/button&gt;
+  &lt;div class="tooltip-content"&gt;Instant tooltip&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="tooltip" data-tooltip data-tooltip-delay="500"&gt;
+  &lt;button class="tooltip-trigger"&gt;500ms delay&lt;/button&gt;
+  &lt;div class="tooltip-content"&gt;Slower tooltip&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rich Content -->
+        <div class="section">
+          <h2 class="section-title">Rich Content</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <div class="tooltip" data-tooltip>
+                <button class="tooltip-trigger btn btn-default">Learn more</button>
+                <div class="tooltip-content">
+                  This tooltip contains more detailed information that wraps to multiple lines when needed.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'rich-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="rich-html" class="code-panel active">
+              <pre><code>&lt;div class="tooltip" data-tooltip&gt;
+  &lt;button class="tooltip-trigger"&gt;Learn more&lt;/button&gt;
+  &lt;div class="tooltip-content"&gt;
+    This tooltip contains more detailed information
+    that wraps to multiple lines when needed.
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- JavaScript API -->
+        <div class="section">
+          <h2 class="section-title">JavaScript API</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <div class="tooltip" data-tooltip id="api-demo">
+                <button class="tooltip-trigger btn btn-outline">API Demo</button>
+                <div class="tooltip-content">Controlled via JS</div>
+              </div>
+              <button class="btn btn-secondary" onclick="showTooltip()">Show</button>
+              <button class="btn btn-secondary" onclick="hideTooltip()">Hide</button>
+              <button class="btn btn-secondary" onclick="toggleTooltip()">Toggle</button>
+            </div>
+          </div>
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'api-js')">JS</button>
+          </div>
+          <div class="code-block">
+            <div id="api-js" class="code-panel active">
+              <pre><code>// Get tooltip instance
+const element = document.querySelector('#my-tooltip');
+const tooltip = BrandUI.getInstance(element, 'tooltip');
+
+// Methods
+tooltip.show();           // Show the tooltip
+tooltip.hide();           // Hide the tooltip
+tooltip.toggle();         // Toggle visibility
+tooltip.setPosition('bottom');  // Change position
+tooltip.destroy();        // Destroy instance</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Data Attributes Reference -->
+        <div class="section">
+          <h2 class="section-title">Data Attributes Reference</h2>
+          <div class="demo-box" style="padding: 0; overflow: hidden;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+              <thead>
+                <tr style="background: var(--muted);">
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Attribute</th>
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Default</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-tooltip</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Initializes the tooltip component (required)</td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">-</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-tooltip-position</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Position of tooltip: top, right, bottom, left</td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">top</td></tr>
+                <tr><td style="padding: 0.75rem 1rem;"><code>data-tooltip-delay</code></td><td style="padding: 0.75rem 1rem;">Show delay in milliseconds</td><td style="padding: 0.75rem 1rem;">200</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- CSS Classes Reference -->
+        <div class="section">
+          <h2 class="section-title">CSS Classes Reference</h2>
+          <div class="demo-box" style="padding: 0; overflow: hidden;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+              <thead>
+                <tr style="background: var(--muted);">
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Class</th>
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.tooltip</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Wrapper element (required)</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.tooltip-trigger</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Element that triggers the tooltip</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.tooltip-content</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">The tooltip content container</td></tr>
+                <tr><td style="padding: 0.75rem 1rem;"><code>.is-visible</code></td><td style="padding: 0.75rem 1rem;">Applied to wrapper when tooltip is shown</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Events Reference -->
+        <div class="section">
+          <h2 class="section-title">Events Reference</h2>
+          <div class="demo-box" style="padding: 0; overflow: hidden;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+              <thead>
+                <tr style="background: var(--muted);">
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Event</th>
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>tooltip:show</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Fired when tooltip becomes visible</td></tr>
+                <tr><td style="padding: 0.75rem 1rem;"><code>tooltip:hide</code></td><td style="padding: 0.75rem 1rem;">Fired when tooltip is hidden</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Core JS -->
+  <script src="../js/core.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/components/tooltip.js"></script>
+
+  <script>
+    // API demo functions
+    function showTooltip() {
+      const element = document.querySelector('#api-demo');
+      const tooltip = BrandUI.getInstance(element, 'tooltip');
+      tooltip.show();
+    }
+
+    function hideTooltip() {
+      const element = document.querySelector('#api-demo');
+      const tooltip = BrandUI.getInstance(element, 'tooltip');
+      tooltip.hide();
+    }
+
+    function toggleTooltip() {
+      const element = document.querySelector('#api-demo');
+      const tooltip = BrandUI.getInstance(element, 'tooltip');
+      tooltip.toggle();
+    }
+  </script>
+</body>
+</html>

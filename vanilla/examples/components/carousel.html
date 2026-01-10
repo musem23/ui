@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carousel - Brand UI</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Brand UI CSS -->
+  <link rel="stylesheet" href="../css/ui.css">
+
+  <style>
+    /* Component-specific demo styles */
+    .demo-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 200px;
+      border-radius: var(--radius);
+      background: var(--muted);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--muted-foreground);
+    }
+
+    .image-slide {
+      aspect-ratio: 16 / 9;
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .image-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .carousel-item.card-slide {
+      flex: 0 0 calc(33.333% - 0.667rem);
+    }
+
+    .demo-card {
+      padding: 1.5rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .demo-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .demo-card p {
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+      margin: 0;
+    }
+
+    .carousel-wrapper {
+      padding: 0 4rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="app-sidebar">
+      <div class="app-sidebar-header">
+        <a href="../index.html">← Overview</a>
+      </div>
+      <div class="app-sidebar-content">
+        <div class="app-sidebar-group-label">Components</div>
+        <ul class="sidebar-menu" id="sidebar-menu"></ul>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="app-main">
+      <header class="app-header">
+        <div class="header-left">
+          <span>Carousel</span>
+        </div>
+        <button id="theme-toggle" class="btn btn-ghost btn-sm">Dark</button>
+      </header>
+
+      <main class="app-content">
+        <h1 class="page-title">Carousel</h1>
+        <p class="page-desc">A slide carousel component with navigation, dots, keyboard support, and touch/swipe gestures.</p>
+
+        <!-- Basic Carousel -->
+        <section class="section">
+          <h2 class="section-title">Basic Carousel</h2>
+          <p class="section-desc">Simple carousel with previous/next navigation and keyboard support (Arrow keys).</p>
+
+          <div class="carousel-wrapper">
+            <div class="carousel" data-carousel>
+              <div class="carousel-content">
+                <div class="carousel-track">
+                  <div class="carousel-item">
+                    <div class="demo-slide">Slide 1</div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="demo-slide">Slide 2</div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="demo-slide">Slide 3</div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="demo-slide">Slide 4</div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="demo-slide">Slide 5</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Carousel with Dots -->
+        <section class="section">
+          <h2 class="section-title">With Dot Indicators</h2>
+          <p class="section-desc">Carousel with dot navigation indicators for direct slide access.</p>
+
+          <div class="carousel-wrapper">
+            <div class="carousel" data-carousel data-carousel-show-dots="true">
+              <div class="carousel-content">
+                <div class="carousel-track">
+                  <div class="carousel-item">
+                    <div class="demo-slide" style="background: var(--chart-1);">Slide 1</div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="demo-slide" style="background: var(--chart-2);">Slide 2</div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="demo-slide" style="background: var(--chart-3);">Slide 3</div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="demo-slide" style="background: var(--chart-4);">Slide 4</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Loop Carousel -->
+        <section class="section">
+          <h2 class="section-title">Infinite Loop</h2>
+          <p class="section-desc">Carousel that loops back to the beginning when reaching the end.</p>
+
+          <div class="carousel-wrapper">
+            <div class="carousel" data-carousel data-carousel-loop="true" data-carousel-show-dots="true">
+              <div class="carousel-content">
+                <div class="carousel-track">
+                  <div class="carousel-item">
+                    <div class="demo-slide">Loop 1</div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="demo-slide">Loop 2</div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="demo-slide">Loop 3</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Autoplay Carousel -->
+        <section class="section">
+          <h2 class="section-title">Autoplay</h2>
+          <p class="section-desc">Automatically advances slides. Pauses on hover or focus.</p>
+
+          <div class="carousel-wrapper">
+            <div class="carousel" data-carousel data-carousel-autoplay="true" data-carousel-autoplay-interval="3000" data-carousel-loop="true" data-carousel-show-dots="true">
+              <div class="carousel-content">
+                <div class="carousel-track">
+                  <div class="carousel-item">
+                    <div class="demo-slide" style="background: oklch(0.75 0.15 150);">Auto 1</div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="demo-slide" style="background: oklch(0.75 0.15 200);">Auto 2</div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="demo-slide" style="background: oklch(0.75 0.15 250);">Auto 3</div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="demo-slide" style="background: oklch(0.75 0.15 300);">Auto 4</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Image Carousel -->
+        <section class="section">
+          <h2 class="section-title">Image Gallery</h2>
+          <p class="section-desc">Carousel optimized for images with swipe/drag support.</p>
+
+          <div class="carousel-wrapper">
+            <div class="carousel" data-carousel data-carousel-show-dots="true">
+              <div class="carousel-content">
+                <div class="carousel-track">
+                  <div class="carousel-item">
+                    <div class="image-slide">
+                      <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=450&fit=crop" alt="Mountain landscape">
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="image-slide">
+                      <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&h=450&fit=crop" alt="Foggy forest">
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="image-slide">
+                      <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=450&fit=crop" alt="Sunlit forest path">
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="image-slide">
+                      <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=450&fit=crop" alt="Valley with mountains">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Usage -->
+        <section class="section">
+          <h2 class="section-title">Usage</h2>
+
+          <h3 style="font-size: 1rem; margin-bottom: 0.75rem;">HTML Structure</h3>
+          <pre style="background: var(--muted); padding: 1rem; border-radius: var(--radius); overflow-x: auto; font-size: 0.875rem; font-family: var(--font-mono);"><code>&lt;div class="carousel" data-carousel&gt;
+  &lt;div class="carousel-content"&gt;
+    &lt;div class="carousel-track"&gt;
+      &lt;div class="carousel-item"&gt;Slide 1&lt;/div&gt;
+      &lt;div class="carousel-item"&gt;Slide 2&lt;/div&gt;
+      &lt;div class="carousel-item"&gt;Slide 3&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;!-- Navigation buttons auto-generated, or add manually --&gt;
+&lt;/div&gt;</code></pre>
+
+          <h3 style="font-size: 1rem; margin: 1.5rem 0 0.75rem;">Data Attributes</h3>
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+            <thead>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <th style="text-align: left; padding: 0.75rem 0; font-weight: 600;">Attribute</th>
+                <th style="text-align: left; padding: 0.75rem 0; font-weight: 600;">Default</th>
+                <th style="text-align: left; padding: 0.75rem 0; font-weight: 600;">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.75rem 0; font-family: var(--font-mono);">data-carousel</td>
+                <td style="padding: 0.75rem 0;">-</td>
+                <td style="padding: 0.75rem 0; color: var(--muted-foreground);">Required. Enables carousel.</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.75rem 0; font-family: var(--font-mono);">data-carousel-loop</td>
+                <td style="padding: 0.75rem 0;">false</td>
+                <td style="padding: 0.75rem 0; color: var(--muted-foreground);">Loop back to start/end.</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.75rem 0; font-family: var(--font-mono);">data-carousel-show-dots</td>
+                <td style="padding: 0.75rem 0;">false</td>
+                <td style="padding: 0.75rem 0; color: var(--muted-foreground);">Show dot indicators.</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.75rem 0; font-family: var(--font-mono);">data-carousel-autoplay</td>
+                <td style="padding: 0.75rem 0;">false</td>
+                <td style="padding: 0.75rem 0; color: var(--muted-foreground);">Auto-advance slides.</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.75rem 0; font-family: var(--font-mono);">data-carousel-autoplay-interval</td>
+                <td style="padding: 0.75rem 0;">5000</td>
+                <td style="padding: 0.75rem 0; color: var(--muted-foreground);">Autoplay interval (ms).</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.75rem 0; font-family: var(--font-mono);">data-carousel-orientation</td>
+                <td style="padding: 0.75rem 0;">horizontal</td>
+                <td style="padding: 0.75rem 0; color: var(--muted-foreground);">horizontal or vertical.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3 style="font-size: 1rem; margin: 1.5rem 0 0.75rem;">JavaScript API</h3>
+          <pre style="background: var(--muted); padding: 1rem; border-radius: var(--radius); overflow-x: auto; font-size: 0.875rem; font-family: var(--font-mono);"><code>// Get instance
+const carousel = BrandUI.getInstance(element, 'carousel');
+
+// Methods
+carousel.next();           // Go to next slide
+carousel.prev();           // Go to previous slide
+carousel.goTo(2);          // Go to specific slide (0-indexed)
+carousel.getCurrentIndex(); // Get current slide index
+carousel.getCount();       // Get total number of slides
+carousel.destroy();        // Clean up
+
+// Events
+element.addEventListener('carousel:change', (e) => {
+  console.log(e.detail.currentIndex, e.detail.previousIndex);
+});</code></pre>
+
+          <h3 style="font-size: 1rem; margin: 1.5rem 0 0.75rem;">Keyboard Navigation</h3>
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+            <thead>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <th style="text-align: left; padding: 0.75rem 0; font-weight: 600;">Key</th>
+                <th style="text-align: left; padding: 0.75rem 0; font-weight: 600;">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.75rem 0;"><kbd style="background: var(--muted); padding: 0.25rem 0.5rem; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.75rem;">ArrowLeft</kbd> / <kbd style="background: var(--muted); padding: 0.25rem 0.5rem; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.75rem;">ArrowUp</kbd></td>
+                <td style="padding: 0.75rem 0; color: var(--muted-foreground);">Previous slide</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.75rem 0;"><kbd style="background: var(--muted); padding: 0.25rem 0.5rem; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.75rem;">ArrowRight</kbd> / <kbd style="background: var(--muted); padding: 0.25rem 0.5rem; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.75rem;">ArrowDown</kbd></td>
+                <td style="padding: 0.75rem 0; color: var(--muted-foreground);">Next slide</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.75rem 0;"><kbd style="background: var(--muted); padding: 0.25rem 0.5rem; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.75rem;">Home</kbd></td>
+                <td style="padding: 0.75rem 0; color: var(--muted-foreground);">First slide</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 0.75rem 0;"><kbd style="background: var(--muted); padding: 0.25rem 0.5rem; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.75rem;">End</kbd></td>
+                <td style="padding: 0.75rem 0; color: var(--muted-foreground);">Last slide</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- Brand UI JS -->
+  <script src="../js/core.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/components/carousel.js"></script>
+</body>
+</html>

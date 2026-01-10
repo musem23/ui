@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radio Group - Brand UI</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- All CSS -->
+  <link rel="stylesheet" href="../css/ui.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="app-sidebar">
+      <div class="app-sidebar-header">
+        <a href="../index.html">← Overview</a>
+      </div>
+      <div class="app-sidebar-content">
+        <div class="app-sidebar-group-label">Components</div>
+        <ul class="sidebar-menu" id="sidebar-menu"></ul>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="app-main">
+      <header class="app-header">
+        <div class="header-left">
+          <span>Radio Group</span>
+        </div>
+        <button id="theme-toggle" class="btn btn-ghost btn-sm">Dark</button>
+      </header>
+
+      <main class="app-content">
+        <h1 class="page-title">Radio Group</h1>
+        <p class="page-desc">A set of checkable buttons where only one can be checked at a time.</p>
+
+        <!-- Basic -->
+        <section class="section">
+          <h2 class="section-title">Basic</h2>
+          <p class="section-desc">A simple radio group with vertical orientation.</p>
+          <div class="demo-box">
+            <div
+              class="radio-group"
+              role="radiogroup"
+              data-radio-group
+              aria-label="View density"
+            >
+              <div class="radio-group-wrapper">
+                <button
+                  type="button"
+                  id="density-default"
+                  class="radio-group-item"
+                  role="radio"
+                  aria-checked="true"
+                  data-value="default"
+                >
+                  <span class="radio-group-indicator"></span>
+                </button>
+                <label for="density-default">Default</label>
+              </div>
+
+              <div class="radio-group-wrapper">
+                <button
+                  type="button"
+                  id="density-comfortable"
+                  class="radio-group-item"
+                  role="radio"
+                  aria-checked="false"
+                  data-value="comfortable"
+                >
+                  <span class="radio-group-indicator"></span>
+                </button>
+                <label for="density-comfortable">Comfortable</label>
+              </div>
+
+              <div class="radio-group-wrapper">
+                <button
+                  type="button"
+                  id="density-compact"
+                  class="radio-group-item"
+                  role="radio"
+                  aria-checked="false"
+                  data-value="compact"
+                >
+                  <span class="radio-group-indicator"></span>
+                </button>
+                <label for="density-compact">Compact</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'basic-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="basic-html" class="code-panel active">
+              <pre><code>&lt;div class="radio-group" role="radiogroup" data-radio-group&gt;
+  &lt;div class="radio-group-wrapper"&gt;
+    &lt;button id="opt1" class="radio-group-item" role="radio" aria-checked="true" data-value="opt1"&gt;
+      &lt;span class="radio-group-indicator"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;label for="opt1"&gt;Option 1&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;!-- More options... --&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Horizontal Orientation -->
+        <section class="section">
+          <h2 class="section-title">Horizontal Orientation</h2>
+          <p class="section-desc">Radio group arranged horizontally.</p>
+          <div class="demo-box">
+            <div
+              class="radio-group"
+              role="radiogroup"
+              data-radio-group
+              data-orientation="horizontal"
+              aria-label="Select size"
+            >
+              <div class="radio-group-wrapper">
+                <button
+                  type="button"
+                  id="size-sm"
+                  class="radio-group-item"
+                  role="radio"
+                  aria-checked="false"
+                  data-value="sm"
+                >
+                  <span class="radio-group-indicator"></span>
+                </button>
+                <label for="size-sm">Small</label>
+              </div>
+
+              <div class="radio-group-wrapper">
+                <button
+                  type="button"
+                  id="size-md"
+                  class="radio-group-item"
+                  role="radio"
+                  aria-checked="true"
+                  data-value="md"
+                >
+                  <span class="radio-group-indicator"></span>
+                </button>
+                <label for="size-md">Medium</label>
+              </div>
+
+              <div class="radio-group-wrapper">
+                <button
+                  type="button"
+                  id="size-lg"
+                  class="radio-group-item"
+                  role="radio"
+                  aria-checked="false"
+                  data-value="lg"
+                >
+                  <span class="radio-group-indicator"></span>
+                </button>
+                <label for="size-lg">Large</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'horizontal-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="horizontal-html" class="code-panel active">
+              <pre><code>&lt;div class="radio-group" data-radio-group data-orientation="horizontal"&gt;
+  &lt;!-- Radio items... --&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Disabled -->
+        <section class="section">
+          <h2 class="section-title">Disabled</h2>
+          <p class="section-desc">Disabled radio items cannot be interacted with.</p>
+          <div class="demo-box">
+            <div
+              class="radio-group"
+              role="radiogroup"
+              data-radio-group
+              aria-label="Plan selection"
+            >
+              <div class="radio-group-wrapper">
+                <button
+                  type="button"
+                  id="plan-free"
+                  class="radio-group-item"
+                  role="radio"
+                  aria-checked="true"
+                  data-value="free"
+                >
+                  <span class="radio-group-indicator"></span>
+                </button>
+                <label for="plan-free">Free</label>
+              </div>
+
+              <div class="radio-group-wrapper">
+                <button
+                  type="button"
+                  id="plan-pro"
+                  class="radio-group-item"
+                  role="radio"
+                  aria-checked="false"
+                  data-value="pro"
+                >
+                  <span class="radio-group-indicator"></span>
+                </button>
+                <label for="plan-pro">Pro</label>
+              </div>
+
+              <div class="radio-group-wrapper">
+                <button
+                  type="button"
+                  id="plan-enterprise"
+                  class="radio-group-item"
+                  role="radio"
+                  aria-checked="false"
+                  data-value="enterprise"
+                  disabled
+                >
+                  <span class="radio-group-indicator"></span>
+                </button>
+                <label for="plan-enterprise">Enterprise (Coming Soon)</label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Invalid State -->
+        <section class="section">
+          <h2 class="section-title">Invalid State</h2>
+          <p class="section-desc">Radio group with validation error styling.</p>
+          <div class="demo-box">
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <div
+                class="radio-group"
+                role="radiogroup"
+                data-radio-group
+                aria-label="Required selection"
+                aria-invalid="true"
+              >
+                <div class="radio-group-wrapper">
+                  <button
+                    type="button"
+                    id="req-1"
+                    class="radio-group-item"
+                    role="radio"
+                    aria-checked="false"
+                    aria-invalid="true"
+                    data-value="opt1"
+                  >
+                    <span class="radio-group-indicator"></span>
+                  </button>
+                  <label for="req-1">Option 1</label>
+                </div>
+
+                <div class="radio-group-wrapper">
+                  <button
+                    type="button"
+                    id="req-2"
+                    class="radio-group-item"
+                    role="radio"
+                    aria-checked="false"
+                    aria-invalid="true"
+                    data-value="opt2"
+                  >
+                    <span class="radio-group-indicator"></span>
+                  </button>
+                  <label for="req-2">Option 2</label>
+                </div>
+              </div>
+              <p style="color: var(--destructive); font-size: 0.875rem; margin: 0;">Please select an option</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Form Example -->
+        <section class="section">
+          <h2 class="section-title">Form Example</h2>
+          <p class="section-desc">Radio group with event handling and state tracking.</p>
+          <div class="demo-box">
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <div
+                id="notification-group"
+                class="radio-group"
+                role="radiogroup"
+                data-radio-group
+                aria-label="Notification preference"
+              >
+                <div class="radio-group-wrapper">
+                  <button
+                    type="button"
+                    id="notify-all"
+                    class="radio-group-item"
+                    role="radio"
+                    aria-checked="true"
+                    data-value="all"
+                  >
+                    <span class="radio-group-indicator"></span>
+                  </button>
+                  <label for="notify-all">All notifications</label>
+                </div>
+
+                <div class="radio-group-wrapper">
+                  <button
+                    type="button"
+                    id="notify-mentions"
+                    class="radio-group-item"
+                    role="radio"
+                    aria-checked="false"
+                    data-value="mentions"
+                  >
+                    <span class="radio-group-indicator"></span>
+                  </button>
+                  <label for="notify-mentions">Mentions only</label>
+                </div>
+
+                <div class="radio-group-wrapper">
+                  <button
+                    type="button"
+                    id="notify-none"
+                    class="radio-group-item"
+                    role="radio"
+                    aria-checked="false"
+                    data-value="none"
+                  >
+                    <span class="radio-group-indicator"></span>
+                  </button>
+                  <label for="notify-none">None</label>
+                </div>
+              </div>
+
+              <div style="padding: 0.75rem 1rem; background: var(--muted); border-radius: var(--radius); font-family: var(--font-mono); font-size: 0.8125rem;" id="form-output">Selected: all</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Programmatic Control -->
+        <section class="section">
+          <h2 class="section-title">Programmatic Control</h2>
+          <p class="section-desc">Control radio group state via JavaScript API.</p>
+          <div class="demo-box">
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <div
+                id="controlled-group"
+                class="radio-group"
+                role="radiogroup"
+                data-radio-group
+                data-orientation="horizontal"
+                aria-label="Color selection"
+              >
+                <div class="radio-group-wrapper">
+                  <button
+                    type="button"
+                    id="color-red"
+                    class="radio-group-item"
+                    role="radio"
+                    aria-checked="false"
+                    data-value="red"
+                  >
+                    <span class="radio-group-indicator"></span>
+                  </button>
+                  <label for="color-red">Red</label>
+                </div>
+
+                <div class="radio-group-wrapper">
+                  <button
+                    type="button"
+                    id="color-green"
+                    class="radio-group-item"
+                    role="radio"
+                    aria-checked="false"
+                    data-value="green"
+                  >
+                    <span class="radio-group-indicator"></span>
+                  </button>
+                  <label for="color-green">Green</label>
+                </div>
+
+                <div class="radio-group-wrapper">
+                  <button
+                    type="button"
+                    id="color-blue"
+                    class="radio-group-item"
+                    role="radio"
+                    aria-checked="false"
+                    data-value="blue"
+                  >
+                    <span class="radio-group-indicator"></span>
+                  </button>
+                  <label for="color-blue">Blue</label>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <button onclick="setColor('red')" class="btn btn-default btn-sm">Select Red</button>
+                <button onclick="setColor('green')" class="btn btn-outline btn-sm">Select Green</button>
+                <button onclick="setColor('blue')" class="btn btn-outline btn-sm">Select Blue</button>
+              </div>
+
+              <div style="padding: 0.75rem 1rem; background: var(--muted); border-radius: var(--radius); font-family: var(--font-mono); font-size: 0.8125rem;" id="controlled-output">Selected: none</div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'control-js')">JS</button>
+          </div>
+          <div class="code-block">
+            <div id="control-js" class="code-panel active">
+              <pre><code>// Get radio group instance
+const group = BrandUI.getInstance(element, 'radio-group');
+
+// Get current value
+const value = group.getValue();
+
+// Set value programmatically
+group.setValue('option2');
+
+// Listen for changes
+element.addEventListener('radio-group:change', (e) => {
+  console.log('Selected:', e.detail.value);
+});</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Keyboard Navigation -->
+        <section class="section">
+          <h2 class="section-title">Keyboard Navigation</h2>
+          <p class="section-desc">Radio groups support full keyboard navigation.</p>
+          <div class="demo-box">
+            <ul style="font-size: 0.875rem; color: var(--muted-foreground); padding-left: 1.5rem; margin: 0; line-height: 2;">
+              <li><strong>Arrow Up/Down</strong> (vertical) or <strong>Arrow Left/Right</strong> (horizontal): Move and select</li>
+              <li><strong>Home</strong>: Move to first option</li>
+              <li><strong>End</strong>: Move to last option</li>
+              <li><strong>Space/Enter</strong>: Select current option</li>
+              <li><strong>Tab</strong>: Move focus to/from the group</li>
+            </ul>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- Core JS -->
+  <script src="../js/core.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/components/radio-group.js"></script>
+
+  <script>
+    // Form example - listen for changes
+    document.getElementById('notification-group').addEventListener('radio-group:change', (e) => {
+      document.getElementById('form-output').textContent = `Selected: ${e.detail.value}`;
+    });
+
+    // Programmatic control
+    function setColor(color) {
+      const element = document.getElementById('controlled-group');
+      const instance = BrandUI.getInstance(element, 'radio-group');
+      if (instance) {
+        instance.setValue(color);
+      }
+    }
+
+    // Listen for changes on controlled group
+    document.getElementById('controlled-group').addEventListener('radio-group:change', (e) => {
+      document.getElementById('controlled-output').textContent = `Selected: ${e.detail.value}`;
+    });
+  </script>
+</body>
+</html>

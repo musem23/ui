@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drawer - Brand UI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/ui.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="app-sidebar">
+      <div class="app-sidebar-header">
+        <a href="../index.html">← Overview</a>
+      </div>
+      <div class="app-sidebar-content">
+        <div class="app-sidebar-group-label">Components</div>
+        <ul class="sidebar-menu" id="sidebar-menu"></ul>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="app-main">
+      <header class="app-header">
+        <span style="font-size: 0.875rem; font-weight: 500;">Drawer</span>
+        <button class="btn btn-ghost btn-sm" id="theme-toggle">Toggle Theme</button>
+      </header>
+
+      <div class="app-content">
+        <h1 class="page-title">Drawer</h1>
+        <p class="page-desc">A mobile-friendly panel that slides in from the edge of the screen with drag-to-dismiss support.</p>
+
+        <!-- Installation -->
+        <div class="install-box">
+          <p>Installation</p>
+          <code>&lt;link rel="stylesheet" href="css/components/drawer.css"&gt;</code>
+          <code>&lt;script src="js/core.js"&gt;&lt;/script&gt;</code>
+          <code>&lt;script src="js/components/drawer.js"&gt;&lt;/script&gt;</code>
+        </div>
+
+        <!-- Bottom Drawer (Default) -->
+        <div class="section">
+          <h2 class="section-title">Bottom Drawer (Default)</h2>
+          <p class="section-desc">The default drawer slides up from the bottom. Drag down or swipe to dismiss.</p>
+
+          <div class="demo-box">
+            <div class="demo-row">
+              <button
+                class="btn btn-default"
+                data-drawer
+                data-drawer-target="drawer-bottom"
+                aria-controls="drawer-bottom"
+                aria-expanded="false"
+              >
+                Open Bottom Drawer
+              </button>
+            </div>
+          </div>
+
+          <!-- Drawer Markup -->
+          <div class="drawer-overlay" data-state="closed"></div>
+          <div
+            id="drawer-bottom"
+            class="drawer-content"
+            data-direction="bottom"
+            data-state="closed"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="drawer-bottom-title"
+          >
+            <div class="drawer-handle"></div>
+            <div class="drawer-header">
+              <h3 id="drawer-bottom-title" class="drawer-title">Edit Profile</h3>
+              <p class="drawer-description">Make changes to your profile here. Drag down to dismiss.</p>
+            </div>
+            <div class="drawer-body">
+              <div class="form-group" style="margin-bottom: 1rem;">
+                <label class="label" for="name" style="display: block; margin-bottom: 0.5rem;">Name</label>
+                <input class="input" type="text" id="name" value="John Doe">
+              </div>
+              <div class="form-group" style="margin-bottom: 1rem;">
+                <label class="label" for="email" style="display: block; margin-bottom: 0.5rem;">Email</label>
+                <input class="input" type="email" id="email" value="john@example.com">
+              </div>
+            </div>
+            <div class="drawer-footer">
+              <button class="btn btn-default" data-drawer-close>Save Changes</button>
+              <button class="btn btn-outline" data-drawer-close>Cancel</button>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'bottom-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="bottom-html" class="code-panel active">
+              <pre><code>&lt;!-- Trigger Button --&gt;
+&lt;button
+  data-drawer
+  data-drawer-target="my-drawer"
+  data-drawer-direction="bottom"
+  aria-controls="my-drawer"
+  aria-expanded="false"
+&gt;
+  Open Drawer
+&lt;/button&gt;
+
+&lt;!-- Drawer --&gt;
+&lt;div class="drawer-overlay" data-state="closed"&gt;&lt;/div&gt;
+&lt;div
+  id="my-drawer"
+  class="drawer-content"
+  data-direction="bottom"
+  data-state="closed"
+  role="dialog"
+  aria-modal="true"
+&gt;
+  &lt;div class="drawer-handle"&gt;&lt;/div&gt;
+  &lt;div class="drawer-header"&gt;
+    &lt;h3 class="drawer-title"&gt;Title&lt;/h3&gt;
+    &lt;p class="drawer-description"&gt;Description&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="drawer-body"&gt;
+    Content here
+  &lt;/div&gt;
+  &lt;div class="drawer-footer"&gt;
+    &lt;button data-drawer-close&gt;Close&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Top Drawer -->
+        <div class="section">
+          <h2 class="section-title">Top Drawer</h2>
+          <p class="section-desc">Slides down from the top. Useful for notifications or search.</p>
+
+          <div class="demo-box">
+            <div class="demo-row">
+              <button
+                class="btn btn-default"
+                data-drawer
+                data-drawer-target="drawer-top"
+                data-drawer-direction="top"
+                aria-controls="drawer-top"
+                aria-expanded="false"
+              >
+                Open Top Drawer
+              </button>
+            </div>
+          </div>
+
+          <!-- Drawer Markup -->
+          <div class="drawer-overlay" data-state="closed"></div>
+          <div
+            id="drawer-top"
+            class="drawer-content"
+            data-direction="top"
+            data-state="closed"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="drawer-top-title"
+          >
+            <div class="drawer-header">
+              <h3 id="drawer-top-title" class="drawer-title">Search</h3>
+              <p class="drawer-description">Search for anything across the platform.</p>
+            </div>
+            <div class="drawer-body">
+              <div class="form-group" style="margin-bottom: 1rem;">
+                <input class="input" type="search" placeholder="Type to search...">
+              </div>
+            </div>
+            <div class="drawer-footer">
+              <button class="btn btn-outline" data-drawer-close>Close</button>
+            </div>
+            <div class="drawer-handle"></div>
+          </div>
+        </div>
+
+        <!-- Right Drawer -->
+        <div class="section">
+          <h2 class="section-title">Right Drawer</h2>
+          <p class="section-desc">Slides in from the right. Common for sidebars and navigation.</p>
+
+          <div class="demo-box">
+            <div class="demo-row">
+              <button
+                class="btn btn-default"
+                data-drawer
+                data-drawer-target="drawer-right"
+                data-drawer-direction="right"
+                aria-controls="drawer-right"
+                aria-expanded="false"
+              >
+                Open Right Drawer
+              </button>
+            </div>
+          </div>
+
+          <!-- Drawer Markup -->
+          <div class="drawer-overlay" data-state="closed"></div>
+          <div
+            id="drawer-right"
+            class="drawer-content"
+            data-direction="right"
+            data-state="closed"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="drawer-right-title"
+          >
+            <button class="drawer-close" data-drawer-close aria-label="Close drawer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 6L6 18M6 6l12 12"/>
+              </svg>
+            </button>
+            <div class="drawer-header">
+              <h3 id="drawer-right-title" class="drawer-title">Settings</h3>
+              <p class="drawer-description">Manage your account settings.</p>
+            </div>
+            <div class="drawer-body">
+              <div class="menu-item" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; margin: 0 -1rem; cursor: pointer; transition: background-color 0.15s;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 1.25rem; height: 1.25rem; color: var(--muted-foreground);">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+                Profile
+              </div>
+              <div class="menu-item" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; margin: 0 -1rem; cursor: pointer; transition: background-color 0.15s;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 1.25rem; height: 1.25rem; color: var(--muted-foreground);">
+                  <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+                Account Settings
+              </div>
+              <div class="menu-item" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; margin: 0 -1rem; cursor: pointer; transition: background-color 0.15s;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 1.25rem; height: 1.25rem; color: var(--muted-foreground);">
+                  <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
+                  <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+                </svg>
+                Notifications
+              </div>
+              <div style="height: 1px; margin: 0.5rem 0; background-color: var(--border);"></div>
+              <div class="menu-item" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; margin: 0 -1rem; cursor: pointer; transition: background-color 0.15s;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 1.25rem; height: 1.25rem; color: var(--muted-foreground);">
+                  <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                  <polyline points="16 17 21 12 16 7"/>
+                  <line x1="21" x2="9" y1="12" y2="12"/>
+                </svg>
+                Log out
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Left Drawer -->
+        <div class="section">
+          <h2 class="section-title">Left Drawer</h2>
+          <p class="section-desc">Slides in from the left. Traditional menu/navigation pattern.</p>
+
+          <div class="demo-box">
+            <div class="demo-row">
+              <button
+                class="btn btn-default"
+                data-drawer
+                data-drawer-target="drawer-left"
+                data-drawer-direction="left"
+                aria-controls="drawer-left"
+                aria-expanded="false"
+              >
+                Open Left Drawer
+              </button>
+            </div>
+          </div>
+
+          <!-- Drawer Markup -->
+          <div class="drawer-overlay" data-state="closed"></div>
+          <div
+            id="drawer-left"
+            class="drawer-content"
+            data-direction="left"
+            data-state="closed"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="drawer-left-title"
+          >
+            <button class="drawer-close" data-drawer-close aria-label="Close drawer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 6L6 18M6 6l12 12"/>
+              </svg>
+            </button>
+            <div class="drawer-header">
+              <h3 id="drawer-left-title" class="drawer-title">Navigation</h3>
+            </div>
+            <div class="drawer-body">
+              <div class="menu-item" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; margin: 0 -1rem; cursor: pointer; transition: background-color 0.15s;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 1.25rem; height: 1.25rem; color: var(--muted-foreground);">
+                  <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                  <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+                Home
+              </div>
+              <div class="menu-item" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; margin: 0 -1rem; cursor: pointer; transition: background-color 0.15s;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 1.25rem; height: 1.25rem; color: var(--muted-foreground);">
+                  <rect width="7" height="7" x="3" y="3" rx="1"/>
+                  <rect width="7" height="7" x="14" y="3" rx="1"/>
+                  <rect width="7" height="7" x="14" y="14" rx="1"/>
+                  <rect width="7" height="7" x="3" y="14" rx="1"/>
+                </svg>
+                Dashboard
+              </div>
+              <div class="menu-item" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; margin: 0 -1rem; cursor: pointer; transition: background-color 0.15s;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 1.25rem; height: 1.25rem; color: var(--muted-foreground);">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+                Team
+              </div>
+              <div class="menu-item" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; margin: 0 -1rem; cursor: pointer; transition: background-color 0.15s;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 1.25rem; height: 1.25rem; color: var(--muted-foreground);">
+                  <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                </svg>
+                Documents
+              </div>
+              <div style="height: 1px; margin: 0.5rem 0; background-color: var(--border);"></div>
+              <div class="menu-item" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; margin: 0 -1rem; cursor: pointer; transition: background-color 0.15s;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 1.25rem; height: 1.25rem; color: var(--muted-foreground);">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                  <path d="M12 17h.01"/>
+                </svg>
+                Help
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Non-dismissible Drawer -->
+        <div class="section">
+          <h2 class="section-title">Non-dismissible Drawer</h2>
+          <p class="section-desc">Drawer that cannot be dismissed by dragging. Must use buttons to close.</p>
+
+          <div class="demo-box">
+            <div class="demo-row">
+              <button
+                class="btn btn-default"
+                data-drawer
+                data-drawer-target="drawer-nodismiss"
+                data-drawer-dismissible="false"
+                aria-controls="drawer-nodismiss"
+                aria-expanded="false"
+              >
+                Open Non-dismissible Drawer
+              </button>
+            </div>
+          </div>
+
+          <!-- Drawer Markup -->
+          <div class="drawer-overlay" data-state="closed"></div>
+          <div
+            id="drawer-nodismiss"
+            class="drawer-content"
+            data-direction="bottom"
+            data-state="closed"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="drawer-nodismiss-title"
+          >
+            <div class="drawer-handle" style="opacity: 0.5; cursor: default;"></div>
+            <div class="drawer-header">
+              <h3 id="drawer-nodismiss-title" class="drawer-title">Confirm Action</h3>
+              <p class="drawer-description">This drawer cannot be dismissed by dragging. You must use the buttons below.</p>
+            </div>
+            <div class="drawer-body">
+              <p style="color: var(--muted-foreground); font-size: 0.875rem;">
+                Are you sure you want to proceed with this action? This cannot be undone.
+              </p>
+            </div>
+            <div class="drawer-footer">
+              <button class="btn btn-default" data-drawer-close>Confirm</button>
+              <button class="btn btn-outline" data-drawer-close>Cancel</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Usage -->
+        <div class="section">
+          <h2 class="section-title">Usage</h2>
+          <div class="code-block" style="border-top: 1px solid var(--border); border-radius: 8px;">
+            <pre><code>&lt;!-- Trigger Button --&gt;
+&lt;button
+  data-drawer
+  data-drawer-target="my-drawer"
+  data-drawer-direction="bottom"
+  aria-controls="my-drawer"
+  aria-expanded="false"
+&gt;
+  Open Drawer
+&lt;/button&gt;
+
+&lt;!-- Drawer --&gt;
+&lt;div class="drawer-overlay" data-state="closed"&gt;&lt;/div&gt;
+&lt;div
+  id="my-drawer"
+  class="drawer-content"
+  data-direction="bottom"
+  data-state="closed"
+  role="dialog"
+  aria-modal="true"
+&gt;
+  &lt;div class="drawer-handle"&gt;&lt;/div&gt;
+  &lt;div class="drawer-header"&gt;
+    &lt;h3 class="drawer-title"&gt;Title&lt;/h3&gt;
+    &lt;p class="drawer-description"&gt;Description&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="drawer-body"&gt;
+    Content here
+  &lt;/div&gt;
+  &lt;div class="drawer-footer"&gt;
+    &lt;button data-drawer-close&gt;Close&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </div>
+
+        <!-- JavaScript API -->
+        <div class="section">
+          <h2 class="section-title">JavaScript API</h2>
+          <div class="code-block" style="border-top: 1px solid var(--border); border-radius: 8px;">
+            <pre><code>// Get or create instance
+const drawer = BrandUI.Drawer('#my-trigger');
+
+// Methods
+drawer.open();
+drawer.close();
+drawer.toggle();
+drawer.destroy();
+
+// Events
+element.addEventListener('drawer:open', (e) => {});
+element.addEventListener('drawer:close', (e) => {});</code></pre>
+          </div>
+        </div>
+
+        <!-- Options -->
+        <div class="section">
+          <h2 class="section-title">Options</h2>
+          <div class="demo-box" style="padding: 0; overflow: hidden;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+              <thead>
+                <tr style="background: var(--muted);">
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Option</th>
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Type</th>
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Default</th>
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--border);">
+                  <td style="padding: 0.75rem 1rem;"><code>direction</code></td>
+                  <td style="padding: 0.75rem 1rem; color: var(--muted-foreground);">string</td>
+                  <td style="padding: 0.75rem 1rem; color: var(--muted-foreground);">'bottom'</td>
+                  <td style="padding: 0.75rem 1rem;">Direction: 'top', 'bottom', 'left', 'right'</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border);">
+                  <td style="padding: 0.75rem 1rem;"><code>dismissible</code></td>
+                  <td style="padding: 0.75rem 1rem; color: var(--muted-foreground);">boolean</td>
+                  <td style="padding: 0.75rem 1rem; color: var(--muted-foreground);">true</td>
+                  <td style="padding: 0.75rem 1rem;">Allow drag-to-dismiss</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border);">
+                  <td style="padding: 0.75rem 1rem;"><code>closeOnOverlay</code></td>
+                  <td style="padding: 0.75rem 1rem; color: var(--muted-foreground);">boolean</td>
+                  <td style="padding: 0.75rem 1rem; color: var(--muted-foreground);">true</td>
+                  <td style="padding: 0.75rem 1rem;">Close when clicking overlay</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem;"><code>closeOnEscape</code></td>
+                  <td style="padding: 0.75rem 1rem; color: var(--muted-foreground);">boolean</td>
+                  <td style="padding: 0.75rem 1rem; color: var(--muted-foreground);">true</td>
+                  <td style="padding: 0.75rem 1rem;">Close when pressing Escape</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Brand UI JS -->
+  <script src="../js/core.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/components/drawer.js"></script>
+</body>
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Label - Brand UI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- All CSS -->
+  <link rel="stylesheet" href="../css/ui.css">
+
+  <style>
+    /* Form field helper */
+    .form-field { display: flex; flex-direction: column; gap: 0.5rem; }
+    .demo-col { display: flex; flex-direction: column; gap: 0.5rem; }
+  </style>
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="app-sidebar">
+      <div class="app-sidebar-header">
+        <a href="../index.html">← Overview</a>
+      </div>
+      <div class="app-sidebar-content">
+        <div class="app-sidebar-group-label">Components</div>
+        <ul class="sidebar-menu" id="sidebar-menu"></ul>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="app-main">
+      <header class="app-header">
+        <div class="header-left">
+          <span>Label</span>
+        </div>
+        <button id="theme-toggle" class="btn btn-ghost btn-sm">Dark</button>
+      </header>
+
+      <main class="app-content">
+        <h1 class="page-title">Label</h1>
+        <p class="page-desc">A text label for form controls with support for disabled and required states.</p>
+
+        <!-- Installation -->
+        <div class="install-box">
+          <p>Installation</p>
+          <code>&lt;link rel="stylesheet" href="css/components/label.css"&gt;</code>
+        </div>
+
+        <!-- Basic Label -->
+        <div class="section">
+          <h2 class="section-title">Basic Label</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <label class="label">Email</label>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'basic-html')">HTML</button>
+            <button class="code-tab" onclick="BrandUILayout.showTab(this, 'basic-css')">CSS</button>
+          </div>
+          <div class="code-block">
+            <div id="basic-html" class="code-panel active">
+              <div class="code-wrapper">
+                <pre><code>&lt;label class="label"&gt;Email&lt;/label&gt;</code></pre>
+              </div>
+            </div>
+            <div id="basic-css" class="code-panel">
+              <pre><code>/* Required CSS */
+@import "css/tokens.css";
+@import "css/components/label.css";
+
+/* Base label styles */
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1;
+  font-weight: 500;
+  user-select: none;
+  color: var(--foreground);
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Label with Input -->
+        <div class="section">
+          <h2 class="section-title">Label with Input</h2>
+          <div class="demo-box">
+            <div class="demo-col" style="width: 300px;">
+              <label class="label" for="email-input">Email</label>
+              <input type="email" id="email-input" class="input" placeholder="Enter your email">
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'input-html')">HTML</button>
+            <button class="code-tab" onclick="BrandUILayout.showTab(this, 'input-css')">CSS</button>
+          </div>
+          <div class="code-block">
+            <div id="input-html" class="code-panel active">
+              <div class="code-wrapper">
+                <pre><code>&lt;div class="form-field"&gt;
+  &lt;label class="label" for="email-input"&gt;Email&lt;/label&gt;
+  &lt;input type="email" id="email-input" class="input" placeholder="Enter your email"&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+            </div>
+            <div id="input-css" class="code-panel">
+              <pre><code>/* Required CSS */
+@import "css/tokens.css";
+@import "css/components/label.css";
+@import "css/components/input.css";
+
+/* Form field layout */
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Required Label -->
+        <div class="section">
+          <h2 class="section-title">Required Label</h2>
+          <div class="demo-box">
+            <div class="demo-col" style="width: 300px;">
+              <label class="label label-required" for="name-input">Full Name</label>
+              <input type="text" id="name-input" class="input" placeholder="Enter your full name" required>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'required-html')">HTML</button>
+            <button class="code-tab" onclick="BrandUILayout.showTab(this, 'required-css')">CSS</button>
+          </div>
+          <div class="code-block">
+            <div id="required-html" class="code-panel active">
+              <div class="code-wrapper">
+                <pre><code>&lt;label class="label label-required" for="name-input"&gt;Full Name&lt;/label&gt;
+&lt;input type="text" id="name-input" class="input" placeholder="Enter your full name" required&gt;</code></pre>
+              </div>
+            </div>
+            <div id="required-css" class="code-panel">
+              <pre><code>/* Required indicator */
+.label-required::after {
+  content: "*";
+  color: var(--destructive);
+  margin-left: 0.125rem;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sizes -->
+        <div class="section">
+          <h2 class="section-title">Sizes</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <label class="label label-sm">Small</label>
+              <label class="label">Default</label>
+              <label class="label label-lg">Large</label>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'sizes-html')">HTML</button>
+            <button class="code-tab" onclick="BrandUILayout.showTab(this, 'sizes-css')">CSS</button>
+          </div>
+          <div class="code-block">
+            <div id="sizes-html" class="code-panel active">
+              <div class="code-wrapper">
+                <pre><code>&lt;label class="label label-sm"&gt;Small&lt;/label&gt;
+&lt;label class="label"&gt;Default&lt;/label&gt;
+&lt;label class="label label-lg"&gt;Large&lt;/label&gt;</code></pre>
+              </div>
+            </div>
+            <div id="sizes-css" class="code-panel">
+              <pre><code>/* Size variants */
+.label-sm {
+  font-size: 0.75rem;
+}
+
+.label-lg {
+  font-size: 1rem;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Muted Label -->
+        <div class="section">
+          <h2 class="section-title">Muted Label</h2>
+          <div class="demo-box">
+            <div class="demo-col" style="width: 300px;">
+              <label class="label" for="password-input">Password</label>
+              <input type="password" id="password-input" class="input" placeholder="Enter password">
+              <label class="label label-muted label-sm">Must be at least 8 characters</label>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'muted-html')">HTML</button>
+            <button class="code-tab" onclick="BrandUILayout.showTab(this, 'muted-css')">CSS</button>
+          </div>
+          <div class="code-block">
+            <div id="muted-html" class="code-panel active">
+              <div class="code-wrapper">
+                <pre><code>&lt;label class="label"&gt;Password&lt;/label&gt;
+&lt;input type="password" class="input"&gt;
+&lt;label class="label label-muted label-sm"&gt;Must be at least 8 characters&lt;/label&gt;</code></pre>
+              </div>
+            </div>
+            <div id="muted-css" class="code-panel">
+              <pre><code>/* Optional modifier for muted labels */
+.label-muted {
+  color: var(--muted-foreground);
+  font-weight: 400;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Disabled State -->
+        <div class="section">
+          <h2 class="section-title">Disabled State</h2>
+          <div class="demo-box">
+            <div class="demo-col" style="width: 300px;">
+              <label class="label" data-disabled="true">Disabled Label</label>
+              <input type="text" class="input" value="Disabled input" disabled>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'disabled-html')">HTML</button>
+            <button class="code-tab" onclick="BrandUILayout.showTab(this, 'disabled-css')">CSS</button>
+          </div>
+          <div class="code-block">
+            <div id="disabled-html" class="code-panel active">
+              <div class="code-wrapper">
+                <pre><code>&lt;label class="label" data-disabled="true"&gt;Disabled Label&lt;/label&gt;
+&lt;input type="text" class="input" disabled&gt;</code></pre>
+              </div>
+            </div>
+            <div id="disabled-css" class="code-panel">
+              <pre><code>/* Disabled state when label is within a disabled group */
+.label[data-disabled="true"],
+[data-disabled="true"] .label {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Peer-disabled: When a sibling input is disabled, style the label */
+.label:has(+ input:disabled),
+.label:has(+ textarea:disabled),
+.label:has(+ select:disabled),
+input:disabled + .label,
+textarea:disabled + .label,
+select:disabled + .label {
+  cursor: not-allowed;
+  opacity: 0.5;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- With Icon -->
+        <div class="section">
+          <h2 class="section-title">With Icon</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <label class="label">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+                Secure Password
+              </label>
+              <label class="label">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                Email Address
+              </label>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'icon-html')">HTML</button>
+            <button class="code-tab" onclick="BrandUILayout.showTab(this, 'icon-css')">CSS</button>
+          </div>
+          <div class="code-block">
+            <div id="icon-html" class="code-panel active">
+              <div class="code-wrapper">
+                <pre><code>&lt;label class="label"&gt;
+  &lt;svg width="16" height="16" ...&gt;...&lt;/svg&gt;
+  Secure Password
+&lt;/label&gt;
+
+&lt;label class="label"&gt;
+  &lt;svg width="16" height="16" ...&gt;...&lt;/svg&gt;
+  Email Address
+&lt;/label&gt;</code></pre>
+              </div>
+            </div>
+            <div id="icon-css" class="code-panel">
+              <pre><code>/* Base Label - includes flex gap for icons */
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  /* ... */
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- CSS Classes Reference -->
+        <div class="section">
+          <h2 class="section-title">CSS Classes Reference</h2>
+          <div class="demo-box" style="padding: 0; overflow: hidden;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+              <thead>
+                <tr style="background: var(--muted);">
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Class</th>
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.label</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Base label class (required)</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.label-required</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Adds red asterisk indicator</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.label-muted</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Muted text color, lighter weight</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.label-sm</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Small size (0.75rem)</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.label-lg</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Large size (1rem)</td></tr>
+                <tr><td style="padding: 0.75rem 1rem;"><code>data-disabled="true"</code></td><td style="padding: 0.75rem 1rem;">Disabled state styling</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Core JS -->
+  <script src="../js/core.js"></script>
+  <script src="../js/layout.js"></script>
+</body>
+</html>

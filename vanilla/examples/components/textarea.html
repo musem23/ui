@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Textarea - Brand UI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- All CSS -->
+  <link rel="stylesheet" href="../css/ui.css">
+
+  <style>
+    /* Override demo-row for textarea layout */
+    .textarea-demo-row {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 400px;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="app-sidebar">
+      <div class="app-sidebar-header">
+        <a href="../index.html">
+          <span>← Overview</span>
+        </a>
+      </div>
+      <div class="app-sidebar-content">
+        <div class="app-sidebar-group-label">Components</div>
+        <ul class="sidebar-menu" id="sidebar-menu"></ul>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="app-main">
+      <header class="app-header">
+        <div class="header-left">
+          <span>Textarea</span>
+        </div>
+        <button id="theme-toggle" class="btn btn-ghost btn-sm">Dark</button>
+      </header>
+
+      <main class="app-content">
+        <h1 class="page-title">Textarea</h1>
+        <p class="page-desc">A multi-line text input component for longer form content.</p>
+
+        <!-- Installation -->
+        <div class="install-box">
+          <p>Installation</p>
+          <code>&lt;link rel="stylesheet" href="css/components/textarea.css"&gt;</code>
+        </div>
+
+        <!-- Default -->
+        <div class="section">
+          <h2 class="section-title">Default</h2>
+          <div class="demo-box">
+            <div class="textarea-demo-row">
+              <textarea class="textarea" placeholder="Type your message here..."></textarea>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'default-html')">HTML</button>
+            <button class="code-tab" onclick="BrandUILayout.showTab(this, 'default-css')">CSS</button>
+          </div>
+          <div class="code-block">
+            <div id="default-html" class="code-panel active">
+              <div class="code-wrapper">
+                <pre><code>&lt;textarea class="textarea" placeholder="Type your message here..."&gt;&lt;/textarea&gt;</code></pre>
+              </div>
+            </div>
+            <div id="default-css" class="code-panel">
+              <pre><code>/* Required CSS */
+@import "css/tokens.css";
+@import "css/components/textarea.css";
+
+/* Base class: .textarea */</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- With Placeholder -->
+        <div class="section">
+          <h2 class="section-title">With Placeholder</h2>
+          <div class="demo-box">
+            <div class="textarea-demo-row">
+              <textarea class="textarea" placeholder="Enter your feedback here..."></textarea>
+              <textarea class="textarea" placeholder="Write a detailed description..."></textarea>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'placeholder-html')">HTML</button>
+            <button class="code-tab" onclick="BrandUILayout.showTab(this, 'placeholder-css')">CSS</button>
+          </div>
+          <div class="code-block">
+            <div id="placeholder-html" class="code-panel active">
+              <pre><code>&lt;textarea class="textarea" placeholder="Enter your feedback here..."&gt;&lt;/textarea&gt;
+&lt;textarea class="textarea" placeholder="Write a detailed description..."&gt;&lt;/textarea&gt;</code></pre>
+            </div>
+            <div id="placeholder-css" class="code-panel">
+              <pre><code>.textarea::placeholder {
+  color: var(--muted-foreground);
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Disabled -->
+        <div class="section">
+          <h2 class="section-title">Disabled State</h2>
+          <div class="demo-box">
+            <div class="textarea-demo-row">
+              <textarea class="textarea" disabled placeholder="This textarea is disabled"></textarea>
+              <textarea class="textarea" disabled>This content cannot be edited.</textarea>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'disabled-html')">HTML</button>
+            <button class="code-tab" onclick="BrandUILayout.showTab(this, 'disabled-css')">CSS</button>
+          </div>
+          <div class="code-block">
+            <div id="disabled-html" class="code-panel active">
+              <pre><code>&lt;textarea class="textarea" disabled placeholder="This textarea is disabled"&gt;&lt;/textarea&gt;
+&lt;textarea class="textarea" disabled&gt;This content cannot be edited.&lt;/textarea&gt;</code></pre>
+            </div>
+            <div id="disabled-css" class="code-panel">
+              <pre><code>.textarea:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Invalid State -->
+        <div class="section">
+          <h2 class="section-title">Invalid State</h2>
+          <div class="demo-box">
+            <div class="textarea-demo-row">
+              <textarea class="textarea" aria-invalid="true">Too short</textarea>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'invalid-html')">HTML</button>
+            <button class="code-tab" onclick="BrandUILayout.showTab(this, 'invalid-css')">CSS</button>
+          </div>
+          <div class="code-block">
+            <div id="invalid-html" class="code-panel active">
+              <pre><code>&lt;textarea class="textarea" aria-invalid="true"&gt;Too short&lt;/textarea&gt;</code></pre>
+            </div>
+            <div id="invalid-css" class="code-panel">
+              <pre><code>.textarea[aria-invalid="true"] {
+  border-color: var(--destructive);
+  box-shadow: var(--shadow-xs), 0 0 0 3px oklch(from var(--destructive) l c h / 20%);
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- With Default Value -->
+        <div class="section">
+          <h2 class="section-title">With Default Value</h2>
+          <div class="demo-box">
+            <div class="textarea-demo-row">
+              <textarea class="textarea">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</textarea>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'value-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="value-html" class="code-panel active">
+              <pre><code>&lt;textarea class="textarea"&gt;Your pre-filled content here...&lt;/textarea&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Custom Height -->
+        <div class="section">
+          <h2 class="section-title">Custom Height</h2>
+          <div class="demo-box">
+            <div class="textarea-demo-row">
+              <textarea class="textarea" style="min-height: 8rem;" placeholder="Taller textarea (8rem)"></textarea>
+              <textarea class="textarea" style="min-height: 12rem;" placeholder="Even taller textarea (12rem)"></textarea>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'height-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="height-html" class="code-panel active">
+              <pre><code>&lt;textarea class="textarea" style="min-height: 8rem;" placeholder="Taller textarea"&gt;&lt;/textarea&gt;
+&lt;textarea class="textarea" style="min-height: 12rem;" placeholder="Even taller"&gt;&lt;/textarea&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Read-only State -->
+        <div class="section">
+          <h2 class="section-title">Read-only State</h2>
+          <div class="demo-box">
+            <div class="textarea-demo-row">
+              <textarea class="textarea" readonly>This content is read-only and cannot be modified by the user.</textarea>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'readonly-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="readonly-html" class="code-panel active">
+              <pre><code>&lt;textarea class="textarea" readonly&gt;Read-only content...&lt;/textarea&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- CSS Classes Reference -->
+        <div class="section">
+          <h2 class="section-title">CSS Classes Reference</h2>
+          <div class="demo-box" style="padding: 0; overflow: hidden;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+              <thead>
+                <tr style="background: var(--muted);">
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Class / Attribute</th>
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.textarea</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Base textarea class (required)</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>placeholder</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">HTML attribute for placeholder text</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>disabled</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">HTML attribute for disabled state (opacity 0.5, cursor not-allowed)</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>aria-invalid="true"</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Attribute for invalid/error state styling</td></tr>
+                <tr><td style="padding: 0.75rem 1rem;"><code>readonly</code></td><td style="padding: 0.75rem 1rem;">HTML attribute for read-only state</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Core JS -->
+  <script src="../js/core.js"></script>
+  <script src="../js/layout.js"></script>
+</body>
+</html>

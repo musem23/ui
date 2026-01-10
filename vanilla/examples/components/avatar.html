@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avatar - Brand UI</title>
+  <link rel="stylesheet" href="../css/ui.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="app-sidebar">
+      <div class="app-sidebar-header">
+        <a href="../index.html">← Overview</a>
+      </div>
+      <div class="app-sidebar-content">
+        <div class="app-sidebar-group-label">Components</div>
+        <ul class="sidebar-menu" id="sidebar-menu"></ul>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="app-main">
+      <header class="app-header">
+        <span>Avatar</span>
+        <button class="btn btn-ghost btn-sm" id="theme-toggle">Dark</button>
+      </header>
+
+      <div class="app-content">
+        <h1 class="page-title">Avatar</h1>
+        <p class="page-desc">An image element with a fallback for representing the user.</p>
+
+        <!-- Installation -->
+        <div class="install-box">
+          <p>Installation</p>
+          <code>&lt;link rel="stylesheet" href="css/components/avatar.css"&gt;</code>
+        </div>
+
+        <!-- With Image -->
+        <section class="section">
+          <h2 class="section-title">With Image</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <div class="avatar">
+                <img class="avatar-image" src="https://i.pravatar.cc/150?img=1" alt="User avatar">
+              </div>
+              <div class="avatar avatar-md">
+                <img class="avatar-image" src="https://i.pravatar.cc/150?img=2" alt="User avatar">
+              </div>
+              <div class="avatar avatar-lg">
+                <img class="avatar-image" src="https://i.pravatar.cc/150?img=3" alt="User avatar">
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'image-html')">HTML</button>
+            <button class="code-tab" onclick="BrandUILayout.showTab(this, 'image-css')">CSS</button>
+          </div>
+          <div class="code-block">
+            <div id="image-html" class="code-panel active">
+              <div class="code-wrapper">
+                <pre><code>&lt;div class="avatar"&gt;
+  &lt;img class="avatar-image" src="..." alt="User avatar"&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+            </div>
+            <div id="image-css" class="code-panel">
+              <pre><code>/* Required CSS */
+@import "css/tokens.css";
+@import "css/components/avatar.css";</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- With Fallback -->
+        <section class="section">
+          <h2 class="section-title">With Fallback Initials</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <div class="avatar">
+                <span class="avatar-fallback">JD</span>
+              </div>
+              <div class="avatar avatar-md">
+                <span class="avatar-fallback">AB</span>
+              </div>
+              <div class="avatar avatar-lg">
+                <span class="avatar-fallback">MK</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'fallback-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="fallback-html" class="code-panel active">
+              <pre><code>&lt;div class="avatar"&gt;
+  &lt;span class="avatar-fallback"&gt;JD&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class="avatar avatar-md"&gt;
+  &lt;span class="avatar-fallback"&gt;AB&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class="avatar avatar-lg"&gt;
+  &lt;span class="avatar-fallback"&gt;MK&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Sizes -->
+        <section class="section">
+          <h2 class="section-title">Sizes</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <div class="avatar avatar-xs">
+                <img class="avatar-image" src="https://i.pravatar.cc/150?img=4" alt="User avatar">
+              </div>
+              <div class="avatar avatar-sm">
+                <img class="avatar-image" src="https://i.pravatar.cc/150?img=5" alt="User avatar">
+              </div>
+              <div class="avatar avatar-md">
+                <img class="avatar-image" src="https://i.pravatar.cc/150?img=6" alt="User avatar">
+              </div>
+              <div class="avatar avatar-lg">
+                <img class="avatar-image" src="https://i.pravatar.cc/150?img=7" alt="User avatar">
+              </div>
+              <div class="avatar avatar-xl">
+                <img class="avatar-image" src="https://i.pravatar.cc/150?img=8" alt="User avatar">
+              </div>
+              <div class="avatar avatar-2xl">
+                <img class="avatar-image" src="https://i.pravatar.cc/150?img=9" alt="User avatar">
+              </div>
+            </div>
+            <div class="demo-row" style="margin-top: 1rem;">
+              <div class="avatar avatar-xs">
+                <span class="avatar-fallback">XS</span>
+              </div>
+              <div class="avatar avatar-sm">
+                <span class="avatar-fallback">SM</span>
+              </div>
+              <div class="avatar avatar-md">
+                <span class="avatar-fallback">MD</span>
+              </div>
+              <div class="avatar avatar-lg">
+                <span class="avatar-fallback">LG</span>
+              </div>
+              <div class="avatar avatar-xl">
+                <span class="avatar-fallback">XL</span>
+              </div>
+              <div class="avatar avatar-2xl">
+                <span class="avatar-fallback">2XL</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'sizes-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="sizes-html" class="code-panel active">
+              <pre><code>&lt;div class="avatar avatar-xs"&gt;...&lt;/div&gt;  &lt;!-- 1.5rem --&gt;
+&lt;div class="avatar avatar-sm"&gt;...&lt;/div&gt;  &lt;!-- 2rem --&gt;
+&lt;div class="avatar avatar-md"&gt;...&lt;/div&gt;  &lt;!-- 2.5rem --&gt;
+&lt;div class="avatar avatar-lg"&gt;...&lt;/div&gt;  &lt;!-- 3rem --&gt;
+&lt;div class="avatar avatar-xl"&gt;...&lt;/div&gt;  &lt;!-- 4rem --&gt;
+&lt;div class="avatar avatar-2xl"&gt;...&lt;/div&gt; &lt;!-- 5rem --&gt;</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Avatar Group -->
+        <section class="section">
+          <h2 class="section-title">Avatar Group</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <div class="avatar-group">
+                <div class="avatar">
+                  <img class="avatar-image" src="https://i.pravatar.cc/150?img=10" alt="User avatar">
+                </div>
+                <div class="avatar">
+                  <img class="avatar-image" src="https://i.pravatar.cc/150?img=11" alt="User avatar">
+                </div>
+                <div class="avatar">
+                  <img class="avatar-image" src="https://i.pravatar.cc/150?img=12" alt="User avatar">
+                </div>
+                <div class="avatar">
+                  <span class="avatar-fallback">+3</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'group-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="group-html" class="code-panel active">
+              <pre><code>&lt;div class="avatar-group"&gt;
+  &lt;div class="avatar"&gt;
+    &lt;img class="avatar-image" src="..." alt="User avatar"&gt;
+  &lt;/div&gt;
+  &lt;div class="avatar"&gt;
+    &lt;img class="avatar-image" src="..." alt="User avatar"&gt;
+  &lt;/div&gt;
+  &lt;div class="avatar"&gt;
+    &lt;span class="avatar-fallback"&gt;+3&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- With Status -->
+        <section class="section">
+          <h2 class="section-title">With Status Indicator</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <div class="avatar avatar-lg">
+                <img class="avatar-image" src="https://i.pravatar.cc/150?img=13" alt="User avatar">
+                <span class="avatar-status avatar-status-online"></span>
+              </div>
+              <div class="avatar avatar-lg">
+                <img class="avatar-image" src="https://i.pravatar.cc/150?img=14" alt="User avatar">
+                <span class="avatar-status avatar-status-offline"></span>
+              </div>
+              <div class="avatar avatar-lg">
+                <img class="avatar-image" src="https://i.pravatar.cc/150?img=15" alt="User avatar">
+                <span class="avatar-status avatar-status-busy"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'status-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="status-html" class="code-panel active">
+              <pre><code>&lt;div class="avatar avatar-lg"&gt;
+  &lt;img class="avatar-image" src="..." alt="User avatar"&gt;
+  &lt;span class="avatar-status avatar-status-online"&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class="avatar avatar-lg"&gt;
+  &lt;img class="avatar-image" src="..." alt="User avatar"&gt;
+  &lt;span class="avatar-status avatar-status-offline"&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class="avatar avatar-lg"&gt;
+  &lt;img class="avatar-image" src="..." alt="User avatar"&gt;
+  &lt;span class="avatar-status avatar-status-busy"&gt;&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- CSS Classes Reference -->
+        <section class="section">
+          <h2 class="section-title">CSS Classes Reference</h2>
+          <div class="demo-box" style="padding: 0; overflow: hidden;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+              <thead>
+                <tr style="background: var(--muted);">
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Class</th>
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.avatar</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Base avatar container (required)</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.avatar-image</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Avatar image element</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.avatar-fallback</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Fallback element for initials</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.avatar-xs</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Extra small size (1.5rem)</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.avatar-sm</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Small size (2rem, default)</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.avatar-md</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Medium size (2.5rem)</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.avatar-lg</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Large size (3rem)</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.avatar-xl</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Extra large size (4rem)</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.avatar-2xl</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">2x extra large size (5rem)</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.avatar-group</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Container for stacked avatars</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.avatar-status</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Base status indicator</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.avatar-status-online</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Green online status</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.avatar-status-offline</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Gray offline status</td></tr>
+                <tr><td style="padding: 0.75rem 1rem;"><code>.avatar-status-busy</code></td><td style="padding: 0.75rem 1rem;">Red busy status</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/core.js"></script>
+  <script src="../js/layout.js"></script>
+</body>
+</html>

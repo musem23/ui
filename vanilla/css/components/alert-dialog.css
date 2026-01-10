@@ -1,0 +1,198 @@
+/**
+ * Brand UI - Alert Dialog Component
+ * Modal dialog for critical actions requiring user confirmation
+ */
+
+/* ============================================
+   OVERLAY
+   ============================================ */
+
+.alert-dialog-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  background-color: rgb(0 0 0 / 0.5);
+  opacity: 0;
+  transition: opacity var(--transition-normal) var(--ease-default);
+}
+
+.alert-dialog-overlay[data-state="open"] {
+  opacity: 1;
+}
+
+.alert-dialog-overlay[data-state="closed"] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ============================================
+   CONTENT
+   ============================================ */
+
+.alert-dialog-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: var(--z-modal);
+  display: grid;
+  width: 100%;
+  max-width: calc(100% - 2rem);
+  gap: 1rem;
+  padding: 1.5rem;
+  background-color: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  transform: translate(-50%, -50%) scale(0.95);
+  opacity: 0;
+  transition:
+    opacity var(--transition-normal) var(--ease-default),
+    transform var(--transition-normal) var(--ease-default);
+}
+
+@media (min-width: 640px) {
+  .alert-dialog-content {
+    max-width: 32rem;
+  }
+}
+
+.alert-dialog-content[data-state="open"] {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.alert-dialog-content[data-state="closed"] {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.95);
+  pointer-events: none;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+.alert-dialog-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .alert-dialog-header {
+    text-align: left;
+  }
+}
+
+/* ============================================
+   TITLE
+   ============================================ */
+
+.alert-dialog-title {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--foreground);
+}
+
+/* ============================================
+   DESCRIPTION
+   ============================================ */
+
+.alert-dialog-description {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--muted-foreground);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.alert-dialog-footer {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .alert-dialog-footer {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.alert-dialog-action,
+.alert-dialog-cancel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 2.5rem;
+  padding: 0 1rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition:
+    background-color var(--transition-fast) var(--ease-default),
+    border-color var(--transition-fast) var(--ease-default),
+    color var(--transition-fast) var(--ease-default),
+    opacity var(--transition-fast) var(--ease-default);
+}
+
+.alert-dialog-action:focus-visible,
+.alert-dialog-cancel:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.alert-dialog-action:disabled,
+.alert-dialog-cancel:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Action Button (Primary) */
+.alert-dialog-action {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  border: none;
+}
+
+.alert-dialog-action:hover {
+  background-color: var(--primary);
+  opacity: 0.9;
+}
+
+/* Cancel Button (Outline) */
+.alert-dialog-cancel {
+  background-color: var(--background);
+  color: var(--foreground);
+  border: 1px solid var(--input);
+}
+
+.alert-dialog-cancel:hover {
+  background-color: var(--accent);
+  color: var(--accent-foreground);
+}
+
+/* Destructive Action Button */
+.alert-dialog-action[data-variant="destructive"] {
+  background-color: var(--destructive);
+  color: var(--destructive-foreground);
+}
+
+.alert-dialog-action[data-variant="destructive"]:hover {
+  background-color: var(--destructive);
+  opacity: 0.9;
+}

@@ -1,0 +1,123 @@
+/**
+ * Brand UI - Checkbox Component
+ * A checkbox control with checked, unchecked, and indeterminate states.
+ */
+
+/* Base Checkbox */
+.checkbox {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  border: 1px solid var(--input);
+  border-radius: 4px;
+  background-color: transparent;
+  box-shadow: var(--shadow-xs);
+  cursor: pointer;
+  transition: box-shadow var(--transition-fast) var(--ease-default),
+              border-color var(--transition-fast) var(--ease-default),
+              background-color var(--transition-fast) var(--ease-default);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* Dark mode background */
+.dark .checkbox {
+  background-color: oklch(from var(--input) l c h / 30%);
+}
+
+/* Checked state */
+.checkbox[aria-checked="true"],
+.checkbox[aria-checked="mixed"] {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.dark .checkbox[aria-checked="true"],
+.dark .checkbox[aria-checked="mixed"] {
+  background-color: var(--primary);
+}
+
+/* Focus visible */
+.checkbox:focus-visible {
+  border-color: var(--ring);
+  box-shadow: var(--shadow-xs), 0 0 0 3px oklch(from var(--ring) l c h / 50%);
+}
+
+/* Invalid state */
+.checkbox[aria-invalid="true"] {
+  border-color: var(--destructive);
+  box-shadow: var(--shadow-xs), 0 0 0 3px oklch(from var(--destructive) l c h / 20%);
+}
+
+.dark .checkbox[aria-invalid="true"] {
+  box-shadow: var(--shadow-xs), 0 0 0 3px oklch(from var(--destructive) l c h / 40%);
+}
+
+/* Disabled state */
+.checkbox:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Indicator container */
+.checkbox-indicator {
+  display: grid;
+  place-content: center;
+  width: 100%;
+  height: 100%;
+  color: currentColor;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity var(--transition-fast) var(--ease-default),
+              transform var(--transition-fast) var(--ease-default);
+}
+
+/* Show indicator when checked or indeterminate */
+.checkbox[aria-checked="true"] .checkbox-indicator,
+.checkbox[aria-checked="mixed"] .checkbox-indicator {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Checkmark icon */
+.checkbox-indicator svg {
+  width: 0.875rem;
+  height: 0.875rem;
+  stroke-width: 2.5;
+}
+
+/* Indeterminate icon (minus) */
+.checkbox[aria-checked="mixed"] .checkbox-indicator .checkbox-icon-check {
+  display: none;
+}
+
+.checkbox[aria-checked="mixed"] .checkbox-indicator .checkbox-icon-minus {
+  display: block;
+}
+
+.checkbox-indicator .checkbox-icon-minus {
+  display: none;
+}
+
+/* Checkbox with label wrapper */
+.checkbox-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.checkbox-wrapper label {
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-wrapper:has(.checkbox:disabled) label {
+  cursor: not-allowed;
+  opacity: 0.5;
+}

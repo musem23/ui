@@ -1,0 +1,65 @@
+/**
+ * Brand UI - Textarea Component
+ * A multi-line text input with support for all states.
+ */
+
+/* Base Textarea */
+.textarea {
+  display: flex;
+  width: 100%;
+  min-height: 4rem;
+  padding: 0.5rem 0.75rem;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--foreground);
+  background-color: transparent;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xs);
+  resize: vertical;
+  outline: none;
+  transition: color var(--transition-fast) var(--ease-default),
+              box-shadow var(--transition-fast) var(--ease-default),
+              border-color var(--transition-fast) var(--ease-default);
+  field-sizing: content;
+}
+
+/* Dark mode background */
+.dark .textarea {
+  background-color: oklch(from var(--input) l c h / 30%);
+}
+
+/* Placeholder */
+.textarea::placeholder {
+  color: var(--muted-foreground);
+}
+
+/* Focus visible state */
+.textarea:focus-visible {
+  border-color: var(--ring);
+  box-shadow: var(--shadow-xs), 0 0 0 3px oklch(from var(--ring) l c h / 50%);
+}
+
+/* Invalid state */
+.textarea[aria-invalid="true"] {
+  border-color: var(--destructive);
+  box-shadow: var(--shadow-xs), 0 0 0 3px oklch(from var(--destructive) l c h / 20%);
+}
+
+.dark .textarea[aria-invalid="true"] {
+  box-shadow: var(--shadow-xs), 0 0 0 3px oklch(from var(--destructive) l c h / 40%);
+}
+
+/* Disabled state */
+.textarea:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Responsive font size adjustment */
+@media (min-width: 768px) {
+  .textarea {
+    font-size: 0.875rem;
+  }
+}

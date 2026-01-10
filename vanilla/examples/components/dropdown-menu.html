@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dropdown Menu - Brand UI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/ui.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="app-sidebar">
+      <div class="app-sidebar-header">
+        <a href="../index.html">← Overview</a>
+      </div>
+      <div class="app-sidebar-content">
+        <div class="app-sidebar-group-label">Components</div>
+        <ul class="sidebar-menu" id="sidebar-menu"></ul>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="app-main">
+      <header class="app-header">
+        <span style="font-size: 0.875rem; font-weight: 500;">Dropdown Menu</span>
+        <button class="btn btn-ghost btn-sm" id="theme-toggle">Toggle Theme</button>
+      </header>
+
+      <div class="app-content">
+        <h1 class="page-title">Dropdown Menu</h1>
+        <p class="page-desc">Displays a menu to the user with support for keyboard navigation, submenus, checkable items, and radio groups.</p>
+
+        <!-- Installation -->
+        <div class="install-box">
+          <p>Installation</p>
+          <code>&lt;link rel="stylesheet" href="css/components/dropdown-menu.css"&gt;</code>
+          <code>&lt;script src="js/core.js"&gt;&lt;/script&gt;</code>
+          <code>&lt;script src="js/components/dropdown-menu.js"&gt;&lt;/script&gt;</code>
+        </div>
+
+        <!-- Basic Dropdown -->
+        <div class="section">
+          <h2 class="section-title">Basic Dropdown</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <div class="dropdown-menu" data-dropdown-menu>
+                <button class="dropdown-menu-trigger btn btn-outline">
+                  Open Menu
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="dropdown-menu-content">
+                  <button class="dropdown-menu-item">New File</button>
+                  <button class="dropdown-menu-item">Open</button>
+                  <button class="dropdown-menu-item">Save</button>
+                  <div class="dropdown-menu-separator"></div>
+                  <button class="dropdown-menu-item">Exit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'basic-html')">HTML</button>
+            <button class="code-tab" onclick="BrandUILayout.showTab(this, 'basic-css')">CSS</button>
+            <button class="code-tab" onclick="BrandUILayout.showTab(this, 'basic-js')">JS</button>
+          </div>
+          <div class="code-block">
+            <div id="basic-html" class="code-panel active">
+              <pre><code>&lt;div class="dropdown-menu" data-dropdown-menu&gt;
+  &lt;button class="dropdown-menu-trigger btn btn-outline"&gt;
+    Open Menu
+    &lt;svg ...&gt;...&lt;/svg&gt;
+  &lt;/button&gt;
+  &lt;div class="dropdown-menu-content"&gt;
+    &lt;button class="dropdown-menu-item"&gt;New File&lt;/button&gt;
+    &lt;button class="dropdown-menu-item"&gt;Open&lt;/button&gt;
+    &lt;button class="dropdown-menu-item"&gt;Save&lt;/button&gt;
+    &lt;div class="dropdown-menu-separator"&gt;&lt;/div&gt;
+    &lt;button class="dropdown-menu-item"&gt;Exit&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <div id="basic-css" class="code-panel">
+              <pre><code>/* Required CSS */
+@import "css/tokens.css";
+@import "css/components/dropdown-menu.css";</code></pre>
+            </div>
+            <div id="basic-js" class="code-panel">
+              <pre><code>/* Auto-initialized via data-dropdown-menu attribute */
+
+/* Or manual initialization */
+const dropdown = new BrandUI.components.DropdownMenu(element, {
+  closeOnSelect: true,
+  closeOnClickOutside: true,
+  loop: true
+});</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- With Icons -->
+        <div class="section">
+          <h2 class="section-title">With Icons</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <div class="dropdown-menu" data-dropdown-menu>
+                <button class="dropdown-menu-trigger btn btn-outline">
+                  My Account
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="dropdown-menu-content">
+                  <div class="dropdown-menu-label">My Account</div>
+                  <div class="dropdown-menu-separator"></div>
+                  <button class="dropdown-menu-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    Profile
+                    <span class="dropdown-menu-shortcut">Ctrl+P</span>
+                  </button>
+                  <button class="dropdown-menu-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+                    Settings
+                    <span class="dropdown-menu-shortcut">Ctrl+S</span>
+                  </button>
+                  <button class="dropdown-menu-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/></svg>
+                    Billing
+                  </button>
+                  <div class="dropdown-menu-separator"></div>
+                  <button class="dropdown-menu-item" data-variant="destructive">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+                    Log out
+                    <span class="dropdown-menu-shortcut">Ctrl+Q</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'icons-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="icons-html" class="code-panel active">
+              <pre><code>&lt;button class="dropdown-menu-item"&gt;
+  &lt;svg ...&gt;...&lt;/svg&gt;
+  Profile
+  &lt;span class="dropdown-menu-shortcut"&gt;Ctrl+P&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;!-- Destructive variant --&gt;
+&lt;button class="dropdown-menu-item" data-variant="destructive"&gt;
+  &lt;svg ...&gt;...&lt;/svg&gt;
+  Log out
+&lt;/button&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- With Separators -->
+        <div class="section">
+          <h2 class="section-title">With Separators and Labels</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <div class="dropdown-menu" data-dropdown-menu>
+                <button class="dropdown-menu-trigger btn btn-outline">
+                  Actions
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="dropdown-menu-content">
+                  <div class="dropdown-menu-label">File Actions</div>
+                  <button class="dropdown-menu-item">New</button>
+                  <button class="dropdown-menu-item">Open</button>
+                  <div class="dropdown-menu-separator"></div>
+                  <div class="dropdown-menu-label">Edit Actions</div>
+                  <button class="dropdown-menu-item">Cut</button>
+                  <button class="dropdown-menu-item">Copy</button>
+                  <button class="dropdown-menu-item">Paste</button>
+                  <div class="dropdown-menu-separator"></div>
+                  <button class="dropdown-menu-item" data-disabled>Disabled Item</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'separator-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="separator-html" class="code-panel active">
+              <pre><code>&lt;div class="dropdown-menu-content"&gt;
+  &lt;div class="dropdown-menu-label"&gt;File Actions&lt;/div&gt;
+  &lt;button class="dropdown-menu-item"&gt;New&lt;/button&gt;
+  &lt;button class="dropdown-menu-item"&gt;Open&lt;/button&gt;
+  &lt;div class="dropdown-menu-separator"&gt;&lt;/div&gt;
+  &lt;div class="dropdown-menu-label"&gt;Edit Actions&lt;/div&gt;
+  &lt;button class="dropdown-menu-item"&gt;Cut&lt;/button&gt;
+  &lt;button class="dropdown-menu-item"&gt;Copy&lt;/button&gt;
+  &lt;button class="dropdown-menu-item"&gt;Paste&lt;/button&gt;
+  &lt;div class="dropdown-menu-separator"&gt;&lt;/div&gt;
+  &lt;button class="dropdown-menu-item" data-disabled&gt;Disabled Item&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- With Submenus -->
+        <div class="section">
+          <h2 class="section-title">With Submenus</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <div class="dropdown-menu" data-dropdown-menu>
+                <button class="dropdown-menu-trigger btn btn-outline">
+                  More Options
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="dropdown-menu-content">
+                  <button class="dropdown-menu-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    New File
+                    <span class="dropdown-menu-shortcut">Ctrl+N</span>
+                  </button>
+                  <div class="dropdown-menu-sub">
+                    <button class="dropdown-menu-sub-trigger">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>
+                      Share
+                    </button>
+                    <div class="dropdown-menu-sub-content">
+                      <button class="dropdown-menu-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                        Copy Link
+                      </button>
+                      <button class="dropdown-menu-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        Email
+                      </button>
+                      <button class="dropdown-menu-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        Message
+                      </button>
+                    </div>
+                  </div>
+                  <div class="dropdown-menu-separator"></div>
+                  <button class="dropdown-menu-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                    Download
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'submenu-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="submenu-html" class="code-panel active">
+              <pre><code>&lt;div class="dropdown-menu-sub"&gt;
+  &lt;button class="dropdown-menu-sub-trigger"&gt;
+    &lt;svg ...&gt;...&lt;/svg&gt;
+    Share
+  &lt;/button&gt;
+  &lt;div class="dropdown-menu-sub-content"&gt;
+    &lt;button class="dropdown-menu-item"&gt;Copy Link&lt;/button&gt;
+    &lt;button class="dropdown-menu-item"&gt;Email&lt;/button&gt;
+    &lt;button class="dropdown-menu-item"&gt;Message&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Checkbox Items -->
+        <div class="section">
+          <h2 class="section-title">Checkbox Items</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <div class="dropdown-menu" data-dropdown-menu data-close-on-select="false">
+                <button class="dropdown-menu-trigger btn btn-outline">
+                  View Options
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="dropdown-menu-content">
+                  <div class="dropdown-menu-label">Appearance</div>
+                  <div class="dropdown-menu-separator"></div>
+                  <button class="dropdown-menu-checkbox-item" aria-checked="true">
+                    <span class="dropdown-menu-item-indicator">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </span>
+                    Show Toolbar
+                  </button>
+                  <button class="dropdown-menu-checkbox-item" aria-checked="true">
+                    <span class="dropdown-menu-item-indicator">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </span>
+                    Show Sidebar
+                  </button>
+                  <button class="dropdown-menu-checkbox-item" aria-checked="false">
+                    <span class="dropdown-menu-item-indicator">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </span>
+                    Show Status Bar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'checkbox-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="checkbox-html" class="code-panel active">
+              <pre><code>&lt;!-- data-close-on-select="false" keeps menu open --&gt;
+&lt;div class="dropdown-menu" data-dropdown-menu data-close-on-select="false"&gt;
+  ...
+  &lt;button class="dropdown-menu-checkbox-item" aria-checked="true"&gt;
+    &lt;span class="dropdown-menu-item-indicator"&gt;
+      &lt;svg ...&gt;...&lt;/svg&gt;
+    &lt;/span&gt;
+    Show Toolbar
+  &lt;/button&gt;
+  &lt;button class="dropdown-menu-checkbox-item" aria-checked="false"&gt;
+    &lt;span class="dropdown-menu-item-indicator"&gt;
+      &lt;svg ...&gt;...&lt;/svg&gt;
+    &lt;/span&gt;
+    Show Status Bar
+  &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Radio Items -->
+        <div class="section">
+          <h2 class="section-title">Radio Items</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <div class="dropdown-menu" data-dropdown-menu data-close-on-select="false">
+                <button class="dropdown-menu-trigger btn btn-outline">
+                  Sort By
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="dropdown-menu-content">
+                  <div class="dropdown-menu-label">Sort Order</div>
+                  <div class="dropdown-menu-separator"></div>
+                  <div class="dropdown-menu-radio-group" role="group">
+                    <button class="dropdown-menu-radio-item" aria-checked="true" data-value="name">
+                      <span class="dropdown-menu-item-indicator"></span>
+                      Name
+                    </button>
+                    <button class="dropdown-menu-radio-item" aria-checked="false" data-value="date">
+                      <span class="dropdown-menu-item-indicator"></span>
+                      Date Modified
+                    </button>
+                    <button class="dropdown-menu-radio-item" aria-checked="false" data-value="size">
+                      <span class="dropdown-menu-item-indicator"></span>
+                      Size
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'radio-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="radio-html" class="code-panel active">
+              <pre><code>&lt;div class="dropdown-menu-radio-group" role="group"&gt;
+  &lt;button class="dropdown-menu-radio-item" aria-checked="true" data-value="name"&gt;
+    &lt;span class="dropdown-menu-item-indicator"&gt;&lt;/span&gt;
+    Name
+  &lt;/button&gt;
+  &lt;button class="dropdown-menu-radio-item" aria-checked="false" data-value="date"&gt;
+    &lt;span class="dropdown-menu-item-indicator"&gt;&lt;/span&gt;
+    Date Modified
+  &lt;/button&gt;
+  &lt;button class="dropdown-menu-radio-item" aria-checked="false" data-value="size"&gt;
+    &lt;span class="dropdown-menu-item-indicator"&gt;&lt;/span&gt;
+    Size
+  &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Alignment -->
+        <div class="section">
+          <h2 class="section-title">Alignment</h2>
+          <div class="demo-box">
+            <div class="demo-row" style="justify-content: space-between; width: 100%;">
+              <div class="dropdown-menu" data-dropdown-menu>
+                <button class="dropdown-menu-trigger btn btn-outline">
+                  Align Start (default)
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="dropdown-menu-content">
+                  <button class="dropdown-menu-item">Option 1</button>
+                  <button class="dropdown-menu-item">Option 2</button>
+                  <button class="dropdown-menu-item">Option 3</button>
+                </div>
+              </div>
+              <div class="dropdown-menu" data-dropdown-menu>
+                <button class="dropdown-menu-trigger btn btn-outline">
+                  Align End
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="dropdown-menu-content align-end">
+                  <button class="dropdown-menu-item">Option 1</button>
+                  <button class="dropdown-menu-item">Option 2</button>
+                  <button class="dropdown-menu-item">Option 3</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'align-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="align-html" class="code-panel active">
+              <pre><code>&lt;!-- Align start (default) --&gt;
+&lt;div class="dropdown-menu-content"&gt;...&lt;/div&gt;
+
+&lt;!-- Align end --&gt;
+&lt;div class="dropdown-menu-content align-end"&gt;...&lt;/div&gt;
+
+&lt;!-- Or use data attribute --&gt;
+&lt;div class="dropdown-menu-content" data-align="end"&gt;...&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Icon Button Trigger -->
+        <div class="section">
+          <h2 class="section-title">Icon Button Trigger</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <div class="dropdown-menu" data-dropdown-menu>
+                <button class="dropdown-menu-trigger btn btn-ghost btn-icon" aria-label="More options">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+                </button>
+                <div class="dropdown-menu-content">
+                  <button class="dropdown-menu-item">Edit</button>
+                  <button class="dropdown-menu-item">Duplicate</button>
+                  <button class="dropdown-menu-item">Archive</button>
+                  <div class="dropdown-menu-separator"></div>
+                  <button class="dropdown-menu-item" data-variant="destructive">Delete</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'iconbtn-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="iconbtn-html" class="code-panel active">
+              <pre><code>&lt;div class="dropdown-menu" data-dropdown-menu&gt;
+  &lt;button class="dropdown-menu-trigger btn btn-ghost btn-icon" aria-label="More options"&gt;
+    &lt;svg ...&gt;...&lt;/svg&gt;
+  &lt;/button&gt;
+  &lt;div class="dropdown-menu-content"&gt;
+    &lt;button class="dropdown-menu-item"&gt;Edit&lt;/button&gt;
+    &lt;button class="dropdown-menu-item"&gt;Duplicate&lt;/button&gt;
+    &lt;button class="dropdown-menu-item" data-variant="destructive"&gt;Delete&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Data Attributes Reference -->
+        <div class="section">
+          <h2 class="section-title">Data Attributes Reference</h2>
+          <div class="demo-box" style="padding: 0; overflow: hidden;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+              <thead>
+                <tr style="background: var(--muted);">
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Attribute</th>
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-dropdown-menu</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Initializes the dropdown menu component</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-close-on-select="false"</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Keeps menu open after item selection</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-close-on-click-outside="false"</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Prevents closing when clicking outside</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-loop="false"</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Disables keyboard navigation looping</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-align="end"</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Aligns menu to the end of the trigger</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-side="top"</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Opens menu above the trigger</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-disabled</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Disables a menu item</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-variant="destructive"</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Applies destructive styling to item</td></tr>
+                <tr><td style="padding: 0.75rem 1rem;"><code>data-inset</code></td><td style="padding: 0.75rem 1rem;">Adds left padding for icon alignment</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- CSS Classes Reference -->
+        <div class="section">
+          <h2 class="section-title">CSS Classes Reference</h2>
+          <div class="demo-box" style="padding: 0; overflow: hidden;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+              <thead>
+                <tr style="background: var(--muted);">
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Class</th>
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.dropdown-menu</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Container for the dropdown</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.dropdown-menu-trigger</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Button that opens the menu</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.dropdown-menu-content</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">The dropdown panel container</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.dropdown-menu-item</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Standard menu item</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.dropdown-menu-label</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Non-interactive label/heading</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.dropdown-menu-separator</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Horizontal divider line</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.dropdown-menu-shortcut</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Keyboard shortcut text</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.dropdown-menu-checkbox-item</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Toggleable checkbox item</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.dropdown-menu-radio-item</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Radio selection item</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.dropdown-menu-radio-group</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Groups radio items together</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.dropdown-menu-sub</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Submenu container</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.dropdown-menu-sub-trigger</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Submenu trigger item</td></tr>
+                <tr><td style="padding: 0.75rem 1rem;"><code>.dropdown-menu-sub-content</code></td><td style="padding: 0.75rem 1rem;">Submenu panel</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- JavaScript Events -->
+        <div class="section">
+          <h2 class="section-title">JavaScript Events</h2>
+          <div class="demo-box" style="padding: 0; overflow: hidden;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+              <thead>
+                <tr style="background: var(--muted);">
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Event</th>
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>dropdown-menu:open</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Fired when the menu opens</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>dropdown-menu:close</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Fired when the menu closes</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>dropdown-menu:select</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Fired when an item is selected</td></tr>
+                <tr><td style="padding: 0.75rem 1rem;"><code>dropdown-menu:change</code></td><td style="padding: 0.75rem 1rem;">Fired when checkbox/radio state changes</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Brand UI JS -->
+  <script src="../js/core.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/components/dropdown-menu.js"></script>
+</body>
+</html>

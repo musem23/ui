@@ -1,0 +1,192 @@
+/**
+ * Brand UI - Calendar Component
+ * Date picker calendar with month/year navigation
+ */
+
+/* Calendar Container */
+.calendar {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0.75rem;
+  background: var(--background);
+  border-radius: var(--radius);
+  user-select: none;
+  width: fit-content;
+}
+
+/* Header with nav and title */
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+/* Navigation buttons */
+.calendar-nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  color: var(--foreground);
+  cursor: pointer;
+  transition: background-color var(--transition-fast) var(--ease-default);
+}
+
+.calendar-nav:hover {
+  background: var(--accent);
+}
+
+.calendar-nav:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--ring);
+}
+
+.calendar-nav:disabled,
+.calendar-nav[aria-disabled="true"] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.calendar-nav svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Month/Year title */
+.calendar-title {
+  flex: 1;
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+/* Weekday header row */
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0;
+}
+
+.calendar-weekday {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--muted-foreground);
+}
+
+/* Days grid */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0;
+}
+
+/* Day cell */
+.calendar-day {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--foreground);
+  cursor: pointer;
+  transition: background-color var(--transition-fast) var(--ease-default),
+              color var(--transition-fast) var(--ease-default);
+}
+
+.calendar-day:hover:not(:disabled):not(.calendar-day-selected) {
+  background: var(--accent);
+}
+
+.calendar-day:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--ring);
+  z-index: 1;
+}
+
+/* Today indicator */
+.calendar-day-today {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.calendar-day-today:not(.calendar-day-selected) {
+  background: var(--accent);
+}
+
+/* Selected day */
+.calendar-day-selected {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.calendar-day-selected:hover {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+/* Outside month days (shown but muted) */
+.calendar-day-outside {
+  color: var(--muted-foreground);
+}
+
+.calendar-day-outside.calendar-day-selected {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  opacity: 0.6;
+}
+
+/* Disabled days */
+.calendar-day:disabled,
+.calendar-day-disabled {
+  color: var(--muted-foreground);
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+/* Range selection styles (for future extension) */
+.calendar-day-range-start {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.calendar-day-range-middle {
+  background: var(--accent);
+  color: var(--accent-foreground);
+  border-radius: 0;
+}
+
+.calendar-day-range-end {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* Focused day (keyboard navigation) */
+.calendar-day-focused {
+  box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--ring);
+  z-index: 1;
+}

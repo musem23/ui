@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Popover - Brand UI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/ui.css">
+  <style>
+    /* Demo grid for positions */
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 1rem;
+      min-height: 280px;
+    }
+    .demo-grid .pos-top { grid-column: 2; grid-row: 1; justify-self: center; }
+    .demo-grid .pos-left { grid-column: 1; grid-row: 2; align-self: center; }
+    .demo-grid .pos-right { grid-column: 3; grid-row: 2; align-self: center; }
+    .demo-grid .pos-bottom { grid-column: 2; grid-row: 3; justify-self: center; }
+
+    /* Form styles for popover demo */
+    .popover-form { font-size: 0.875rem; }
+    .popover-form h4 { margin: 0 0 0.25rem; font-weight: 600; }
+    .popover-form p { margin: 0 0 1rem; color: var(--muted-foreground); font-size: 0.8125rem; }
+    .form-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
+    .form-row:last-child { margin-bottom: 0; }
+    .form-row label { flex: 0 0 80px; font-size: 0.8125rem; }
+    .form-row input { flex: 1; padding: 0.375rem 0.5rem; font-size: 0.8125rem; border: 1px solid var(--input); border-radius: 4px; background: var(--background); color: var(--foreground); }
+    .form-row input:focus { outline: none; border-color: var(--ring); }
+  </style>
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="app-sidebar">
+      <div class="app-sidebar-header">
+        <a href="../index.html">← Overview</a>
+      </div>
+      <div class="app-sidebar-content">
+        <div class="app-sidebar-group-label">Components</div>
+        <ul class="sidebar-menu" id="sidebar-menu"></ul>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="app-main">
+      <header class="app-header">
+        <span style="font-size: 0.875rem; font-weight: 500;">Popover</span>
+        <button class="btn btn-ghost btn-sm" id="theme-toggle">Dark</button>
+      </header>
+
+      <div class="app-content">
+        <h1 class="page-title">Popover</h1>
+        <p class="page-desc">Positioned floating content that appears on click. Supports multiple positions and alignments.</p>
+
+        <!-- Installation -->
+        <div class="install-box">
+          <p>Installation</p>
+          <code>&lt;link rel="stylesheet" href="css/components/popover.css"&gt;</code>
+          <code>&lt;script src="js/core.js"&gt;&lt;/script&gt;</code>
+          <code>&lt;script src="js/components/popover.js"&gt;&lt;/script&gt;</code>
+        </div>
+
+        <!-- Basic Popover -->
+        <div class="section">
+          <h2 class="section-title">Basic Popover</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <div class="popover" data-popover>
+                <button class="btn btn-outline popover-trigger" data-popover-trigger>Open Popover</button>
+                <div class="popover-content" data-popover-content>
+                  <h4 style="margin: 0 0 0.5rem; font-weight: 600; font-size: 0.875rem;">Popover Title</h4>
+                  <p style="margin: 0; color: var(--muted-foreground); font-size: 0.8125rem;">This is the popover content. Click outside or press ESC to close.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'basic-html')">HTML</button>
+            <button class="code-tab" onclick="BrandUILayout.showTab(this, 'basic-css')">CSS</button>
+            <button class="code-tab" onclick="BrandUILayout.showTab(this, 'basic-js')">JS</button>
+          </div>
+          <div class="code-block">
+            <div id="basic-html" class="code-panel active">
+              <div class="code-wrapper">
+                <pre><code>&lt;div class="popover" data-popover&gt;
+  &lt;button class="btn btn-outline popover-trigger" data-popover-trigger&gt;
+    Open Popover
+  &lt;/button&gt;
+  &lt;div class="popover-content" data-popover-content&gt;
+    &lt;h4&gt;Popover Title&lt;/h4&gt;
+    &lt;p&gt;This is the popover content.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+            </div>
+            <div id="basic-css" class="code-panel">
+              <pre><code>/* Required CSS */
+@import "css/tokens.css";
+@import "css/components/popover.css";
+
+/* Core styles */
+.popover { position: relative; display: inline-block; }
+.popover-content {
+  position: absolute;
+  z-index: var(--z-popover);
+  width: 18rem;
+  padding: 1rem;
+  background: var(--popover);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}</code></pre>
+            </div>
+            <div id="basic-js" class="code-panel">
+              <pre><code>// Auto-initialized via data-popover attribute
+// Or manually initialize:
+const element = document.querySelector('[data-popover]');
+const popover = BrandUI.createPopover(element);
+
+// API methods
+popover.open();
+popover.close();
+popover.toggle();
+popover.isOpen(); // returns boolean
+popover.destroy();</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- With Form Content -->
+        <div class="section">
+          <h2 class="section-title">With Form Content</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <div class="popover" data-popover>
+                <button class="btn btn-default popover-trigger" data-popover-trigger>Edit Dimensions</button>
+                <div class="popover-content popover-lg" data-popover-content data-align="start">
+                  <div class="popover-form">
+                    <h4>Dimensions</h4>
+                    <p>Set the dimensions for the layer.</p>
+                    <div class="form-row">
+                      <label>Width</label>
+                      <input type="text" value="100%">
+                    </div>
+                    <div class="form-row">
+                      <label>Max. width</label>
+                      <input type="text" value="300px">
+                    </div>
+                    <div class="form-row">
+                      <label>Height</label>
+                      <input type="text" value="25px">
+                    </div>
+                    <div class="form-row">
+                      <label>Max. height</label>
+                      <input type="text" value="none">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'form-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="form-html" class="code-panel active">
+              <pre><code>&lt;div class="popover" data-popover&gt;
+  &lt;button class="btn btn-default popover-trigger" data-popover-trigger&gt;
+    Edit Dimensions
+  &lt;/button&gt;
+  &lt;div class="popover-content popover-lg" data-popover-content data-align="start"&gt;
+    &lt;h4&gt;Dimensions&lt;/h4&gt;
+    &lt;p&gt;Set the dimensions for the layer.&lt;/p&gt;
+    &lt;div class="form-row"&gt;
+      &lt;label&gt;Width&lt;/label&gt;
+      &lt;input type="text" value="100%"&gt;
+    &lt;/div&gt;
+    &lt;!-- More form fields... --&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Positions -->
+        <div class="section">
+          <h2 class="section-title">Positions</h2>
+          <div class="demo-box">
+            <div class="demo-grid">
+              <div class="popover pos-top" data-popover>
+                <button class="btn btn-outline popover-trigger" data-popover-trigger>Top</button>
+                <div class="popover-content popover-sm" data-popover-content data-side="top">
+                  <div class="popover-arrow"></div>
+                  <p style="margin: 0; font-size: 0.8125rem;">Positioned at top</p>
+                </div>
+              </div>
+
+              <div class="popover pos-left" data-popover>
+                <button class="btn btn-outline popover-trigger" data-popover-trigger>Left</button>
+                <div class="popover-content popover-sm" data-popover-content data-side="left">
+                  <div class="popover-arrow"></div>
+                  <p style="margin: 0; font-size: 0.8125rem;">Positioned at left</p>
+                </div>
+              </div>
+
+              <div class="popover pos-right" data-popover>
+                <button class="btn btn-outline popover-trigger" data-popover-trigger>Right</button>
+                <div class="popover-content popover-sm" data-popover-content data-side="right">
+                  <div class="popover-arrow"></div>
+                  <p style="margin: 0; font-size: 0.8125rem;">Positioned at right</p>
+                </div>
+              </div>
+
+              <div class="popover pos-bottom" data-popover>
+                <button class="btn btn-outline popover-trigger" data-popover-trigger>Bottom</button>
+                <div class="popover-content popover-sm" data-popover-content data-side="bottom">
+                  <div class="popover-arrow"></div>
+                  <p style="margin: 0; font-size: 0.8125rem;">Positioned at bottom</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'positions-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="positions-html" class="code-panel active">
+              <pre><code>&lt;!-- Top --&gt;
+&lt;div class="popover-content" data-popover-content data-side="top"&gt;
+  &lt;div class="popover-arrow"&gt;&lt;/div&gt;
+  Content...
+&lt;/div&gt;
+
+&lt;!-- Right --&gt;
+&lt;div class="popover-content" data-popover-content data-side="right"&gt;...&lt;/div&gt;
+
+&lt;!-- Bottom (default) --&gt;
+&lt;div class="popover-content" data-popover-content data-side="bottom"&gt;...&lt;/div&gt;
+
+&lt;!-- Left --&gt;
+&lt;div class="popover-content" data-popover-content data-side="left"&gt;...&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Alignments -->
+        <div class="section">
+          <h2 class="section-title">Alignments</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <div class="popover" data-popover>
+                <button class="btn btn-outline popover-trigger" data-popover-trigger>Align Start</button>
+                <div class="popover-content popover-sm" data-popover-content data-side="bottom" data-align="start">
+                  <p style="margin: 0; font-size: 0.8125rem;">Aligned to start</p>
+                </div>
+              </div>
+
+              <div class="popover" data-popover>
+                <button class="btn btn-outline popover-trigger" data-popover-trigger>Align Center</button>
+                <div class="popover-content popover-sm" data-popover-content data-side="bottom" data-align="center">
+                  <p style="margin: 0; font-size: 0.8125rem;">Aligned to center</p>
+                </div>
+              </div>
+
+              <div class="popover" data-popover>
+                <button class="btn btn-outline popover-trigger" data-popover-trigger>Align End</button>
+                <div class="popover-content popover-sm" data-popover-content data-side="bottom" data-align="end">
+                  <p style="margin: 0; font-size: 0.8125rem;">Aligned to end</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'align-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="align-html" class="code-panel active">
+              <pre><code>&lt;!-- Start alignment --&gt;
+&lt;div class="popover-content" data-popover-content data-align="start"&gt;...&lt;/div&gt;
+
+&lt;!-- Center alignment (default) --&gt;
+&lt;div class="popover-content" data-popover-content data-align="center"&gt;...&lt;/div&gt;
+
+&lt;!-- End alignment --&gt;
+&lt;div class="popover-content" data-popover-content data-align="end"&gt;...&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sizes -->
+        <div class="section">
+          <h2 class="section-title">Sizes</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <div class="popover" data-popover>
+                <button class="btn btn-outline popover-trigger" data-popover-trigger>Small</button>
+                <div class="popover-content popover-sm" data-popover-content>
+                  <p style="margin: 0; font-size: 0.8125rem;">Small popover (12rem)</p>
+                </div>
+              </div>
+
+              <div class="popover" data-popover>
+                <button class="btn btn-outline popover-trigger" data-popover-trigger>Default</button>
+                <div class="popover-content" data-popover-content>
+                  <p style="margin: 0; font-size: 0.8125rem;">Default popover width (18rem)</p>
+                </div>
+              </div>
+
+              <div class="popover" data-popover>
+                <button class="btn btn-outline popover-trigger" data-popover-trigger>Large</button>
+                <div class="popover-content popover-lg" data-popover-content>
+                  <p style="margin: 0; font-size: 0.8125rem;">Large popover with more content space (24rem)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'sizes-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="sizes-html" class="code-panel active">
+              <pre><code>&lt;div class="popover-content popover-sm"&gt;Small (12rem)&lt;/div&gt;
+&lt;div class="popover-content"&gt;Default (18rem)&lt;/div&gt;
+&lt;div class="popover-content popover-lg"&gt;Large (24rem)&lt;/div&gt;
+&lt;div class="popover-content popover-auto"&gt;Auto width&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- With Arrow -->
+        <div class="section">
+          <h2 class="section-title">With Arrow</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <div class="popover" data-popover>
+                <button class="btn btn-outline popover-trigger" data-popover-trigger>With Arrow</button>
+                <div class="popover-content" data-popover-content data-side="bottom">
+                  <div class="popover-arrow"></div>
+                  <h4 style="margin: 0 0 0.5rem; font-weight: 600; font-size: 0.875rem;">Arrow Popover</h4>
+                  <p style="margin: 0; color: var(--muted-foreground); font-size: 0.8125rem;">Add a .popover-arrow element inside the content.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'arrow-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="arrow-html" class="code-panel active">
+              <pre><code>&lt;div class="popover-content" data-popover-content data-side="bottom"&gt;
+  &lt;div class="popover-arrow"&gt;&lt;/div&gt;
+  Content here...
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Data Attributes Reference -->
+        <div class="section">
+          <h2 class="section-title">Data Attributes Reference</h2>
+          <div class="demo-box" style="padding: 0; overflow: hidden;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+              <thead>
+                <tr style="background: var(--muted);">
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Attribute</th>
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Element</th>
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-popover</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Container</td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Root popover element (required for auto-init)</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-popover-trigger</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Trigger</td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Element that opens the popover on click</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-popover-content</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Content</td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">The popover content container</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-side</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Content</td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Position: top, right, bottom (default), left</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-align</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Content</td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Alignment: start, center (default), end</td></tr>
+                <tr><td style="padding: 0.75rem 1rem;"><code>data-state</code></td><td style="padding: 0.75rem 1rem;">Content</td><td style="padding: 0.75rem 1rem;">State: open, closed (set automatically by JS)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- CSS Classes Reference -->
+        <div class="section">
+          <h2 class="section-title">CSS Classes Reference</h2>
+          <div class="demo-box" style="padding: 0; overflow: hidden;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+              <thead>
+                <tr style="background: var(--muted);">
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Class</th>
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.popover</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Container element (position: relative)</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.popover-trigger</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Trigger button styling</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.popover-content</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Content panel with positioning and animation</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.popover-arrow</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Optional arrow pointing to trigger</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.popover-sm</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Small size (12rem width)</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.popover-lg</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Large size (24rem width)</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.popover-auto</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Auto width (fits content)</td></tr>
+                <tr><td style="padding: 0.75rem 1rem;"><code>.no-animation</code></td><td style="padding: 0.75rem 1rem;">Disable open/close animation</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- JavaScript Events -->
+        <div class="section">
+          <h2 class="section-title">JavaScript Events</h2>
+          <div class="demo-box" style="padding: 0; overflow: hidden;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+              <thead>
+                <tr style="background: var(--muted);">
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Event</th>
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>popover:open</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Fired when popover opens</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>popover:close</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Fired when popover closes</td></tr>
+                <tr><td style="padding: 0.75rem 1rem;"><code>popover:destroy</code></td><td style="padding: 0.75rem 1rem;">Fired when popover instance is destroyed</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/core.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/components/popover.js"></script>
+</body>
+</html>

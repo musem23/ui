@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Command - Brand UI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/ui.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="app-sidebar">
+      <div class="app-sidebar-header">
+        <a href="../index.html">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m15 18-6-6 6-6"/>
+          </svg>
+          <span>Overview</span>
+        </a>
+      </div>
+      <div class="app-sidebar-content">
+        <div class="app-sidebar-group-label">Components</div>
+        <ul class="sidebar-menu" id="sidebar-menu"></ul>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="app-main">
+      <header class="app-header">
+        <div class="header-left">
+          <span>Command</span>
+        </div>
+        <button class="btn btn-ghost btn-sm" id="theme-toggle">Dark</button>
+      </header>
+
+      <div class="app-content">
+        <h1 class="page-title">Command</h1>
+        <p class="page-desc">A command palette for searching and executing actions with keyboard navigation.</p>
+
+        <!-- Installation -->
+        <div class="install-box">
+          <p>Installation</p>
+          <code>&lt;link rel="stylesheet" href="css/components/command.css"&gt;</code>
+          <code>&lt;script src="js/core.js"&gt;&lt;/script&gt;</code>
+          <code>&lt;script src="js/components/command.js"&gt;&lt;/script&gt;</code>
+        </div>
+
+        <!-- Inline Command -->
+        <section class="section">
+          <h2 class="section-title">Inline Command</h2>
+          <p class="section-desc">Basic command palette embedded in the page. Use arrow keys to navigate, Enter to select.</p>
+          <div class="demo-box">
+            <div style="max-width: 28rem; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;">
+              <div class="command" data-command id="inline-command">
+                <div class="command-input-wrapper">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                  <input type="text" class="command-input" placeholder="Type a command or search...">
+                </div>
+                <div class="command-list">
+                  <div class="command-empty">No results found.</div>
+                  <div class="command-group">
+                    <div class="command-group-heading">Suggestions</div>
+                    <div class="command-item" data-value="calendar">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                      <span>Calendar</span>
+                    </div>
+                    <div class="command-item" data-value="emoji">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/></svg>
+                      <span>Search Emoji</span>
+                    </div>
+                    <div class="command-item" data-value="calculator">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
+                      <span>Calculator</span>
+                    </div>
+                  </div>
+                  <div class="command-separator"></div>
+                  <div class="command-group">
+                    <div class="command-group-heading">Settings</div>
+                    <div class="command-item" data-value="profile">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                      <span>Profile</span>
+                      <span class="command-shortcut">P</span>
+                    </div>
+                    <div class="command-item" data-value="billing">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+                      <span>Billing</span>
+                      <span class="command-shortcut">B</span>
+                    </div>
+                    <div class="command-item" data-value="settings">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+                      <span>Settings</span>
+                      <span class="command-shortcut">S</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="output" id="inline-output" style="margin-top: 1rem; padding: 0.75rem; background: var(--muted); border-radius: var(--radius); font-size: 0.875rem; font-family: var(--font-mono);">Select a command...</div>
+          </div>
+        </section>
+
+        <!-- Command Dialog -->
+        <section class="section">
+          <h2 class="section-title">Command Dialog</h2>
+          <p class="section-desc">Command palette in a modal dialog. Press <kbd class="kbd">Cmd</kbd> + <kbd class="kbd">K</kbd> or click the button to open.</p>
+          <div class="demo-box">
+            <button class="btn btn-default" id="open-command-dialog">
+              Open Command Palette
+            </button>
+            <div class="output" id="dialog-output" style="margin-top: 1rem; padding: 0.75rem; background: var(--muted); border-radius: var(--radius); font-size: 0.875rem; font-family: var(--font-mono);">Press Cmd+K or click the button...</div>
+          </div>
+        </section>
+
+        <!-- With Keywords -->
+        <section class="section">
+          <h2 class="section-title">With Keywords</h2>
+          <p class="section-desc">Items can have hidden keywords to improve search. Try searching "git" or "version".</p>
+          <div class="demo-box">
+            <div style="max-width: 28rem; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;">
+              <div class="command" data-command id="keywords-command">
+                <div class="command-input-wrapper">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                  <input type="text" class="command-input" placeholder="Search with keywords...">
+                </div>
+                <div class="command-list">
+                  <div class="command-empty">No results found.</div>
+                  <div class="command-group">
+                    <div class="command-group-heading">Actions</div>
+                    <div class="command-item" data-value="new-file" data-keywords="create add">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="12" x2="12" y1="18" y2="12"/><line x1="9" x2="15" y1="15" y2="15"/></svg>
+                      <span>New File</span>
+                    </div>
+                    <div class="command-item" data-value="save" data-keywords="export download">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                      <span>Save</span>
+                      <span class="command-shortcut">Cmd+S</span>
+                    </div>
+                    <div class="command-item" data-value="source-control" data-keywords="git version vcs">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 0 0 9 9"/></svg>
+                      <span>Source Control</span>
+                      <span class="command-shortcut">Ctrl+G</span>
+                    </div>
+                    <div class="command-item" data-value="terminal" data-keywords="console shell bash">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>
+                      <span>Terminal</span>
+                      <span class="command-shortcut">Ctrl+`</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Disabled Items -->
+        <section class="section">
+          <h2 class="section-title">Disabled Items</h2>
+          <p class="section-desc">Items can be disabled and will be skipped during keyboard navigation.</p>
+          <div class="demo-box">
+            <div style="max-width: 28rem; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;">
+              <div class="command" data-command id="disabled-command">
+                <div class="command-input-wrapper">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                  <input type="text" class="command-input" placeholder="Search...">
+                </div>
+                <div class="command-list">
+                  <div class="command-empty">No results found.</div>
+                  <div class="command-group">
+                    <div class="command-group-heading">Options</div>
+                    <div class="command-item" data-value="enabled-1">
+                      <span>Enabled Option 1</span>
+                    </div>
+                    <div class="command-item disabled" data-disabled="true" data-value="disabled-1">
+                      <span>Disabled Option (not selectable)</span>
+                    </div>
+                    <div class="command-item" data-value="enabled-2">
+                      <span>Enabled Option 2</span>
+                    </div>
+                    <div class="command-item disabled" data-disabled="true" data-value="disabled-2">
+                      <span>Another Disabled Option</span>
+                    </div>
+                    <div class="command-item" data-value="enabled-3">
+                      <span>Enabled Option 3</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Command Dialog (outside container) -->
+  <div class="command-dialog" data-command id="command-dialog">
+    <div class="command">
+      <div class="command-input-wrapper">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" class="command-input" placeholder="Type a command or search...">
+      </div>
+      <div class="command-list">
+        <div class="command-empty">No results found.</div>
+        <div class="command-group">
+          <div class="command-group-heading">General</div>
+          <div class="command-item" data-value="new-tab">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+            <span>New Tab</span>
+            <span class="command-shortcut">Cmd+T</span>
+          </div>
+          <div class="command-item" data-value="new-window">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/></svg>
+            <span>New Window</span>
+            <span class="command-shortcut">Cmd+N</span>
+          </div>
+        </div>
+        <div class="command-separator"></div>
+        <div class="command-group">
+          <div class="command-group-heading">Edit</div>
+          <div class="command-item" data-value="undo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7v6h6"/><path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13"/></svg>
+            <span>Undo</span>
+            <span class="command-shortcut">Cmd+Z</span>
+          </div>
+          <div class="command-item" data-value="redo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 7v6h-6"/><path d="M3 17a9 9 0 0 1 9-9 9 9 0 0 1 6 2.3l3 2.7"/></svg>
+            <span>Redo</span>
+            <span class="command-shortcut">Cmd+Shift+Z</span>
+          </div>
+          <div class="command-item" data-value="cut">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" x2="8.12" y1="4" y2="15.88"/><line x1="14.47" x2="20" y1="14.48" y2="20"/><line x1="8.12" x2="12" y1="8.12" y2="12"/></svg>
+            <span>Cut</span>
+            <span class="command-shortcut">Cmd+X</span>
+          </div>
+          <div class="command-item" data-value="copy">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+            <span>Copy</span>
+            <span class="command-shortcut">Cmd+C</span>
+          </div>
+          <div class="command-item" data-value="paste">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H9a1 1 0 0 0-1 1v2c0 .6.4 1 1 1h6c.6 0 1-.4 1-1V3c0-.6-.4-1-1-1z"/><path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2M16 4h2a2 2 0 0 1 2 2v2M11 14h10"/><path d="m17 10 4 4-4 4"/></svg>
+            <span>Paste</span>
+            <span class="command-shortcut">Cmd+V</span>
+          </div>
+        </div>
+        <div class="command-separator"></div>
+        <div class="command-group">
+          <div class="command-group-heading">View</div>
+          <div class="command-item" data-value="zoom-in">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg>
+            <span>Zoom In</span>
+            <span class="command-shortcut">Cmd++</span>
+          </div>
+          <div class="command-item" data-value="zoom-out">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="8" x2="14" y1="11" y2="11"/></svg>
+            <span>Zoom Out</span>
+            <span class="command-shortcut">Cmd+-</span>
+          </div>
+          <div class="command-item" data-value="fullscreen">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
+            <span>Toggle Fullscreen</span>
+            <span class="command-shortcut">F11</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Brand UI JS -->
+  <script src="../js/core.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/components/command.js"></script>
+
+  <script>
+    // Demo: Inline command events
+    document.getElementById('inline-command').addEventListener('command:execute', function(e) {
+      document.getElementById('inline-output').textContent = 'Selected: ' + e.detail.value;
+    });
+
+    // Demo: Dialog command
+    const dialogEl = document.getElementById('command-dialog');
+    const dialogInstance = BrandUI.getInstance(dialogEl, 'command');
+
+    document.getElementById('open-command-dialog').addEventListener('click', function() {
+      dialogInstance.open();
+    });
+
+    // Keyboard shortcut: Cmd+K to open dialog
+    document.addEventListener('keydown', function(e) {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        dialogInstance.toggle();
+      }
+    });
+
+    dialogEl.addEventListener('command:execute', function(e) {
+      document.getElementById('dialog-output').textContent = 'Executed: ' + e.detail.value;
+    });
+  </script>
+</body>
+</html>

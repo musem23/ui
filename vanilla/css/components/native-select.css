@@ -1,0 +1,194 @@
+/**
+ * Brand UI - Native Select Component
+ * Native browser select with custom styling
+ */
+
+/* ============================================
+   NATIVE SELECT WRAPPER
+   ============================================ */
+
+.native-select {
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+}
+
+.native-select--full-width {
+  width: 100%;
+}
+
+/* Disabled wrapper state */
+.native-select:has(select:disabled) {
+  opacity: 0.5;
+}
+
+/* ============================================
+   NATIVE SELECT ELEMENT
+   ============================================ */
+
+.native-select select {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: 2.25rem;
+  padding: 0.5rem 2.25rem 0.5rem 0.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: var(--foreground);
+  background-color: transparent;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xs);
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  transition:
+    color var(--transition-fast) var(--ease-default),
+    border-color var(--transition-fast) var(--ease-default),
+    box-shadow var(--transition-fast) var(--ease-default);
+}
+
+/* Dark mode background */
+.dark .native-select select {
+  background-color: oklch(from var(--input) l c h / 30%);
+}
+
+.dark .native-select select:hover {
+  background-color: oklch(from var(--input) l c h / 50%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) .native-select select {
+    background-color: oklch(from var(--input) l c h / 30%);
+  }
+
+  :root:not(.light) .native-select select:hover {
+    background-color: oklch(from var(--input) l c h / 50%);
+  }
+}
+
+/* Placeholder styling (first disabled option) */
+.native-select select:invalid,
+.native-select select option[value=""][disabled] {
+  color: var(--muted-foreground);
+}
+
+/* Selection highlighting */
+.native-select select::selection {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+/* ============================================
+   FOCUS STATE
+   ============================================ */
+
+.native-select select:focus-visible {
+  border-color: var(--ring);
+  box-shadow: var(--shadow-xs), 0 0 0 3px oklch(from var(--ring) l c h / 50%);
+}
+
+/* ============================================
+   DISABLED STATE
+   ============================================ */
+
+.native-select select:disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+/* ============================================
+   INVALID/ERROR STATE
+   ============================================ */
+
+.native-select select[aria-invalid="true"] {
+  border-color: var(--destructive);
+}
+
+.native-select select[aria-invalid="true"]:focus-visible {
+  box-shadow: var(--shadow-xs), 0 0 0 3px oklch(from var(--destructive) l c h / 20%);
+}
+
+.dark .native-select select[aria-invalid="true"]:focus-visible {
+  box-shadow: var(--shadow-xs), 0 0 0 3px oklch(from var(--destructive) l c h / 40%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) .native-select select[aria-invalid="true"]:focus-visible {
+    box-shadow: var(--shadow-xs), 0 0 0 3px oklch(from var(--destructive) l c h / 40%);
+  }
+}
+
+/* ============================================
+   SIZE VARIANTS
+   ============================================ */
+
+/* Small size */
+.native-select--sm select {
+  height: 2rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  font-size: 0.8125rem;
+}
+
+/* ============================================
+   CUSTOM ARROW ICON
+   ============================================ */
+
+.native-select-icon {
+  position: absolute;
+  top: 50%;
+  right: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  color: var(--muted-foreground);
+  opacity: 0.5;
+  pointer-events: none;
+  transform: translateY(-50%);
+  user-select: none;
+}
+
+.native-select-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ============================================
+   OPTION GROUP STYLING
+   ============================================ */
+
+.native-select select optgroup {
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.native-select select option {
+  padding: 0.5rem;
+  font-weight: 400;
+  color: var(--foreground);
+  background-color: var(--popover);
+}
+
+.native-select select option:disabled {
+  color: var(--muted-foreground);
+}
+
+/* ============================================
+   FORM INTEGRATION
+   ============================================ */
+
+/* Required indicator support */
+.native-select select:required:invalid {
+  border-color: var(--input);
+}
+
+/* When part of a form group with label */
+.form-group .native-select {
+  width: 100%;
+}

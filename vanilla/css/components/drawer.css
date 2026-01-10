@@ -1,0 +1,303 @@
+/**
+ * Brand UI - Drawer Component
+ * A mobile-friendly panel that slides in from edge of screen with drag-to-dismiss
+ */
+
+/* ============================================
+   OVERLAY
+   ============================================ */
+
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-overlay);
+  background-color: rgb(0 0 0 / 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity var(--transition-normal) var(--ease-out),
+    visibility var(--transition-normal) var(--ease-out);
+}
+
+.drawer-overlay[data-state="open"] {
+  opacity: 1;
+  visibility: visible;
+}
+
+.drawer-overlay[data-state="closed"] {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* ============================================
+   DRAWER CONTENT
+   ============================================ */
+
+.drawer-content {
+  position: fixed;
+  z-index: var(--z-modal);
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background);
+  outline: none;
+  will-change: transform;
+  touch-action: none;
+}
+
+/* Bottom (default) */
+.drawer-content,
+.drawer-content[data-direction="bottom"] {
+  inset: auto 0 0 0;
+  max-height: 80vh;
+  margin-top: 6rem;
+  border-top: 1px solid var(--border);
+  border-top-left-radius: var(--radius-lg);
+  border-top-right-radius: var(--radius-lg);
+  transform: translateY(100%);
+  transition: transform var(--transition-slow) var(--ease-out);
+}
+
+.drawer-content[data-state="open"],
+.drawer-content[data-direction="bottom"][data-state="open"] {
+  transform: translateY(0);
+}
+
+.drawer-content[data-state="closed"],
+.drawer-content[data-direction="bottom"][data-state="closed"] {
+  transform: translateY(100%);
+}
+
+/* Top */
+.drawer-content[data-direction="top"] {
+  inset: 0 0 auto 0;
+  max-height: 80vh;
+  margin-bottom: 6rem;
+  border-bottom: 1px solid var(--border);
+  border-bottom-left-radius: var(--radius-lg);
+  border-bottom-right-radius: var(--radius-lg);
+  border-top: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  transform: translateY(-100%);
+}
+
+.drawer-content[data-direction="top"][data-state="open"] {
+  transform: translateY(0);
+}
+
+.drawer-content[data-direction="top"][data-state="closed"] {
+  transform: translateY(-100%);
+}
+
+/* Right */
+.drawer-content[data-direction="right"] {
+  inset: 0 0 0 auto;
+  width: 75%;
+  max-width: 24rem;
+  max-height: none;
+  margin: 0;
+  border-left: 1px solid var(--border);
+  border-radius: 0;
+  transform: translateX(100%);
+}
+
+.drawer-content[data-direction="right"][data-state="open"] {
+  transform: translateX(0);
+}
+
+.drawer-content[data-direction="right"][data-state="closed"] {
+  transform: translateX(100%);
+}
+
+/* Left */
+.drawer-content[data-direction="left"] {
+  inset: 0 auto 0 0;
+  width: 75%;
+  max-width: 24rem;
+  max-height: none;
+  margin: 0;
+  border-right: 1px solid var(--border);
+  border-radius: 0;
+  transform: translateX(-100%);
+}
+
+.drawer-content[data-direction="left"][data-state="open"] {
+  transform: translateX(0);
+}
+
+.drawer-content[data-direction="left"][data-state="closed"] {
+  transform: translateX(-100%);
+}
+
+/* Dragging state - disable transitions */
+.drawer-content[data-dragging="true"] {
+  transition: none;
+}
+
+/* ============================================
+   DRAG HANDLE
+   ============================================ */
+
+.drawer-handle {
+  display: none;
+  width: 100px;
+  height: 6px;
+  margin: 0.75rem auto 0;
+  flex-shrink: 0;
+  border-radius: var(--radius-full);
+  background-color: var(--muted);
+  cursor: grab;
+}
+
+.drawer-handle:active {
+  cursor: grabbing;
+}
+
+/* Show handle for bottom drawer */
+.drawer-content[data-direction="bottom"] .drawer-handle,
+.drawer-content:not([data-direction]) .drawer-handle {
+  display: block;
+}
+
+/* Handle for top drawer */
+.drawer-content[data-direction="top"] .drawer-handle {
+  display: block;
+  order: 999;
+  margin: 0 auto 0.75rem;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+.drawer-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem;
+}
+
+/* Center text for top/bottom drawers */
+.drawer-content[data-direction="bottom"] .drawer-header,
+.drawer-content[data-direction="top"] .drawer-header,
+.drawer-content:not([data-direction]) .drawer-header {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .drawer-header {
+    gap: 0.375rem;
+    text-align: left;
+  }
+
+  .drawer-content[data-direction="bottom"] .drawer-header,
+  .drawer-content[data-direction="top"] .drawer-header,
+  .drawer-content:not([data-direction]) .drawer-header {
+    text-align: left;
+  }
+}
+
+/* ============================================
+   TITLE
+   ============================================ */
+
+.drawer-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--foreground);
+}
+
+/* ============================================
+   DESCRIPTION
+   ============================================ */
+
+.drawer-description {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  line-height: 1.5;
+}
+
+/* ============================================
+   BODY
+   ============================================ */
+
+.drawer-body {
+  flex: 1;
+  padding: 0 1rem;
+  overflow-y: auto;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.drawer-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  margin-top: auto;
+}
+
+/* ============================================
+   CLOSE BUTTON
+   ============================================ */
+
+.drawer-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-sm);
+  color: var(--muted-foreground);
+  transition:
+    background-color var(--transition-fast) var(--ease-default),
+    color var(--transition-fast) var(--ease-default);
+}
+
+.drawer-close:hover {
+  background-color: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.drawer-close:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* Hide close button for bottom/top centered drawers on mobile */
+.drawer-content[data-direction="bottom"] .drawer-close,
+.drawer-content[data-direction="top"] .drawer-close,
+.drawer-content:not([data-direction]) .drawer-close {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .drawer-content[data-direction="bottom"] .drawer-close,
+  .drawer-content[data-direction="top"] .drawer-close,
+  .drawer-content:not([data-direction]) .drawer-close {
+    display: flex;
+  }
+}
+
+/* Always show for left/right drawers */
+.drawer-content[data-direction="left"] .drawer-close,
+.drawer-content[data-direction="right"] .drawer-close {
+  display: flex;
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .drawer-overlay,
+  .drawer-content {
+    transition: none;
+  }
+}

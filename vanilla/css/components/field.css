@@ -1,0 +1,267 @@
+/**
+ * Brand UI - Field Component
+ * Form field wrapper with label, input, description, and error states.
+ */
+
+/* Base Field */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  width: 100%;
+}
+
+/* Orientation Variants */
+.field[data-orientation="horizontal"] {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.field[data-orientation="horizontal"] > .field-label {
+  flex: none;
+  min-width: 8rem;
+}
+
+.field[data-orientation="horizontal"] > .field-content {
+  flex: 1;
+}
+
+/* Invalid state - applies destructive color to children */
+.field[data-invalid="true"] {
+  color: var(--destructive);
+}
+
+.field[data-invalid="true"] .field-label {
+  color: var(--destructive);
+}
+
+/* Disabled state */
+.field[data-disabled="true"] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Field Label */
+.field-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--foreground);
+  cursor: default;
+}
+
+/* Required indicator */
+.field-label[data-required="true"]::after {
+  content: "*";
+  color: var(--destructive);
+  margin-left: 0.125rem;
+}
+
+/* Optional indicator */
+.field-label .field-optional {
+  font-weight: 400;
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+}
+
+/* Field Content - wraps input + description + error */
+.field-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  flex: 1;
+}
+
+/* Field Description */
+.field-description {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--muted-foreground);
+  margin: 0;
+}
+
+.field-description a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.field-description a:hover {
+  color: var(--primary);
+}
+
+/* Field Error */
+.field-error {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.375rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--destructive);
+  margin: 0;
+}
+
+.field-error[hidden] {
+  display: none;
+}
+
+/* Error icon */
+.field-error-icon {
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.125rem;
+}
+
+/* Error list for multiple errors */
+.field-error ul {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.field-error li {
+  list-style-type: disc;
+}
+
+/* Field Group - contains multiple fields */
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.field-group[data-variant="compact"] {
+  gap: 1rem;
+}
+
+/* Field Set - native fieldset styling */
+.field-set {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border: none;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+/* Field Legend */
+.field-legend {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  padding: 0;
+}
+
+.field-legend[data-variant="label"] {
+  font-size: 0.875rem;
+}
+
+/* Field Separator */
+.field-separator {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 1.25rem;
+  margin: 0.5rem 0;
+}
+
+.field-separator::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background-color: var(--border);
+}
+
+.field-separator-text {
+  position: relative;
+  padding: 0 0.75rem;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  background-color: var(--background);
+}
+
+/* Input styling within field (basic reset) */
+.field input:not([type="checkbox"]):not([type="radio"]),
+.field textarea,
+.field select {
+  width: 100%;
+}
+
+/* Invalid input styling */
+.field[data-invalid="true"] input:not([type="checkbox"]):not([type="radio"]),
+.field[data-invalid="true"] textarea,
+.field[data-invalid="true"] select {
+  border-color: var(--destructive);
+}
+
+.field[data-invalid="true"] input:not([type="checkbox"]):not([type="radio"]):focus,
+.field[data-invalid="true"] textarea:focus,
+.field[data-invalid="true"] select:focus {
+  border-color: var(--destructive);
+  box-shadow: 0 0 0 3px oklch(from var(--destructive) l c h / 20%);
+}
+
+.dark .field[data-invalid="true"] input:not([type="checkbox"]):not([type="radio"]):focus,
+.dark .field[data-invalid="true"] textarea:focus,
+.dark .field[data-invalid="true"] select:focus {
+  box-shadow: 0 0 0 3px oklch(from var(--destructive) l c h / 40%);
+}
+
+/* Checkbox/Radio field layout */
+.field[data-type="checkbox"],
+.field[data-type="radio"] {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.field[data-type="checkbox"] .field-label,
+.field[data-type="radio"] .field-label {
+  order: 1;
+  cursor: pointer;
+}
+
+.field[data-type="checkbox"] input,
+.field[data-type="radio"] input {
+  order: 0;
+  margin-top: 0.125rem;
+}
+
+/* Card-style field (label wraps input) */
+.field-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: border-color var(--transition-fast) var(--ease-default),
+              background-color var(--transition-fast) var(--ease-default);
+}
+
+.field-card:hover {
+  border-color: var(--ring);
+}
+
+.field-card:has(input:checked) {
+  border-color: var(--primary);
+  background-color: oklch(from var(--primary) l c h / 5%);
+}
+
+.dark .field-card:has(input:checked) {
+  background-color: oklch(from var(--primary) l c h / 10%);
+}

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Input OTP - Brand UI</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Brand UI CSS -->
+  <link rel="stylesheet" href="../css/ui.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="app-sidebar">
+      <div class="app-sidebar-header">
+        <a href="../index.html">← Overview</a>
+      </div>
+      <div class="app-sidebar-content">
+        <div class="app-sidebar-group-label">Components</div>
+        <ul class="sidebar-menu" id="sidebar-menu"></ul>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="app-main">
+      <header class="app-header">
+        <div class="header-left">
+          <span>Input OTP</span>
+        </div>
+        <button class="btn btn-ghost btn-sm" id="theme-toggle">Toggle Theme</button>
+      </header>
+
+      <div class="app-content">
+        <h1 class="page-title">Input OTP</h1>
+        <p class="page-desc">One-time password input component with auto-advance, backspace handling, and paste support.</p>
+
+        <!-- Basic OTP -->
+        <div class="section">
+          <h2 class="section-title">Basic OTP</h2>
+          <p class="section-desc">A simple 6-digit OTP input.</p>
+          <div class="demo-box">
+            <div class="input-otp" data-input-otp data-name="basic-otp" id="basic-otp">
+              <div class="input-otp-group">
+                <div class="input-otp-slot"></div>
+                <div class="input-otp-slot"></div>
+                <div class="input-otp-slot"></div>
+                <div class="input-otp-slot"></div>
+                <div class="input-otp-slot"></div>
+                <div class="input-otp-slot"></div>
+              </div>
+            </div>
+            <div class="demo-row" style="margin-top: 1rem;">
+              <span style="font-size: 0.875rem; color: var(--muted-foreground); min-width: 80px;">Value:</span>
+              <span style="padding: 0.75rem 1rem; background: var(--muted); border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.875rem;" id="basic-output">-</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- With Separator -->
+        <div class="section">
+          <h2 class="section-title">With Separator</h2>
+          <p class="section-desc">Groups of 3 digits with a separator between them.</p>
+          <div class="demo-box">
+            <div class="input-otp" data-input-otp data-name="separated-otp" id="separated-otp">
+              <div class="input-otp-group">
+                <div class="input-otp-slot"></div>
+                <div class="input-otp-slot"></div>
+                <div class="input-otp-slot"></div>
+              </div>
+              <div class="input-otp-separator">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14"/>
+                </svg>
+              </div>
+              <div class="input-otp-group">
+                <div class="input-otp-slot"></div>
+                <div class="input-otp-slot"></div>
+                <div class="input-otp-slot"></div>
+              </div>
+            </div>
+            <div class="demo-row" style="margin-top: 1rem;">
+              <span style="font-size: 0.875rem; color: var(--muted-foreground); min-width: 80px;">Value:</span>
+              <span style="padding: 0.75rem 1rem; background: var(--muted); border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.875rem;" id="separated-output">-</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4-Digit PIN -->
+        <div class="section">
+          <h2 class="section-title">4-Digit PIN</h2>
+          <p class="section-desc">Common 4-digit PIN format with masked input.</p>
+          <div class="demo-box">
+            <div class="input-otp" data-input-otp data-name="pin" data-mask="true" id="pin-otp">
+              <div class="input-otp-group">
+                <div class="input-otp-slot"></div>
+                <div class="input-otp-slot"></div>
+                <div class="input-otp-slot"></div>
+                <div class="input-otp-slot"></div>
+              </div>
+            </div>
+            <div class="demo-row" style="margin-top: 1rem;">
+              <span style="font-size: 0.875rem; color: var(--muted-foreground); min-width: 80px;">Value:</span>
+              <span style="padding: 0.75rem 1rem; background: var(--muted); border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.875rem;" id="pin-output">-</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Alphanumeric -->
+        <div class="section">
+          <h2 class="section-title">Alphanumeric</h2>
+          <p class="section-desc">Accepts both letters and numbers.</p>
+          <div class="demo-box">
+            <div class="input-otp" data-input-otp data-name="alphanumeric" data-pattern="[A-Za-z0-9]" id="alpha-otp">
+              <div class="input-otp-group">
+                <div class="input-otp-slot"></div>
+                <div class="input-otp-slot"></div>
+                <div class="input-otp-slot"></div>
+                <div class="input-otp-slot"></div>
+                <div class="input-otp-slot"></div>
+                <div class="input-otp-slot"></div>
+              </div>
+            </div>
+            <div class="demo-row" style="margin-top: 1rem;">
+              <span style="font-size: 0.875rem; color: var(--muted-foreground); min-width: 80px;">Value:</span>
+              <span style="padding: 0.75rem 1rem; background: var(--muted); border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.875rem;" id="alpha-output">-</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Size Variants -->
+        <div class="section">
+          <h2 class="section-title">Size Variants</h2>
+          <p class="section-desc">Small, default, and large sizes.</p>
+          <div class="demo-box">
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <div class="demo-row">
+                <span style="font-size: 0.875rem; color: var(--muted-foreground); min-width: 80px;">Small:</span>
+                <div class="input-otp input-otp-sm" data-input-otp data-name="small-otp">
+                  <div class="input-otp-group">
+                    <div class="input-otp-slot"></div>
+                    <div class="input-otp-slot"></div>
+                    <div class="input-otp-slot"></div>
+                    <div class="input-otp-slot"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="demo-row">
+                <span style="font-size: 0.875rem; color: var(--muted-foreground); min-width: 80px;">Default:</span>
+                <div class="input-otp" data-input-otp data-name="default-otp">
+                  <div class="input-otp-group">
+                    <div class="input-otp-slot"></div>
+                    <div class="input-otp-slot"></div>
+                    <div class="input-otp-slot"></div>
+                    <div class="input-otp-slot"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="demo-row">
+                <span style="font-size: 0.875rem; color: var(--muted-foreground); min-width: 80px;">Large:</span>
+                <div class="input-otp input-otp-lg" data-input-otp data-name="large-otp">
+                  <div class="input-otp-group">
+                    <div class="input-otp-slot"></div>
+                    <div class="input-otp-slot"></div>
+                    <div class="input-otp-slot"></div>
+                    <div class="input-otp-slot"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Disabled State -->
+        <div class="section">
+          <h2 class="section-title">Disabled State</h2>
+          <p class="section-desc">OTP input in a disabled state.</p>
+          <div class="demo-box">
+            <div class="input-otp" data-input-otp data-disabled="true" data-name="disabled-otp">
+              <div class="input-otp-group">
+                <div class="input-otp-slot">1</div>
+                <div class="input-otp-slot">2</div>
+                <div class="input-otp-slot">3</div>
+                <div class="input-otp-slot">4</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- With Actions -->
+        <div class="section">
+          <h2 class="section-title">With Actions</h2>
+          <p class="section-desc">Programmatic control with setValue and clear methods.</p>
+          <div class="demo-box">
+            <div class="input-otp" data-input-otp data-name="action-otp" id="action-otp">
+              <div class="input-otp-group">
+                <div class="input-otp-slot"></div>
+                <div class="input-otp-slot"></div>
+                <div class="input-otp-slot"></div>
+                <div class="input-otp-slot"></div>
+                <div class="input-otp-slot"></div>
+                <div class="input-otp-slot"></div>
+              </div>
+            </div>
+            <div class="demo-row" style="margin-top: 1rem;">
+              <button class="btn btn-outline btn-sm" onclick="setOtpValue()">Set "123456"</button>
+              <button class="btn btn-outline btn-sm" onclick="clearOtp()">Clear</button>
+              <button class="btn btn-outline btn-sm" onclick="focusOtp()">Focus</button>
+            </div>
+            <div class="demo-row" style="margin-top: 1rem;">
+              <span style="font-size: 0.875rem; color: var(--muted-foreground); min-width: 80px;">Value:</span>
+              <span style="padding: 0.75rem 1rem; background: var(--muted); border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.875rem;" id="action-output">-</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Complete Event -->
+        <div class="section">
+          <h2 class="section-title">Complete Event</h2>
+          <p class="section-desc">Fires an event when all digits are entered.</p>
+          <div class="demo-box">
+            <div class="input-otp" data-input-otp data-name="complete-otp" id="complete-otp">
+              <div class="input-otp-group">
+                <div class="input-otp-slot"></div>
+                <div class="input-otp-slot"></div>
+                <div class="input-otp-slot"></div>
+                <div class="input-otp-slot"></div>
+              </div>
+            </div>
+            <div class="demo-row" style="margin-top: 1rem;">
+              <span style="font-size: 0.875rem; color: var(--muted-foreground); min-width: 80px;">Status:</span>
+              <span style="padding: 0.75rem 1rem; background: var(--muted); border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.875rem;" id="complete-status">Waiting for input...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Brand UI JS -->
+  <script src="../js/core.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/components/input-otp.js"></script>
+
+  <script>
+    // Demo event handlers
+    document.addEventListener('DOMContentLoaded', function() {
+      // Basic OTP value display
+      document.getElementById('basic-otp').addEventListener('otp-change', function(e) {
+        document.getElementById('basic-output').textContent = e.detail.value || '-';
+      });
+
+      // Separated OTP value display
+      document.getElementById('separated-otp').addEventListener('otp-change', function(e) {
+        document.getElementById('separated-output').textContent = e.detail.value || '-';
+      });
+
+      // PIN value display
+      document.getElementById('pin-otp').addEventListener('otp-change', function(e) {
+        document.getElementById('pin-output').textContent = e.detail.value || '-';
+      });
+
+      // Alphanumeric value display
+      document.getElementById('alpha-otp').addEventListener('otp-change', function(e) {
+        document.getElementById('alpha-output').textContent = e.detail.value || '-';
+      });
+
+      // Action OTP value display
+      document.getElementById('action-otp').addEventListener('otp-change', function(e) {
+        document.getElementById('action-output').textContent = e.detail.value || '-';
+      });
+
+      // Complete event display
+      document.getElementById('complete-otp').addEventListener('otp-complete', function(e) {
+        document.getElementById('complete-status').textContent = 'Complete! Code: ' + e.detail.value;
+      });
+
+      document.getElementById('complete-otp').addEventListener('otp-change', function(e) {
+        if (!e.detail.complete) {
+          document.getElementById('complete-status').textContent = 'Waiting for input...';
+        }
+      });
+    });
+
+    // Action button handlers
+    function setOtpValue() {
+      const container = document.getElementById('action-otp');
+      const instance = BrandUI.getInstance(container, 'input-otp');
+      if (instance) {
+        instance.setValue('123456');
+      }
+    }
+
+    function clearOtp() {
+      const container = document.getElementById('action-otp');
+      const instance = BrandUI.getInstance(container, 'input-otp');
+      if (instance) {
+        instance.clear();
+      }
+    }
+
+    function focusOtp() {
+      const container = document.getElementById('action-otp');
+      const instance = BrandUI.getInstance(container, 'input-otp');
+      if (instance) {
+        instance.focus();
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kbd - Brand UI</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Brand UI CSS -->
+  <link rel="stylesheet" href="../css/ui.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="app-sidebar">
+      <div class="app-sidebar-header">
+        <a href="../index.html">← Overview</a>
+      </div>
+      <div class="app-sidebar-content">
+        <div class="app-sidebar-group-label">Components</div>
+        <ul class="sidebar-menu" id="sidebar-menu"></ul>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="app-main">
+      <header class="app-header">
+        <div class="header-left">
+          <span>Kbd</span>
+        </div>
+        <button class="btn btn-ghost btn-sm" id="theme-toggle">Toggle Theme</button>
+      </header>
+
+      <div class="app-content">
+        <h1 class="page-title">Kbd</h1>
+        <p class="page-desc">A keyboard key indicator component for displaying keyboard shortcuts.</p>
+
+        <!-- Installation -->
+        <div class="install-box">
+          <p>Installation</p>
+          <code>&lt;link rel="stylesheet" href="css/components/kbd.css"&gt;</code>
+        </div>
+
+        <!-- Basic Usage -->
+        <div class="section">
+          <h2 class="section-title">Basic Usage</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <kbd class="kbd">K</kbd>
+              <kbd class="kbd">Esc</kbd>
+              <kbd class="kbd">Tab</kbd>
+              <kbd class="kbd">Enter</kbd>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'basic-html')">HTML</button>
+            <button class="code-tab" onclick="BrandUILayout.showTab(this, 'basic-css')">CSS</button>
+          </div>
+          <div class="code-block">
+            <div id="basic-html" class="code-panel active">
+              <div class="code-wrapper">
+                <pre><code>&lt;kbd class="kbd"&gt;K&lt;/kbd&gt;
+&lt;kbd class="kbd"&gt;Esc&lt;/kbd&gt;
+&lt;kbd class="kbd"&gt;Tab&lt;/kbd&gt;
+&lt;kbd class="kbd"&gt;Enter&lt;/kbd&gt;</code></pre>
+              </div>
+            </div>
+            <div id="basic-css" class="code-panel">
+              <pre><code>/* Required CSS */
+@import "css/tokens.css";
+@import "css/components/kbd.css";</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Common Keys -->
+        <div class="section">
+          <h2 class="section-title">Common Keys</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <kbd class="kbd">Space</kbd>
+              <kbd class="kbd">Backspace</kbd>
+              <kbd class="kbd">Delete</kbd>
+              <kbd class="kbd">Home</kbd>
+              <kbd class="kbd">End</kbd>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'common-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="common-html" class="code-panel active">
+              <pre><code>&lt;kbd class="kbd"&gt;Space&lt;/kbd&gt;
+&lt;kbd class="kbd"&gt;Backspace&lt;/kbd&gt;
+&lt;kbd class="kbd"&gt;Delete&lt;/kbd&gt;
+&lt;kbd class="kbd"&gt;Home&lt;/kbd&gt;
+&lt;kbd class="kbd"&gt;End&lt;/kbd&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modifier Keys -->
+        <div class="section">
+          <h2 class="section-title">Modifier Keys</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <kbd class="kbd">Ctrl</kbd>
+              <kbd class="kbd">Alt</kbd>
+              <kbd class="kbd">Shift</kbd>
+              <kbd class="kbd">Cmd</kbd>
+              <kbd class="kbd">Option</kbd>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'modifier-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="modifier-html" class="code-panel active">
+              <pre><code>&lt;kbd class="kbd"&gt;Ctrl&lt;/kbd&gt;
+&lt;kbd class="kbd"&gt;Alt&lt;/kbd&gt;
+&lt;kbd class="kbd"&gt;Shift&lt;/kbd&gt;
+&lt;kbd class="kbd"&gt;Cmd&lt;/kbd&gt;
+&lt;kbd class="kbd"&gt;Option&lt;/kbd&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kbd Group -->
+        <div class="section">
+          <h2 class="section-title">Keyboard Shortcuts (Group)</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <span class="kbd-group">
+                <kbd class="kbd">Ctrl</kbd>
+                <kbd class="kbd">C</kbd>
+              </span>
+              <span class="kbd-group">
+                <kbd class="kbd">Ctrl</kbd>
+                <kbd class="kbd">V</kbd>
+              </span>
+              <span class="kbd-group">
+                <kbd class="kbd">Cmd</kbd>
+                <kbd class="kbd">Shift</kbd>
+                <kbd class="kbd">P</kbd>
+              </span>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'group-html')">HTML</button>
+            <button class="code-tab" onclick="BrandUILayout.showTab(this, 'group-css')">CSS</button>
+          </div>
+          <div class="code-block">
+            <div id="group-html" class="code-panel active">
+              <div class="code-wrapper">
+                <pre><code>&lt;span class="kbd-group"&gt;
+  &lt;kbd class="kbd"&gt;Ctrl&lt;/kbd&gt;
+  &lt;kbd class="kbd"&gt;C&lt;/kbd&gt;
+&lt;/span&gt;
+
+&lt;span class="kbd-group"&gt;
+  &lt;kbd class="kbd"&gt;Ctrl&lt;/kbd&gt;
+  &lt;kbd class="kbd"&gt;V&lt;/kbd&gt;
+&lt;/span&gt;
+
+&lt;span class="kbd-group"&gt;
+  &lt;kbd class="kbd"&gt;Cmd&lt;/kbd&gt;
+  &lt;kbd class="kbd"&gt;Shift&lt;/kbd&gt;
+  &lt;kbd class="kbd"&gt;P&lt;/kbd&gt;
+&lt;/span&gt;</code></pre>
+              </div>
+            </div>
+            <div id="group-css" class="code-panel">
+              <pre><code>/* kbd-group combines multiple keys */
+.kbd-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- With Icons -->
+        <div class="section">
+          <h2 class="section-title">With Icons</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <kbd class="kbd">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m18 15-6-6-6 6"/>
+                </svg>
+              </kbd>
+              <kbd class="kbd">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m6 9 6 6 6-6"/>
+                </svg>
+              </kbd>
+              <kbd class="kbd">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m15 18-6-6 6-6"/>
+                </svg>
+              </kbd>
+              <kbd class="kbd">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m9 18 6-6-6-6"/>
+                </svg>
+              </kbd>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'icons-html')">HTML</button>
+            <button class="code-tab" onclick="BrandUILayout.showTab(this, 'icons-css')">CSS</button>
+          </div>
+          <div class="code-block">
+            <div id="icons-html" class="code-panel active">
+              <div class="code-wrapper">
+                <pre><code>&lt;kbd class="kbd"&gt;
+  &lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;
+    &lt;path d="m18 15-6-6-6 6"/&gt;
+  &lt;/svg&gt;
+&lt;/kbd&gt;</code></pre>
+              </div>
+            </div>
+            <div id="icons-css" class="code-panel">
+              <pre><code>/* SVG icons are automatically sized */
+.kbd > svg {
+  width: 0.75rem;
+  height: 0.75rem;
+  pointer-events: none;
+  flex-shrink: 0;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Arrow Keys -->
+        <div class="section">
+          <h2 class="section-title">Arrow Keys</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <span class="kbd-group">
+                <kbd class="kbd">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m15 18-6-6 6-6"/>
+                  </svg>
+                </kbd>
+                <kbd class="kbd">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m18 15-6-6-6 6"/>
+                  </svg>
+                </kbd>
+                <kbd class="kbd">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m6 9 6 6 6-6"/>
+                  </svg>
+                </kbd>
+                <kbd class="kbd">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m9 18 6-6-6-6"/>
+                  </svg>
+                </kbd>
+              </span>
+              <span style="color: var(--muted-foreground); font-size: 0.875rem;">to navigate</span>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'arrows-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="arrows-html" class="code-panel active">
+              <pre><code>&lt;span class="kbd-group"&gt;
+  &lt;kbd class="kbd"&gt;&lt;svg&gt;...left arrow...&lt;/svg&gt;&lt;/kbd&gt;
+  &lt;kbd class="kbd"&gt;&lt;svg&gt;...up arrow...&lt;/svg&gt;&lt;/kbd&gt;
+  &lt;kbd class="kbd"&gt;&lt;svg&gt;...down arrow...&lt;/svg&gt;&lt;/kbd&gt;
+  &lt;kbd class="kbd"&gt;&lt;svg&gt;...right arrow...&lt;/svg&gt;&lt;/kbd&gt;
+&lt;/span&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- In Context -->
+        <div class="section">
+          <h2 class="section-title">In Context</h2>
+          <div class="demo-box">
+            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+              <div class="shortcut-demo">
+                Press <kbd class="kbd">Esc</kbd> to close
+              </div>
+              <div class="shortcut-demo">
+                <span class="kbd-group">
+                  <kbd class="kbd">Ctrl</kbd>
+                  <kbd class="kbd">K</kbd>
+                </span>
+                to open command palette
+              </div>
+              <div class="shortcut-demo">
+                Use
+                <span class="kbd-group">
+                  <kbd class="kbd">Ctrl</kbd>
+                  <kbd class="kbd">S</kbd>
+                </span>
+                to save
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'context-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="context-html" class="code-panel active">
+              <pre><code>&lt;div class="shortcut-demo"&gt;
+  Press &lt;kbd class="kbd"&gt;Esc&lt;/kbd&gt; to close
+&lt;/div&gt;
+
+&lt;div class="shortcut-demo"&gt;
+  &lt;span class="kbd-group"&gt;
+    &lt;kbd class="kbd"&gt;Ctrl&lt;/kbd&gt;
+    &lt;kbd class="kbd"&gt;K&lt;/kbd&gt;
+  &lt;/span&gt;
+  to open command palette
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- CSS Classes Reference -->
+        <div class="section">
+          <h2 class="section-title">CSS Classes Reference</h2>
+          <div class="demo-box" style="padding: 0; overflow: hidden;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+              <thead>
+                <tr style="background: var(--muted);">
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Class</th>
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.kbd</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Base keyboard key class (required)</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.kbd-group</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Container for combining multiple keys</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.kbd > svg</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">SVG icons are auto-sized to 0.75rem</td></tr>
+                <tr><td style="padding: 0.75rem 1rem;"><code>[data-slot="tooltip-content"] .kbd</code></td><td style="padding: 0.75rem 1rem;">Special styling when used inside tooltips</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Brand UI JS -->
+  <script src="../js/core.js"></script>
+  <script src="../js/layout.js"></script>
+
+  <style>
+    /* Shortcut demo */
+    .shortcut-demo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--muted-foreground);
+      font-size: 0.875rem;
+    }
+  </style>
+</body>
+</html>

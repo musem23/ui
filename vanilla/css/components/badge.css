@@ -1,0 +1,110 @@
+/**
+ * Badge Component
+ * A small status descriptor for UI elements.
+ */
+
+/* Base Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  width: fit-content;
+  padding: 0.125rem 0.5rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.5;
+  white-space: nowrap;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: color var(--transition-fast) var(--ease-default),
+              box-shadow var(--transition-fast) var(--ease-default);
+}
+
+/* SVG icon sizing */
+.badge > svg {
+  width: 0.75rem;
+  height: 0.75rem;
+  pointer-events: none;
+}
+
+/* Focus styles */
+.badge:focus-visible {
+  outline: none;
+  border-color: var(--ring);
+  box-shadow: 0 0 0 3px oklch(from var(--ring) l c h / 0.5);
+}
+
+/* Invalid state */
+.badge[aria-invalid="true"] {
+  border-color: var(--destructive);
+  box-shadow: 0 0 0 3px oklch(from var(--destructive) l c h / 0.2);
+}
+
+.dark .badge[aria-invalid="true"] {
+  box-shadow: 0 0 0 3px oklch(from var(--destructive) l c h / 0.4);
+}
+
+/* ============================================
+   Variant: Default
+   ============================================ */
+.badge-default {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+a.badge-default:hover {
+  background-color: oklch(from var(--primary) l c h / 0.9);
+}
+
+/* ============================================
+   Variant: Secondary
+   ============================================ */
+.badge-secondary {
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
+}
+
+a.badge-secondary:hover {
+  background-color: oklch(from var(--secondary) l c h / 0.9);
+}
+
+/* ============================================
+   Variant: Destructive
+   ============================================ */
+.badge-destructive {
+  background-color: var(--destructive);
+  color: white;
+}
+
+.dark .badge-destructive {
+  background-color: oklch(from var(--destructive) l c h / 0.6);
+}
+
+a.badge-destructive:hover {
+  background-color: oklch(from var(--destructive) l c h / 0.9);
+}
+
+.badge-destructive:focus-visible {
+  box-shadow: 0 0 0 3px oklch(from var(--destructive) l c h / 0.2);
+}
+
+.dark .badge-destructive:focus-visible {
+  box-shadow: 0 0 0 3px oklch(from var(--destructive) l c h / 0.4);
+}
+
+/* ============================================
+   Variant: Outline
+   ============================================ */
+.badge-outline {
+  background-color: transparent;
+  border-color: var(--border);
+  color: var(--foreground);
+}
+
+a.badge-outline:hover {
+  background-color: var(--accent);
+  color: var(--accent-foreground);
+}

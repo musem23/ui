@@ -1,0 +1,102 @@
+/**
+ * Empty Component
+ * Vanilla CSS conversion from React/Tailwind
+ */
+
+.empty {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px dashed var(--border);
+  padding: 1.5rem;
+  text-align: center;
+  text-wrap: balance;
+}
+
+@media (min-width: 768px) {
+  .empty {
+    padding: 3rem;
+  }
+}
+
+.empty-header {
+  display: flex;
+  max-width: 24rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.empty-icon {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.empty-icon svg {
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+/* Icon variant - displays icon in a rounded container */
+.empty-icon[data-variant="icon"] {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: var(--muted);
+  color: var(--foreground);
+  border-radius: var(--radius-lg);
+}
+
+.empty-icon[data-variant="icon"] svg:not([class*="size-"]) {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.empty-title {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+.empty-description {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--muted-foreground);
+  text-wrap: balance;
+}
+
+.empty-description a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.empty-description a:hover {
+  color: var(--primary);
+}
+
+.empty-content {
+  display: flex;
+  width: 100%;
+  max-width: 24rem;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.875rem;
+  text-wrap: balance;
+}
+
+.empty-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}

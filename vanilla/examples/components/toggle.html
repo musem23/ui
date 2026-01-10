@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toggle - Brand UI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- All CSS -->
+  <link rel="stylesheet" href="../css/ui.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="app-sidebar">
+      <div class="app-sidebar-header">
+        <a href="../index.html">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          <span>Overview</span>
+        </a>
+      </div>
+      <div class="app-sidebar-content">
+        <div class="app-sidebar-group-label">Components</div>
+        <ul class="sidebar-menu" id="sidebar-menu"></ul>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="app-main">
+      <header class="app-header">
+        <div class="header-left">
+          <span>Toggle</span>
+        </div>
+        <button id="theme-toggle" class="btn btn-ghost btn-sm">Dark</button>
+      </header>
+
+      <main class="app-content">
+        <h1 class="page-title">Toggle</h1>
+        <p class="page-desc">A two-state button that can be either on or off.</p>
+
+        <!-- Variants -->
+        <div class="section">
+          <h2 class="section-title">Variants</h2>
+          <div class="demo-box">
+            <div class="demo-row" style="margin-bottom: 1rem;">
+              <span style="font-size: 0.875rem; color: var(--muted-foreground); min-width: 100px;">Default:</span>
+              <button class="toggle toggle-default" data-toggle aria-pressed="false" aria-label="Toggle bold">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 12h9a4 4 0 0 1 0 8H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a4 4 0 0 1 0 8" />
+                </svg>
+              </button>
+              <button class="toggle toggle-default" data-toggle aria-pressed="true" aria-label="Toggle italic">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="19" x2="10" y1="4" y2="4" />
+                  <line x1="14" x2="5" y1="20" y2="20" />
+                  <line x1="15" x2="9" y1="4" y2="20" />
+                </svg>
+              </button>
+            </div>
+            <div class="demo-row">
+              <span style="font-size: 0.875rem; color: var(--muted-foreground); min-width: 100px;">Outline:</span>
+              <button class="toggle toggle-outline" data-toggle aria-pressed="false" aria-label="Toggle underline">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 4v6a6 6 0 0 0 12 0V4" />
+                  <line x1="4" x2="20" y1="20" y2="20" />
+                </svg>
+              </button>
+              <button class="toggle toggle-outline" data-toggle aria-pressed="true" aria-label="Toggle strikethrough">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 4H9a3 3 0 0 0-2.83 4" />
+                  <path d="M14 12a4 4 0 0 1 0 8H6" />
+                  <line x1="4" x2="20" y1="12" y2="12" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'variants-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="variants-html" class="code-panel active">
+              <pre><code>&lt;!-- Default variant --&gt;
+&lt;button class="toggle toggle-default" data-toggle aria-pressed="false"&gt;
+  &lt;svg ...&gt;&lt;/svg&gt;
+&lt;/button&gt;
+
+&lt;!-- Outline variant --&gt;
+&lt;button class="toggle toggle-outline" data-toggle aria-pressed="true"&gt;
+  &lt;svg ...&gt;&lt;/svg&gt;
+&lt;/button&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sizes -->
+        <div class="section">
+          <h2 class="section-title">Sizes</h2>
+          <div class="demo-box">
+            <div class="demo-row" style="margin-bottom: 1rem;">
+              <span style="font-size: 0.875rem; color: var(--muted-foreground); min-width: 100px;">Small:</span>
+              <button class="toggle toggle-default toggle-sm" data-toggle aria-pressed="false" aria-label="Small toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 12h9a4 4 0 0 1 0 8H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a4 4 0 0 1 0 8" />
+                </svg>
+              </button>
+              <button class="toggle toggle-outline toggle-sm" data-toggle aria-pressed="true" aria-label="Small toggle outline">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="19" x2="10" y1="4" y2="4" />
+                  <line x1="14" x2="5" y1="20" y2="20" />
+                  <line x1="15" x2="9" y1="4" y2="20" />
+                </svg>
+              </button>
+            </div>
+            <div class="demo-row" style="margin-bottom: 1rem;">
+              <span style="font-size: 0.875rem; color: var(--muted-foreground); min-width: 100px;">Default:</span>
+              <button class="toggle toggle-default" data-toggle aria-pressed="false" aria-label="Default toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 12h9a4 4 0 0 1 0 8H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a4 4 0 0 1 0 8" />
+                </svg>
+              </button>
+              <button class="toggle toggle-outline" data-toggle aria-pressed="true" aria-label="Default toggle outline">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="19" x2="10" y1="4" y2="4" />
+                  <line x1="14" x2="5" y1="20" y2="20" />
+                  <line x1="15" x2="9" y1="4" y2="20" />
+                </svg>
+              </button>
+            </div>
+            <div class="demo-row">
+              <span style="font-size: 0.875rem; color: var(--muted-foreground); min-width: 100px;">Large:</span>
+              <button class="toggle toggle-default toggle-lg" data-toggle aria-pressed="false" aria-label="Large toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 12h9a4 4 0 0 1 0 8H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a4 4 0 0 1 0 8" />
+                </svg>
+              </button>
+              <button class="toggle toggle-outline toggle-lg" data-toggle aria-pressed="true" aria-label="Large toggle outline">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="19" x2="10" y1="4" y2="4" />
+                  <line x1="14" x2="5" y1="20" y2="20" />
+                  <line x1="15" x2="9" y1="4" y2="20" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'sizes-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="sizes-html" class="code-panel active">
+              <pre><code>&lt;button class="toggle toggle-default toggle-sm"&gt;...&lt;/button&gt;
+&lt;button class="toggle toggle-default"&gt;...&lt;/button&gt;
+&lt;button class="toggle toggle-default toggle-lg"&gt;...&lt;/button&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- With Text -->
+        <div class="section">
+          <h2 class="section-title">With Text</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <button class="toggle toggle-default" data-toggle aria-pressed="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 12h9a4 4 0 0 1 0 8H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a4 4 0 0 1 0 8" />
+                </svg>
+                Bold
+              </button>
+              <button class="toggle toggle-outline" data-toggle aria-pressed="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="19" x2="10" y1="4" y2="4" />
+                  <line x1="14" x2="5" y1="20" y2="20" />
+                  <line x1="15" x2="9" y1="4" y2="20" />
+                </svg>
+                Italic
+              </button>
+            </div>
+          </div>
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'text-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="text-html" class="code-panel active">
+              <pre><code>&lt;button class="toggle toggle-default" data-toggle&gt;
+  &lt;svg ...&gt;&lt;/svg&gt;
+  Bold
+&lt;/button&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- States -->
+        <div class="section">
+          <h2 class="section-title">States</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <span style="font-size: 0.875rem; color: var(--muted-foreground); min-width: 100px;">Disabled:</span>
+              <button class="toggle toggle-default" data-toggle aria-pressed="false" disabled aria-label="Disabled toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 12h9a4 4 0 0 1 0 8H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a4 4 0 0 1 0 8" />
+                </svg>
+              </button>
+              <button class="toggle toggle-outline" data-toggle aria-pressed="true" disabled aria-label="Disabled toggle pressed">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="19" x2="10" y1="4" y2="4" />
+                  <line x1="14" x2="5" y1="20" y2="20" />
+                  <line x1="15" x2="9" y1="4" y2="20" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'states-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="states-html" class="code-panel active">
+              <pre><code>&lt;button class="toggle toggle-default" data-toggle disabled&gt;
+  &lt;svg ...&gt;&lt;/svg&gt;
+&lt;/button&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Demo -->
+        <div class="section">
+          <h2 class="section-title">Interactive Demo</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <button id="demo-toggle" class="toggle toggle-outline" data-toggle aria-pressed="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 12h9a4 4 0 0 1 0 8H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h7a4 4 0 0 1 0 8" />
+                </svg>
+                Bold
+              </button>
+            </div>
+            <div style="margin-top: 1rem; padding: 0.75rem 1rem; background: var(--muted); border-radius: var(--radius); font-family: var(--font-mono); font-size: 0.8125rem;" id="output">Toggle state: false</div>
+          </div>
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'interactive-js')">JS</button>
+          </div>
+          <div class="code-block">
+            <div id="interactive-js" class="code-panel active">
+              <pre><code>const toggle = document.getElementById('demo-toggle');
+
+toggle.addEventListener('toggle:change', (e) => {
+  console.log('Toggle state:', e.detail.pressed);
+});
+
+// Programmatic control
+const instance = BrandUI.components.Toggle.getInstance(toggle);
+instance.setPressed(true);</code></pre>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Core JS -->
+  <script src="../js/core.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/components/toggle.js"></script>
+
+  <script>
+    // Interactive demo
+    const demoToggle = document.getElementById('demo-toggle');
+    const output = document.getElementById('output');
+
+    demoToggle.addEventListener('toggle:change', (e) => {
+      output.textContent = `Toggle state: ${e.detail.pressed}`;
+    });
+  </script>
+</body>
+</html>

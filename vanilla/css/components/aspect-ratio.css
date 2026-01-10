@@ -1,0 +1,97 @@
+/**
+ * Aspect Ratio Component
+ * Constrains content to a specified aspect ratio.
+ */
+
+/* Base Aspect Ratio Container */
+.aspect-ratio {
+  position: relative;
+  width: 100%;
+}
+
+/* Content container - fills the aspect ratio box */
+.aspect-ratio > * {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Modern approach using CSS aspect-ratio property */
+.aspect-ratio-16-9 {
+  aspect-ratio: 16 / 9;
+}
+
+.aspect-ratio-4-3 {
+  aspect-ratio: 4 / 3;
+}
+
+.aspect-ratio-1-1 {
+  aspect-ratio: 1 / 1;
+}
+
+.aspect-ratio-3-2 {
+  aspect-ratio: 3 / 2;
+}
+
+.aspect-ratio-21-9 {
+  aspect-ratio: 21 / 9;
+}
+
+.aspect-ratio-9-16 {
+  aspect-ratio: 9 / 16;
+}
+
+/* Video aspect ratio (same as 16:9 but semantic) */
+.aspect-ratio-video {
+  aspect-ratio: 16 / 9;
+}
+
+/* Photo aspect ratios */
+.aspect-ratio-photo {
+  aspect-ratio: 4 / 3;
+}
+
+.aspect-ratio-portrait {
+  aspect-ratio: 3 / 4;
+}
+
+/* Fallback using padding-bottom technique for older browsers */
+@supports not (aspect-ratio: 1 / 1) {
+  .aspect-ratio-16-9 {
+    padding-bottom: 56.25%; /* 9 / 16 = 0.5625 */
+  }
+
+  .aspect-ratio-4-3 {
+    padding-bottom: 75%; /* 3 / 4 = 0.75 */
+  }
+
+  .aspect-ratio-1-1 {
+    padding-bottom: 100%; /* 1 / 1 = 1 */
+  }
+
+  .aspect-ratio-3-2 {
+    padding-bottom: 66.67%; /* 2 / 3 = 0.6667 */
+  }
+
+  .aspect-ratio-21-9 {
+    padding-bottom: 42.86%; /* 9 / 21 = 0.4286 */
+  }
+
+  .aspect-ratio-9-16 {
+    padding-bottom: 177.78%; /* 16 / 9 = 1.7778 */
+  }
+
+  .aspect-ratio-video {
+    padding-bottom: 56.25%;
+  }
+
+  .aspect-ratio-photo {
+    padding-bottom: 75%;
+  }
+
+  .aspect-ratio-portrait {
+    padding-bottom: 133.33%; /* 4 / 3 = 1.3333 */
+  }
+}

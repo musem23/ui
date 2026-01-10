@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendar - Brand UI</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Brand UI CSS -->
+  <link rel="stylesheet" href="../css/ui.css">
+
+  <style>
+    /* Component-specific demo styles */
+    .demo {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 1.5rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .demo-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .demo-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--muted-foreground);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .event-log {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: var(--surface);
+      border-radius: var(--radius);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      max-height: 120px;
+      overflow-y: auto;
+    }
+
+    .event-log p {
+      margin: 0;
+      padding: 0.25rem 0;
+      color: var(--foreground);
+    }
+  </style>
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="app-sidebar">
+      <div class="app-sidebar-header">
+        <a href="../index.html">← Overview</a>
+      </div>
+      <div class="app-sidebar-content">
+        <div class="app-sidebar-group-label">Components</div>
+        <ul class="sidebar-menu" id="sidebar-menu"></ul>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="app-main">
+      <header class="app-header">
+        <div class="header-left">
+          <span>Calendar</span>
+        </div>
+        <button id="theme-toggle" class="btn btn-ghost btn-sm">Dark</button>
+      </header>
+
+      <main class="app-content">
+        <h1 class="page-title">Calendar</h1>
+        <p class="page-desc">A date picker calendar component with month/year navigation and keyboard support.</p>
+
+        <!-- Basic Calendar -->
+        <section class="section">
+          <h2 class="section-title">Default Calendar</h2>
+          <p class="section-desc">Basic calendar with today highlighted. Click a date to select it.</p>
+          <div class="demo">
+            <div class="demo-item">
+              <span class="demo-label">Interactive</span>
+              <div id="calendar-basic" data-calendar></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Pre-selected Date -->
+        <section class="section">
+          <h2 class="section-title">Pre-selected Date</h2>
+          <p class="section-desc">Calendar with a date already selected.</p>
+          <div class="demo">
+            <div class="demo-item">
+              <span class="demo-label">Selected: 2024-01-15</span>
+              <div id="calendar-selected" data-calendar data-selected="2024-01-15"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- With Date Constraints -->
+        <section class="section">
+          <h2 class="section-title">Date Constraints</h2>
+          <p class="section-desc">Calendar with min and max date restrictions. Past dates and dates beyond 30 days are disabled.</p>
+          <div class="demo">
+            <div class="demo-item">
+              <span class="demo-label">Limited Range</span>
+              <div id="calendar-constrained"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Without Outside Days -->
+        <section class="section">
+          <h2 class="section-title">Hide Outside Days</h2>
+          <p class="section-desc">Calendar that only shows days from the current month.</p>
+          <div class="demo">
+            <div class="demo-item">
+              <span class="demo-label">Current Month Only</span>
+              <div id="calendar-no-outside" data-calendar data-showoutsidedays="false"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Week Starts on Monday -->
+        <section class="section">
+          <h2 class="section-title">Week Starts on Monday</h2>
+          <p class="section-desc">Calendar configured to start the week on Monday instead of Sunday.</p>
+          <div class="demo">
+            <div class="demo-item">
+              <span class="demo-label">Monday Start</span>
+              <div id="calendar-monday" data-calendar data-weekstartson="1"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Custom Disabled Dates -->
+        <section class="section">
+          <h2 class="section-title">Custom Disabled Dates</h2>
+          <p class="section-desc">Calendar with weekends disabled (programmatic configuration).</p>
+          <div class="demo">
+            <div class="demo-item">
+              <span class="demo-label">No Weekends</span>
+              <div id="calendar-no-weekends"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Event Handling -->
+        <section class="section">
+          <h2 class="section-title">Event Handling</h2>
+          <p class="section-desc">Calendar with event listeners. Select a date or navigate to see events logged.</p>
+          <div class="demo">
+            <div class="demo-item" style="flex: 1; min-width: 280px;">
+              <span class="demo-label">With Events</span>
+              <div id="calendar-events" data-calendar></div>
+              <div class="event-log" id="event-log">
+                <p>Events will appear here...</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Keyboard Navigation -->
+        <section class="section">
+          <h2 class="section-title">Keyboard Navigation</h2>
+          <p class="section-desc">Full keyboard support for accessibility.</p>
+          <div class="demo-box">
+            <table style="width: 100%; font-size: 0.875rem; border-collapse: collapse;">
+              <thead>
+                <tr style="border-bottom: 1px solid var(--border);">
+                  <th style="text-align: left; padding: 0.5rem;">Key</th>
+                  <th style="text-align: left; padding: 0.5rem;">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style="padding: 0.5rem;"><code>Arrow Left</code></td><td style="padding: 0.5rem;">Previous day</td></tr>
+                <tr><td style="padding: 0.5rem;"><code>Arrow Right</code></td><td style="padding: 0.5rem;">Next day</td></tr>
+                <tr><td style="padding: 0.5rem;"><code>Arrow Up</code></td><td style="padding: 0.5rem;">Same day previous week</td></tr>
+                <tr><td style="padding: 0.5rem;"><code>Arrow Down</code></td><td style="padding: 0.5rem;">Same day next week</td></tr>
+                <tr><td style="padding: 0.5rem;"><code>Home</code></td><td style="padding: 0.5rem;">First day of week</td></tr>
+                <tr><td style="padding: 0.5rem;"><code>End</code></td><td style="padding: 0.5rem;">Last day of week</td></tr>
+                <tr><td style="padding: 0.5rem;"><code>Page Up</code></td><td style="padding: 0.5rem;">Previous month</td></tr>
+                <tr><td style="padding: 0.5rem;"><code>Page Down</code></td><td style="padding: 0.5rem;">Next month</td></tr>
+                <tr><td style="padding: 0.5rem;"><code>Shift + Page Up</code></td><td style="padding: 0.5rem;">Previous year</td></tr>
+                <tr><td style="padding: 0.5rem;"><code>Shift + Page Down</code></td><td style="padding: 0.5rem;">Next year</td></tr>
+                <tr><td style="padding: 0.5rem;"><code>Enter / Space</code></td><td style="padding: 0.5rem;">Select focused date</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Programmatic API -->
+        <section class="section">
+          <h2 class="section-title">Programmatic API</h2>
+          <p class="section-desc">Control the calendar with JavaScript methods.</p>
+          <div class="demo">
+            <div class="demo-item">
+              <span class="demo-label">Controlled</span>
+              <div id="calendar-api" data-calendar></div>
+              <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem;">
+                <button onclick="goToToday()" class="btn btn-secondary btn-sm">Go to Today</button>
+                <button onclick="selectChristmas()" class="btn btn-secondary btn-sm">Select Dec 25</button>
+                <button onclick="clearSelection()" class="btn btn-secondary btn-sm">Clear Selection</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- Brand UI JS -->
+  <script src="../js/core.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/components/calendar.js"></script>
+
+  <script>
+    // Initialize calendars after DOM ready
+    BrandUI.ready(function() {
+      // Calendar with date constraints (today to 30 days from now)
+      const today = new Date();
+      const maxDate = new Date();
+      maxDate.setDate(maxDate.getDate() + 30);
+
+      BrandUI.Calendar(document.getElementById('calendar-constrained'), {
+        minDate: today,
+        maxDate: maxDate
+      });
+
+      // Calendar with weekends disabled
+      BrandUI.Calendar(document.getElementById('calendar-no-weekends'), {
+        disabledDates: [
+          function(date) {
+            const day = date.getDay();
+            return day === 0 || day === 6; // Sunday or Saturday
+          }
+        ]
+      });
+
+      // Calendar with event logging
+      const eventsCalendar = document.getElementById('calendar-events');
+      const eventLog = document.getElementById('event-log');
+
+      eventsCalendar.addEventListener('calendar:select', function(e) {
+        const logEntry = document.createElement('p');
+        logEntry.textContent = `Selected: ${e.detail.dateString}`;
+        eventLog.insertBefore(logEntry, eventLog.firstChild);
+      });
+
+      eventsCalendar.addEventListener('calendar:navigate', function(e) {
+        const months = ['January', 'February', 'March', 'April', 'May', 'June',
+                        'July', 'August', 'September', 'October', 'November', 'December'];
+        const logEntry = document.createElement('p');
+        logEntry.textContent = `Navigated to: ${months[e.detail.month]} ${e.detail.year}`;
+        eventLog.insertBefore(logEntry, eventLog.firstChild);
+      });
+    });
+
+    // API demo functions
+    function goToToday() {
+      const calendar = BrandUI.getInstance(document.getElementById('calendar-api'), 'calendar');
+      calendar.goToDate(new Date());
+    }
+
+    function selectChristmas() {
+      const calendar = BrandUI.getInstance(document.getElementById('calendar-api'), 'calendar');
+      const year = new Date().getFullYear();
+      calendar.setSelectedDate(new Date(year, 11, 25)); // December 25
+    }
+
+    function clearSelection() {
+      const calendar = BrandUI.getInstance(document.getElementById('calendar-api'), 'calendar');
+      calendar.setSelectedDate(null);
+    }
+  </script>
+</body>
+</html>

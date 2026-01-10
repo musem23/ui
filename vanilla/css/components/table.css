@@ -1,0 +1,138 @@
+/**
+ * Table Component
+ * Displays tabular data with rows and columns.
+ */
+
+/* Table Container */
+.table-container {
+  position: relative;
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Base Table */
+.table {
+  width: 100%;
+  caption-side: bottom;
+  font-size: 0.875rem;
+  border-collapse: collapse;
+}
+
+/* Table Header */
+.table-header {
+}
+
+.table-header .table-row {
+  border-bottom: 1px solid var(--border);
+}
+
+/* Table Body */
+.table-body {
+}
+
+.table-body .table-row:last-child {
+  border-bottom: 0;
+}
+
+/* Table Footer */
+.table-footer {
+  background-color: color-mix(in oklch, var(--muted) 50%, transparent);
+  border-top: 1px solid var(--border);
+  font-weight: 500;
+}
+
+.table-footer .table-row:last-child {
+  border-bottom: 0;
+}
+
+/* Table Row */
+.table-row {
+  border-bottom: 1px solid var(--border);
+  transition: background-color var(--transition-fast) var(--ease-default);
+}
+
+.table-row:hover {
+  background-color: color-mix(in oklch, var(--muted) 50%, transparent);
+}
+
+.table-row[data-state="selected"] {
+  background-color: var(--muted);
+}
+
+/* Table Head (th) */
+.table-head {
+  height: 2.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  text-align: left;
+  vertical-align: middle;
+  font-weight: 500;
+  color: var(--foreground);
+  white-space: nowrap;
+}
+
+.table-head:has([role="checkbox"]) {
+  padding-right: 0;
+}
+
+.table-head > [role="checkbox"] {
+  transform: translateY(2px);
+}
+
+/* Table Cell (td) */
+.table-cell {
+  padding: 0.5rem;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.table-cell:has([role="checkbox"]) {
+  padding-right: 0;
+}
+
+.table-cell > [role="checkbox"] {
+  transform: translateY(2px);
+}
+
+/* Table Caption */
+.table-caption {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+/* Striped Rows Variant */
+.table-striped .table-body .table-row:nth-child(even) {
+  background-color: color-mix(in oklch, var(--muted) 30%, transparent);
+}
+
+.table-striped .table-body .table-row:nth-child(even):hover {
+  background-color: color-mix(in oklch, var(--muted) 50%, transparent);
+}
+
+/* Bordered Variant */
+.table-bordered .table-head,
+.table-bordered .table-cell {
+  border: 1px solid var(--border);
+}
+
+/* Compact Variant */
+.table-compact .table-head {
+  height: 2rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.table-compact .table-cell {
+  padding: 0.25rem 0.5rem;
+}
+
+/* Alignment Utilities */
+.table-head-right,
+.table-cell-right {
+  text-align: right;
+}
+
+.table-head-center,
+.table-cell-center {
+  text-align: center;
+}

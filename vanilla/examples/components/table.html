@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Table - Brand UI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- All CSS -->
+  <link rel="stylesheet" href="../css/ui.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="app-sidebar">
+      <div class="app-sidebar-header">
+        <a href="../index.html">
+          <span>← Overview</span>
+        </a>
+      </div>
+      <div class="app-sidebar-content">
+        <div class="app-sidebar-group-label">Components</div>
+        <ul class="sidebar-menu" id="sidebar-menu"></ul>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="app-main">
+      <header class="app-header">
+        <div class="header-left">
+          <span>Table</span>
+        </div>
+        <button id="theme-toggle" class="btn btn-ghost btn-sm">Dark</button>
+      </header>
+
+      <main class="app-content">
+        <h1 class="page-title">Table</h1>
+        <p class="page-desc">A responsive table component for displaying tabular data with rows and columns.</p>
+
+        <!-- Installation -->
+        <div class="install-box">
+          <p>Installation</p>
+          <code>&lt;link rel="stylesheet" href="css/components/table.css"&gt;</code>
+        </div>
+
+        <!-- Basic Table -->
+        <div class="section">
+          <h2 class="section-title">Basic Table</h2>
+          <div class="demo-box" style="padding: 0; overflow: hidden;">
+            <div class="table-container">
+              <table class="table">
+                <thead class="table-header">
+                  <tr class="table-row">
+                    <th class="table-head">Invoice</th>
+                    <th class="table-head">Status</th>
+                    <th class="table-head">Method</th>
+                    <th class="table-head table-head-right">Amount</th>
+                  </tr>
+                </thead>
+                <tbody class="table-body">
+                  <tr class="table-row">
+                    <td class="table-cell">INV001</td>
+                    <td class="table-cell">Paid</td>
+                    <td class="table-cell">Credit Card</td>
+                    <td class="table-cell table-cell-right">$250.00</td>
+                  </tr>
+                  <tr class="table-row">
+                    <td class="table-cell">INV002</td>
+                    <td class="table-cell">Pending</td>
+                    <td class="table-cell">PayPal</td>
+                    <td class="table-cell table-cell-right">$150.00</td>
+                  </tr>
+                  <tr class="table-row">
+                    <td class="table-cell">INV003</td>
+                    <td class="table-cell">Unpaid</td>
+                    <td class="table-cell">Bank Transfer</td>
+                    <td class="table-cell table-cell-right">$350.00</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'basic-html')">HTML</button>
+            <button class="code-tab" onclick="BrandUILayout.showTab(this, 'basic-css')">CSS</button>
+          </div>
+          <div class="code-block">
+            <div id="basic-html" class="code-panel active">
+              <div class="code-wrapper">
+                <pre><code>&lt;div class="table-container"&gt;
+  &lt;table class="table"&gt;
+    &lt;thead class="table-header"&gt;
+      &lt;tr class="table-row"&gt;
+        &lt;th class="table-head"&gt;Invoice&lt;/th&gt;
+        &lt;th class="table-head"&gt;Status&lt;/th&gt;
+        &lt;th class="table-head"&gt;Method&lt;/th&gt;
+        &lt;th class="table-head table-head-right"&gt;Amount&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody class="table-body"&gt;
+      &lt;tr class="table-row"&gt;
+        &lt;td class="table-cell"&gt;INV001&lt;/td&gt;
+        &lt;td class="table-cell"&gt;Paid&lt;/td&gt;
+        &lt;td class="table-cell"&gt;Credit Card&lt;/td&gt;
+        &lt;td class="table-cell table-cell-right"&gt;$250.00&lt;/td&gt;
+      &lt;/tr&gt;
+      ...
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+            </div>
+            <div id="basic-css" class="code-panel">
+              <pre><code>/* Required CSS */
+@import "css/tokens.css";
+@import "css/components/table.css";</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- With Caption -->
+        <div class="section">
+          <h2 class="section-title">With Caption</h2>
+          <div class="demo-box" style="padding: 0; overflow: hidden;">
+            <div class="table-container">
+              <table class="table">
+                <caption class="table-caption">A list of recent invoices.</caption>
+                <thead class="table-header">
+                  <tr class="table-row">
+                    <th class="table-head">Invoice</th>
+                    <th class="table-head">Status</th>
+                    <th class="table-head">Method</th>
+                    <th class="table-head table-head-right">Amount</th>
+                  </tr>
+                </thead>
+                <tbody class="table-body">
+                  <tr class="table-row">
+                    <td class="table-cell">INV001</td>
+                    <td class="table-cell">Paid</td>
+                    <td class="table-cell">Credit Card</td>
+                    <td class="table-cell table-cell-right">$250.00</td>
+                  </tr>
+                  <tr class="table-row">
+                    <td class="table-cell">INV002</td>
+                    <td class="table-cell">Pending</td>
+                    <td class="table-cell">PayPal</td>
+                    <td class="table-cell table-cell-right">$150.00</td>
+                  </tr>
+                  <tr class="table-row">
+                    <td class="table-cell">INV003</td>
+                    <td class="table-cell">Unpaid</td>
+                    <td class="table-cell">Bank Transfer</td>
+                    <td class="table-cell table-cell-right">$350.00</td>
+                  </tr>
+                </tbody>
+                <tfoot class="table-footer">
+                  <tr class="table-row">
+                    <td class="table-cell" colspan="3">Total</td>
+                    <td class="table-cell table-cell-right">$750.00</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'caption-html')">HTML</button>
+            <button class="code-tab" onclick="BrandUILayout.showTab(this, 'caption-css')">CSS</button>
+          </div>
+          <div class="code-block">
+            <div id="caption-html" class="code-panel active">
+              <div class="code-wrapper">
+                <pre><code>&lt;table class="table"&gt;
+  &lt;caption class="table-caption"&gt;A list of recent invoices.&lt;/caption&gt;
+  &lt;thead class="table-header"&gt;
+    ...
+  &lt;/thead&gt;
+  &lt;tbody class="table-body"&gt;
+    ...
+  &lt;/tbody&gt;
+  &lt;tfoot class="table-footer"&gt;
+    &lt;tr class="table-row"&gt;
+      &lt;td class="table-cell" colspan="3"&gt;Total&lt;/td&gt;
+      &lt;td class="table-cell table-cell-right"&gt;$750.00&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+              </div>
+            </div>
+            <div id="caption-css" class="code-panel">
+              <pre><code>.table-caption {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+.table-footer {
+  background-color: color-mix(in oklch, var(--muted) 50%, transparent);
+  border-top: 1px solid var(--border);
+  font-weight: 500;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Striped Rows -->
+        <div class="section">
+          <h2 class="section-title">Striped Rows</h2>
+          <div class="demo-box" style="padding: 0; overflow: hidden;">
+            <div class="table-container">
+              <table class="table table-striped">
+                <thead class="table-header">
+                  <tr class="table-row">
+                    <th class="table-head">Name</th>
+                    <th class="table-head">Email</th>
+                    <th class="table-head">Role</th>
+                  </tr>
+                </thead>
+                <tbody class="table-body">
+                  <tr class="table-row">
+                    <td class="table-cell">John Doe</td>
+                    <td class="table-cell">john@example.com</td>
+                    <td class="table-cell">Admin</td>
+                  </tr>
+                  <tr class="table-row">
+                    <td class="table-cell">Jane Smith</td>
+                    <td class="table-cell">jane@example.com</td>
+                    <td class="table-cell">Editor</td>
+                  </tr>
+                  <tr class="table-row">
+                    <td class="table-cell">Bob Johnson</td>
+                    <td class="table-cell">bob@example.com</td>
+                    <td class="table-cell">Viewer</td>
+                  </tr>
+                  <tr class="table-row">
+                    <td class="table-cell">Alice Brown</td>
+                    <td class="table-cell">alice@example.com</td>
+                    <td class="table-cell">Editor</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'striped-html')">HTML</button>
+            <button class="code-tab" onclick="BrandUILayout.showTab(this, 'striped-css')">CSS</button>
+          </div>
+          <div class="code-block">
+            <div id="striped-html" class="code-panel active">
+              <div class="code-wrapper">
+                <pre><code>&lt;table class="table table-striped"&gt;
+  &lt;thead class="table-header"&gt;
+    &lt;tr class="table-row"&gt;
+      &lt;th class="table-head"&gt;Name&lt;/th&gt;
+      &lt;th class="table-head"&gt;Email&lt;/th&gt;
+      &lt;th class="table-head"&gt;Role&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody class="table-body"&gt;
+    &lt;tr class="table-row"&gt;
+      &lt;td class="table-cell"&gt;John Doe&lt;/td&gt;
+      &lt;td class="table-cell"&gt;john@example.com&lt;/td&gt;
+      &lt;td class="table-cell"&gt;Admin&lt;/td&gt;
+    &lt;/tr&gt;
+    ...
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+              </div>
+            </div>
+            <div id="striped-css" class="code-panel">
+              <pre><code>.table-striped .table-body .table-row:nth-child(even) {
+  background-color: color-mix(in oklch, var(--muted) 30%, transparent);
+}
+
+.table-striped .table-body .table-row:nth-child(even):hover {
+  background-color: color-mix(in oklch, var(--muted) 50%, transparent);
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- CSS Classes Reference -->
+        <div class="section">
+          <h2 class="section-title">CSS Classes Reference</h2>
+          <div class="demo-box" style="padding: 0; overflow: hidden;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+              <thead>
+                <tr style="background: var(--muted);">
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Class</th>
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.table-container</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Wrapper for horizontal scroll on overflow</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.table</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Base table class (required)</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.table-header</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Table header (thead) styling</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.table-body</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Table body (tbody) styling</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.table-footer</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Table footer (tfoot) styling</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.table-row</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Table row (tr) styling</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.table-head</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Table header cell (th) styling</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.table-cell</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Table data cell (td) styling</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.table-caption</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Table caption styling</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.table-striped</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Alternating row background colors</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.table-bordered</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Adds borders to all cells</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.table-compact</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Reduced padding for dense data</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.table-head-right</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Right-align header cell content</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.table-head-center</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Center-align header cell content</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.table-cell-right</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Right-align data cell content</td></tr>
+                <tr><td style="padding: 0.75rem 1rem;"><code>.table-cell-center</code></td><td style="padding: 0.75rem 1rem;">Center-align data cell content</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Core JS -->
+  <script src="../js/core.js"></script>
+  <script src="../js/layout.js"></script>
+</body>
+</html>

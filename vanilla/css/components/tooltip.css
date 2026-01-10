@@ -1,0 +1,163 @@
+/**
+ * Brand UI - Tooltip Component
+ * Vanilla CSS tooltip with positioning and fade animation
+ */
+
+/* Tooltip wrapper - provides positioning context */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+/* Trigger element */
+.tooltip-trigger {
+  cursor: pointer;
+}
+
+/* Tooltip content */
+.tooltip-content {
+  position: absolute;
+  z-index: var(--z-tooltip);
+  width: max-content;
+  max-width: 280px;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  text-align: center;
+  color: var(--background);
+  background-color: var(--foreground);
+  border-radius: var(--radius-md);
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity var(--transition-fast) var(--ease-out),
+    visibility var(--transition-fast) var(--ease-out),
+    transform var(--transition-fast) var(--ease-out);
+}
+
+/* Arrow */
+.tooltip-content::before {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: var(--foreground);
+  border-radius: 2px;
+  transform: rotate(45deg);
+}
+
+/* Visible state */
+.tooltip.is-visible .tooltip-content,
+.tooltip-trigger:hover + .tooltip-content,
+.tooltip-trigger:focus + .tooltip-content {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ============================================
+   POSITIONING - Top (default)
+   ============================================ */
+
+.tooltip-content,
+.tooltip-content[data-position="top"] {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+}
+
+.tooltip-content::before,
+.tooltip-content[data-position="top"]::before {
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+/* Top - animation on show */
+.tooltip.is-visible .tooltip-content,
+.tooltip.is-visible .tooltip-content[data-position="top"],
+.tooltip-trigger:hover + .tooltip-content,
+.tooltip-trigger:hover + .tooltip-content[data-position="top"],
+.tooltip-trigger:focus + .tooltip-content,
+.tooltip-trigger:focus + .tooltip-content[data-position="top"] {
+  transform: translateX(-50%) translateY(-12px);
+}
+
+/* ============================================
+   POSITIONING - Bottom
+   ============================================ */
+
+.tooltip-content[data-position="bottom"] {
+  bottom: auto;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+}
+
+.tooltip-content[data-position="bottom"]::before {
+  bottom: auto;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+/* Bottom - animation on show */
+.tooltip.is-visible .tooltip-content[data-position="bottom"],
+.tooltip-trigger:hover + .tooltip-content[data-position="bottom"],
+.tooltip-trigger:focus + .tooltip-content[data-position="bottom"] {
+  transform: translateX(-50%) translateY(12px);
+}
+
+/* ============================================
+   POSITIONING - Left
+   ============================================ */
+
+.tooltip-content[data-position="left"] {
+  bottom: auto;
+  top: 50%;
+  left: auto;
+  right: 100%;
+  transform: translateY(-50%) translateX(-8px);
+}
+
+.tooltip-content[data-position="left"]::before {
+  bottom: auto;
+  top: 50%;
+  left: auto;
+  right: -4px;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+/* Left - animation on show */
+.tooltip.is-visible .tooltip-content[data-position="left"],
+.tooltip-trigger:hover + .tooltip-content[data-position="left"],
+.tooltip-trigger:focus + .tooltip-content[data-position="left"] {
+  transform: translateY(-50%) translateX(-12px);
+}
+
+/* ============================================
+   POSITIONING - Right
+   ============================================ */
+
+.tooltip-content[data-position="right"] {
+  bottom: auto;
+  top: 50%;
+  right: auto;
+  left: 100%;
+  transform: translateY(-50%) translateX(8px);
+}
+
+.tooltip-content[data-position="right"]::before {
+  bottom: auto;
+  top: 50%;
+  right: auto;
+  left: -4px;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+/* Right - animation on show */
+.tooltip.is-visible .tooltip-content[data-position="right"],
+.tooltip-trigger:hover + .tooltip-content[data-position="right"],
+.tooltip-trigger:focus + .tooltip-content[data-position="right"] {
+  transform: translateY(-50%) translateX(12px);
+}

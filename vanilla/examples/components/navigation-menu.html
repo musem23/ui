@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation Menu - Brand UI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/ui.css">
+  <style>
+    /* Chevron SVG */
+    .chevron-down {
+      width: 0.75rem;
+      height: 0.75rem;
+      margin-left: 0.25rem;
+      transition: transform 0.3s ease;
+    }
+
+    [aria-expanded="true"] .chevron-down {
+      transform: rotate(180deg);
+    }
+
+    /* Content layouts */
+    .nav-content-list {
+      display: grid;
+      gap: 0.5rem;
+      padding: 1rem;
+      width: 400px;
+    }
+
+    .nav-content-list.wide {
+      width: 500px;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .nav-content-featured {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 0.5rem;
+      padding: 1rem;
+      width: 600px;
+    }
+
+    .nav-featured-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, var(--muted) 0%, var(--accent) 100%);
+      text-decoration: none;
+      color: inherit;
+      grid-row: span 3;
+    }
+
+    .nav-featured-item:hover {
+      background: var(--accent);
+    }
+
+    .nav-featured-item .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .nav-featured-item .description {
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+    }
+
+    .nav-link-item {
+      display: block;
+      padding: 0.75rem;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .nav-link-item:hover {
+      background: var(--accent);
+    }
+
+    .nav-link-item .title {
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+
+    .nav-link-item .description {
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+    }
+
+    /* Demo area for navigation menu */
+    .demo-area {
+      display: flex;
+      justify-content: center;
+      padding: 3rem 2rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      min-height: 300px;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="app-sidebar">
+      <div class="app-sidebar-header">
+        <a href="../index.html">← Overview</a>
+      </div>
+      <div class="app-sidebar-content">
+        <div class="app-sidebar-group-label">Components</div>
+        <ul class="sidebar-menu" id="sidebar-menu"></ul>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="app-main">
+      <header class="app-header">
+        <span style="font-size: 0.875rem; font-weight: 500;">Navigation Menu</span>
+        <button class="btn btn-ghost btn-sm" id="theme-toggle">Dark</button>
+      </header>
+
+      <div class="app-content">
+        <h1 class="page-title">Navigation Menu</h1>
+        <p class="page-desc">A collection of links for navigating websites with mega menu support.</p>
+
+        <!-- Installation -->
+        <div class="install-box">
+          <p>Installation</p>
+          <code>&lt;link rel="stylesheet" href="css/components/navigation-menu.css"&gt;</code>
+          <code>&lt;script src="js/core.js"&gt;&lt;/script&gt;</code>
+          <code>&lt;script src="js/components/navigation-menu.js"&gt;&lt;/script&gt;</code>
+        </div>
+
+        <!-- Basic Example with Viewport -->
+        <div class="section">
+          <h2 class="section-title">Basic Navigation Menu (with Viewport)</h2>
+          <p class="section-desc">A navigation menu with dropdown content rendered in a shared viewport container.</p>
+
+          <div class="demo-area">
+            <nav class="nav-menu" data-nav-menu data-viewport="true" role="navigation" aria-label="Main navigation">
+              <ul class="nav-menu-list">
+                <li class="nav-menu-item">
+                  <button class="nav-menu-trigger" data-value="getting-started">
+                    Getting Started
+                    <svg class="chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </button>
+                  <div class="nav-menu-content" data-state="closed" hidden>
+                    <div class="nav-content-featured">
+                      <a href="#" class="nav-featured-item">
+                        <div class="logo">Brand UI</div>
+                        <div class="description">Beautiful components built with vanilla HTML, CSS, and JavaScript.</div>
+                      </a>
+                      <a href="#" class="nav-link-item">
+                        <div class="title">Introduction</div>
+                        <div class="description">Re-usable components built with vanilla web technologies.</div>
+                      </a>
+                      <a href="#" class="nav-link-item">
+                        <div class="title">Installation</div>
+                        <div class="description">How to install dependencies and structure your app.</div>
+                      </a>
+                      <a href="#" class="nav-link-item">
+                        <div class="title">Typography</div>
+                        <div class="description">Styles for headings, paragraphs, lists, and more.</div>
+                      </a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="nav-menu-item">
+                  <button class="nav-menu-trigger" data-value="components">
+                    Components
+                    <svg class="chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </button>
+                  <div class="nav-menu-content" data-state="closed" hidden>
+                    <div class="nav-content-list wide">
+                      <a href="#" class="nav-link-item">
+                        <div class="title">Accordion</div>
+                        <div class="description">Vertically stacked expandable sections.</div>
+                      </a>
+                      <a href="#" class="nav-link-item">
+                        <div class="title">Alert Dialog</div>
+                        <div class="description">Modal dialog for important messages.</div>
+                      </a>
+                      <a href="#" class="nav-link-item">
+                        <div class="title">Button</div>
+                        <div class="description">Displays a button or link styled as a button.</div>
+                      </a>
+                      <a href="#" class="nav-link-item">
+                        <div class="title">Card</div>
+                        <div class="description">Displays a card with header, content, and footer.</div>
+                      </a>
+                      <a href="#" class="nav-link-item">
+                        <div class="title">Dialog</div>
+                        <div class="description">A modal window that appears on top of content.</div>
+                      </a>
+                      <a href="#" class="nav-link-item">
+                        <div class="title">Dropdown Menu</div>
+                        <div class="description">Displays a menu when a button is clicked.</div>
+                      </a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="nav-menu-item">
+                  <button class="nav-menu-trigger" data-value="resources">
+                    Resources
+                    <svg class="chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </button>
+                  <div class="nav-menu-content" data-state="closed" hidden>
+                    <div class="nav-content-list">
+                      <a href="#" class="nav-link-item">
+                        <div class="title">Documentation</div>
+                        <div class="description">Learn how to use the component library.</div>
+                      </a>
+                      <a href="#" class="nav-link-item">
+                        <div class="title">GitHub</div>
+                        <div class="description">View the source code and contribute.</div>
+                      </a>
+                      <a href="#" class="nav-link-item">
+                        <div class="title">Changelog</div>
+                        <div class="description">See what's new in the latest version.</div>
+                      </a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="nav-menu-item">
+                  <a href="#" class="nav-menu-link nav-menu-trigger" style="text-decoration: none;">
+                    Documentation
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+        <!-- Without Viewport Example -->
+        <div class="section">
+          <h2 class="section-title">Navigation Menu (without Viewport)</h2>
+          <p class="section-desc">Each dropdown content appears directly below its trigger without a shared viewport.</p>
+
+          <div class="demo-area">
+            <nav class="nav-menu" data-nav-menu data-viewport="false" role="navigation" aria-label="Secondary navigation">
+              <ul class="nav-menu-list">
+                <li class="nav-menu-item">
+                  <button class="nav-menu-trigger" data-value="products">
+                    Products
+                    <svg class="chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </button>
+                  <div class="nav-menu-content" data-state="closed" hidden>
+                    <div class="nav-content-list" style="width: 300px;">
+                      <a href="#" class="nav-link-item">
+                        <div class="title">Analytics</div>
+                        <div class="description">Understand your traffic.</div>
+                      </a>
+                      <a href="#" class="nav-link-item">
+                        <div class="title">Engagement</div>
+                        <div class="description">Speak directly to your customers.</div>
+                      </a>
+                      <a href="#" class="nav-link-item">
+                        <div class="title">Security</div>
+                        <div class="description">Your data is protected.</div>
+                      </a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="nav-menu-item">
+                  <button class="nav-menu-trigger" data-value="solutions">
+                    Solutions
+                    <svg class="chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </button>
+                  <div class="nav-menu-content" data-state="closed" hidden>
+                    <div class="nav-content-list" style="width: 300px;">
+                      <a href="#" class="nav-link-item">
+                        <div class="title">Marketing</div>
+                        <div class="description">Reach more customers.</div>
+                      </a>
+                      <a href="#" class="nav-link-item">
+                        <div class="title">E-commerce</div>
+                        <div class="description">Sell products online.</div>
+                      </a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="nav-menu-item">
+                  <a href="#" class="nav-menu-link nav-menu-trigger" style="text-decoration: none;">
+                    Pricing
+                  </a>
+                </li>
+
+                <li class="nav-menu-item">
+                  <a href="#" class="nav-menu-link nav-menu-trigger" style="text-decoration: none;">
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+        <!-- Usage -->
+        <div class="section">
+          <h2 class="section-title">Usage</h2>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'usage-html')">HTML</button>
+            <button class="code-tab" onclick="BrandUILayout.showTab(this, 'usage-js')">JS</button>
+            <button class="code-tab" onclick="BrandUILayout.showTab(this, 'usage-data')">Data Attributes</button>
+          </div>
+          <div class="code-block">
+            <div id="usage-html" class="code-panel active">
+              <pre><code>&lt;nav class="nav-menu" data-nav-menu data-viewport="true" role="navigation"&gt;
+  &lt;ul class="nav-menu-list"&gt;
+    &lt;li class="nav-menu-item"&gt;
+      &lt;button class="nav-menu-trigger" data-value="getting-started"&gt;
+        Getting Started
+        &lt;svg class="chevron-down"&gt;...&lt;/svg&gt;
+      &lt;/button&gt;
+      &lt;div class="nav-menu-content" data-state="closed" hidden&gt;
+        &lt;!-- Dropdown content here --&gt;
+      &lt;/div&gt;
+    &lt;/li&gt;
+
+    &lt;!-- Standalone link (no dropdown) --&gt;
+    &lt;li class="nav-menu-item"&gt;
+      &lt;a href="#" class="nav-menu-link nav-menu-trigger"&gt;
+        Documentation
+      &lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+            </div>
+            <div id="usage-js" class="code-panel">
+              <pre><code>// Auto-initialized via data-nav-menu attribute
+
+// Or manually:
+const menu = BrandUI.initNavigationMenu(document.querySelector('.nav-menu'));
+
+// API
+menu.open('getting-started');  // Open specific item
+menu.close();                  // Close all</code></pre>
+            </div>
+            <div id="usage-data" class="code-panel">
+              <pre><code>data-nav-menu          - Enables auto-initialization
+data-viewport="true"   - Use shared viewport for dropdowns (default: true)
+data-viewport="false"  - Dropdowns appear directly under trigger
+data-delay="200"       - Delay before opening on hover (ms)
+data-skip-delay="300"  - Time to skip delay after closing (ms)</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Keyboard Navigation -->
+        <div class="section">
+          <h2 class="section-title">Keyboard Navigation</h2>
+          <div class="demo-box" style="padding: 0; overflow: hidden;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+              <thead>
+                <tr style="background: var(--muted);">
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Key</th>
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>Enter</code> / <code>Space</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Toggle dropdown</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>Arrow Down</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Open dropdown, then navigate items</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>Arrow Up</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Navigate items, then return to trigger</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>Arrow Left/Right</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Navigate between menu items</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>Home</code> / <code>End</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Jump to first/last menu item</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>Escape</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Close dropdown</td></tr>
+                <tr><td style="padding: 0.75rem 1rem;"><code>Tab</code></td><td style="padding: 0.75rem 1rem;">Move focus, closes menu when leaving</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Events -->
+        <div class="section">
+          <h2 class="section-title">Events</h2>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'events-js')">JS</button>
+          </div>
+          <div class="code-block">
+            <div id="events-js" class="code-panel active">
+              <pre><code>// Listen for open/close events
+menu.addEventListener('nav-menu:open', (e) => {
+  console.log('Opened:', e.detail.value);
+});
+
+menu.addEventListener('nav-menu:close', () => {
+  console.log('Menu closed');
+});</code></pre>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/core.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/components/navigation-menu.js"></script>
+</body>
+</html>

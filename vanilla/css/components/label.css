@@ -1,0 +1,60 @@
+/**
+ * Brand UI - Label Component
+ * A text label for form controls with support for disabled states.
+ */
+
+/* Base Label */
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1;
+  font-weight: 500;
+  user-select: none;
+  color: var(--foreground);
+}
+
+/* Disabled state when label is within a disabled group */
+.label[data-disabled="true"],
+[data-disabled="true"] .label {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Peer-disabled: When a sibling input is disabled, style the label */
+.label:has(+ input:disabled),
+.label:has(+ textarea:disabled),
+.label:has(+ select:disabled),
+.label:has(+ button:disabled),
+.label:has(+ .checkbox:disabled),
+input:disabled + .label,
+textarea:disabled + .label,
+select:disabled + .label,
+button:disabled + .label,
+.checkbox:disabled + .label {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Required indicator */
+.label-required::after {
+  content: "*";
+  color: var(--destructive);
+  margin-left: 0.125rem;
+}
+
+/* Optional modifier for muted labels */
+.label-muted {
+  color: var(--muted-foreground);
+  font-weight: 400;
+}
+
+/* Size variants */
+.label-sm {
+  font-size: 0.75rem;
+}
+
+.label-lg {
+  font-size: 1rem;
+}

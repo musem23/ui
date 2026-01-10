@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alert Dialog - Brand UI</title>
+  <link rel="stylesheet" href="../css/ui.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="app-sidebar">
+      <div class="app-sidebar-header">
+        <a href="../index.html">← Overview</a>
+      </div>
+      <div class="app-sidebar-content">
+        <div class="app-sidebar-group-label">Components</div>
+        <ul class="sidebar-menu" id="sidebar-menu"></ul>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="app-main">
+      <header class="app-header">
+        <span>Alert Dialog</span>
+        <button class="btn btn-ghost btn-sm" id="theme-toggle">Dark</button>
+      </header>
+
+      <div class="app-content">
+        <h1 class="page-title">Alert Dialog</h1>
+        <p class="page-desc">
+          A modal dialog that interrupts the user with important content and expects a response.
+          Unlike regular dialogs, alert dialogs cannot be dismissed by clicking outside.
+        </p>
+
+        <!-- Basic Example -->
+        <section class="section">
+          <h2 class="section-title">Basic Example</h2>
+          <p class="section-desc">
+            A standard confirmation dialog with cancel and confirm actions.
+          </p>
+
+          <div class="demo-box">
+            <div class="demo-row">
+              <button class="btn btn-primary" data-alert-dialog-trigger="basic-dialog">
+                Show Alert Dialog
+              </button>
+            </div>
+          </div>
+
+          <div id="basic-dialog" data-alert-dialog>
+            <div class="alert-dialog-overlay" data-state="closed"></div>
+            <div class="alert-dialog-content" data-state="closed">
+              <div class="alert-dialog-header">
+                <h2 class="alert-dialog-title">Are you absolutely sure?</h2>
+                <p class="alert-dialog-description">
+                  This action cannot be undone. This will permanently delete your account
+                  and remove your data from our servers.
+                </p>
+              </div>
+              <div class="alert-dialog-footer">
+                <button class="alert-dialog-cancel">Cancel</button>
+                <button class="alert-dialog-action" data-action="confirm">Continue</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Destructive Action -->
+        <section class="section">
+          <h2 class="section-title">Destructive Action</h2>
+          <p class="section-desc">
+            Use a destructive variant for dangerous or irreversible actions.
+          </p>
+
+          <div class="demo-box">
+            <div class="demo-row">
+              <button class="btn btn-destructive" data-alert-dialog-trigger="delete-dialog">
+                Delete Account
+              </button>
+            </div>
+          </div>
+
+          <div id="delete-dialog" data-alert-dialog>
+            <div class="alert-dialog-overlay" data-state="closed"></div>
+            <div class="alert-dialog-content" data-state="closed">
+              <div class="alert-dialog-header">
+                <h2 class="alert-dialog-title">Delete Account</h2>
+                <p class="alert-dialog-description">
+                  Are you sure you want to delete your account? All of your data will be
+                  permanently removed. This action cannot be undone.
+                </p>
+              </div>
+              <div class="alert-dialog-footer">
+                <button class="alert-dialog-cancel">Cancel</button>
+                <button class="alert-dialog-action" data-variant="destructive" data-action="delete">
+                  Yes, delete my account
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Custom Actions -->
+        <section class="section">
+          <h2 class="section-title">Custom Actions</h2>
+          <p class="section-desc">
+            Dialog with multiple action options. Listen for events to handle each action.
+          </p>
+
+          <div class="demo-box">
+            <div class="demo-row">
+              <button class="btn btn-outline" data-alert-dialog-trigger="save-dialog">
+                Unsaved Changes
+              </button>
+            </div>
+          </div>
+
+          <div id="save-dialog" data-alert-dialog>
+            <div class="alert-dialog-overlay" data-state="closed"></div>
+            <div class="alert-dialog-content" data-state="closed">
+              <div class="alert-dialog-header">
+                <h2 class="alert-dialog-title">Unsaved Changes</h2>
+                <p class="alert-dialog-description">
+                  You have unsaved changes. Do you want to save them before leaving?
+                </p>
+              </div>
+              <div class="alert-dialog-footer">
+                <button class="alert-dialog-cancel">Cancel</button>
+                <button class="alert-dialog-action" data-variant="destructive" data-action="discard">
+                  Don't Save
+                </button>
+                <button class="alert-dialog-action" data-action="save">
+                  Save Changes
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div id="event-log" class="demo-box" style="font-family: var(--font-mono); font-size: 0.75rem; max-height: 150px; overflow-y: auto; margin-top: 1rem;">
+            <em style="color: var(--muted-foreground);">Events will appear here...</em>
+          </div>
+        </section>
+
+        <!-- Programmatic Control -->
+        <section class="section">
+          <h2 class="section-title">Programmatic Control</h2>
+          <p class="section-desc">
+            Open and close the dialog programmatically using JavaScript.
+          </p>
+
+          <div class="demo-box">
+            <div class="demo-row">
+              <button class="btn btn-outline" id="programmatic-open">
+                Open Programmatically
+              </button>
+            </div>
+          </div>
+
+          <div id="programmatic-dialog" data-alert-dialog>
+            <div class="alert-dialog-overlay" data-state="closed"></div>
+            <div class="alert-dialog-content" data-state="closed">
+              <div class="alert-dialog-header">
+                <h2 class="alert-dialog-title">Programmatic Dialog</h2>
+                <p class="alert-dialog-description">
+                  This dialog was opened using JavaScript. You can also close it
+                  programmatically.
+                </p>
+              </div>
+              <div class="alert-dialog-footer">
+                <button class="alert-dialog-cancel">Close</button>
+                <button class="alert-dialog-action" data-action="confirm">OK</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active">JavaScript</button>
+          </div>
+          <div class="code-block">
+            <pre><code>// Get dialog instance
+const dialog = BrandUI.AlertDialog(document.getElementById('my-dialog'));
+
+// Open the dialog
+dialog.open();
+
+// Close the dialog
+dialog.close('confirm');
+
+// Listen for events
+element.addEventListener('alert-dialog:action', (e) => {
+  console.log('Action:', e.detail.action);
+});</code></pre>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/core.js"></script>
+  <script src="../js/components/alert-dialog.js"></script>
+  <script src="../js/layout.js"></script>
+  <script>
+    // Initialize all alert dialogs
+    BrandUI.ready(() => {
+      BrandUI.init();
+
+      // Event logging for custom actions example
+      const saveDialog = document.getElementById('save-dialog');
+      const eventLog = document.getElementById('event-log');
+
+      function logEvent(message) {
+        if (eventLog.querySelector('em')) {
+          eventLog.innerHTML = '';
+        }
+        const entry = document.createElement('div');
+        entry.style.padding = '0.25rem 0';
+        entry.style.borderBottom = '1px solid var(--border)';
+        entry.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+        eventLog.insertBefore(entry, eventLog.firstChild);
+      }
+
+      saveDialog.addEventListener('alert-dialog:open', () => {
+        logEvent('Dialog opened');
+      });
+
+      saveDialog.addEventListener('alert-dialog:cancel', () => {
+        logEvent('Dialog cancelled');
+      });
+
+      saveDialog.addEventListener('alert-dialog:action', (e) => {
+        logEvent(`Action: ${e.detail.action}`);
+      });
+
+      // Programmatic control example
+      const programmaticBtn = document.getElementById('programmatic-open');
+      const programmaticDialog = document.getElementById('programmatic-dialog');
+
+      programmaticBtn.addEventListener('click', () => {
+        const dialog = BrandUI.AlertDialog(programmaticDialog);
+        dialog.open();
+      });
+    });
+  </script>
+</body>
+</html>

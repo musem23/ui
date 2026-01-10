@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toast - Brand UI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- All CSS -->
+  <link rel="stylesheet" href="../css/ui.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="app-sidebar">
+      <div class="app-sidebar-header">
+        <a href="../index.html">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          <span>Overview</span>
+        </a>
+      </div>
+      <div class="app-sidebar-content">
+        <div class="app-sidebar-group-label">Components</div>
+        <ul class="sidebar-menu" id="sidebar-menu"></ul>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="app-main">
+      <header class="app-header">
+        <div class="header-left">
+          <span>Toast</span>
+        </div>
+        <button id="theme-toggle" class="btn btn-ghost btn-sm">Dark</button>
+      </header>
+
+      <main class="app-content">
+        <h1 class="page-title">Toast</h1>
+        <p class="page-desc">Notification toasts with stacking, types, positions, and auto-dismiss.</p>
+
+        <!-- Basic Usage -->
+        <div class="section">
+          <h2 class="section-title">Basic Usage</h2>
+          <p class="section-desc">Simple toast notifications with title and description.</p>
+          <div class="demo-box">
+            <div class="demo-row">
+              <button class="btn btn-default" onclick="showBasicToast()">Show Toast</button>
+              <button class="btn btn-secondary" onclick="showTitleOnly()">Title Only</button>
+            </div>
+          </div>
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'basic-js')">JS</button>
+          </div>
+          <div class="code-block">
+            <div id="basic-js" class="code-panel active">
+              <pre><code>BrandUI.toast.show({
+  title: 'Event Created',
+  description: 'Your event has been scheduled.'
+});</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Toast Types -->
+        <div class="section">
+          <h2 class="section-title">Toast Types</h2>
+          <p class="section-desc">Different types for success, error, warning, and info states.</p>
+          <div class="demo-box">
+            <div class="demo-row">
+              <button class="btn btn-default" onclick="showSuccess()">Success</button>
+              <button class="btn btn-destructive" onclick="showError()">Error</button>
+              <button class="btn btn-secondary" onclick="showWarning()">Warning</button>
+              <button class="btn btn-secondary" onclick="showInfo()">Info</button>
+              <button class="btn btn-secondary" onclick="showLoading()">Loading</button>
+            </div>
+          </div>
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'types-js')">JS</button>
+          </div>
+          <div class="code-block">
+            <div id="types-js" class="code-panel active">
+              <pre><code>// Using convenience methods
+BrandUI.toast.success('Success', 'Operation completed.');
+BrandUI.toast.error('Error', 'Something went wrong.');
+BrandUI.toast.warning('Warning', 'Please review your input.');
+BrandUI.toast.info('Info', 'New features available.');</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Positions -->
+        <div class="section">
+          <h2 class="section-title">Positions</h2>
+          <p class="section-desc">Toast can appear in different positions on the screen.</p>
+          <div class="demo-box">
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; max-width: 20rem;">
+              <button class="btn btn-secondary btn-sm" onclick="showAtPosition('top-left')">Top Left</button>
+              <button class="btn btn-secondary btn-sm" onclick="showAtPosition('top-center')">Top Center</button>
+              <button class="btn btn-secondary btn-sm" onclick="showAtPosition('top-right')">Top Right</button>
+              <button class="btn btn-secondary btn-sm" onclick="showAtPosition('bottom-left')">Bottom Left</button>
+              <button class="btn btn-secondary btn-sm" onclick="showAtPosition('bottom-center')">Bottom Center</button>
+              <button class="btn btn-secondary btn-sm" onclick="showAtPosition('bottom-right')">Bottom Right</button>
+            </div>
+          </div>
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'positions-js')">JS</button>
+          </div>
+          <div class="code-block">
+            <div id="positions-js" class="code-panel active">
+              <pre><code>BrandUI.toast.show({
+  title: 'Position Demo',
+  position: 'top-center'
+});</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Duration & Progress -->
+        <div class="section">
+          <h2 class="section-title">Duration & Progress Bar</h2>
+          <p class="section-desc">Configure auto-dismiss duration and show progress bar.</p>
+          <div class="demo-box">
+            <div class="demo-row">
+              <button class="btn btn-default" onclick="showWithProgress()">With Progress Bar</button>
+              <button class="btn btn-secondary" onclick="showShortDuration()">Short (2s)</button>
+              <button class="btn btn-secondary" onclick="showLongDuration()">Long (10s)</button>
+              <button class="btn btn-secondary" onclick="showPersistent()">Persistent</button>
+            </div>
+          </div>
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'duration-js')">JS</button>
+          </div>
+          <div class="code-block">
+            <div id="duration-js" class="code-panel active">
+              <pre><code>BrandUI.toast.show({
+  title: 'Processing...',
+  duration: 10000,
+  showProgress: true
+});</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Button -->
+        <div class="section">
+          <h2 class="section-title">Action Button</h2>
+          <p class="section-desc">Toast with an action button for user interaction.</p>
+          <div class="demo-box">
+            <div class="demo-row">
+              <button class="btn btn-default" onclick="showWithAction()">With Action</button>
+              <button class="btn btn-secondary" onclick="showUndoAction()">Undo Action</button>
+            </div>
+          </div>
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'action-js')">JS</button>
+          </div>
+          <div class="code-block">
+            <div id="action-js" class="code-panel active">
+              <pre><code>BrandUI.toast.show({
+  title: 'Message sent',
+  description: 'Your message was delivered.',
+  action: {
+    label: 'Undo',
+    onClick: () => console.log('Undo clicked')
+  }
+});</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Promise API -->
+        <div class="section">
+          <h2 class="section-title">Promise API</h2>
+          <p class="section-desc">Automatically update toast based on promise resolution.</p>
+          <div class="demo-box">
+            <div class="demo-row">
+              <button class="btn btn-default" onclick="showPromiseSuccess()">Promise (Success)</button>
+              <button class="btn btn-destructive" onclick="showPromiseError()">Promise (Error)</button>
+            </div>
+          </div>
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'promise-js')">JS</button>
+          </div>
+          <div class="code-block">
+            <div id="promise-js" class="code-panel active">
+              <pre><code>const promise = saveData();
+
+BrandUI.toast.promise(promise, {
+  loading: { title: 'Saving...', description: 'Please wait.' },
+  success: { title: 'Saved!', description: 'Data saved successfully.' },
+  error: { title: 'Error', description: 'Could not save data.' }
+});</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stacking -->
+        <div class="section">
+          <h2 class="section-title">Stacking & Max Toasts</h2>
+          <p class="section-desc">Multiple toasts stack automatically. Oldest toasts are dismissed when limit is reached.</p>
+          <div class="demo-box">
+            <div class="demo-row">
+              <button class="btn btn-default" onclick="showMultiple()">Show 5 Toasts</button>
+              <button class="btn btn-destructive" onclick="dismissAll()">Dismiss All</button>
+            </div>
+          </div>
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'stacking-js')">JS</button>
+          </div>
+          <div class="code-block">
+            <div id="stacking-js" class="code-panel active">
+              <pre><code>// Configure max toasts globally
+BrandUI.toast.configure({ maxToasts: 3 });
+
+// Or dismiss all
+BrandUI.toast.dismissAll();</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Configuration -->
+        <div class="section">
+          <h2 class="section-title">Global Configuration</h2>
+          <p class="section-desc">Configure default options for all toasts.</p>
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'config-js')">JS</button>
+          </div>
+          <div class="code-block">
+            <div id="config-js" class="code-panel active">
+              <pre><code>BrandUI.toast.configure({
+  duration: 5000,
+  position: 'bottom-right',
+  maxToasts: 5,
+  closable: true,
+  showProgress: false
+});</code></pre>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Core JS -->
+  <script src="../js/core.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/components/toast.js"></script>
+
+  <script>
+    // Demo functions
+    function showBasicToast() {
+      BrandUI.toast.show({
+        title: 'Event Created',
+        description: 'Your event has been scheduled for tomorrow at 10:00 AM.'
+      });
+    }
+
+    function showTitleOnly() {
+      BrandUI.toast.show({
+        title: 'Settings saved'
+      });
+    }
+
+    function showSuccess() {
+      BrandUI.toast.success('Success', 'Your changes have been saved successfully.');
+    }
+
+    function showError() {
+      BrandUI.toast.error('Error', 'There was a problem processing your request.');
+    }
+
+    function showWarning() {
+      BrandUI.toast.warning('Warning', 'Your session will expire in 5 minutes.');
+    }
+
+    function showInfo() {
+      BrandUI.toast.info('New Update', 'A new version is available. Refresh to update.');
+    }
+
+    function showLoading() {
+      const id = BrandUI.toast.loading('Processing', 'Please wait while we process your request...');
+
+      // Simulate completion after 3 seconds
+      setTimeout(() => {
+        BrandUI.toast.update(id, {
+          type: 'success',
+          title: 'Complete',
+          description: 'Processing finished successfully.',
+          duration: 3000,
+          closable: true
+        });
+        // Restart dismiss timer after update
+        BrandUI.toast.dismiss(id);
+        BrandUI.toast.success('Complete', 'Processing finished successfully.');
+      }, 3000);
+    }
+
+    function showAtPosition(position) {
+      BrandUI.toast.show({
+        title: 'Position: ' + position,
+        description: 'This toast appears in the ' + position + ' corner.',
+        position: position
+      });
+    }
+
+    function showWithProgress() {
+      BrandUI.toast.show({
+        title: 'Uploading file...',
+        description: 'This toast has a progress indicator.',
+        duration: 5000,
+        showProgress: true
+      });
+    }
+
+    function showShortDuration() {
+      BrandUI.toast.show({
+        title: 'Quick notification',
+        description: 'This disappears in 2 seconds.',
+        duration: 2000
+      });
+    }
+
+    function showLongDuration() {
+      BrandUI.toast.show({
+        title: 'Long notification',
+        description: 'This stays for 10 seconds.',
+        duration: 10000,
+        showProgress: true
+      });
+    }
+
+    function showPersistent() {
+      BrandUI.toast.show({
+        title: 'Persistent Toast',
+        description: 'This toast will not auto-dismiss. Click X to close.',
+        duration: 0
+      });
+    }
+
+    function showWithAction() {
+      BrandUI.toast.show({
+        type: 'success',
+        title: 'Message sent',
+        description: 'Your message was delivered successfully.',
+        action: {
+          label: 'View',
+          onClick: () => alert('View clicked!')
+        }
+      });
+    }
+
+    function showUndoAction() {
+      BrandUI.toast.show({
+        title: 'Item deleted',
+        description: 'The item has been moved to trash.',
+        action: {
+          label: 'Undo',
+          onClick: () => {
+            BrandUI.toast.success('Restored', 'Item has been restored.');
+          }
+        }
+      });
+    }
+
+    function showPromiseSuccess() {
+      const promise = new Promise((resolve) => {
+        setTimeout(() => resolve({ id: 123 }), 2000);
+      });
+
+      BrandUI.toast.promise(promise, {
+        loading: { title: 'Saving...', description: 'Please wait.' },
+        success: (data) => ({
+          title: 'Saved!',
+          description: 'Record #' + data.id + ' saved successfully.'
+        }),
+        error: { title: 'Error', description: 'Could not save.' }
+      });
+    }
+
+    function showPromiseError() {
+      const promise = new Promise((_, reject) => {
+        setTimeout(() => reject(new Error('Network error')), 2000);
+      });
+
+      BrandUI.toast.promise(promise, {
+        loading: { title: 'Connecting...', description: 'Establishing connection.' },
+        success: { title: 'Connected', description: 'Connection established.' },
+        error: (err) => ({
+          title: 'Connection Failed',
+          description: err.message
+        })
+      });
+    }
+
+    function showMultiple() {
+      const types = ['success', 'error', 'warning', 'info', 'default'];
+      types.forEach((type, i) => {
+        setTimeout(() => {
+          BrandUI.toast.show({
+            title: 'Toast #' + (i + 1),
+            description: 'Type: ' + type,
+            type: type === 'default' ? undefined : type
+          });
+        }, i * 300);
+      });
+    }
+
+    function dismissAll() {
+      BrandUI.toast.dismissAll();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+/**
+ * Brand UI - Accordion Component
+ * Expand/collapse sections with smooth animations
+ */
+
+/* ============================================
+   ACCORDION CONTAINER
+   ============================================ */
+
+.accordion {
+  width: 100%;
+}
+
+/* ============================================
+   ACCORDION ITEM
+   ============================================ */
+
+.accordion-item {
+  border-bottom: 1px solid var(--border);
+}
+
+.accordion-item:last-child {
+  border-bottom: none;
+}
+
+/* ============================================
+   ACCORDION TRIGGER (Header/Button)
+   ============================================ */
+
+.accordion-trigger {
+  display: flex;
+  flex: 1;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem 0;
+  border: none;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  transition: all var(--transition-normal) var(--ease-default);
+}
+
+.accordion-trigger:hover {
+  text-decoration: underline;
+}
+
+.accordion-trigger:focus-visible {
+  border-color: var(--ring);
+  box-shadow: 0 0 0 3px oklch(from var(--ring) l c h / 50%);
+}
+
+.accordion-trigger:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Chevron icon */
+.accordion-trigger-icon {
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.125rem;
+  color: var(--muted-foreground);
+  pointer-events: none;
+  transition: transform var(--transition-normal) var(--ease-default);
+}
+
+/* Rotate chevron when open */
+.accordion-item[data-state="open"] .accordion-trigger-icon {
+  transform: rotate(180deg);
+}
+
+/* ============================================
+   ACCORDION CONTENT
+   ============================================ */
+
+.accordion-content {
+  overflow: hidden;
+  font-size: 0.875rem;
+  color: var(--foreground);
+  transition: height var(--transition-normal) var(--ease-default);
+}
+
+/* Hidden state */
+.accordion-content[data-state="closed"] {
+  height: 0;
+}
+
+/* Inner wrapper for padding */
+.accordion-content-inner {
+  padding-bottom: 1rem;
+}

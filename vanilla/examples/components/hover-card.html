@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hover Card - Brand UI</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- All CSS -->
+  <link rel="stylesheet" href="../css/ui.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="app-sidebar">
+      <div class="app-sidebar-header">
+        <a href="../index.html">← Overview</a>
+      </div>
+      <div class="app-sidebar-content">
+        <div class="app-sidebar-group-label">Components</div>
+        <ul class="sidebar-menu" id="sidebar-menu"></ul>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="app-main">
+      <header class="app-header">
+        <div class="header-left">
+          <span>Hover Card</span>
+        </div>
+        <button id="theme-toggle" class="btn btn-ghost btn-sm">Dark</button>
+      </header>
+
+      <main class="app-content">
+        <h1 class="page-title">Hover Card</h1>
+        <p class="page-desc">A popover that displays information when hovering over an element.</p>
+
+        <!-- Basic Example -->
+        <div class="section">
+          <h2 class="section-title">Basic Usage</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <div class="hover-card" data-hover-card>
+                <a href="#" class="hover-card-trigger link-trigger">@nextjs</a>
+                <div class="hover-card-content">
+                  <div class="profile-card">
+                    <div class="profile-header">
+                      <div class="profile-avatar">N</div>
+                    </div>
+                    <div>
+                      <div class="profile-name">Next.js</div>
+                      <div class="profile-handle">@nextjs</div>
+                    </div>
+                    <p class="profile-bio">
+                      The React Framework for the Web. Used by some of the world's largest companies.
+                    </p>
+                    <div class="profile-stats">
+                      <span><span class="stat-value">2,900</span> <span class="stat-label">Following</span></span>
+                      <span><span class="stat-value">1.1M</span> <span class="stat-label">Followers</span></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Avatar Trigger -->
+        <div class="section">
+          <h2 class="section-title">Avatar Trigger</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <div class="hover-card" data-hover-card>
+                <div class="hover-card-trigger avatar">JD</div>
+                <div class="hover-card-content">
+                  <div class="profile-card">
+                    <div class="profile-header">
+                      <div class="profile-avatar">JD</div>
+                    </div>
+                    <div>
+                      <div class="profile-name">Jane Doe</div>
+                      <div class="profile-handle">@janedoe</div>
+                    </div>
+                    <p class="profile-bio">
+                      Software engineer passionate about building great user experiences.
+                    </p>
+                    <div class="profile-stats">
+                      <span><span class="stat-value">523</span> <span class="stat-label">Following</span></span>
+                      <span><span class="stat-value">12.4K</span> <span class="stat-label">Followers</span></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Positioning -->
+        <div class="section">
+          <h2 class="section-title">Positioning</h2>
+          <div class="demo-box">
+            <div style="display: flex; justify-content: center; padding: 4rem 2rem;">
+              <div class="demo-row" style="gap: 4rem;">
+                <!-- Top -->
+                <div class="hover-card" data-hover-card data-side="top">
+                  <div class="hover-card-trigger avatar">T</div>
+                  <div class="hover-card-content">
+                    <p style="font-size: 0.875rem;">This hover card appears on top.</p>
+                  </div>
+                </div>
+
+                <!-- Right -->
+                <div class="hover-card" data-hover-card data-side="right">
+                  <div class="hover-card-trigger avatar">R</div>
+                  <div class="hover-card-content">
+                    <p style="font-size: 0.875rem;">This hover card appears on the right.</p>
+                  </div>
+                </div>
+
+                <!-- Bottom (default) -->
+                <div class="hover-card" data-hover-card data-side="bottom">
+                  <div class="hover-card-trigger avatar">B</div>
+                  <div class="hover-card-content">
+                    <p style="font-size: 0.875rem;">This hover card appears on the bottom (default).</p>
+                  </div>
+                </div>
+
+                <!-- Left -->
+                <div class="hover-card" data-hover-card data-side="left">
+                  <div class="hover-card-trigger avatar">L</div>
+                  <div class="hover-card-content">
+                    <p style="font-size: 0.875rem;">This hover card appears on the left.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Alignment -->
+        <div class="section">
+          <h2 class="section-title">Alignment</h2>
+          <div class="demo-box">
+            <div class="demo-row" style="justify-content: space-between;">
+              <div class="hover-card" data-hover-card data-align="start">
+                <div class="hover-card-trigger avatar">S</div>
+                <div class="hover-card-content">
+                  <p style="font-size: 0.875rem;">Aligned to start.</p>
+                </div>
+              </div>
+
+              <div class="hover-card" data-hover-card data-align="center">
+                <div class="hover-card-trigger avatar">C</div>
+                <div class="hover-card-content">
+                  <p style="font-size: 0.875rem;">Aligned to center (default).</p>
+                </div>
+              </div>
+
+              <div class="hover-card" data-hover-card data-align="end">
+                <div class="hover-card-trigger avatar">E</div>
+                <div class="hover-card-content">
+                  <p style="font-size: 0.875rem;">Aligned to end.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Custom Delays -->
+        <div class="section">
+          <h2 class="section-title">Custom Delays</h2>
+          <div class="demo-box">
+            <div class="demo-row">
+              <div class="hover-card" data-hover-card data-open-delay="100" data-close-delay="100">
+                <div class="hover-card-trigger avatar">F</div>
+                <div class="hover-card-content">
+                  <p style="font-size: 0.875rem;">Fast open (100ms) and close (100ms).</p>
+                </div>
+              </div>
+
+              <div class="hover-card" data-hover-card data-open-delay="1000" data-close-delay="500">
+                <div class="hover-card-trigger avatar">S</div>
+                <div class="hover-card-content">
+                  <p style="font-size: 0.875rem;">Slow open (1000ms) and close (500ms).</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Core JS -->
+  <script src="../js/core.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/components/hover-card.js"></script>
+
+  <style>
+    /* Demo-specific styles for hover card examples */
+    .avatar {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: var(--radius-full);
+      background-color: var(--muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 500;
+      font-size: 0.875rem;
+    }
+
+    .link-trigger {
+      color: var(--foreground);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .link-trigger:hover {
+      color: var(--muted-foreground);
+    }
+
+    .profile-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .profile-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .profile-avatar {
+      width: 3rem;
+      height: 3rem;
+      border-radius: var(--radius-full);
+      background-color: var(--muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+    }
+
+    .profile-name {
+      font-weight: 600;
+      font-size: 0.875rem;
+    }
+
+    .profile-handle {
+      color: var(--muted-foreground);
+      font-size: 0.875rem;
+    }
+
+    .profile-bio {
+      font-size: 0.875rem;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .profile-stats {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.875rem;
+    }
+
+    .stat-value {
+      font-weight: 600;
+    }
+
+    .stat-label {
+      color: var(--muted-foreground);
+    }
+  </style>
+</body>
+</html>

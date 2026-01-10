@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Field - Brand UI</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- All CSS -->
+  <link rel="stylesheet" href="../css/ui.css">
+
+  <style>
+    /* Demo input styling */
+    .demo-input {
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      color: var(--foreground);
+      background-color: var(--background);
+      border: 1px solid var(--input);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-xs);
+      transition: border-color var(--transition-fast) var(--ease-default),
+                  box-shadow var(--transition-fast) var(--ease-default);
+    }
+
+    .demo-input:focus {
+      outline: none;
+      border-color: var(--ring);
+      box-shadow: var(--shadow-xs), 0 0 0 3px oklch(from var(--ring) l c h / 50%);
+    }
+
+    .demo-input::placeholder {
+      color: var(--muted-foreground);
+    }
+
+    .demo-textarea {
+      min-height: 5rem;
+      resize: vertical;
+    }
+
+    .demo-select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.75rem center;
+      padding-right: 2.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="app-sidebar">
+      <div class="app-sidebar-header">
+        <a href="../index.html">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          <span>Overview</span>
+        </a>
+      </div>
+      <div class="app-sidebar-content">
+        <div class="app-sidebar-group-label">Components</div>
+        <ul class="sidebar-menu" id="sidebar-menu"></ul>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="app-main">
+      <header class="app-header">
+        <div class="header-left">
+          <span>Field</span>
+        </div>
+        <button id="theme-toggle" class="btn btn-ghost btn-sm">Dark</button>
+      </header>
+
+      <main class="app-content">
+        <h1 class="page-title">Field</h1>
+        <p class="page-desc">A form field wrapper that groups label, input, description, and error messages together.</p>
+
+        <!-- Installation -->
+        <div class="install-box">
+          <p>Installation</p>
+          <code>&lt;link rel="stylesheet" href="css/components/field.css"&gt;</code>
+        </div>
+
+        <!-- Basic Field -->
+        <section class="section">
+          <h2 class="section-title">Basic Field</h2>
+          <p class="section-desc">A simple field with a label and input.</p>
+          <div class="demo-box">
+            <div class="field">
+              <label class="field-label" for="basic-input">Email</label>
+              <input
+                type="email"
+                id="basic-input"
+                class="demo-input"
+                placeholder="Enter your email"
+              >
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'basic-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="basic-html" class="code-panel active">
+              <pre><code>&lt;div class="field"&gt;
+  &lt;label class="field-label" for="email"&gt;Email&lt;/label&gt;
+  &lt;input type="email" id="email" class="demo-input" placeholder="Enter your email"&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- With Description -->
+        <section class="section">
+          <h2 class="section-title">With Description</h2>
+          <p class="section-desc">Field with helpful description text below the input.</p>
+          <div class="demo-box">
+            <div class="field">
+              <label class="field-label" for="username-input">Username</label>
+              <div class="field-content">
+                <input
+                  type="text"
+                  id="username-input"
+                  class="demo-input"
+                  placeholder="Choose a username"
+                >
+                <p class="field-description">This will be your public display name. You can change it later.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'desc-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="desc-html" class="code-panel active">
+              <pre><code>&lt;div class="field"&gt;
+  &lt;label class="field-label" for="username"&gt;Username&lt;/label&gt;
+  &lt;div class="field-content"&gt;
+    &lt;input type="text" id="username" class="demo-input"&gt;
+    &lt;p class="field-description"&gt;This will be your public display name.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Required Field -->
+        <section class="section">
+          <h2 class="section-title">Required Field</h2>
+          <p class="section-desc">Field with a required indicator on the label.</p>
+          <div class="demo-box">
+            <div class="field">
+              <label class="field-label" data-required="true" for="required-input">Full Name</label>
+              <input
+                type="text"
+                id="required-input"
+                class="demo-input"
+                placeholder="John Doe"
+                required
+              >
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'required-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="required-html" class="code-panel active">
+              <pre><code>&lt;div class="field"&gt;
+  &lt;label class="field-label" data-required="true" for="name"&gt;Full Name&lt;/label&gt;
+  &lt;input type="text" id="name" class="demo-input" required&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Optional Field -->
+        <section class="section">
+          <h2 class="section-title">Optional Field</h2>
+          <p class="section-desc">Field with an optional indicator.</p>
+          <div class="demo-box">
+            <div class="field">
+              <label class="field-label" for="optional-input">
+                Phone Number
+                <span class="field-optional">(optional)</span>
+              </label>
+              <input
+                type="tel"
+                id="optional-input"
+                class="demo-input"
+                placeholder="+1 (555) 000-0000"
+              >
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'optional-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="optional-html" class="code-panel active">
+              <pre><code>&lt;div class="field"&gt;
+  &lt;label class="field-label" for="phone"&gt;
+    Phone Number
+    &lt;span class="field-optional"&gt;(optional)&lt;/span&gt;
+  &lt;/label&gt;
+  &lt;input type="tel" id="phone" class="demo-input"&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Error State -->
+        <section class="section">
+          <h2 class="section-title">Error State</h2>
+          <p class="section-desc">Field with validation error message.</p>
+          <div class="demo-box">
+            <div class="field" data-invalid="true">
+              <label class="field-label" for="error-input">Email</label>
+              <div class="field-content">
+                <input
+                  type="email"
+                  id="error-input"
+                  class="demo-input"
+                  value="invalid-email"
+                  aria-invalid="true"
+                  aria-describedby="error-message"
+                >
+                <p class="field-error" id="error-message" role="alert">
+                  <svg class="field-error-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="12" y1="8" x2="12" y2="12"/>
+                    <line x1="12" y1="16" x2="12.01" y2="16"/>
+                  </svg>
+                  Please enter a valid email address.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'error-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="error-html" class="code-panel active">
+              <pre><code>&lt;div class="field" data-invalid="true"&gt;
+  &lt;label class="field-label" for="email"&gt;Email&lt;/label&gt;
+  &lt;div class="field-content"&gt;
+    &lt;input type="email" id="email" class="demo-input" aria-invalid="true"&gt;
+    &lt;p class="field-error" role="alert"&gt;
+      Please enter a valid email address.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Multiple Errors -->
+        <section class="section">
+          <h2 class="section-title">Multiple Errors</h2>
+          <p class="section-desc">Field with multiple validation errors displayed as a list.</p>
+          <div class="demo-box">
+            <div class="field" data-invalid="true">
+              <label class="field-label" for="password-errors">Password</label>
+              <div class="field-content">
+                <input
+                  type="password"
+                  id="password-errors"
+                  class="demo-input"
+                  value="abc"
+                  aria-invalid="true"
+                >
+                <div class="field-error" role="alert">
+                  <ul>
+                    <li>Password must be at least 8 characters</li>
+                    <li>Password must contain at least one number</li>
+                    <li>Password must contain at least one special character</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Disabled State -->
+        <section class="section">
+          <h2 class="section-title">Disabled State</h2>
+          <p class="section-desc">Field in a disabled state.</p>
+          <div class="demo-box">
+            <div class="field" data-disabled="true">
+              <label class="field-label" for="disabled-input">Account ID</label>
+              <div class="field-content">
+                <input
+                  type="text"
+                  id="disabled-input"
+                  class="demo-input"
+                  value="ACC-12345"
+                  disabled
+                >
+                <p class="field-description">This field cannot be modified.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Horizontal Layout -->
+        <section class="section">
+          <h2 class="section-title">Horizontal Layout</h2>
+          <p class="section-desc">Field with label and input side by side.</p>
+          <div class="demo-box">
+            <div class="field" data-orientation="horizontal">
+              <label class="field-label" for="horizontal-input">Email</label>
+              <div class="field-content">
+                <input
+                  type="email"
+                  id="horizontal-input"
+                  class="demo-input"
+                  placeholder="Enter your email"
+                >
+                <p class="field-description">We'll never share your email.</p>
+              </div>
+            </div>
+
+            <div class="field" data-orientation="horizontal" style="margin-top: 1rem;">
+              <label class="field-label" for="horizontal-input-2">Password</label>
+              <input
+                type="password"
+                id="horizontal-input-2"
+                class="demo-input"
+                placeholder="Enter password"
+              >
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'horizontal-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="horizontal-html" class="code-panel active">
+              <pre><code>&lt;div class="field" data-orientation="horizontal"&gt;
+  &lt;label class="field-label" for="email"&gt;Email&lt;/label&gt;
+  &lt;div class="field-content"&gt;
+    &lt;input type="email" id="email" class="demo-input"&gt;
+    &lt;p class="field-description"&gt;We'll never share your email.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Textarea Field -->
+        <section class="section">
+          <h2 class="section-title">Textarea Field</h2>
+          <p class="section-desc">Field with a textarea for multi-line input.</p>
+          <div class="demo-box">
+            <div class="field">
+              <label class="field-label" for="textarea-input">Bio</label>
+              <div class="field-content">
+                <textarea
+                  id="textarea-input"
+                  class="demo-input demo-textarea"
+                  placeholder="Tell us about yourself..."
+                ></textarea>
+                <p class="field-description">Maximum 500 characters.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Select Field -->
+        <section class="section">
+          <h2 class="section-title">Select Field</h2>
+          <p class="section-desc">Field with a dropdown select.</p>
+          <div class="demo-box">
+            <div class="field">
+              <label class="field-label" for="select-input">Country</label>
+              <select id="select-input" class="demo-input demo-select">
+                <option value="">Select a country...</option>
+                <option value="us">United States</option>
+                <option value="uk">United Kingdom</option>
+                <option value="ca">Canada</option>
+                <option value="au">Australia</option>
+              </select>
+            </div>
+          </div>
+        </section>
+
+        <!-- Field Group -->
+        <section class="section">
+          <h2 class="section-title">Field Group</h2>
+          <p class="section-desc">Multiple fields grouped together.</p>
+          <div class="demo-box">
+            <div class="field-group">
+              <div class="field">
+                <label class="field-label" data-required="true" for="first-name">First Name</label>
+                <input type="text" id="first-name" class="demo-input" placeholder="John">
+              </div>
+
+              <div class="field">
+                <label class="field-label" data-required="true" for="last-name">Last Name</label>
+                <input type="text" id="last-name" class="demo-input" placeholder="Doe">
+              </div>
+
+              <div class="field">
+                <label class="field-label" data-required="true" for="group-email">Email</label>
+                <div class="field-content">
+                  <input type="email" id="group-email" class="demo-input" placeholder="john@example.com">
+                  <p class="field-description">We'll send a confirmation to this email.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'group-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="group-html" class="code-panel active">
+              <pre><code>&lt;div class="field-group"&gt;
+  &lt;div class="field"&gt;...&lt;/div&gt;
+  &lt;div class="field"&gt;...&lt;/div&gt;
+  &lt;div class="field"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Field Set -->
+        <section class="section">
+          <h2 class="section-title">Field Set</h2>
+          <p class="section-desc">Native fieldset with legend for grouping related fields.</p>
+          <div class="demo-box">
+            <fieldset class="field-set">
+              <legend class="field-legend">Contact Information</legend>
+
+              <div class="field-group">
+                <div class="field">
+                  <label class="field-label" for="contact-email">Email</label>
+                  <input type="email" id="contact-email" class="demo-input" placeholder="you@example.com">
+                </div>
+
+                <div class="field">
+                  <label class="field-label" for="contact-phone">
+                    Phone
+                    <span class="field-optional">(optional)</span>
+                  </label>
+                  <input type="tel" id="contact-phone" class="demo-input" placeholder="+1 (555) 000-0000">
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'fieldset-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="fieldset-html" class="code-panel active">
+              <pre><code>&lt;fieldset class="field-set"&gt;
+  &lt;legend class="field-legend"&gt;Contact Information&lt;/legend&gt;
+  &lt;div class="field-group"&gt;
+    &lt;div class="field"&gt;...&lt;/div&gt;
+    &lt;div class="field"&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/fieldset&gt;</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Field Separator -->
+        <section class="section">
+          <h2 class="section-title">Field Separator</h2>
+          <p class="section-desc">Visual separator between field groups.</p>
+          <div class="demo-box">
+            <div class="field-group">
+              <div class="field">
+                <label class="field-label" for="sep-email">Email</label>
+                <input type="email" id="sep-email" class="demo-input" placeholder="you@example.com">
+              </div>
+
+              <div class="field-separator">
+                <span class="field-separator-text">or</span>
+              </div>
+
+              <div class="field">
+                <label class="field-label" for="sep-phone">Phone</label>
+                <input type="tel" id="sep-phone" class="demo-input" placeholder="+1 (555) 000-0000">
+              </div>
+            </div>
+          </div>
+
+          <div class="code-tabs">
+            <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'separator-html')">HTML</button>
+          </div>
+          <div class="code-block">
+            <div id="separator-html" class="code-panel active">
+              <pre><code>&lt;div class="field-separator"&gt;
+  &lt;span class="field-separator-text"&gt;or&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Complete Form Example -->
+        <section class="section">
+          <h2 class="section-title">Complete Form Example</h2>
+          <p class="section-desc">A complete form demonstrating various field configurations.</p>
+          <div class="demo-box">
+            <form id="example-form" onsubmit="handleSubmit(event)">
+              <div class="field-group">
+                <fieldset class="field-set">
+                  <legend class="field-legend">Personal Details</legend>
+
+                  <div class="field-group">
+                    <div class="field" data-orientation="horizontal">
+                      <label class="field-label" data-required="true" for="form-name">Full Name</label>
+                      <input type="text" id="form-name" class="demo-input" placeholder="John Doe" required>
+                    </div>
+
+                    <div class="field" data-orientation="horizontal">
+                      <label class="field-label" data-required="true" for="form-email">Email</label>
+                      <div class="field-content">
+                        <input type="email" id="form-email" class="demo-input" placeholder="john@example.com" required>
+                        <p class="field-description">We'll use this for account notifications.</p>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+
+                <div class="field-separator"></div>
+
+                <fieldset class="field-set">
+                  <legend class="field-legend" data-variant="label">Preferences</legend>
+
+                  <div class="field-group">
+                    <div class="field">
+                      <label class="field-label" for="form-language">Language</label>
+                      <select id="form-language" class="demo-input demo-select">
+                        <option value="en">English</option>
+                        <option value="es">Spanish</option>
+                        <option value="fr">French</option>
+                      </select>
+                    </div>
+
+                    <div class="field">
+                      <label class="field-label" for="form-bio">
+                        Bio
+                        <span class="field-optional">(optional)</span>
+                      </label>
+                      <div class="field-content">
+                        <textarea id="form-bio" class="demo-input demo-textarea" placeholder="Tell us about yourself..."></textarea>
+                        <p class="field-description">This will appear on your public profile.</p>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+
+                <div style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 0.5rem;">
+                  <button type="button" class="btn btn-secondary">Cancel</button>
+                  <button type="submit" class="btn btn-default">Submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <!-- CSS Classes Reference -->
+        <section class="section">
+          <h2 class="section-title">CSS Classes Reference</h2>
+          <div class="demo-box" style="padding: 0; overflow: hidden;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+              <thead>
+                <tr style="background: var(--muted);">
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Class</th>
+                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.field</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Field container</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.field-label</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Label element</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.field-content</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Wrapper for input and description</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.field-description</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Helper text</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.field-error</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Error message</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.field-optional</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Optional indicator</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.field-group</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Groups multiple fields</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.field-set</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Fieldset styling</td></tr>
+                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.field-legend</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Legend styling</td></tr>
+                <tr><td style="padding: 0.75rem 1rem;"><code>.field-separator</code></td><td style="padding: 0.75rem 1rem;">Visual separator between fields</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Core JS -->
+  <script src="../js/core.js"></script>
+  <script src="../js/layout.js"></script>
+
+  <script>
+    // Form submission example
+    function handleSubmit(event) {
+      event.preventDefault();
+      const formData = new FormData(event.target);
+      alert('Form submitted successfully!');
+    }
+  </script>
+</body>
+</html>

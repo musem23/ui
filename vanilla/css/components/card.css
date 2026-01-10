@@ -1,0 +1,74 @@
+/**
+ * Card Component
+ * Vanilla CSS conversion from React/Tailwind
+ */
+
+.card {
+  background-color: var(--card);
+  color: var(--card-foreground);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.card-header {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-auto-rows: min-content;
+  align-items: start;
+  gap: 0.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* When card-header has a card-action child */
+.card-header:has(.card-action) {
+  grid-template-columns: 1fr auto;
+}
+
+/* When card-header has border-bottom */
+.card-header.border-b {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.card-title {
+  line-height: 1;
+  font-weight: 600;
+}
+
+.card-description {
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.card-action {
+  grid-column-start: 2;
+  grid-row: 1 / span 2;
+  align-self: start;
+  justify-self: end;
+}
+
+.card-content {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* When card-footer has border-top */
+.card-footer.border-t {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
