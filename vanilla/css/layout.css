@@ -26,6 +26,12 @@
   overflow-y: auto;
   z-index: 10;
   color: var(--sidebar-foreground);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.app-sidebar::-webkit-scrollbar {
+  display: none;
 }
 
 .app-sidebar.is-hidden {

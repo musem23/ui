@@ -190,6 +190,18 @@
   overflow: hidden;
 }
 
+/* No scrollbar modifier */
+.sidebar-content.no-scrollbar,
+.sidebar[data-no-scrollbar] .sidebar-content {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.sidebar-content.no-scrollbar::-webkit-scrollbar,
+.sidebar[data-no-scrollbar] .sidebar-content::-webkit-scrollbar {
+  display: none;
+}
+
 /* ============================================
  * SIDEBAR FOOTER
  * ============================================ */
@@ -365,6 +377,7 @@
   background: transparent;
   color: var(--sidebar-foreground);
   font-size: 0.875rem;
+  font-weight: 500;
   font-family: inherit;
   text-align: left;
   text-decoration: none;
