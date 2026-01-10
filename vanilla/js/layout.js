@@ -157,6 +157,20 @@
     if (themeBtn) {
       themeBtn.addEventListener('click', toggleTheme);
     }
+
+    // Attach sidebar toggle to button
+    const sidebarBtn = document.getElementById('sidebar-toggle');
+    if (sidebarBtn) {
+      sidebarBtn.addEventListener('click', toggleSidebar);
+    }
+
+    // Enable transitions after initial render to prevent page load animations
+    requestAnimationFrame(function() {
+      const main = document.querySelector('.app-main');
+      if (main) {
+        main.classList.add('transitions-enabled');
+      }
+    });
   }
 
   if (document.readyState === 'loading') {
