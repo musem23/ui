@@ -4,9 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chart - Brand UI</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Brand UI CSS -->
   <link rel="stylesheet" href="../css/ui.css">
@@ -48,70 +45,7 @@
                 <div class="card-description">Revenue data for the first half of 2024</div>
               </div>
               <div class="card-content">
-                <div class="chart" data-chart="bar-chart-demo">
-                  <div class="chart-container" style="height: 300px;">
-                    <svg class="chart-area" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid meet">
-                      <!-- Grid lines -->
-                      <g class="chart-grid-lines">
-                        <line class="chart-grid" x1="50" y1="50" x2="380" y2="50" />
-                        <line class="chart-grid" x1="50" y1="100" x2="380" y2="100" />
-                        <line class="chart-grid" x1="50" y1="150" x2="380" y2="150" />
-                        <line class="chart-grid" x1="50" y1="200" x2="380" y2="200" />
-                      </g>
-
-                      <!-- Y Axis -->
-                      <g class="chart-y-axis">
-                        <line class="chart-axis" x1="50" y1="30" x2="50" y2="220" />
-                        <text class="chart-axis-tick" x="45" y="55" text-anchor="end">40k</text>
-                        <text class="chart-axis-tick" x="45" y="105" text-anchor="end">30k</text>
-                        <text class="chart-axis-tick" x="45" y="155" text-anchor="end">20k</text>
-                        <text class="chart-axis-tick" x="45" y="205" text-anchor="end">10k</text>
-                      </g>
-
-                      <!-- X Axis -->
-                      <g class="chart-x-axis">
-                        <line class="chart-axis" x1="50" y1="220" x2="380" y2="220" />
-                        <text class="chart-axis-tick" x="85" y="238" text-anchor="middle">Jan</text>
-                        <text class="chart-axis-tick" x="140" y="238" text-anchor="middle">Feb</text>
-                        <text class="chart-axis-tick" x="195" y="238" text-anchor="middle">Mar</text>
-                        <text class="chart-axis-tick" x="250" y="238" text-anchor="middle">Apr</text>
-                        <text class="chart-axis-tick" x="305" y="238" text-anchor="middle">May</text>
-                        <text class="chart-axis-tick" x="360" y="238" text-anchor="middle">Jun</text>
-                      </g>
-
-                      <!-- Bars -->
-                      <g class="chart-bars">
-                        <rect class="chart-bar" x="65" y="95" width="40" height="125" fill="var(--chart-1)" rx="4"
-                              data-chart-label="January" data-chart-value="31250" data-chart-name="Revenue" />
-                        <rect class="chart-bar" x="120" y="70" width="40" height="150" fill="var(--chart-1)" rx="4"
-                              data-chart-label="February" data-chart-value="37500" data-chart-name="Revenue" />
-                        <rect class="chart-bar" x="175" y="110" width="40" height="110" fill="var(--chart-1)" rx="4"
-                              data-chart-label="March" data-chart-value="27500" data-chart-name="Revenue" />
-                        <rect class="chart-bar" x="230" y="55" width="40" height="165" fill="var(--chart-1)" rx="4"
-                              data-chart-label="April" data-chart-value="41250" data-chart-name="Revenue" />
-                        <rect class="chart-bar" x="285" y="85" width="40" height="135" fill="var(--chart-1)" rx="4"
-                              data-chart-label="May" data-chart-value="33750" data-chart-name="Revenue" />
-                        <rect class="chart-bar" x="340" y="45" width="40" height="175" fill="var(--chart-1)" rx="4"
-                              data-chart-label="June" data-chart-value="43750" data-chart-name="Revenue" />
-                      </g>
-                    </svg>
-
-                    <!-- Tooltip -->
-                    <div class="chart-tooltip">
-                      <div class="chart-tooltip-content">
-                        <div class="chart-tooltip-label">Loading...</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Legend -->
-                  <div class="chart-legend chart-legend-bottom">
-                    <div class="chart-legend-item" data-key="revenue" data-active="true">
-                      <div class="chart-legend-item-icon" style="background-color: var(--chart-1);"></div>
-                      <span class="chart-legend-item-label">Revenue</span>
-                    </div>
-                  </div>
-                </div>
+                <div id="bar-chart"></div>
               </div>
             </div>
           </div>
@@ -128,78 +62,24 @@
                 <div class="card-description">Active users over the past 6 months</div>
               </div>
               <div class="card-content">
-                <div class="chart" data-chart="line-chart-demo">
-                  <div class="chart-container" style="height: 300px;">
-                    <svg class="chart-area" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid meet">
-                      <!-- Grid lines -->
-                      <g class="chart-grid-lines">
-                        <line class="chart-grid" x1="50" y1="50" x2="380" y2="50" />
-                        <line class="chart-grid" x1="50" y1="100" x2="380" y2="100" />
-                        <line class="chart-grid" x1="50" y1="150" x2="380" y2="150" />
-                        <line class="chart-grid" x1="50" y1="200" x2="380" y2="200" />
-                      </g>
+                <div id="line-chart"></div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-                      <!-- Y Axis -->
-                      <g class="chart-y-axis">
-                        <line class="chart-axis" x1="50" y1="30" x2="50" y2="220" />
-                        <text class="chart-axis-tick" x="45" y="55" text-anchor="end">1000</text>
-                        <text class="chart-axis-tick" x="45" y="105" text-anchor="end">750</text>
-                        <text class="chart-axis-tick" x="45" y="155" text-anchor="end">500</text>
-                        <text class="chart-axis-tick" x="45" y="205" text-anchor="end">250</text>
-                      </g>
-
-                      <!-- X Axis -->
-                      <g class="chart-x-axis">
-                        <line class="chart-axis" x1="50" y1="220" x2="380" y2="220" />
-                        <text class="chart-axis-tick" x="85" y="238" text-anchor="middle">Jan</text>
-                        <text class="chart-axis-tick" x="140" y="238" text-anchor="middle">Feb</text>
-                        <text class="chart-axis-tick" x="195" y="238" text-anchor="middle">Mar</text>
-                        <text class="chart-axis-tick" x="250" y="238" text-anchor="middle">Apr</text>
-                        <text class="chart-axis-tick" x="305" y="238" text-anchor="middle">May</text>
-                        <text class="chart-axis-tick" x="360" y="238" text-anchor="middle">Jun</text>
-                      </g>
-
-                      <!-- Area fill -->
-                      <path class="chart-area-fill" fill="var(--chart-2)"
-                            d="M85,170 L140,150 L195,130 L250,100 L305,80 L360,50 L360,220 L85,220 Z" />
-
-                      <!-- Line -->
-                      <path class="chart-line" stroke="var(--chart-2)"
-                            d="M85,170 L140,150 L195,130 L250,100 L305,80 L360,50" />
-
-                      <!-- Data points -->
-                      <g class="chart-dots">
-                        <circle class="chart-dot" cx="85" cy="170" r="4" fill="var(--chart-2)"
-                                data-chart-label="January" data-chart-value="325" data-chart-name="Users" />
-                        <circle class="chart-dot" cx="140" cy="150" r="4" fill="var(--chart-2)"
-                                data-chart-label="February" data-chart-value="450" data-chart-name="Users" />
-                        <circle class="chart-dot" cx="195" cy="130" r="4" fill="var(--chart-2)"
-                                data-chart-label="March" data-chart-value="575" data-chart-name="Users" />
-                        <circle class="chart-dot" cx="250" cy="100" r="4" fill="var(--chart-2)"
-                                data-chart-label="April" data-chart-value="750" data-chart-name="Users" />
-                        <circle class="chart-dot" cx="305" cy="80" r="4" fill="var(--chart-2)"
-                                data-chart-label="May" data-chart-value="875" data-chart-name="Users" />
-                        <circle class="chart-dot" cx="360" cy="50" r="4" fill="var(--chart-2)"
-                                data-chart-label="June" data-chart-value="1000" data-chart-name="Users" />
-                      </g>
-                    </svg>
-
-                    <!-- Tooltip -->
-                    <div class="chart-tooltip">
-                      <div class="chart-tooltip-content">
-                        <div class="chart-tooltip-label">Loading...</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Legend -->
-                  <div class="chart-legend chart-legend-bottom">
-                    <div class="chart-legend-item" data-key="users" data-active="true">
-                      <div class="chart-legend-item-icon" style="background-color: var(--chart-2);"></div>
-                      <span class="chart-legend-item-label">Active Users</span>
-                    </div>
-                  </div>
-                </div>
+        <!-- Area Chart -->
+        <section class="section">
+          <h2 class="section-title">Area Chart</h2>
+          <p class="section-desc">Line chart with filled area under the line.</p>
+          <div class="demo-box">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title">Page Views</div>
+                <div class="card-description">Daily page views this week</div>
+              </div>
+              <div class="card-content">
+                <div id="area-chart"></div>
               </div>
             </div>
           </div>
@@ -216,71 +96,7 @@
                 <div class="card-description">Distribution of website traffic by source</div>
               </div>
               <div class="card-content">
-                <div class="chart" data-chart="pie-chart-demo">
-                  <div class="chart-container" style="height: 300px;">
-                    <svg class="chart-area" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid meet">
-                      <!-- Pie sectors -->
-                      <g transform="translate(200, 125)">
-                        <!-- Direct: 35% -->
-                        <path class="chart-sector"
-                              d="M0,-80 A80,80 0 0,1 76.4,-23.5 L0,0 Z"
-                              fill="var(--chart-1)"
-                              data-chart-label="Direct" data-chart-value="35" data-chart-name="Traffic %" />
-                        <!-- Organic: 30% -->
-                        <path class="chart-sector"
-                              d="M76.4,-23.5 A80,80 0 0,1 23.5,76.4 L0,0 Z"
-                              fill="var(--chart-2)"
-                              data-chart-label="Organic" data-chart-value="30" data-chart-name="Traffic %" />
-                        <!-- Referral: 20% -->
-                        <path class="chart-sector"
-                              d="M23.5,76.4 A80,80 0 0,1 -61.2,51.4 L0,0 Z"
-                              fill="var(--chart-3)"
-                              data-chart-label="Referral" data-chart-value="20" data-chart-name="Traffic %" />
-                        <!-- Social: 10% -->
-                        <path class="chart-sector"
-                              d="M-61.2,51.4 A80,80 0 0,1 -76.4,-23.5 L0,0 Z"
-                              fill="var(--chart-4)"
-                              data-chart-label="Social" data-chart-value="10" data-chart-name="Traffic %" />
-                        <!-- Other: 5% -->
-                        <path class="chart-sector"
-                              d="M-76.4,-23.5 A80,80 0 0,1 0,-80 L0,0 Z"
-                              fill="var(--chart-5)"
-                              data-chart-label="Other" data-chart-value="5" data-chart-name="Traffic %" />
-                      </g>
-                    </svg>
-
-                    <!-- Tooltip -->
-                    <div class="chart-tooltip">
-                      <div class="chart-tooltip-content">
-                        <div class="chart-tooltip-label">Loading...</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Legend -->
-                  <div class="chart-legend chart-legend-bottom">
-                    <div class="chart-legend-item" data-key="direct" data-active="true">
-                      <div class="chart-legend-item-icon" style="background-color: var(--chart-1);"></div>
-                      <span class="chart-legend-item-label">Direct (35%)</span>
-                    </div>
-                    <div class="chart-legend-item" data-key="organic" data-active="true">
-                      <div class="chart-legend-item-icon" style="background-color: var(--chart-2);"></div>
-                      <span class="chart-legend-item-label">Organic (30%)</span>
-                    </div>
-                    <div class="chart-legend-item" data-key="referral" data-active="true">
-                      <div class="chart-legend-item-icon" style="background-color: var(--chart-3);"></div>
-                      <span class="chart-legend-item-label">Referral (20%)</span>
-                    </div>
-                    <div class="chart-legend-item" data-key="social" data-active="true">
-                      <div class="chart-legend-item-icon" style="background-color: var(--chart-4);"></div>
-                      <span class="chart-legend-item-label">Social (10%)</span>
-                    </div>
-                    <div class="chart-legend-item" data-key="other" data-active="true">
-                      <div class="chart-legend-item-icon" style="background-color: var(--chart-5);"></div>
-                      <span class="chart-legend-item-label">Other (5%)</span>
-                    </div>
-                  </div>
-                </div>
+                <div id="pie-chart"></div>
               </div>
             </div>
           </div>
@@ -297,84 +113,66 @@
                 <div class="card-description">This year vs last year sales data</div>
               </div>
               <div class="card-content">
-                <div class="chart" data-chart="multi-bar-chart-demo">
-                  <div class="chart-container" style="height: 300px;">
-                    <svg class="chart-area" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid meet">
-                      <!-- Grid lines -->
-                      <g class="chart-grid-lines">
-                        <line class="chart-grid" x1="50" y1="50" x2="380" y2="50" />
-                        <line class="chart-grid" x1="50" y1="100" x2="380" y2="100" />
-                        <line class="chart-grid" x1="50" y1="150" x2="380" y2="150" />
-                        <line class="chart-grid" x1="50" y1="200" x2="380" y2="200" />
-                      </g>
-
-                      <!-- Y Axis -->
-                      <g class="chart-y-axis">
-                        <line class="chart-axis" x1="50" y1="30" x2="50" y2="220" />
-                        <text class="chart-axis-tick" x="45" y="55" text-anchor="end">80</text>
-                        <text class="chart-axis-tick" x="45" y="105" text-anchor="end">60</text>
-                        <text class="chart-axis-tick" x="45" y="155" text-anchor="end">40</text>
-                        <text class="chart-axis-tick" x="45" y="205" text-anchor="end">20</text>
-                      </g>
-
-                      <!-- X Axis -->
-                      <g class="chart-x-axis">
-                        <line class="chart-axis" x1="50" y1="220" x2="380" y2="220" />
-                        <text class="chart-axis-tick" x="110" y="238" text-anchor="middle">Q1</text>
-                        <text class="chart-axis-tick" x="195" y="238" text-anchor="middle">Q2</text>
-                        <text class="chart-axis-tick" x="280" y="238" text-anchor="middle">Q3</text>
-                        <text class="chart-axis-tick" x="360" y="238" text-anchor="middle">Q4</text>
-                      </g>
-
-                      <!-- Bar groups -->
-                      <g class="chart-bars">
-                        <!-- Q1 -->
-                        <rect class="chart-bar" x="80" y="115" width="25" height="105" fill="var(--chart-1)" rx="3"
-                              data-chart-label="Q1" data-chart-value="42" data-chart-name="Last Year" />
-                        <rect class="chart-bar" x="110" y="90" width="25" height="130" fill="var(--chart-2)" rx="3"
-                              data-chart-label="Q1" data-chart-value="52" data-chart-name="This Year" />
-
-                        <!-- Q2 -->
-                        <rect class="chart-bar" x="165" y="100" width="25" height="120" fill="var(--chart-1)" rx="3"
-                              data-chart-label="Q2" data-chart-value="48" data-chart-name="Last Year" />
-                        <rect class="chart-bar" x="195" y="70" width="25" height="150" fill="var(--chart-2)" rx="3"
-                              data-chart-label="Q2" data-chart-value="60" data-chart-name="This Year" />
-
-                        <!-- Q3 -->
-                        <rect class="chart-bar" x="250" y="85" width="25" height="135" fill="var(--chart-1)" rx="3"
-                              data-chart-label="Q3" data-chart-value="54" data-chart-name="Last Year" />
-                        <rect class="chart-bar" x="280" y="55" width="25" height="165" fill="var(--chart-2)" rx="3"
-                              data-chart-label="Q3" data-chart-value="66" data-chart-name="This Year" />
-
-                        <!-- Q4 -->
-                        <rect class="chart-bar" x="330" y="75" width="25" height="145" fill="var(--chart-1)" rx="3"
-                              data-chart-label="Q4" data-chart-value="58" data-chart-name="Last Year" />
-                        <rect class="chart-bar" x="360" y="45" width="25" height="175" fill="var(--chart-2)" rx="3"
-                              data-chart-label="Q4" data-chart-value="70" data-chart-name="This Year" />
-                      </g>
-                    </svg>
-
-                    <!-- Tooltip -->
-                    <div class="chart-tooltip">
-                      <div class="chart-tooltip-content">
-                        <div class="chart-tooltip-label">Loading...</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Legend -->
-                  <div class="chart-legend chart-legend-bottom">
-                    <div class="chart-legend-item" data-key="last-year" data-active="true">
-                      <div class="chart-legend-item-icon" style="background-color: var(--chart-1);"></div>
-                      <span class="chart-legend-item-label">Last Year</span>
-                    </div>
-                    <div class="chart-legend-item" data-key="this-year" data-active="true">
-                      <div class="chart-legend-item-icon" style="background-color: var(--chart-2);"></div>
-                      <span class="chart-legend-item-label">This Year</span>
-                    </div>
-                  </div>
-                </div>
+                <div id="multi-bar-chart"></div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Usage -->
+        <section class="section">
+          <h2 class="section-title">Usage</h2>
+          <p class="section-desc">How to create charts with the Chart component.</p>
+          <div class="demo-box">
+            <div class="code-block" style="border-radius: 8px; border: 1px solid var(--border);">
+              <pre><code>// Create a bar chart
+const barChart = BrandUI.createChart(document.getElementById('my-chart'), {
+  type: 'bar',
+  data: [
+    { label: 'Jan', value: 31250 },
+    { label: 'Feb', value: 37500 },
+    { label: 'Mar', value: 27500 },
+  ],
+  seriesName: 'Revenue'
+});
+
+// Create a line chart
+const lineChart = BrandUI.createChart(element, {
+  type: 'line', // or 'area' for filled area
+  data: [
+    { label: 'Jan', value: 325 },
+    { label: 'Feb', value: 450 },
+    { label: 'Mar', value: 575 },
+  ]
+});
+
+// Create a pie chart
+const pieChart = BrandUI.createChart(element, {
+  type: 'pie',
+  data: [
+    { label: 'Direct', value: 35 },
+    { label: 'Organic', value: 30 },
+    { label: 'Referral', value: 20 },
+  ]
+});
+
+// Multi-series bar chart
+const multiBarChart = BrandUI.createChart(element, {
+  type: 'bar',
+  data: [
+    { label: 'Q1', values: { 'Last Year': 42, 'This Year': 52 } },
+    { label: 'Q2', values: { 'Last Year': 48, 'This Year': 60 } },
+  ]
+});
+
+// Update chart data
+barChart.setData(newData);
+
+// Change chart type
+barChart.setType('line');
+
+// Update options
+barChart.update({ showGrid: false });</code></pre>
             </div>
           </div>
         </section>
@@ -429,29 +227,6 @@
                   </div>
                 </div>
               </div>
-
-              <!-- Multiple items -->
-              <div class="chart-tooltip-content" style="position: static;">
-                <div class="chart-tooltip-label">Q1 2024</div>
-                <div class="chart-tooltip-items">
-                  <div class="chart-tooltip-item">
-                    <div class="chart-tooltip-indicator chart-tooltip-indicator-dot"
-                         style="--color-bg: var(--chart-1); --color-border: var(--chart-1);"></div>
-                    <div class="chart-tooltip-item-content">
-                      <span class="chart-tooltip-item-name">Desktop</span>
-                      <span class="chart-tooltip-item-value">65%</span>
-                    </div>
-                  </div>
-                  <div class="chart-tooltip-item">
-                    <div class="chart-tooltip-indicator chart-tooltip-indicator-dot"
-                         style="--color-bg: var(--chart-2); --color-border: var(--chart-2);"></div>
-                    <div class="chart-tooltip-item-content">
-                      <span class="chart-tooltip-item-name">Mobile</span>
-                      <span class="chart-tooltip-item-value">35%</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </section>
@@ -464,77 +239,72 @@
   <script src="../js/components/chart.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      // Initialize all charts
-      BrandUI.init();
-
-      // Custom tooltip handling for demo
-      document.querySelectorAll('[data-chart-value]').forEach(function (el) {
-        el.addEventListener('mouseenter', function (e) {
-          const chart = el.closest('.chart');
-          const tooltip = chart.querySelector('.chart-tooltip');
-          if (!tooltip) return;
-
-          const content = tooltip.querySelector('.chart-tooltip-content');
-          const label = el.dataset.chartLabel;
-          const value = el.dataset.chartValue;
-          const name = el.dataset.chartName;
-          const color = getComputedStyle(el).fill || getComputedStyle(el).backgroundColor;
-
-          content.innerHTML = `
-            <div class="chart-tooltip-label">${label}</div>
-            <div class="chart-tooltip-items">
-              <div class="chart-tooltip-item">
-                <div class="chart-tooltip-indicator chart-tooltip-indicator-dot"
-                     style="--color-bg: ${color}; --color-border: ${color};"></div>
-                <div class="chart-tooltip-item-content">
-                  <span class="chart-tooltip-item-name">${name}</span>
-                  <span class="chart-tooltip-item-value">${Number(value).toLocaleString()}</span>
-                </div>
-              </div>
-            </div>
-          `;
-
-          tooltip.setAttribute('data-visible', 'true');
-        });
-
-        el.addEventListener('mouseleave', function () {
-          const chart = el.closest('.chart');
-          const tooltip = chart.querySelector('.chart-tooltip');
-          if (tooltip) {
-            tooltip.setAttribute('data-visible', 'false');
-          }
-        });
-
-        el.addEventListener('mousemove', function (e) {
-          const chart = el.closest('.chart');
-          const tooltip = chart.querySelector('.chart-tooltip');
-          if (!tooltip) return;
-
-          const rect = chart.getBoundingClientRect();
-          const tooltipRect = tooltip.getBoundingClientRect();
-
-          let x = e.clientX - rect.left + 15;
-          let y = e.clientY - rect.top + 15;
-
-          if (x + tooltipRect.width > rect.width) {
-            x = e.clientX - rect.left - tooltipRect.width - 15;
-          }
-          if (y + tooltipRect.height > rect.height) {
-            y = e.clientY - rect.top - tooltipRect.height - 15;
-          }
-
-          tooltip.style.left = x + 'px';
-          tooltip.style.top = y + 'px';
-        });
+      // Bar Chart
+      BrandUI.createChart(document.getElementById('bar-chart'), {
+        type: 'bar',
+        data: [
+          { label: 'Jan', value: 31250 },
+          { label: 'Feb', value: 37500 },
+          { label: 'Mar', value: 27500 },
+          { label: 'Apr', value: 41250 },
+          { label: 'May', value: 33750 },
+          { label: 'Jun', value: 43750 },
+        ],
+        seriesName: 'Revenue'
       });
 
-      // Legend click interaction demo
-      document.querySelectorAll('.chart-legend-item').forEach(function (item) {
-        item.addEventListener('click', function () {
-          const isActive = item.getAttribute('data-active') === 'true';
-          item.setAttribute('data-active', !isActive);
-          console.log('Legend item toggled:', item.dataset.key, !isActive);
-        });
+      // Line Chart
+      BrandUI.createChart(document.getElementById('line-chart'), {
+        type: 'line',
+        data: [
+          { label: 'Jan', value: 325 },
+          { label: 'Feb', value: 450 },
+          { label: 'Mar', value: 575 },
+          { label: 'Apr', value: 750 },
+          { label: 'May', value: 875 },
+          { label: 'Jun', value: 1000 },
+        ],
+        seriesName: 'Active Users',
+        colors: ['var(--chart-2)']
+      });
+
+      // Area Chart
+      BrandUI.createChart(document.getElementById('area-chart'), {
+        type: 'area',
+        data: [
+          { label: 'Mon', value: 1200 },
+          { label: 'Tue', value: 1800 },
+          { label: 'Wed', value: 2400 },
+          { label: 'Thu', value: 2100 },
+          { label: 'Fri', value: 2800 },
+          { label: 'Sat', value: 1900 },
+          { label: 'Sun', value: 1500 },
+        ],
+        seriesName: 'Page Views',
+        colors: ['var(--chart-3)']
+      });
+
+      // Pie Chart
+      BrandUI.createChart(document.getElementById('pie-chart'), {
+        type: 'pie',
+        data: [
+          { label: 'Direct', value: 35 },
+          { label: 'Organic', value: 30 },
+          { label: 'Referral', value: 20 },
+          { label: 'Social', value: 10 },
+          { label: 'Other', value: 5 },
+        ]
+      });
+
+      // Multi-Series Bar Chart
+      BrandUI.createChart(document.getElementById('multi-bar-chart'), {
+        type: 'bar',
+        data: [
+          { label: 'Q1', values: { 'Last Year': 42, 'This Year': 52 } },
+          { label: 'Q2', values: { 'Last Year': 48, 'This Year': 60 } },
+          { label: 'Q3', values: { 'Last Year': 54, 'This Year': 66 } },
+          { label: 'Q4', values: { 'Last Year': 58, 'This Year': 70 } },
+        ]
       });
     });
   </script>

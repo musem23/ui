@@ -1,314 +1,630 @@
 /**
  * Brand UI - Chart Component
- * Vanilla JS implementation for chart container, tooltip, and legend management
+ * Vanilla JS implementation for SVG chart rendering
  */
 
 (function () {
   'use strict';
 
-  const { $, $$, on, emit, setInstance, getInstance, registerComponent } = BrandUI;
+  const { on, emit, setInstance, getInstance, registerComponent } = BrandUI;
+
+  // Default chart configuration
+  const DEFAULTS = {
+    width: 400,
+    height: 250,
+    padding: { top: 30, right: 20, bottom: 40, left: 50 },
+    colors: ['var(--chart-1)', 'var(--chart-2)', 'var(--chart-3)', 'var(--chart-4)', 'var(--chart-5)'],
+    showGrid: true,
+    showAxis: true,
+    showTooltip: true,
+    showLegend: true,
+    legendPosition: 'bottom',
+    animate: true,
+  };
 
   /**
    * Chart Component
-   * Provides container styling, tooltip management, and legend interaction
+   * Renders SVG charts from data
    */
   class Chart {
     constructor(element, options = {}) {
       this.element = element;
-      this.options = {
-        colors: options.colors || {},
-        tooltipEnabled: options.tooltipEnabled !== false,
-        legendInteractive: options.legendInteractive !== false,
-        ...options,
-      };
+      this.options = { ...DEFAULTS, ...options };
+      this.data = options.data || [];
+      this.type = options.type || 'bar';
 
+      this.svg = null;
       this.tooltip = null;
       this.legend = null;
-      this.legendItems = [];
-      this.activeDatasets = new Set();
 
       this._init();
     }
 
     _init() {
-      // Generate unique chart ID
       this._chartId = this.element.dataset.chart || `chart-${Date.now()}`;
       this.element.dataset.chart = this._chartId;
+      this.element.classList.add('chart');
 
-      // Apply color configuration as CSS variables
-      this._applyColors();
+      this._createStructure();
 
-      // Initialize tooltip
-      this.tooltip = $('.chart-tooltip', this.element);
-      if (this.tooltip) {
-        this._initTooltip();
+      if (this.data.length > 0) {
+        this.render();
       }
 
-      // Initialize legend
-      this.legend = $('.chart-legend', this.element);
-      if (this.legend) {
-        this._initLegend();
-      }
-
-      // Bind events for data elements
-      this._bindDataEvents();
-
-      // Store instance
       setInstance(this.element, 'chart', this);
     }
 
-    _applyColors() {
-      const { colors } = this.options;
+    _createStructure() {
+      // Clear existing content
+      this.element.innerHTML = '';
 
-      // Apply color variables from config
-      Object.entries(colors).forEach(([key, value]) => {
-        if (typeof value === 'string') {
-          this.element.style.setProperty(`--color-${key}`, value);
-        } else if (value && typeof value === 'object') {
-          // Handle theme-based colors
-          const isDark = document.documentElement.classList.contains('dark');
-          const color = isDark ? value.dark : value.light;
-          if (color) {
-            this.element.style.setProperty(`--color-${key}`, color);
-          }
+      // Create container
+      const container = document.createElement('div');
+      container.className = 'chart-container';
+      container.style.height = `${this.options.height + 50}px`;
+
+      // Create SVG
+      this.svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      this.svg.setAttribute('class', 'chart-area');
+      this.svg.setAttribute('viewBox', `0 0 ${this.options.width} ${this.options.height}`);
+      this.svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+      container.appendChild(this.svg);
+
+      // Create tooltip
+      if (this.options.showTooltip) {
+        this.tooltip = document.createElement('div');
+        this.tooltip.className = 'chart-tooltip';
+        this.tooltip.innerHTML = '<div class="chart-tooltip-content"></div>';
+        this.tooltip.setAttribute('data-visible', 'false');
+        container.appendChild(this.tooltip);
+      }
+
+      this.element.appendChild(container);
+
+      // Create legend
+      if (this.options.showLegend) {
+        this.legend = document.createElement('div');
+        this.legend.className = `chart-legend chart-legend-${this.options.legendPosition}`;
+        this.element.appendChild(this.legend);
+      }
+    }
+
+    // Render chart based on type
+    render() {
+      this.svg.innerHTML = '';
+
+      switch (this.type) {
+        case 'bar':
+          this._renderBarChart();
+          break;
+        case 'line':
+          this._renderLineChart();
+          break;
+        case 'pie':
+          this._renderPieChart();
+          break;
+        case 'area':
+          this._renderLineChart(true);
+          break;
+        default:
+          this._renderBarChart();
+      }
+
+      this._renderLegend();
+      this._bindEvents();
+    }
+
+    // Bar Chart
+    _renderBarChart() {
+      const { width, height, padding, colors, showGrid, showAxis } = this.options;
+      const data = this.data;
+
+      if (!data.length) return;
+
+      const chartWidth = width - padding.left - padding.right;
+      const chartHeight = height - padding.top - padding.bottom;
+
+      // Calculate scales
+      const maxValue = Math.max(...data.map(d =>
+        typeof d.value === 'number' ? d.value : Math.max(...Object.values(d.values || {}))
+      ));
+      const yScale = chartHeight / (maxValue * 1.1);
+
+      const isGrouped = data[0].values !== undefined;
+      const seriesKeys = isGrouped ? Object.keys(data[0].values) : ['value'];
+      const barGroupWidth = chartWidth / data.length;
+      const barWidth = isGrouped
+        ? (barGroupWidth - 10) / seriesKeys.length
+        : barGroupWidth - 20;
+
+      // Grid lines
+      if (showGrid) {
+        const gridGroup = this._createSVGElement('g', { class: 'chart-grid-lines' });
+        const gridLines = 4;
+        for (let i = 0; i <= gridLines; i++) {
+          const y = padding.top + (chartHeight / gridLines) * i;
+          gridGroup.appendChild(this._createSVGElement('line', {
+            class: 'chart-grid',
+            x1: padding.left,
+            y1: y,
+            x2: width - padding.right,
+            y2: y,
+          }));
+        }
+        this.svg.appendChild(gridGroup);
+      }
+
+      // Axes
+      if (showAxis) {
+        // Y Axis
+        const yAxisGroup = this._createSVGElement('g', { class: 'chart-y-axis' });
+        yAxisGroup.appendChild(this._createSVGElement('line', {
+          class: 'chart-axis',
+          x1: padding.left,
+          y1: padding.top,
+          x2: padding.left,
+          y2: height - padding.bottom,
+        }));
+
+        // Y axis ticks
+        const gridLines = 4;
+        for (let i = 0; i <= gridLines; i++) {
+          const value = maxValue * 1.1 * (1 - i / gridLines);
+          const y = padding.top + (chartHeight / gridLines) * i;
+          const text = this._createSVGElement('text', {
+            class: 'chart-axis-tick',
+            x: padding.left - 5,
+            y: y + 4,
+            'text-anchor': 'end',
+          });
+          text.textContent = this._formatValue(value);
+          yAxisGroup.appendChild(text);
+        }
+        this.svg.appendChild(yAxisGroup);
+
+        // X Axis
+        const xAxisGroup = this._createSVGElement('g', { class: 'chart-x-axis' });
+        xAxisGroup.appendChild(this._createSVGElement('line', {
+          class: 'chart-axis',
+          x1: padding.left,
+          y1: height - padding.bottom,
+          x2: width - padding.right,
+          y2: height - padding.bottom,
+        }));
+
+        // X axis labels
+        data.forEach((d, i) => {
+          const x = padding.left + barGroupWidth * i + barGroupWidth / 2;
+          const text = this._createSVGElement('text', {
+            class: 'chart-axis-tick',
+            x: x,
+            y: height - padding.bottom + 18,
+            'text-anchor': 'middle',
+          });
+          text.textContent = d.label;
+          xAxisGroup.appendChild(text);
+        });
+        this.svg.appendChild(xAxisGroup);
+      }
+
+      // Bars
+      const barsGroup = this._createSVGElement('g', { class: 'chart-bars' });
+
+      data.forEach((d, i) => {
+        if (isGrouped) {
+          seriesKeys.forEach((key, j) => {
+            const value = d.values[key];
+            const barHeight = value * yScale;
+            const x = padding.left + barGroupWidth * i + 5 + barWidth * j;
+            const y = height - padding.bottom - barHeight;
+
+            const rect = this._createSVGElement('rect', {
+              class: 'chart-bar',
+              x: x,
+              y: y,
+              width: barWidth,
+              height: barHeight,
+              fill: colors[j % colors.length],
+              rx: 4,
+              'data-chart-label': d.label,
+              'data-chart-value': value,
+              'data-chart-name': key,
+            });
+            barsGroup.appendChild(rect);
+          });
+        } else {
+          const value = d.value;
+          const barHeight = value * yScale;
+          const x = padding.left + barGroupWidth * i + 10;
+          const y = height - padding.bottom - barHeight;
+
+          const rect = this._createSVGElement('rect', {
+            class: 'chart-bar',
+            x: x,
+            y: y,
+            width: barWidth,
+            height: barHeight,
+            fill: d.color || colors[0],
+            rx: 4,
+            'data-chart-label': d.label,
+            'data-chart-value': value,
+            'data-chart-name': d.name || 'Value',
+          });
+          barsGroup.appendChild(rect);
         }
       });
+
+      this.svg.appendChild(barsGroup);
     }
 
-    _initTooltip() {
-      // Tooltip is managed externally or via showTooltip/hideTooltip
-      this.tooltip.setAttribute('data-visible', 'false');
+    // Line Chart
+    _renderLineChart(showArea = false) {
+      const { width, height, padding, colors, showGrid, showAxis } = this.options;
+      const data = this.data;
+
+      if (!data.length) return;
+
+      const chartWidth = width - padding.left - padding.right;
+      const chartHeight = height - padding.top - padding.bottom;
+
+      // Calculate scales
+      const maxValue = Math.max(...data.map(d =>
+        typeof d.value === 'number' ? d.value : Math.max(...Object.values(d.values || {}))
+      ));
+      const yScale = chartHeight / (maxValue * 1.1);
+      const xStep = chartWidth / (data.length - 1);
+
+      const isMultiSeries = data[0].values !== undefined;
+      const seriesKeys = isMultiSeries ? Object.keys(data[0].values) : ['value'];
+
+      // Grid lines
+      if (showGrid) {
+        const gridGroup = this._createSVGElement('g', { class: 'chart-grid-lines' });
+        const gridLines = 4;
+        for (let i = 0; i <= gridLines; i++) {
+          const y = padding.top + (chartHeight / gridLines) * i;
+          gridGroup.appendChild(this._createSVGElement('line', {
+            class: 'chart-grid',
+            x1: padding.left,
+            y1: y,
+            x2: width - padding.right,
+            y2: y,
+          }));
+        }
+        this.svg.appendChild(gridGroup);
+      }
+
+      // Axes
+      if (showAxis) {
+        // Y Axis
+        const yAxisGroup = this._createSVGElement('g', { class: 'chart-y-axis' });
+        yAxisGroup.appendChild(this._createSVGElement('line', {
+          class: 'chart-axis',
+          x1: padding.left,
+          y1: padding.top,
+          x2: padding.left,
+          y2: height - padding.bottom,
+        }));
+
+        const gridLines = 4;
+        for (let i = 0; i <= gridLines; i++) {
+          const value = maxValue * 1.1 * (1 - i / gridLines);
+          const y = padding.top + (chartHeight / gridLines) * i;
+          const text = this._createSVGElement('text', {
+            class: 'chart-axis-tick',
+            x: padding.left - 5,
+            y: y + 4,
+            'text-anchor': 'end',
+          });
+          text.textContent = this._formatValue(value);
+          yAxisGroup.appendChild(text);
+        }
+        this.svg.appendChild(yAxisGroup);
+
+        // X Axis
+        const xAxisGroup = this._createSVGElement('g', { class: 'chart-x-axis' });
+        xAxisGroup.appendChild(this._createSVGElement('line', {
+          class: 'chart-axis',
+          x1: padding.left,
+          y1: height - padding.bottom,
+          x2: width - padding.right,
+          y2: height - padding.bottom,
+        }));
+
+        data.forEach((d, i) => {
+          const x = padding.left + xStep * i;
+          const text = this._createSVGElement('text', {
+            class: 'chart-axis-tick',
+            x: x,
+            y: height - padding.bottom + 18,
+            'text-anchor': 'middle',
+          });
+          text.textContent = d.label;
+          xAxisGroup.appendChild(text);
+        });
+        this.svg.appendChild(xAxisGroup);
+      }
+
+      // Lines and dots for each series
+      seriesKeys.forEach((key, seriesIndex) => {
+        const points = data.map((d, i) => {
+          const value = isMultiSeries ? d.values[key] : d.value;
+          const x = padding.left + xStep * i;
+          const y = height - padding.bottom - value * yScale;
+          return { x, y, value, label: d.label };
+        });
+
+        const pathData = points.map((p, i) => `${i === 0 ? 'M' : 'L'}${p.x},${p.y}`).join(' ');
+        const color = colors[seriesIndex % colors.length];
+
+        // Area fill
+        if (showArea) {
+          const areaData = pathData +
+            ` L${points[points.length - 1].x},${height - padding.bottom}` +
+            ` L${points[0].x},${height - padding.bottom} Z`;
+          const area = this._createSVGElement('path', {
+            class: 'chart-area-fill',
+            d: areaData,
+            fill: color,
+          });
+          this.svg.appendChild(area);
+        }
+
+        // Line
+        const line = this._createSVGElement('path', {
+          class: 'chart-line',
+          d: pathData,
+          stroke: color,
+        });
+        this.svg.appendChild(line);
+
+        // Dots
+        const dotsGroup = this._createSVGElement('g', { class: 'chart-dots' });
+        points.forEach((p) => {
+          const dot = this._createSVGElement('circle', {
+            class: 'chart-dot',
+            cx: p.x,
+            cy: p.y,
+            r: 4,
+            fill: color,
+            'data-chart-label': p.label,
+            'data-chart-value': p.value,
+            'data-chart-name': isMultiSeries ? key : (this.options.seriesName || 'Value'),
+          });
+          dotsGroup.appendChild(dot);
+        });
+        this.svg.appendChild(dotsGroup);
+      });
     }
 
-    _initLegend() {
-      this.legendItems = $$('.chart-legend-item', this.legend);
+    // Pie Chart
+    _renderPieChart() {
+      const { width, height, colors } = this.options;
+      const data = this.data;
 
-      // Initialize all datasets as active
-      this.legendItems.forEach((item, index) => {
-        const dataKey = item.dataset.key || `data-${index}`;
-        this.activeDatasets.add(dataKey);
-        item.setAttribute('data-active', 'true');
+      if (!data.length) return;
+
+      const centerX = width / 2;
+      const centerY = height / 2;
+      const radius = Math.min(centerX, centerY) - 20;
+
+      const total = data.reduce((sum, d) => sum + d.value, 0);
+      let currentAngle = -Math.PI / 2; // Start from top
+
+      const pieGroup = this._createSVGElement('g', { transform: `translate(${centerX}, ${centerY})` });
+
+      data.forEach((d, i) => {
+        const sliceAngle = (d.value / total) * 2 * Math.PI;
+        const endAngle = currentAngle + sliceAngle;
+
+        const x1 = Math.cos(currentAngle) * radius;
+        const y1 = Math.sin(currentAngle) * radius;
+        const x2 = Math.cos(endAngle) * radius;
+        const y2 = Math.sin(endAngle) * radius;
+
+        const largeArc = sliceAngle > Math.PI ? 1 : 0;
+
+        const pathData = [
+          `M 0,0`,
+          `L ${x1},${y1}`,
+          `A ${radius},${radius} 0 ${largeArc} 1 ${x2},${y2}`,
+          `Z`
+        ].join(' ');
+
+        const color = d.color || colors[i % colors.length];
+        const percentage = ((d.value / total) * 100).toFixed(1);
+
+        const path = this._createSVGElement('path', {
+          class: 'chart-sector',
+          d: pathData,
+          fill: color,
+          'data-chart-label': d.label,
+          'data-chart-value': percentage,
+          'data-chart-name': 'Percentage',
+        });
+
+        pieGroup.appendChild(path);
+        currentAngle = endAngle;
       });
 
-      // Bind click events for legend interaction
-      if (this.options.legendInteractive) {
-        this.legendItems.forEach((item) => {
-          on(item, 'click', () => this._handleLegendClick(item));
+      this.svg.appendChild(pieGroup);
+    }
+
+    // Render legend
+    _renderLegend() {
+      if (!this.legend) return;
+
+      this.legend.innerHTML = '';
+
+      const isGrouped = this.data[0]?.values !== undefined;
+      let items = [];
+
+      if (this.type === 'pie') {
+        items = this.data.map((d, i) => ({
+          key: d.label.toLowerCase().replace(/\s+/g, '-'),
+          label: d.label,
+          color: d.color || this.options.colors[i % this.options.colors.length],
+        }));
+      } else if (isGrouped) {
+        const keys = Object.keys(this.data[0].values);
+        items = keys.map((key, i) => ({
+          key: key.toLowerCase().replace(/\s+/g, '-'),
+          label: key,
+          color: this.options.colors[i % this.options.colors.length],
+        }));
+      } else {
+        items = [{
+          key: 'value',
+          label: this.options.seriesName || 'Value',
+          color: this.options.colors[0],
+        }];
+      }
+
+      items.forEach((item) => {
+        const legendItem = document.createElement('div');
+        legendItem.className = 'chart-legend-item';
+        legendItem.dataset.key = item.key;
+        legendItem.setAttribute('data-active', 'true');
+        legendItem.innerHTML = `
+          <div class="chart-legend-item-icon" style="background-color: ${item.color};"></div>
+          <span class="chart-legend-item-label">${item.label}</span>
+        `;
+        this.legend.appendChild(legendItem);
+      });
+    }
+
+    // Bind tooltip and legend events
+    _bindEvents() {
+      // Tooltip events
+      if (this.tooltip) {
+        const dataElements = this.svg.querySelectorAll('[data-chart-value]');
+        dataElements.forEach((el) => {
+          on(el, 'mouseenter', (e) => this._showTooltip(e, el));
+          on(el, 'mouseleave', () => this._hideTooltip());
+          on(el, 'mousemove', (e) => this._moveTooltip(e));
+        });
+      }
+
+      // Legend events
+      if (this.legend) {
+        const legendItems = this.legend.querySelectorAll('.chart-legend-item');
+        legendItems.forEach((item) => {
+          on(item, 'click', () => this._toggleLegend(item));
         });
       }
     }
 
-    _handleLegendClick(item) {
-      const dataKey = item.dataset.key;
-      if (!dataKey) return;
+    _showTooltip(event, element) {
+      const label = element.dataset.chartLabel;
+      const value = element.dataset.chartValue;
+      const name = element.dataset.chartName;
+      const color = getComputedStyle(element).fill || getComputedStyle(element).backgroundColor;
 
-      const isActive = item.getAttribute('data-active') === 'true';
+      const content = this.tooltip.querySelector('.chart-tooltip-content');
+      content.innerHTML = `
+        <div class="chart-tooltip-label">${label}</div>
+        <div class="chart-tooltip-items">
+          <div class="chart-tooltip-item">
+            <div class="chart-tooltip-indicator chart-tooltip-indicator-dot"
+                 style="--color-bg: ${color}; --color-border: ${color};"></div>
+            <div class="chart-tooltip-item-content">
+              <span class="chart-tooltip-item-name">${name}</span>
+              <span class="chart-tooltip-item-value">${this._formatValue(value)}</span>
+            </div>
+          </div>
+        </div>
+      `;
 
-      if (isActive) {
-        this.activeDatasets.delete(dataKey);
-        item.setAttribute('data-active', 'false');
-      } else {
-        this.activeDatasets.add(dataKey);
-        item.setAttribute('data-active', 'true');
+      this._moveTooltip(event);
+      this.tooltip.setAttribute('data-visible', 'true');
+    }
+
+    _hideTooltip() {
+      if (this.tooltip) {
+        this.tooltip.setAttribute('data-visible', 'false');
       }
-
-      // Emit event for external handling
-      emit(this.element, 'chart:legendToggle', {
-        key: dataKey,
-        active: !isActive,
-        activeDatasets: Array.from(this.activeDatasets),
-      });
     }
 
-    _bindDataEvents() {
-      // Bind hover events to data elements for tooltip
-      const dataElements = $$('[data-chart-value]', this.element);
-
-      dataElements.forEach((el) => {
-        on(el, 'mouseenter', (e) => this._handleDataHover(e, el));
-        on(el, 'mouseleave', () => this.hideTooltip());
-        on(el, 'mousemove', (e) => this._updateTooltipPosition(e));
-      });
-    }
-
-    _handleDataHover(event, element) {
-      if (!this.tooltip || !this.options.tooltipEnabled) return;
-
-      const data = {
-        label: element.dataset.chartLabel,
-        value: element.dataset.chartValue,
-        name: element.dataset.chartName,
-        color: element.dataset.chartColor || getComputedStyle(element).fill,
-      };
-
-      this.showTooltip(data, event);
-    }
-
-    _updateTooltipPosition(event) {
+    _moveTooltip(event) {
       if (!this.tooltip) return;
 
       const rect = this.element.getBoundingClientRect();
       const tooltipRect = this.tooltip.getBoundingClientRect();
 
-      let x = event.clientX - rect.left + 10;
-      let y = event.clientY - rect.top + 10;
+      let x = event.clientX - rect.left + 15;
+      let y = event.clientY - rect.top + 15;
 
-      // Keep tooltip within bounds
       if (x + tooltipRect.width > rect.width) {
-        x = event.clientX - rect.left - tooltipRect.width - 10;
+        x = event.clientX - rect.left - tooltipRect.width - 15;
       }
       if (y + tooltipRect.height > rect.height) {
-        y = event.clientY - rect.top - tooltipRect.height - 10;
+        y = event.clientY - rect.top - tooltipRect.height - 15;
       }
 
       this.tooltip.style.left = `${x}px`;
       this.tooltip.style.top = `${y}px`;
     }
 
+    _toggleLegend(item) {
+      const isActive = item.getAttribute('data-active') === 'true';
+      item.setAttribute('data-active', !isActive);
+
+      emit(this.element, 'chart:legendToggle', {
+        key: item.dataset.key,
+        active: !isActive,
+      });
+    }
+
+    // Helpers
+    _createSVGElement(tag, attrs = {}) {
+      const el = document.createElementNS('http://www.w3.org/2000/svg', tag);
+      Object.entries(attrs).forEach(([key, value]) => {
+        el.setAttribute(key, value);
+      });
+      return el;
+    }
+
+    _formatValue(value) {
+      const num = parseFloat(value);
+      if (isNaN(num)) return value;
+      if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
+      if (num >= 1000) return (num / 1000).toFixed(1) + 'k';
+      return num.toLocaleString();
+    }
+
     // Public API
 
     /**
-     * Show tooltip with data
+     * Set chart data and re-render
      */
-    showTooltip(data, event) {
-      if (!this.tooltip) return;
-
-      // Update tooltip content
-      const content = this.tooltip.querySelector('.chart-tooltip-content');
-      if (content) {
-        this._renderTooltipContent(content, data);
-      }
-
-      // Position tooltip
-      if (event) {
-        this._updateTooltipPosition(event);
-      }
-
-      // Show tooltip
-      this.tooltip.setAttribute('data-visible', 'true');
-
-      emit(this.element, 'chart:tooltipShow', { data });
-    }
-
-    _renderTooltipContent(container, data) {
-      // Clear existing content
-      container.innerHTML = '';
-
-      // Create label
-      if (data.label) {
-        const label = document.createElement('div');
-        label.className = 'chart-tooltip-label';
-        label.textContent = data.label;
-        container.appendChild(label);
-      }
-
-      // Create items container
-      const items = document.createElement('div');
-      items.className = 'chart-tooltip-items';
-
-      // Handle single item or array
-      const dataItems = Array.isArray(data.items) ? data.items : [data];
-
-      dataItems.forEach((item) => {
-        const itemEl = document.createElement('div');
-        itemEl.className = 'chart-tooltip-item';
-
-        // Indicator
-        if (item.color) {
-          const indicator = document.createElement('div');
-          indicator.className = 'chart-tooltip-indicator chart-tooltip-indicator-dot';
-          indicator.style.setProperty('--color-bg', item.color);
-          indicator.style.setProperty('--color-border', item.color);
-          itemEl.appendChild(indicator);
-        }
-
-        // Content
-        const contentEl = document.createElement('div');
-        contentEl.className = 'chart-tooltip-item-content';
-
-        if (item.name) {
-          const nameEl = document.createElement('span');
-          nameEl.className = 'chart-tooltip-item-name';
-          nameEl.textContent = item.name;
-          contentEl.appendChild(nameEl);
-        }
-
-        if (item.value !== undefined) {
-          const valueEl = document.createElement('span');
-          valueEl.className = 'chart-tooltip-item-value';
-          valueEl.textContent = typeof item.value === 'number'
-            ? item.value.toLocaleString()
-            : item.value;
-          contentEl.appendChild(valueEl);
-        }
-
-        itemEl.appendChild(contentEl);
-        items.appendChild(itemEl);
-      });
-
-      container.appendChild(items);
+    setData(data) {
+      this.data = data;
+      this.render();
     }
 
     /**
-     * Hide tooltip
+     * Set chart type and re-render
      */
-    hideTooltip() {
-      if (!this.tooltip) return;
-      this.tooltip.setAttribute('data-visible', 'false');
-      emit(this.element, 'chart:tooltipHide');
+    setType(type) {
+      this.type = type;
+      this.render();
     }
 
     /**
-     * Toggle legend item
-     */
-    toggleLegendItem(key, active) {
-      const item = this.legendItems.find((i) => i.dataset.key === key);
-      if (!item) return;
-
-      if (active) {
-        this.activeDatasets.add(key);
-      } else {
-        this.activeDatasets.delete(key);
-      }
-
-      item.setAttribute('data-active', active ? 'true' : 'false');
-
-      emit(this.element, 'chart:legendToggle', {
-        key,
-        active,
-        activeDatasets: Array.from(this.activeDatasets),
-      });
-    }
-
-    /**
-     * Get active datasets
-     */
-    getActiveDatasets() {
-      return Array.from(this.activeDatasets);
-    }
-
-    /**
-     * Set chart colors dynamically
-     */
-    setColors(colors) {
-      this.options.colors = { ...this.options.colors, ...colors };
-      this._applyColors();
-    }
-
-    /**
-     * Update chart configuration
+     * Update options and re-render
      */
     update(options) {
       Object.assign(this.options, options);
-      if (options.colors) {
-        this._applyColors();
-      }
+      if (options.data) this.data = options.data;
+      if (options.type) this.type = options.type;
+      this.render();
     }
 
     /**
-     * Destroy the component
+     * Destroy the chart
      */
     destroy() {
+      this.element.innerHTML = '';
       setInstance(this.element, 'chart', null);
     }
   }
@@ -316,13 +632,20 @@
   // Factory function
   function createChart(element, options) {
     const existing = getInstance(element, 'chart');
-    if (existing) return existing;
+    if (existing) {
+      if (options) existing.update(options);
+      return existing;
+    }
     return new Chart(element, options);
   }
 
   // Register for auto-init
   registerComponent('chart', (element) => {
-    createChart(element);
+    // Only auto-init if data is provided via data attributes
+    const type = element.dataset.chartType;
+    if (type) {
+      createChart(element, { type });
+    }
   });
 
   // Export
