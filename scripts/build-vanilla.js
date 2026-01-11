@@ -5,7 +5,7 @@
  * Bundles CSS and JS files for distribution
  */
 
-import { readFileSync, writeFileSync, readdirSync, existsSync, mkdirSync } from 'fs';
+import { readFileSync, writeFileSync, readdirSync, existsSync, mkdirSync, copyFileSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -17,6 +17,7 @@ const ROOT = join(__dirname, '..');
 // ============================================
 
 const CSS_FILES = [
+  'vanilla/css/fonts.css',
   'vanilla/css/tokens.css',
   'vanilla/css/base.css',
   'vanilla/css/utilities.css',
@@ -27,6 +28,8 @@ const JS_FILES = [
 ];
 
 const OUTPUT_DIR = 'dist';
+const RELEASE_DIR = 'release';
+const FONTS_DIR = 'vanilla/examples/fonts';
 
 // ============================================
 // UTILITIES
@@ -113,6 +116,9 @@ function buildCSS() {
     }
   }
 
+  // Fix font paths for standalone use (../fonts/ -> ./fonts/)
+  bundle = bundle.replace(/url\(['"]?\.\.\/fonts\//g, "url('./fonts/");
+
   // Write bundle
   writeFile(`${OUTPUT_DIR}/brand-ui.css`, bundle);
 
@@ -169,6 +175,33 @@ function buildJS() {
   return bundle;
 }
 
+function buildRelease() {
+  console.log('\nBuilding release package...');
+
+  // Create release directories
+  const releaseDir = join(ROOT, RELEASE_DIR);
+  const fontsDest = join(releaseDir, 'fonts');
+  ensureDir(releaseDir);
+  ensureDir(fontsDest);
+
+  // Copy minified files
+  copyFileSync(join(ROOT, OUTPUT_DIR, 'brand-ui.min.css'), join(releaseDir, 'brand-ui.min.css'));
+  console.log(`  ✓ ${RELEASE_DIR}/brand-ui.min.css`);
+
+  copyFileSync(join(ROOT, OUTPUT_DIR, 'brand-ui.min.js'), join(releaseDir, 'brand-ui.min.js'));
+  console.log(`  ✓ ${RELEASE_DIR}/brand-ui.min.js`);
+
+  // Copy fonts
+  const fontsSource = join(ROOT, FONTS_DIR);
+  if (existsSync(fontsSource)) {
+    const fontFiles = readdirSync(fontsSource).filter(f => f.endsWith('.woff2'));
+    for (const font of fontFiles) {
+      copyFileSync(join(fontsSource, font), join(fontsDest, font));
+      console.log(`  ✓ ${RELEASE_DIR}/fonts/${font}`);
+    }
+  }
+}
+
 // ============================================
 // MAIN
 // ============================================
@@ -182,8 +215,12 @@ ensureDir(join(ROOT, OUTPUT_DIR));
 // Build
 buildCSS();
 buildJS();
+buildRelease();
 
-console.log('\nBuild complete! Files written to dist/');
+console.log('\nBuild complete!');
+console.log('\nOutput:');
+console.log('  dist/     - Full bundle (CSS, JS, UMD)');
+console.log('  release/  - Ready to copy (minified + fonts)');
 console.log('\nUsage:');
-console.log('  <link rel="stylesheet" href="dist/brand-ui.css">');
-console.log('  <script src="dist/brand-ui.js"></script>');
+console.log('  <link rel="stylesheet" href="brand-ui.min.css">');
+console.log('  <script src="brand-ui.min.js"></script>');
