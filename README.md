@@ -1,39 +1,33 @@
-# brand-ui
+# Brand UI
 
-A customizable UI component library built with React and Tailwind CSS v4.
+Lightweight UI components for React and vanilla JavaScript.
 
-## Setup
+## Vanilla (No Framework)
 
-```bash
-bun install
+Copy the `release/` folder to your project:
+
+```text
+release/
+├── brand-ui.min.css  (162 KB)
+├── brand-ui.min.js   (212 KB)
+└── fonts/
 ```
 
-## Development
-
-```bash
-bun dev
+```html
+<link rel="stylesheet" href="release/brand-ui.min.css">
+<script src="release/brand-ui.min.js"></script>
 ```
 
-Runs on http://localhost:4000
+## React
+
+Copy `react/components/ui/` to your project.
+
+Requires: `@radix-ui/*`, `tailwindcss`, `class-variance-authority`, `clsx`, `tailwind-merge`
 
 ## Build
 
 ```bash
-bun build
-```
-
-## Project Structure
-
-```
-src/
-├── brand/           # Brand configuration (colors, fonts, themes)
-├── components/ui/   # UI components
-├── lib/             # Utilities and hooks
-└── styles/          # Global CSS and theme styles
-```
-
-## Sync Brand Tokens
-
-```bash
-bun sync-brand
+bun install
+bun run build:vanilla   # Generates dist/ and release/
+bun dev                 # Dev server at localhost:4000
 ```
