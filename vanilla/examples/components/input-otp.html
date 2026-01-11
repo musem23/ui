@@ -40,20 +40,22 @@
         <div class="section">
           <h2 class="section-title">Basic OTP</h2>
           <p class="section-desc">A simple 6-digit OTP input.</p>
-          <div class="demo-box">
-            <div class="input-otp" data-input-otp data-name="basic-otp" id="basic-otp">
-              <div class="input-otp-group">
-                <div class="input-otp-slot"></div>
-                <div class="input-otp-slot"></div>
-                <div class="input-otp-slot"></div>
-                <div class="input-otp-slot"></div>
-                <div class="input-otp-slot"></div>
-                <div class="input-otp-slot"></div>
+          <div class="card">
+            <div class="card-content">
+              <div class="input-otp" data-input-otp data-name="basic-otp" id="basic-otp">
+                <div class="input-otp-group">
+                  <div class="input-otp-slot"></div>
+                  <div class="input-otp-slot"></div>
+                  <div class="input-otp-slot"></div>
+                  <div class="input-otp-slot"></div>
+                  <div class="input-otp-slot"></div>
+                  <div class="input-otp-slot"></div>
+                </div>
               </div>
-            </div>
-            <div class="demo-row" style="margin-top: 1rem;">
-              <span style="font-size: 0.875rem; color: var(--muted-foreground); min-width: 80px;">Value:</span>
-              <span style="padding: 0.75rem 1rem; background: var(--muted); border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.875rem;" id="basic-output">-</span>
+              <div class="demo-row" style="margin-top: 1rem;">
+                <span style="font-size: 0.875rem; color: var(--muted-foreground); min-width: 80px;">Value:</span>
+                <span style="padding: 0.75rem 1rem; background: var(--muted); border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.875rem;" id="basic-output">-</span>
+              </div>
             </div>
           </div>
         </div>
@@ -62,27 +64,29 @@
         <div class="section">
           <h2 class="section-title">With Separator</h2>
           <p class="section-desc">Groups of 3 digits with a separator between them.</p>
-          <div class="demo-box">
-            <div class="input-otp" data-input-otp data-name="separated-otp" id="separated-otp">
-              <div class="input-otp-group">
-                <div class="input-otp-slot"></div>
-                <div class="input-otp-slot"></div>
-                <div class="input-otp-slot"></div>
+          <div class="card">
+            <div class="card-content">
+              <div class="input-otp" data-input-otp data-name="separated-otp" id="separated-otp">
+                <div class="input-otp-group">
+                  <div class="input-otp-slot"></div>
+                  <div class="input-otp-slot"></div>
+                  <div class="input-otp-slot"></div>
+                </div>
+                <div class="input-otp-separator">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/>
+                  </svg>
+                </div>
+                <div class="input-otp-group">
+                  <div class="input-otp-slot"></div>
+                  <div class="input-otp-slot"></div>
+                  <div class="input-otp-slot"></div>
+                </div>
               </div>
-              <div class="input-otp-separator">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 12h14"/>
-                </svg>
+              <div class="demo-row" style="margin-top: 1rem;">
+                <span style="font-size: 0.875rem; color: var(--muted-foreground); min-width: 80px;">Value:</span>
+                <span style="padding: 0.75rem 1rem; background: var(--muted); border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.875rem;" id="separated-output">-</span>
               </div>
-              <div class="input-otp-group">
-                <div class="input-otp-slot"></div>
-                <div class="input-otp-slot"></div>
-                <div class="input-otp-slot"></div>
-              </div>
-            </div>
-            <div class="demo-row" style="margin-top: 1rem;">
-              <span style="font-size: 0.875rem; color: var(--muted-foreground); min-width: 80px;">Value:</span>
-              <span style="padding: 0.75rem 1rem; background: var(--muted); border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.875rem;" id="separated-output">-</span>
             </div>
           </div>
         </div>
@@ -91,18 +95,20 @@
         <div class="section">
           <h2 class="section-title">4-Digit PIN</h2>
           <p class="section-desc">Common 4-digit PIN format with masked input.</p>
-          <div class="demo-box">
-            <div class="input-otp" data-input-otp data-name="pin" data-mask="true" id="pin-otp">
-              <div class="input-otp-group">
-                <div class="input-otp-slot"></div>
-                <div class="input-otp-slot"></div>
-                <div class="input-otp-slot"></div>
-                <div class="input-otp-slot"></div>
+          <div class="card">
+            <div class="card-content">
+              <div class="input-otp" data-input-otp data-name="pin" data-mask="true" id="pin-otp">
+                <div class="input-otp-group">
+                  <div class="input-otp-slot"></div>
+                  <div class="input-otp-slot"></div>
+                  <div class="input-otp-slot"></div>
+                  <div class="input-otp-slot"></div>
+                </div>
               </div>
-            </div>
-            <div class="demo-row" style="margin-top: 1rem;">
-              <span style="font-size: 0.875rem; color: var(--muted-foreground); min-width: 80px;">Value:</span>
-              <span style="padding: 0.75rem 1rem; background: var(--muted); border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.875rem;" id="pin-output">-</span>
+              <div class="demo-row" style="margin-top: 1rem;">
+                <span style="font-size: 0.875rem; color: var(--muted-foreground); min-width: 80px;">Value:</span>
+                <span style="padding: 0.75rem 1rem; background: var(--muted); border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.875rem;" id="pin-output">-</span>
+              </div>
             </div>
           </div>
         </div>
@@ -111,20 +117,22 @@
         <div class="section">
           <h2 class="section-title">Alphanumeric</h2>
           <p class="section-desc">Accepts both letters and numbers.</p>
-          <div class="demo-box">
-            <div class="input-otp" data-input-otp data-name="alphanumeric" data-pattern="[A-Za-z0-9]" id="alpha-otp">
-              <div class="input-otp-group">
-                <div class="input-otp-slot"></div>
-                <div class="input-otp-slot"></div>
-                <div class="input-otp-slot"></div>
-                <div class="input-otp-slot"></div>
-                <div class="input-otp-slot"></div>
-                <div class="input-otp-slot"></div>
+          <div class="card">
+            <div class="card-content">
+              <div class="input-otp" data-input-otp data-name="alphanumeric" data-pattern="[A-Za-z0-9]" id="alpha-otp">
+                <div class="input-otp-group">
+                  <div class="input-otp-slot"></div>
+                  <div class="input-otp-slot"></div>
+                  <div class="input-otp-slot"></div>
+                  <div class="input-otp-slot"></div>
+                  <div class="input-otp-slot"></div>
+                  <div class="input-otp-slot"></div>
+                </div>
               </div>
-            </div>
-            <div class="demo-row" style="margin-top: 1rem;">
-              <span style="font-size: 0.875rem; color: var(--muted-foreground); min-width: 80px;">Value:</span>
-              <span style="padding: 0.75rem 1rem; background: var(--muted); border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.875rem;" id="alpha-output">-</span>
+              <div class="demo-row" style="margin-top: 1rem;">
+                <span style="font-size: 0.875rem; color: var(--muted-foreground); min-width: 80px;">Value:</span>
+                <span style="padding: 0.75rem 1rem; background: var(--muted); border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.875rem;" id="alpha-output">-</span>
+              </div>
             </div>
           </div>
         </div>
@@ -133,38 +141,40 @@
         <div class="section">
           <h2 class="section-title">Size Variants</h2>
           <p class="section-desc">Small, default, and large sizes.</p>
-          <div class="demo-box">
-            <div style="display: flex; flex-direction: column; gap: 1rem;">
-              <div class="demo-row">
-                <span style="font-size: 0.875rem; color: var(--muted-foreground); min-width: 80px;">Small:</span>
-                <div class="input-otp input-otp-sm" data-input-otp data-name="small-otp">
-                  <div class="input-otp-group">
-                    <div class="input-otp-slot"></div>
-                    <div class="input-otp-slot"></div>
-                    <div class="input-otp-slot"></div>
-                    <div class="input-otp-slot"></div>
+          <div class="card">
+            <div class="card-content">
+              <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <div class="demo-row">
+                  <span style="font-size: 0.875rem; color: var(--muted-foreground); min-width: 80px;">Small:</span>
+                  <div class="input-otp input-otp-sm" data-input-otp data-name="small-otp">
+                    <div class="input-otp-group">
+                      <div class="input-otp-slot"></div>
+                      <div class="input-otp-slot"></div>
+                      <div class="input-otp-slot"></div>
+                      <div class="input-otp-slot"></div>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="demo-row">
-                <span style="font-size: 0.875rem; color: var(--muted-foreground); min-width: 80px;">Default:</span>
-                <div class="input-otp" data-input-otp data-name="default-otp">
-                  <div class="input-otp-group">
-                    <div class="input-otp-slot"></div>
-                    <div class="input-otp-slot"></div>
-                    <div class="input-otp-slot"></div>
-                    <div class="input-otp-slot"></div>
+                <div class="demo-row">
+                  <span style="font-size: 0.875rem; color: var(--muted-foreground); min-width: 80px;">Default:</span>
+                  <div class="input-otp" data-input-otp data-name="default-otp">
+                    <div class="input-otp-group">
+                      <div class="input-otp-slot"></div>
+                      <div class="input-otp-slot"></div>
+                      <div class="input-otp-slot"></div>
+                      <div class="input-otp-slot"></div>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="demo-row">
-                <span style="font-size: 0.875rem; color: var(--muted-foreground); min-width: 80px;">Large:</span>
-                <div class="input-otp input-otp-lg" data-input-otp data-name="large-otp">
-                  <div class="input-otp-group">
-                    <div class="input-otp-slot"></div>
-                    <div class="input-otp-slot"></div>
-                    <div class="input-otp-slot"></div>
-                    <div class="input-otp-slot"></div>
+                <div class="demo-row">
+                  <span style="font-size: 0.875rem; color: var(--muted-foreground); min-width: 80px;">Large:</span>
+                  <div class="input-otp input-otp-lg" data-input-otp data-name="large-otp">
+                    <div class="input-otp-group">
+                      <div class="input-otp-slot"></div>
+                      <div class="input-otp-slot"></div>
+                      <div class="input-otp-slot"></div>
+                      <div class="input-otp-slot"></div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -176,13 +186,15 @@
         <div class="section">
           <h2 class="section-title">Disabled State</h2>
           <p class="section-desc">OTP input in a disabled state.</p>
-          <div class="demo-box">
-            <div class="input-otp" data-input-otp data-disabled="true" data-name="disabled-otp">
-              <div class="input-otp-group">
-                <div class="input-otp-slot">1</div>
-                <div class="input-otp-slot">2</div>
-                <div class="input-otp-slot">3</div>
-                <div class="input-otp-slot">4</div>
+          <div class="card">
+            <div class="card-content">
+              <div class="input-otp" data-input-otp data-disabled="true" data-name="disabled-otp">
+                <div class="input-otp-group">
+                  <div class="input-otp-slot">1</div>
+                  <div class="input-otp-slot">2</div>
+                  <div class="input-otp-slot">3</div>
+                  <div class="input-otp-slot">4</div>
+                </div>
               </div>
             </div>
           </div>
@@ -192,25 +204,27 @@
         <div class="section">
           <h2 class="section-title">With Actions</h2>
           <p class="section-desc">Programmatic control with setValue and clear methods.</p>
-          <div class="demo-box">
-            <div class="input-otp" data-input-otp data-name="action-otp" id="action-otp">
-              <div class="input-otp-group">
-                <div class="input-otp-slot"></div>
-                <div class="input-otp-slot"></div>
-                <div class="input-otp-slot"></div>
-                <div class="input-otp-slot"></div>
-                <div class="input-otp-slot"></div>
-                <div class="input-otp-slot"></div>
+          <div class="card">
+            <div class="card-content">
+              <div class="input-otp" data-input-otp data-name="action-otp" id="action-otp">
+                <div class="input-otp-group">
+                  <div class="input-otp-slot"></div>
+                  <div class="input-otp-slot"></div>
+                  <div class="input-otp-slot"></div>
+                  <div class="input-otp-slot"></div>
+                  <div class="input-otp-slot"></div>
+                  <div class="input-otp-slot"></div>
+                </div>
               </div>
-            </div>
-            <div class="demo-row" style="margin-top: 1rem;">
-              <button class="btn btn-outline btn-sm" onclick="setOtpValue()">Set "123456"</button>
-              <button class="btn btn-outline btn-sm" onclick="clearOtp()">Clear</button>
-              <button class="btn btn-outline btn-sm" onclick="focusOtp()">Focus</button>
-            </div>
-            <div class="demo-row" style="margin-top: 1rem;">
-              <span style="font-size: 0.875rem; color: var(--muted-foreground); min-width: 80px;">Value:</span>
-              <span style="padding: 0.75rem 1rem; background: var(--muted); border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.875rem;" id="action-output">-</span>
+              <div class="demo-row" style="margin-top: 1rem;">
+                <button class="btn btn-outline btn-sm" onclick="setOtpValue()">Set "123456"</button>
+                <button class="btn btn-outline btn-sm" onclick="clearOtp()">Clear</button>
+                <button class="btn btn-outline btn-sm" onclick="focusOtp()">Focus</button>
+              </div>
+              <div class="demo-row" style="margin-top: 1rem;">
+                <span style="font-size: 0.875rem; color: var(--muted-foreground); min-width: 80px;">Value:</span>
+                <span style="padding: 0.75rem 1rem; background: var(--muted); border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.875rem;" id="action-output">-</span>
+              </div>
             </div>
           </div>
         </div>
@@ -219,18 +233,20 @@
         <div class="section">
           <h2 class="section-title">Complete Event</h2>
           <p class="section-desc">Fires an event when all digits are entered.</p>
-          <div class="demo-box">
-            <div class="input-otp" data-input-otp data-name="complete-otp" id="complete-otp">
-              <div class="input-otp-group">
-                <div class="input-otp-slot"></div>
-                <div class="input-otp-slot"></div>
-                <div class="input-otp-slot"></div>
-                <div class="input-otp-slot"></div>
+          <div class="card">
+            <div class="card-content">
+              <div class="input-otp" data-input-otp data-name="complete-otp" id="complete-otp">
+                <div class="input-otp-group">
+                  <div class="input-otp-slot"></div>
+                  <div class="input-otp-slot"></div>
+                  <div class="input-otp-slot"></div>
+                  <div class="input-otp-slot"></div>
+                </div>
               </div>
-            </div>
-            <div class="demo-row" style="margin-top: 1rem;">
-              <span style="font-size: 0.875rem; color: var(--muted-foreground); min-width: 80px;">Status:</span>
-              <span style="padding: 0.75rem 1rem; background: var(--muted); border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.875rem;" id="complete-status">Waiting for input...</span>
+              <div class="demo-row" style="margin-top: 1rem;">
+                <span style="font-size: 0.875rem; color: var(--muted-foreground); min-width: 80px;">Status:</span>
+                <span style="padding: 0.75rem 1rem; background: var(--muted); border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.875rem;" id="complete-status">Waiting for input...</span>
+              </div>
             </div>
           </div>
         </div>

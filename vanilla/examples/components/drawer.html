@@ -23,7 +23,7 @@
     <!-- Main -->
     <div class="app-main">
       <header class="app-header">
-        <span style="font-size: 0.875rem; font-weight: 500;">Drawer</span>
+        <div class="header-left"><span>Drawer</span></div>
         <button class="btn btn-ghost btn-sm" id="theme-toggle">Toggle Theme</button>
       </header>
 
@@ -44,17 +44,19 @@
           <h2 class="section-title">Bottom Drawer (Default)</h2>
           <p class="section-desc">The default drawer slides up from the bottom. Drag down or swipe to dismiss.</p>
 
-          <div class="demo-box">
-            <div class="demo-row">
-              <button
-                class="btn btn-default"
-                data-drawer
-                data-drawer-target="drawer-bottom"
-                aria-controls="drawer-bottom"
-                aria-expanded="false"
-              >
-                Open Bottom Drawer
-              </button>
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-row">
+                <button
+                  class="btn btn-default"
+                  data-drawer
+                  data-drawer-target="drawer-bottom"
+                  aria-controls="drawer-bottom"
+                  aria-expanded="false"
+                >
+                  Open Bottom Drawer
+                </button>
+              </div>
             </div>
           </div>
 
@@ -137,18 +139,20 @@
           <h2 class="section-title">Top Drawer</h2>
           <p class="section-desc">Slides down from the top. Useful for notifications or search.</p>
 
-          <div class="demo-box">
-            <div class="demo-row">
-              <button
-                class="btn btn-default"
-                data-drawer
-                data-drawer-target="drawer-top"
-                data-drawer-direction="top"
-                aria-controls="drawer-top"
-                aria-expanded="false"
-              >
-                Open Top Drawer
-              </button>
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-row">
+                <button
+                  class="btn btn-default"
+                  data-drawer
+                  data-drawer-target="drawer-top"
+                  data-drawer-direction="top"
+                  aria-controls="drawer-top"
+                  aria-expanded="false"
+                >
+                  Open Top Drawer
+                </button>
+              </div>
             </div>
           </div>
 
@@ -184,18 +188,20 @@
           <h2 class="section-title">Right Drawer</h2>
           <p class="section-desc">Slides in from the right. Common for sidebars and navigation.</p>
 
-          <div class="demo-box">
-            <div class="demo-row">
-              <button
-                class="btn btn-default"
-                data-drawer
-                data-drawer-target="drawer-right"
-                data-drawer-direction="right"
-                aria-controls="drawer-right"
-                aria-expanded="false"
-              >
-                Open Right Drawer
-              </button>
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-row">
+                <button
+                  class="btn btn-default"
+                  data-drawer
+                  data-drawer-target="drawer-right"
+                  data-drawer-direction="right"
+                  aria-controls="drawer-right"
+                  aria-expanded="false"
+                >
+                  Open Right Drawer
+                </button>
+              </div>
             </div>
           </div>
 
@@ -259,18 +265,20 @@
           <h2 class="section-title">Left Drawer</h2>
           <p class="section-desc">Slides in from the left. Traditional menu/navigation pattern.</p>
 
-          <div class="demo-box">
-            <div class="demo-row">
-              <button
-                class="btn btn-default"
-                data-drawer
-                data-drawer-target="drawer-left"
-                data-drawer-direction="left"
-                aria-controls="drawer-left"
-                aria-expanded="false"
-              >
-                Open Left Drawer
-              </button>
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-row">
+                <button
+                  class="btn btn-default"
+                  data-drawer
+                  data-drawer-target="drawer-left"
+                  data-drawer-direction="left"
+                  aria-controls="drawer-left"
+                  aria-expanded="false"
+                >
+                  Open Left Drawer
+                </button>
+              </div>
             </div>
           </div>
 
@@ -344,18 +352,20 @@
           <h2 class="section-title">Non-dismissible Drawer</h2>
           <p class="section-desc">Drawer that cannot be dismissed by dragging. Must use buttons to close.</p>
 
-          <div class="demo-box">
-            <div class="demo-row">
-              <button
-                class="btn btn-default"
-                data-drawer
-                data-drawer-target="drawer-nodismiss"
-                data-drawer-dismissible="false"
-                aria-controls="drawer-nodismiss"
-                aria-expanded="false"
-              >
-                Open Non-dismissible Drawer
-              </button>
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-row">
+                <button
+                  class="btn btn-default"
+                  data-drawer
+                  data-drawer-target="drawer-nodismiss"
+                  data-drawer-dismissible="false"
+                  aria-controls="drawer-nodismiss"
+                  aria-expanded="false"
+                >
+                  Open Non-dismissible Drawer
+                </button>
+              </div>
             </div>
           </div>
 
@@ -448,40 +458,40 @@ element.addEventListener('drawer:close', (e) => {});</code></pre>
         <!-- Options -->
         <div class="section">
           <h2 class="section-title">Options</h2>
-          <div class="demo-box" style="padding: 0; overflow: hidden;">
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
-              <thead>
-                <tr style="background: var(--muted);">
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Option</th>
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Type</th>
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Default</th>
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+          <div class="table-container">
+            <table class="table">
+              <thead class="table-header">
+                <tr class="table-row">
+                  <th class="table-head">Option</th>
+                  <th class="table-head">Type</th>
+                  <th class="table-head">Default</th>
+                  <th class="table-head">Description</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr style="border-bottom: 1px solid var(--border);">
-                  <td style="padding: 0.75rem 1rem;"><code>direction</code></td>
-                  <td style="padding: 0.75rem 1rem; color: var(--muted-foreground);">string</td>
-                  <td style="padding: 0.75rem 1rem; color: var(--muted-foreground);">'bottom'</td>
-                  <td style="padding: 0.75rem 1rem;">Direction: 'top', 'bottom', 'left', 'right'</td>
+              <tbody class="table-body">
+                <tr class="table-row">
+                  <td class="table-cell"><code>direction</code></td>
+                  <td class="table-cell">string</td>
+                  <td class="table-cell">'bottom'</td>
+                  <td class="table-cell">Direction: 'top', 'bottom', 'left', 'right'</td>
                 </tr>
-                <tr style="border-bottom: 1px solid var(--border);">
-                  <td style="padding: 0.75rem 1rem;"><code>dismissible</code></td>
-                  <td style="padding: 0.75rem 1rem; color: var(--muted-foreground);">boolean</td>
-                  <td style="padding: 0.75rem 1rem; color: var(--muted-foreground);">true</td>
-                  <td style="padding: 0.75rem 1rem;">Allow drag-to-dismiss</td>
+                <tr class="table-row">
+                  <td class="table-cell"><code>dismissible</code></td>
+                  <td class="table-cell">boolean</td>
+                  <td class="table-cell">true</td>
+                  <td class="table-cell">Allow drag-to-dismiss</td>
                 </tr>
-                <tr style="border-bottom: 1px solid var(--border);">
-                  <td style="padding: 0.75rem 1rem;"><code>closeOnOverlay</code></td>
-                  <td style="padding: 0.75rem 1rem; color: var(--muted-foreground);">boolean</td>
-                  <td style="padding: 0.75rem 1rem; color: var(--muted-foreground);">true</td>
-                  <td style="padding: 0.75rem 1rem;">Close when clicking overlay</td>
+                <tr class="table-row">
+                  <td class="table-cell"><code>closeOnOverlay</code></td>
+                  <td class="table-cell">boolean</td>
+                  <td class="table-cell">true</td>
+                  <td class="table-cell">Close when clicking overlay</td>
                 </tr>
-                <tr>
-                  <td style="padding: 0.75rem 1rem;"><code>closeOnEscape</code></td>
-                  <td style="padding: 0.75rem 1rem; color: var(--muted-foreground);">boolean</td>
-                  <td style="padding: 0.75rem 1rem; color: var(--muted-foreground);">true</td>
-                  <td style="padding: 0.75rem 1rem;">Close when pressing Escape</td>
+                <tr class="table-row">
+                  <td class="table-cell"><code>closeOnEscape</code></td>
+                  <td class="table-cell">boolean</td>
+                  <td class="table-cell">true</td>
+                  <td class="table-cell">Close when pressing Escape</td>
                 </tr>
               </tbody>
             </table>

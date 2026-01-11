@@ -41,12 +41,12 @@
         <div class="section">
           <h2 class="section-title">Basic Usage</h2>
           <p class="section-desc">Simple toast notifications with title and description.</p>
-          <div class="demo-box">
+          <div class="card"><div class="card-content">
             <div class="demo-row">
               <button class="btn btn-default" onclick="showBasicToast()">Show Toast</button>
               <button class="btn btn-secondary" onclick="showTitleOnly()">Title Only</button>
             </div>
-          </div>
+          </div></div>
           <div class="code-tabs">
             <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'basic-js')">JS</button>
           </div>
@@ -64,7 +64,7 @@
         <div class="section">
           <h2 class="section-title">Toast Types</h2>
           <p class="section-desc">Different types for success, error, warning, and info states.</p>
-          <div class="demo-box">
+          <div class="card"><div class="card-content">
             <div class="demo-row">
               <button class="btn btn-default" onclick="showSuccess()">Success</button>
               <button class="btn btn-destructive" onclick="showError()">Error</button>
@@ -72,7 +72,7 @@
               <button class="btn btn-secondary" onclick="showInfo()">Info</button>
               <button class="btn btn-secondary" onclick="showLoading()">Loading</button>
             </div>
-          </div>
+          </div></div>
           <div class="code-tabs">
             <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'types-js')">JS</button>
           </div>
@@ -91,7 +91,7 @@ BrandUI.toast.info('Info', 'New features available.');</code></pre>
         <div class="section">
           <h2 class="section-title">Positions</h2>
           <p class="section-desc">Toast can appear in different positions on the screen.</p>
-          <div class="demo-box">
+          <div class="card"><div class="card-content">
             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; max-width: 20rem;">
               <button class="btn btn-secondary btn-sm" onclick="showAtPosition('top-left')">Top Left</button>
               <button class="btn btn-secondary btn-sm" onclick="showAtPosition('top-center')">Top Center</button>
@@ -100,7 +100,7 @@ BrandUI.toast.info('Info', 'New features available.');</code></pre>
               <button class="btn btn-secondary btn-sm" onclick="showAtPosition('bottom-center')">Bottom Center</button>
               <button class="btn btn-secondary btn-sm" onclick="showAtPosition('bottom-right')">Bottom Right</button>
             </div>
-          </div>
+          </div></div>
           <div class="code-tabs">
             <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'positions-js')">JS</button>
           </div>
@@ -118,14 +118,14 @@ BrandUI.toast.info('Info', 'New features available.');</code></pre>
         <div class="section">
           <h2 class="section-title">Duration & Progress Bar</h2>
           <p class="section-desc">Configure auto-dismiss duration and show progress bar.</p>
-          <div class="demo-box">
+          <div class="card"><div class="card-content">
             <div class="demo-row">
               <button class="btn btn-default" onclick="showWithProgress()">With Progress Bar</button>
               <button class="btn btn-secondary" onclick="showShortDuration()">Short (2s)</button>
               <button class="btn btn-secondary" onclick="showLongDuration()">Long (10s)</button>
               <button class="btn btn-secondary" onclick="showPersistent()">Persistent</button>
             </div>
-          </div>
+          </div></div>
           <div class="code-tabs">
             <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'duration-js')">JS</button>
           </div>
@@ -144,12 +144,12 @@ BrandUI.toast.info('Info', 'New features available.');</code></pre>
         <div class="section">
           <h2 class="section-title">Action Button</h2>
           <p class="section-desc">Toast with an action button for user interaction.</p>
-          <div class="demo-box">
+          <div class="card"><div class="card-content">
             <div class="demo-row">
               <button class="btn btn-default" onclick="showWithAction()">With Action</button>
               <button class="btn btn-secondary" onclick="showUndoAction()">Undo Action</button>
             </div>
-          </div>
+          </div></div>
           <div class="code-tabs">
             <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'action-js')">JS</button>
           </div>
@@ -171,12 +171,12 @@ BrandUI.toast.info('Info', 'New features available.');</code></pre>
         <div class="section">
           <h2 class="section-title">Promise API</h2>
           <p class="section-desc">Automatically update toast based on promise resolution.</p>
-          <div class="demo-box">
+          <div class="card"><div class="card-content">
             <div class="demo-row">
               <button class="btn btn-default" onclick="showPromiseSuccess()">Promise (Success)</button>
               <button class="btn btn-destructive" onclick="showPromiseError()">Promise (Error)</button>
             </div>
-          </div>
+          </div></div>
           <div class="code-tabs">
             <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'promise-js')">JS</button>
           </div>
@@ -197,12 +197,12 @@ BrandUI.toast.promise(promise, {
         <div class="section">
           <h2 class="section-title">Stacking & Max Toasts</h2>
           <p class="section-desc">Multiple toasts stack automatically. Oldest toasts are dismissed when limit is reached.</p>
-          <div class="demo-box">
+          <div class="card"><div class="card-content">
             <div class="demo-row">
               <button class="btn btn-default" onclick="showMultiple()">Show 5 Toasts</button>
               <button class="btn btn-destructive" onclick="dismissAll()">Dismiss All</button>
             </div>
-          </div>
+          </div></div>
           <div class="code-tabs">
             <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'stacking-js')">JS</button>
           </div>

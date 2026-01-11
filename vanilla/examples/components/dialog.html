@@ -23,7 +23,7 @@
     <!-- Main -->
     <div class="app-main">
       <header class="app-header">
-        <span style="font-size: 0.875rem; font-weight: 500;">Dialog</span>
+        <div class="header-left"><span>Dialog</span></div>
         <button class="btn btn-ghost btn-sm" id="theme-toggle">Toggle Theme</button>
       </header>
 
@@ -42,9 +42,11 @@
         <!-- Default Dialog -->
         <div class="section">
           <h2 class="section-title">Default</h2>
-          <div class="demo-box">
-            <div class="demo-row">
-              <button class="btn btn-outline" data-dialog-trigger="default-dialog">Open Dialog</button>
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-row">
+                <button class="btn btn-outline" data-dialog-trigger="default-dialog">Open Dialog</button>
+              </div>
             </div>
           </div>
 
@@ -131,9 +133,11 @@
         <!-- With Form -->
         <div class="section">
           <h2 class="section-title">With Form</h2>
-          <div class="demo-box">
-            <div class="demo-row">
-              <button class="btn btn-default" data-dialog-trigger="form-dialog">Edit Profile</button>
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-row">
+                <button class="btn btn-default" data-dialog-trigger="form-dialog">Edit Profile</button>
+              </div>
             </div>
           </div>
 
@@ -243,9 +247,11 @@ document.querySelector('form').addEventListener('submit', (e) => {
         <!-- Scrollable Content -->
         <div class="section">
           <h2 class="section-title">Scrollable Content</h2>
-          <div class="demo-box">
-            <div class="demo-row">
-              <button class="btn btn-outline" data-dialog-trigger="scroll-dialog">View Terms</button>
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-row">
+                <button class="btn btn-outline" data-dialog-trigger="scroll-dialog">View Terms</button>
+              </div>
             </div>
           </div>
 
@@ -296,9 +302,11 @@ document.querySelector('form').addEventListener('submit', (e) => {
         <!-- Controlled Close -->
         <div class="section">
           <h2 class="section-title">Controlled Close</h2>
-          <div class="demo-box">
-            <div class="demo-row">
-              <button class="btn btn-outline" data-dialog-trigger="controlled-dialog">Important Notice</button>
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-row">
+                <button class="btn btn-outline" data-dialog-trigger="controlled-dialog">Important Notice</button>
+              </div>
             </div>
           </div>
 
@@ -353,10 +361,12 @@ document.querySelector('form').addEventListener('submit', (e) => {
         <!-- Programmatic Control -->
         <div class="section">
           <h2 class="section-title">Programmatic Control</h2>
-          <div class="demo-box">
-            <div class="demo-row">
-              <button class="btn btn-outline" onclick="openProgrammatic()">Open via JS</button>
-              <button class="btn btn-outline" onclick="closeProgrammatic()">Close via JS</button>
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-row">
+                <button class="btn btn-outline" onclick="openProgrammatic()">Open via JS</button>
+                <button class="btn btn-outline" onclick="closeProgrammatic()">Close via JS</button>
+              </div>
             </div>
           </div>
 
@@ -407,10 +417,12 @@ dialog.destroy();</code></pre>
         <!-- Events -->
         <div class="section">
           <h2 class="section-title">Events</h2>
-          <div class="demo-box">
-            <div class="demo-row">
-              <button class="btn btn-outline" data-dialog-trigger="events-dialog">Open with Events</button>
-              <span id="event-log" style="font-size: 0.875rem; color: var(--muted-foreground);">Event log will appear here</span>
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-row">
+                <button class="btn btn-outline" data-dialog-trigger="events-dialog">Open with Events</button>
+                <span id="event-log" style="font-size: 0.875rem; color: var(--muted-foreground);">Event log will appear here</span>
+              </div>
             </div>
           </div>
 
@@ -457,23 +469,23 @@ dialogEl.addEventListener('dialog:close', (e) => {
         <!-- CSS Classes Reference -->
         <div class="section">
           <h2 class="section-title">CSS Classes Reference</h2>
-          <div class="demo-box" style="padding: 0; overflow: hidden;">
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
-              <thead>
-                <tr style="background: var(--muted);">
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Class</th>
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+          <div class="table-container">
+            <table class="table">
+              <thead class="table-header">
+                <tr class="table-row">
+                  <th class="table-head">Class</th>
+                  <th class="table-head">Description</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.dialog-overlay</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Semi-transparent backdrop</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.dialog-content</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Centered modal container</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.dialog-header</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Header section (title + description)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.dialog-title</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Dialog heading text</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.dialog-description</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Supporting description text</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.dialog-footer</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Footer with action buttons</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.dialog-close</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Close button (top-right)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem;"><code>.sr-only</code></td><td style="padding: 0.75rem 1rem;">Screen reader only text</td></tr>
+              <tbody class="table-body">
+                <tr class="table-row"><td class="table-cell"><code>.dialog-overlay</code></td><td class="table-cell">Semi-transparent backdrop</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.dialog-content</code></td><td class="table-cell">Centered modal container</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.dialog-header</code></td><td class="table-cell">Header section (title + description)</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.dialog-title</code></td><td class="table-cell">Dialog heading text</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.dialog-description</code></td><td class="table-cell">Supporting description text</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.dialog-footer</code></td><td class="table-cell">Footer with action buttons</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.dialog-close</code></td><td class="table-cell">Close button (top-right)</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.sr-only</code></td><td class="table-cell">Screen reader only text</td></tr>
               </tbody>
             </table>
           </div>
@@ -482,50 +494,50 @@ dialogEl.addEventListener('dialog:close', (e) => {
         <!-- JS API Reference -->
         <div class="section">
           <h2 class="section-title">JavaScript API Reference</h2>
-          <div class="demo-box" style="padding: 0; overflow: hidden;">
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
-              <thead>
-                <tr style="background: var(--muted);">
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Data Attribute</th>
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+          <div class="table-container">
+            <table class="table">
+              <thead class="table-header">
+                <tr class="table-row">
+                  <th class="table-head">Data Attribute</th>
+                  <th class="table-head">Description</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-dialog</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Required on container element</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-dialog-trigger="id"</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Trigger button (value = dialog id)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-dialog-close</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Closes dialog on click</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-close-on-overlay="false"</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Disable overlay click to close</td></tr>
-                <tr><td style="padding: 0.75rem 1rem;"><code>data-close-on-escape="false"</code></td><td style="padding: 0.75rem 1rem;">Disable ESC key to close</td></tr>
+              <tbody class="table-body">
+                <tr class="table-row"><td class="table-cell"><code>data-dialog</code></td><td class="table-cell">Required on container element</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>data-dialog-trigger="id"</code></td><td class="table-cell">Trigger button (value = dialog id)</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>data-dialog-close</code></td><td class="table-cell">Closes dialog on click</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>data-close-on-overlay="false"</code></td><td class="table-cell">Disable overlay click to close</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>data-close-on-escape="false"</code></td><td class="table-cell">Disable ESC key to close</td></tr>
               </tbody>
             </table>
           </div>
-          <div class="demo-box" style="padding: 0; overflow: hidden; margin-top: 1rem;">
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
-              <thead>
-                <tr style="background: var(--muted);">
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Method</th>
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+          <div class="table-container" style="margin-top: 1rem;">
+            <table class="table">
+              <thead class="table-header">
+                <tr class="table-row">
+                  <th class="table-head">Method</th>
+                  <th class="table-head">Description</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>dialog.open()</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Opens the dialog</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>dialog.close()</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Closes the dialog</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>dialog.toggle()</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Toggles open/close state</td></tr>
-                <tr><td style="padding: 0.75rem 1rem;"><code>dialog.destroy()</code></td><td style="padding: 0.75rem 1rem;">Destroys instance and cleans up</td></tr>
+              <tbody class="table-body">
+                <tr class="table-row"><td class="table-cell"><code>dialog.open()</code></td><td class="table-cell">Opens the dialog</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>dialog.close()</code></td><td class="table-cell">Closes the dialog</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>dialog.toggle()</code></td><td class="table-cell">Toggles open/close state</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>dialog.destroy()</code></td><td class="table-cell">Destroys instance and cleans up</td></tr>
               </tbody>
             </table>
           </div>
-          <div class="demo-box" style="padding: 0; overflow: hidden; margin-top: 1rem;">
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
-              <thead>
-                <tr style="background: var(--muted);">
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Event</th>
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+          <div class="table-container" style="margin-top: 1rem;">
+            <table class="table">
+              <thead class="table-header">
+                <tr class="table-row">
+                  <th class="table-head">Event</th>
+                  <th class="table-head">Description</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>dialog:open</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Fired when dialog opens</td></tr>
-                <tr><td style="padding: 0.75rem 1rem;"><code>dialog:close</code></td><td style="padding: 0.75rem 1rem;">Fired when dialog closes</td></tr>
+              <tbody class="table-body">
+                <tr class="table-row"><td class="table-cell"><code>dialog:open</code></td><td class="table-cell">Fired when dialog opens</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>dialog:close</code></td><td class="table-cell">Fired when dialog closes</td></tr>
               </tbody>
             </table>
           </div>

@@ -38,23 +38,25 @@
         <section class="section">
           <h2 class="section-title">Basic</h2>
           <p class="section-desc">A simple checkbox in its default unchecked state.</p>
-          <div class="demo-box">
-            <button
-              type="button"
-              class="checkbox"
-              role="checkbox"
-              aria-checked="false"
-              data-checkbox
-            >
-              <span class="checkbox-indicator">
-                <svg class="checkbox-icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <svg class="checkbox-icon-minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                </svg>
-              </span>
-            </button>
+          <div class="card">
+            <div class="card-content">
+              <button
+                type="button"
+                class="checkbox"
+                role="checkbox"
+                aria-checked="false"
+                data-checkbox
+              >
+                <span class="checkbox-indicator">
+                  <svg class="checkbox-icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <svg class="checkbox-icon-minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
+                </span>
+              </button>
+            </div>
           </div>
           <div class="code-tabs">
             <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'basic-html')">HTML</button>
@@ -75,26 +77,28 @@
         <section class="section">
           <h2 class="section-title">With Label</h2>
           <p class="section-desc">Checkbox with an associated label for better accessibility.</p>
-          <div class="demo-box">
-            <div class="checkbox-wrapper">
-              <button
-                type="button"
-                id="terms-checkbox"
-                class="checkbox"
-                role="checkbox"
-                aria-checked="false"
-                data-checkbox
-              >
-                <span class="checkbox-indicator">
-                  <svg class="checkbox-icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <svg class="checkbox-icon-minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                  </svg>
-                </span>
-              </button>
-              <label for="terms-checkbox">Accept terms and conditions</label>
+          <div class="card">
+            <div class="card-content">
+              <div class="checkbox-wrapper">
+                <button
+                  type="button"
+                  id="terms-checkbox"
+                  class="checkbox"
+                  role="checkbox"
+                  aria-checked="false"
+                  data-checkbox
+                >
+                  <span class="checkbox-indicator">
+                    <svg class="checkbox-icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <svg class="checkbox-icon-minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </span>
+                </button>
+                <label for="terms-checkbox">Accept terms and conditions</label>
+              </div>
             </div>
           </div>
           <div class="code-tabs">
@@ -116,68 +120,70 @@
         <section class="section">
           <h2 class="section-title">States</h2>
           <p class="section-desc">Checkboxes in various states: unchecked, checked, and indeterminate.</p>
-          <div class="demo-box">
-            <div class="demo-row">
-              <div class="checkbox-wrapper">
-                <button
-                  type="button"
-                  class="checkbox"
-                  role="checkbox"
-                  aria-checked="false"
-                  data-checkbox
-                >
-                  <span class="checkbox-indicator">
-                    <svg class="checkbox-icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                    <svg class="checkbox-icon-minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                      <line x1="5" y1="12" x2="19" y2="12"></line>
-                    </svg>
-                  </span>
-                </button>
-                <label>Unchecked</label>
-              </div>
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-row">
+                <div class="checkbox-wrapper">
+                  <button
+                    type="button"
+                    class="checkbox"
+                    role="checkbox"
+                    aria-checked="false"
+                    data-checkbox
+                  >
+                    <span class="checkbox-indicator">
+                      <svg class="checkbox-icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <svg class="checkbox-icon-minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                      </svg>
+                    </span>
+                  </button>
+                  <label>Unchecked</label>
+                </div>
 
-              <div class="checkbox-wrapper">
-                <button
-                  type="button"
-                  class="checkbox"
-                  role="checkbox"
-                  aria-checked="true"
-                  data-checkbox
-                  data-checked="true"
-                >
-                  <span class="checkbox-indicator">
-                    <svg class="checkbox-icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                    <svg class="checkbox-icon-minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                      <line x1="5" y1="12" x2="19" y2="12"></line>
-                    </svg>
-                  </span>
-                </button>
-                <label>Checked</label>
-              </div>
+                <div class="checkbox-wrapper">
+                  <button
+                    type="button"
+                    class="checkbox"
+                    role="checkbox"
+                    aria-checked="true"
+                    data-checkbox
+                    data-checked="true"
+                  >
+                    <span class="checkbox-indicator">
+                      <svg class="checkbox-icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <svg class="checkbox-icon-minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                      </svg>
+                    </span>
+                  </button>
+                  <label>Checked</label>
+                </div>
 
-              <div class="checkbox-wrapper">
-                <button
-                  type="button"
-                  class="checkbox"
-                  role="checkbox"
-                  aria-checked="mixed"
-                  data-checkbox
-                  data-indeterminate="true"
-                >
-                  <span class="checkbox-indicator">
-                    <svg class="checkbox-icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                    <svg class="checkbox-icon-minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                      <line x1="5" y1="12" x2="19" y2="12"></line>
-                    </svg>
-                  </span>
-                </button>
-                <label>Indeterminate</label>
+                <div class="checkbox-wrapper">
+                  <button
+                    type="button"
+                    class="checkbox"
+                    role="checkbox"
+                    aria-checked="mixed"
+                    data-checkbox
+                    data-indeterminate="true"
+                  >
+                    <span class="checkbox-indicator">
+                      <svg class="checkbox-icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <svg class="checkbox-icon-minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                      </svg>
+                    </span>
+                  </button>
+                  <label>Indeterminate</label>
+                </div>
               </div>
             </div>
           </div>
@@ -187,49 +193,51 @@
         <section class="section">
           <h2 class="section-title">Disabled</h2>
           <p class="section-desc">Disabled checkboxes cannot be interacted with.</p>
-          <div class="demo-box">
-            <div class="demo-row">
-              <div class="checkbox-wrapper">
-                <button
-                  type="button"
-                  class="checkbox"
-                  role="checkbox"
-                  aria-checked="false"
-                  data-checkbox
-                  disabled
-                >
-                  <span class="checkbox-indicator">
-                    <svg class="checkbox-icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                    <svg class="checkbox-icon-minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                      <line x1="5" y1="12" x2="19" y2="12"></line>
-                    </svg>
-                  </span>
-                </button>
-                <label>Disabled unchecked</label>
-              </div>
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-row">
+                <div class="checkbox-wrapper">
+                  <button
+                    type="button"
+                    class="checkbox"
+                    role="checkbox"
+                    aria-checked="false"
+                    data-checkbox
+                    disabled
+                  >
+                    <span class="checkbox-indicator">
+                      <svg class="checkbox-icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <svg class="checkbox-icon-minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                      </svg>
+                    </span>
+                  </button>
+                  <label>Disabled unchecked</label>
+                </div>
 
-              <div class="checkbox-wrapper">
-                <button
-                  type="button"
-                  class="checkbox"
-                  role="checkbox"
-                  aria-checked="true"
-                  data-checkbox
-                  data-checked="true"
-                  disabled
-                >
-                  <span class="checkbox-indicator">
-                    <svg class="checkbox-icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                    <svg class="checkbox-icon-minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                      <line x1="5" y1="12" x2="19" y2="12"></line>
-                    </svg>
-                  </span>
-                </button>
-                <label>Disabled checked</label>
+                <div class="checkbox-wrapper">
+                  <button
+                    type="button"
+                    class="checkbox"
+                    role="checkbox"
+                    aria-checked="true"
+                    data-checkbox
+                    data-checked="true"
+                    disabled
+                  >
+                    <span class="checkbox-indicator">
+                      <svg class="checkbox-icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <svg class="checkbox-icon-minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                      </svg>
+                    </span>
+                  </button>
+                  <label>Disabled checked</label>
+                </div>
               </div>
             </div>
           </div>
@@ -239,26 +247,28 @@
         <section class="section">
           <h2 class="section-title">Invalid</h2>
           <p class="section-desc">Checkbox with validation error styling.</p>
-          <div class="demo-box">
-            <div class="checkbox-wrapper">
-              <button
-                type="button"
-                class="checkbox"
-                role="checkbox"
-                aria-checked="false"
-                aria-invalid="true"
-                data-checkbox
-              >
-                <span class="checkbox-indicator">
-                  <svg class="checkbox-icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <svg class="checkbox-icon-minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                  </svg>
-                </span>
-              </button>
-              <label>You must accept the terms</label>
+          <div class="card">
+            <div class="card-content">
+              <div class="checkbox-wrapper">
+                <button
+                  type="button"
+                  class="checkbox"
+                  role="checkbox"
+                  aria-checked="false"
+                  aria-invalid="true"
+                  data-checkbox
+                >
+                  <span class="checkbox-indicator">
+                    <svg class="checkbox-icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <svg class="checkbox-icon-minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </span>
+                </button>
+                <label>You must accept the terms</label>
+              </div>
             </div>
           </div>
         </section>
@@ -267,74 +277,76 @@
         <section class="section">
           <h2 class="section-title">Form Example</h2>
           <p class="section-desc">Multiple checkboxes in a form context with event handling.</p>
-          <div class="demo-box">
-            <div style="display: flex; flex-direction: column; gap: 1rem;">
-              <div class="checkbox-wrapper">
-                <button
-                  type="button"
-                  id="option-email"
-                  class="checkbox"
-                  role="checkbox"
-                  aria-checked="true"
-                  data-checkbox
-                  data-checked="true"
-                >
-                  <span class="checkbox-indicator">
-                    <svg class="checkbox-icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                    <svg class="checkbox-icon-minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                      <line x1="5" y1="12" x2="19" y2="12"></line>
-                    </svg>
-                  </span>
-                </button>
-                <label for="option-email">Email notifications</label>
-              </div>
+          <div class="card">
+            <div class="card-content">
+              <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <div class="checkbox-wrapper">
+                  <button
+                    type="button"
+                    id="option-email"
+                    class="checkbox"
+                    role="checkbox"
+                    aria-checked="true"
+                    data-checkbox
+                    data-checked="true"
+                  >
+                    <span class="checkbox-indicator">
+                      <svg class="checkbox-icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <svg class="checkbox-icon-minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                      </svg>
+                    </span>
+                  </button>
+                  <label for="option-email">Email notifications</label>
+                </div>
 
-              <div class="checkbox-wrapper">
-                <button
-                  type="button"
-                  id="option-sms"
-                  class="checkbox"
-                  role="checkbox"
-                  aria-checked="false"
-                  data-checkbox
-                >
-                  <span class="checkbox-indicator">
-                    <svg class="checkbox-icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                    <svg class="checkbox-icon-minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                      <line x1="5" y1="12" x2="19" y2="12"></line>
-                    </svg>
-                  </span>
-                </button>
-                <label for="option-sms">SMS notifications</label>
-              </div>
+                <div class="checkbox-wrapper">
+                  <button
+                    type="button"
+                    id="option-sms"
+                    class="checkbox"
+                    role="checkbox"
+                    aria-checked="false"
+                    data-checkbox
+                  >
+                    <span class="checkbox-indicator">
+                      <svg class="checkbox-icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <svg class="checkbox-icon-minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                      </svg>
+                    </span>
+                  </button>
+                  <label for="option-sms">SMS notifications</label>
+                </div>
 
-              <div class="checkbox-wrapper">
-                <button
-                  type="button"
-                  id="option-push"
-                  class="checkbox"
-                  role="checkbox"
-                  aria-checked="false"
-                  data-checkbox
-                >
-                  <span class="checkbox-indicator">
-                    <svg class="checkbox-icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                    <svg class="checkbox-icon-minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                      <line x1="5" y1="12" x2="19" y2="12"></line>
-                    </svg>
-                  </span>
-                </button>
-                <label for="option-push">Push notifications</label>
-              </div>
+                <div class="checkbox-wrapper">
+                  <button
+                    type="button"
+                    id="option-push"
+                    class="checkbox"
+                    role="checkbox"
+                    aria-checked="false"
+                    data-checkbox
+                  >
+                    <span class="checkbox-indicator">
+                      <svg class="checkbox-icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <svg class="checkbox-icon-minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                      </svg>
+                    </span>
+                  </button>
+                  <label for="option-push">Push notifications</label>
+                </div>
 
-              <div class="install-box" style="margin-top: 0.5rem; margin-bottom: 0;">
-                <code id="form-output" style="margin: 0;">Selected: Email notifications</code>
+                <div class="install-box" style="margin-top: 0.5rem; margin-bottom: 0;">
+                  <code id="form-output" style="margin: 0;">Selected: Email notifications</code>
+                </div>
               </div>
             </div>
           </div>
@@ -344,38 +356,40 @@
         <section class="section">
           <h2 class="section-title">Programmatic Control</h2>
           <p class="section-desc">Control checkbox state via JavaScript API.</p>
-          <div class="demo-box">
-            <div style="display: flex; flex-direction: column; gap: 1rem;">
-              <div class="checkbox-wrapper">
-                <button
-                  type="button"
-                  id="controlled-checkbox"
-                  class="checkbox"
-                  role="checkbox"
-                  aria-checked="false"
-                  data-checkbox
-                >
-                  <span class="checkbox-indicator">
-                    <svg class="checkbox-icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                    <svg class="checkbox-icon-minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                      <line x1="5" y1="12" x2="19" y2="12"></line>
-                    </svg>
-                  </span>
-                </button>
-                <label for="controlled-checkbox">Controlled checkbox</label>
-              </div>
+          <div class="card">
+            <div class="card-content">
+              <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <div class="checkbox-wrapper">
+                  <button
+                    type="button"
+                    id="controlled-checkbox"
+                    class="checkbox"
+                    role="checkbox"
+                    aria-checked="false"
+                    data-checkbox
+                  >
+                    <span class="checkbox-indicator">
+                      <svg class="checkbox-icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <svg class="checkbox-icon-minus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                      </svg>
+                    </span>
+                  </button>
+                  <label for="controlled-checkbox">Controlled checkbox</label>
+                </div>
 
-              <div class="demo-controls">
-                <button class="btn btn-default btn-sm" onclick="controlCheckbox('check')">Check</button>
-                <button class="btn btn-outline btn-sm" onclick="controlCheckbox('uncheck')">Uncheck</button>
-                <button class="btn btn-outline btn-sm" onclick="controlCheckbox('toggle')">Toggle</button>
-                <button class="btn btn-outline btn-sm" onclick="controlCheckbox('indeterminate')">Set Indeterminate</button>
-              </div>
+                <div class="demo-controls">
+                  <button class="btn btn-default btn-sm" onclick="controlCheckbox('check')">Check</button>
+                  <button class="btn btn-outline btn-sm" onclick="controlCheckbox('uncheck')">Uncheck</button>
+                  <button class="btn btn-outline btn-sm" onclick="controlCheckbox('toggle')">Toggle</button>
+                  <button class="btn btn-outline btn-sm" onclick="controlCheckbox('indeterminate')">Set Indeterminate</button>
+                </div>
 
-              <div class="install-box" style="margin-top: 0; margin-bottom: 0;">
-                <code id="controlled-output" style="margin: 0;">State: unchecked</code>
+                <div class="install-box" style="margin-top: 0; margin-bottom: 0;">
+                  <code id="controlled-output" style="margin: 0;">State: unchecked</code>
+                </div>
               </div>
             </div>
           </div>

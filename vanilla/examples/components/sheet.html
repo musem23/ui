@@ -32,7 +32,7 @@
     <!-- Main -->
     <div class="app-main">
       <header class="app-header">
-        <span style="font-size: 0.875rem; font-weight: 500;">Sheet</span>
+        <div class="header-left"><span>Sheet</span></div>
         <button class="btn btn-ghost btn-sm" id="theme-toggle">Toggle Theme</button>
       </header>
 
@@ -51,9 +51,11 @@
         <!-- Right Sheet -->
         <div class="section">
           <h2 class="section-title">Right Sheet (Default)</h2>
-          <div class="demo-box">
-            <div class="demo-row">
-              <button class="btn btn-outline" data-sheet="sheet-right">Open Right Sheet</button>
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-row">
+                <button class="btn btn-outline" data-sheet="sheet-right">Open Right Sheet</button>
+              </div>
             </div>
           </div>
 
@@ -130,9 +132,11 @@ sheet.isOpen(); // returns boolean</code></pre>
         <!-- Left Sheet -->
         <div class="section">
           <h2 class="section-title">Left Sheet</h2>
-          <div class="demo-box">
-            <div class="demo-row">
-              <button class="btn btn-outline" data-sheet="sheet-left">Open Left Sheet</button>
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-row">
+                <button class="btn btn-outline" data-sheet="sheet-left">Open Left Sheet</button>
+              </div>
             </div>
           </div>
 
@@ -180,9 +184,11 @@ BrandUI.components.Sheet.open('sheet-left');</code></pre>
         <!-- Top Sheet -->
         <div class="section">
           <h2 class="section-title">Top Sheet</h2>
-          <div class="demo-box">
-            <div class="demo-row">
-              <button class="btn btn-outline" data-sheet="sheet-top">Open Top Sheet</button>
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-row">
+                <button class="btn btn-outline" data-sheet="sheet-top">Open Top Sheet</button>
+              </div>
             </div>
           </div>
 
@@ -229,9 +235,11 @@ BrandUI.components.Sheet.open('sheet-top');</code></pre>
         <!-- Bottom Sheet -->
         <div class="section">
           <h2 class="section-title">Bottom Sheet</h2>
-          <div class="demo-box">
-            <div class="demo-row">
-              <button class="btn btn-outline" data-sheet="sheet-bottom">Open Bottom Sheet</button>
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-row">
+                <button class="btn btn-outline" data-sheet="sheet-bottom">Open Bottom Sheet</button>
+              </div>
             </div>
           </div>
 
@@ -278,9 +286,11 @@ BrandUI.components.Sheet.open('sheet-bottom');</code></pre>
         <!-- Edit Profile Example -->
         <div class="section">
           <h2 class="section-title">Edit Profile Example</h2>
-          <div class="demo-box">
-            <div class="demo-row">
-              <button class="btn btn-default" data-sheet="sheet-profile">Edit Profile</button>
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-row">
+                <button class="btn btn-default" data-sheet="sheet-profile">Edit Profile</button>
+              </div>
             </div>
           </div>
 
@@ -320,47 +330,55 @@ BrandUI.components.Sheet.open('sheet-bottom');</code></pre>
         <!-- Data Attributes Reference -->
         <div class="section">
           <h2 class="section-title">Data Attributes Reference</h2>
-          <div class="demo-box" style="padding: 0; overflow: hidden;">
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
-              <thead>
-                <tr style="background: var(--muted);">
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Attribute</th>
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Element</th>
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-sheet="id"</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Trigger button</td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Links trigger to sheet overlay by ID</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-side="right|left|top|bottom"</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">.sheet-content</td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Direction sheet slides from (default: right)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-state="open|closed"</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">.sheet-overlay, .sheet-content</td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Current state (set by JS)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem;"><code>data-sheet-close</code></td><td style="padding: 0.75rem 1rem;">Any element inside sheet</td><td style="padding: 0.75rem 1rem;">Closes the sheet when clicked</td></tr>
-              </tbody>
-            </table>
+          <div class="card">
+            <div class="card-content">
+              <div class="table-container">
+                <table class="table">
+                  <thead class="table-header">
+                    <tr class="table-row">
+                      <th class="table-head">Attribute</th>
+                      <th class="table-head">Element</th>
+                      <th class="table-head">Description</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-body">
+                    <tr class="table-row"><td class="table-cell"><code>data-sheet="id"</code></td><td class="table-cell">Trigger button</td><td class="table-cell">Links trigger to sheet overlay by ID</td></tr>
+                    <tr class="table-row"><td class="table-cell"><code>data-side="right|left|top|bottom"</code></td><td class="table-cell">.sheet-content</td><td class="table-cell">Direction sheet slides from (default: right)</td></tr>
+                    <tr class="table-row"><td class="table-cell"><code>data-state="open|closed"</code></td><td class="table-cell">.sheet-overlay, .sheet-content</td><td class="table-cell">Current state (set by JS)</td></tr>
+                    <tr class="table-row"><td class="table-cell"><code>data-sheet-close</code></td><td class="table-cell">Any element inside sheet</td><td class="table-cell">Closes the sheet when clicked</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
 
         <!-- CSS Classes Reference -->
         <div class="section">
           <h2 class="section-title">CSS Classes Reference</h2>
-          <div class="demo-box" style="padding: 0; overflow: hidden;">
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
-              <thead>
-                <tr style="background: var(--muted);">
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Class</th>
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.sheet-overlay</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Dark backdrop behind the sheet</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.sheet-content</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Main sheet container (positioned fixed)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.sheet-close</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Close button (positioned absolute top-right)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.sheet-header</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Header container with padding</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.sheet-title</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Title text styling</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.sheet-description</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description text (muted color)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.sheet-body</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Scrollable content area</td></tr>
-                <tr><td style="padding: 0.75rem 1rem;"><code>.sheet-footer</code></td><td style="padding: 0.75rem 1rem;">Footer with actions (margin-top: auto)</td></tr>
-              </tbody>
-            </table>
+          <div class="card">
+            <div class="card-content">
+              <div class="table-container">
+                <table class="table">
+                  <thead class="table-header">
+                    <tr class="table-row">
+                      <th class="table-head">Class</th>
+                      <th class="table-head">Description</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-body">
+                    <tr class="table-row"><td class="table-cell"><code>.sheet-overlay</code></td><td class="table-cell">Dark backdrop behind the sheet</td></tr>
+                    <tr class="table-row"><td class="table-cell"><code>.sheet-content</code></td><td class="table-cell">Main sheet container (positioned fixed)</td></tr>
+                    <tr class="table-row"><td class="table-cell"><code>.sheet-close</code></td><td class="table-cell">Close button (positioned absolute top-right)</td></tr>
+                    <tr class="table-row"><td class="table-cell"><code>.sheet-header</code></td><td class="table-cell">Header container with padding</td></tr>
+                    <tr class="table-row"><td class="table-cell"><code>.sheet-title</code></td><td class="table-cell">Title text styling</td></tr>
+                    <tr class="table-row"><td class="table-cell"><code>.sheet-description</code></td><td class="table-cell">Description text (muted color)</td></tr>
+                    <tr class="table-row"><td class="table-cell"><code>.sheet-body</code></td><td class="table-cell">Scrollable content area</td></tr>
+                    <tr class="table-row"><td class="table-cell"><code>.sheet-footer</code></td><td class="table-cell">Footer with actions (margin-top: auto)</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
 

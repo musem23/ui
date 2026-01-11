@@ -48,8 +48,9 @@
         <!-- Basic Empty State -->
         <section class="section">
           <h2 class="section-title">Basic Empty State</h2>
-          <div class="demo-box" style="min-height: 300px; display: flex;">
-            <div class="empty">
+          <div class="card">
+            <div class="card-content" style="min-height: 300px; display: flex;">
+              <div class="empty">
               <div class="empty-header">
                 <div class="empty-icon">
                   <svg class="icon-lg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 3rem; height: 3rem;">
@@ -62,6 +63,7 @@
               <div class="empty-actions">
                 <button class="btn btn-default">New Message</button>
               </div>
+            </div>
             </div>
           </div>
 
@@ -89,8 +91,9 @@
         <!-- Empty State with Icon Variant -->
         <section class="section">
           <h2 class="section-title">Empty State with Icon Variant</h2>
-          <div class="demo-box" style="min-height: 300px; display: flex;">
-            <div class="empty">
+          <div class="card">
+            <div class="card-content" style="min-height: 300px; display: flex;">
+              <div class="empty">
               <div class="empty-header">
                 <div class="empty-icon" data-variant="icon">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 1.5rem; height: 1.5rem;">
@@ -104,6 +107,7 @@
                 <button class="btn btn-default">Upload Document</button>
                 <button class="btn btn-outline">Learn More</button>
               </div>
+            </div>
             </div>
           </div>
 
@@ -122,19 +126,21 @@
         <!-- Search Empty State -->
         <section class="section">
           <h2 class="section-title">Search Empty State</h2>
-          <div class="demo-box" style="min-height: 300px; display: flex;">
-            <div class="empty">
-              <div class="empty-header">
-                <div class="empty-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 3rem; height: 3rem;">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-                  </svg>
+          <div class="card">
+            <div class="card-content" style="min-height: 300px; display: flex;">
+              <div class="empty">
+                <div class="empty-header">
+                  <div class="empty-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 3rem; height: 3rem;">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                    </svg>
+                  </div>
+                  <div class="empty-title">No results found</div>
+                  <div class="empty-description">We couldn't find anything matching your search. Try adjusting your filters or search term.</div>
                 </div>
-                <div class="empty-title">No results found</div>
-                <div class="empty-description">We couldn't find anything matching your search. Try adjusting your filters or search term.</div>
-              </div>
-              <div class="empty-actions">
-                <button class="btn btn-secondary">Clear Search</button>
+                <div class="empty-actions">
+                  <button class="btn btn-secondary">Clear Search</button>
+                </div>
               </div>
             </div>
           </div>
@@ -143,8 +149,9 @@
         <!-- Empty State with Content -->
         <section class="section">
           <h2 class="section-title">Empty State with Content</h2>
-          <div class="demo-box" style="min-height: 300px; display: flex;">
-            <div class="empty">
+          <div class="card">
+            <div class="card-content" style="min-height: 300px; display: flex;">
+              <div class="empty">
               <div class="empty-header">
                 <div class="empty-icon" data-variant="icon">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 1.5rem; height: 1.5rem;">
@@ -160,6 +167,7 @@
               <div class="empty-actions">
                 <button class="btn btn-default">Invite Team Member</button>
               </div>
+            </div>
             </div>
           </div>
 
@@ -182,11 +190,13 @@
         <!-- Minimal Empty State -->
         <section class="section">
           <h2 class="section-title">Minimal Empty State</h2>
-          <div class="demo-box" style="min-height: 300px; display: flex;">
-            <div class="empty">
-              <div class="empty-header">
-                <div class="empty-title">Nothing here yet</div>
-                <div class="empty-description">This section is empty. <a href="#">Learn more</a> about what can go here.</div>
+          <div class="card">
+            <div class="card-content" style="min-height: 300px; display: flex;">
+              <div class="empty">
+                <div class="empty-header">
+                  <div class="empty-title">Nothing here yet</div>
+                  <div class="empty-description">This section is empty. <a href="#">Learn more</a> about what can go here.</div>
+                </div>
               </div>
             </div>
           </div>
@@ -209,23 +219,23 @@
         <!-- CSS Classes Reference -->
         <section class="section">
           <h2 class="section-title">CSS Classes Reference</h2>
-          <div class="demo-box" style="padding: 0; overflow: hidden;">
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
-              <thead>
-                <tr style="background: var(--muted);">
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Class</th>
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+          <div class="table-container">
+            <table class="table">
+              <thead class="table-header">
+                <tr class="table-row">
+                  <th class="table-head">Class</th>
+                  <th class="table-head">Description</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.empty</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Container for empty state</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.empty-header</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Groups icon, title, and description</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.empty-icon</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Icon container</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.empty-icon[data-variant="icon"]</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Smaller icon variant with background</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.empty-title</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Main heading text</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.empty-description</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Supporting description text</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.empty-content</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Additional content area</td></tr>
-                <tr><td style="padding: 0.75rem 1rem;"><code>.empty-actions</code></td><td style="padding: 0.75rem 1rem;">Action buttons container</td></tr>
+              <tbody class="table-body">
+                <tr class="table-row"><td class="table-cell"><code>.empty</code></td><td class="table-cell">Container for empty state</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.empty-header</code></td><td class="table-cell">Groups icon, title, and description</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.empty-icon</code></td><td class="table-cell">Icon container</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.empty-icon[data-variant="icon"]</code></td><td class="table-cell">Smaller icon variant with background</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.empty-title</code></td><td class="table-cell">Main heading text</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.empty-description</code></td><td class="table-cell">Supporting description text</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.empty-content</code></td><td class="table-cell">Additional content area</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.empty-actions</code></td><td class="table-cell">Action buttons container</td></tr>
               </tbody>
             </table>
           </div>

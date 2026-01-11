@@ -223,7 +223,7 @@
       on(this.gridEl, 'click', '.calendar-day', (e, target) => {
         const dateStr = target.getAttribute('data-date');
         if (dateStr && !target.disabled && !target.classList.contains('calendar-day-disabled')) {
-          this.selectDate(new Date(dateStr));
+          this.selectDate(this.parseDateISO(dateStr));
         }
       });
 
@@ -240,7 +240,7 @@
       const dateStr = activeEl.getAttribute('data-date');
       if (!dateStr) return;
 
-      const currentDate = new Date(dateStr);
+      const currentDate = this.parseDateISO(dateStr);
       let newDate = new Date(currentDate);
       let handled = false;
 
@@ -430,6 +430,12 @@
       const month = String(date.getMonth() + 1).padStart(2, '0');
       const day = String(date.getDate()).padStart(2, '0');
       return `${year}-${month}-${day}`;
+    }
+
+    parseDateISO(dateStr) {
+      // Parse ISO date string (YYYY-MM-DD) as local date, not UTC
+      const [year, month, day] = dateStr.split('-').map(Number);
+      return new Date(year, month - 1, day);
     }
 
     formatDateLong(date) {

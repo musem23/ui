@@ -71,7 +71,9 @@ const BrandUI = (function () {
     const data = {};
     for (const [key, value] of Object.entries(element.dataset)) {
       if (!prefix || key.startsWith(prefix)) {
-        const cleanKey = prefix ? key.slice(prefix.length).toLowerCase() : key;
+        // Convert to camelCase: DefaultValue -> defaultValue
+        const sliced = key.slice(prefix.length);
+        const cleanKey = prefix ? sliced.charAt(0).toLowerCase() + sliced.slice(1) : key;
         data[cleanKey] = value === '' ? true : value;
       }
     }

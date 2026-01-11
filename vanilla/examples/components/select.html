@@ -22,7 +22,9 @@
     <!-- Main -->
     <main class="app-main">
       <header class="app-header">
-        <span style="font-size: 0.875rem; font-weight: 500;">Select</span>
+        <div class="header-left">
+          <span>Select</span>
+        </div>
         <button class="btn btn-ghost btn-sm" id="theme-toggle">Dark</button>
       </header>
 
@@ -41,8 +43,9 @@
         <!-- Default -->
         <div class="section">
           <h2 class="section-title">Default</h2>
-          <div class="demo-box">
-            <div class="demo-row">
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-row">
               <div class="select" data-select data-placeholder="Select an option">
                 <button type="button" class="select-trigger">
                   <span class="select-value">Select an option</span>
@@ -54,6 +57,7 @@
                 </div>
               </div>
             </div>
+          </div>
           </div>
 
           <div class="code-tabs">
@@ -96,16 +100,18 @@ const select = BrandUI.components.initSelect(element);</code></pre>
         <!-- With Default Value -->
         <div class="section">
           <h2 class="section-title">With Default Value</h2>
-          <div class="demo-box">
-            <div class="demo-row">
-              <div class="select" data-select data-value="option2" data-placeholder="Select an option">
-                <button type="button" class="select-trigger">
-                  <span class="select-value">Select an option</span>
-                </button>
-                <div class="select-content">
-                  <button type="button" class="select-item" data-value="option1">Option 1</button>
-                  <button type="button" class="select-item" data-value="option2">Option 2</button>
-                  <button type="button" class="select-item" data-value="option3">Option 3</button>
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-row">
+                <div class="select" data-select data-value="option2" data-placeholder="Select an option">
+                  <button type="button" class="select-trigger">
+                    <span class="select-value">Select an option</span>
+                  </button>
+                  <div class="select-content">
+                    <button type="button" class="select-item" data-value="option1">Option 1</button>
+                    <button type="button" class="select-item" data-value="option2">Option 2</button>
+                    <button type="button" class="select-item" data-value="option3">Option 3</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -133,23 +139,25 @@ const select = BrandUI.components.initSelect(element);</code></pre>
         <!-- With Groups -->
         <div class="section">
           <h2 class="section-title">With Groups</h2>
-          <div class="demo-box">
-            <div class="demo-row">
-              <div class="select" data-select data-placeholder="Select a timezone">
-                <button type="button" class="select-trigger">
-                  <span class="select-value">Select a timezone</span>
-                </button>
-                <div class="select-content">
-                  <div class="select-group">
-                    <div class="select-label">North America</div>
-                    <button type="button" class="select-item" data-value="est">Eastern (EST)</button>
-                    <button type="button" class="select-item" data-value="cst">Central (CST)</button>
-                    <button type="button" class="select-item" data-value="pst">Pacific (PST)</button>
-                  </div>
-                  <div class="select-group">
-                    <div class="select-label">Europe</div>
-                    <button type="button" class="select-item" data-value="gmt">Greenwich (GMT)</button>
-                    <button type="button" class="select-item" data-value="cet">Central European (CET)</button>
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-row">
+                <div class="select" data-select data-placeholder="Select a timezone">
+                  <button type="button" class="select-trigger">
+                    <span class="select-value">Select a timezone</span>
+                  </button>
+                  <div class="select-content">
+                    <div class="select-group">
+                      <div class="select-label">North America</div>
+                      <button type="button" class="select-item" data-value="est">Eastern (EST)</button>
+                      <button type="button" class="select-item" data-value="cst">Central (CST)</button>
+                      <button type="button" class="select-item" data-value="pst">Pacific (PST)</button>
+                    </div>
+                    <div class="select-group">
+                      <div class="select-label">Europe</div>
+                      <button type="button" class="select-item" data-value="gmt">Greenwich (GMT)</button>
+                      <button type="button" class="select-item" data-value="cet">Central European (CET)</button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -206,25 +214,27 @@ const select = BrandUI.components.initSelect(element);</code></pre>
         <!-- Disabled -->
         <div class="section">
           <h2 class="section-title">Disabled</h2>
-          <div class="demo-box">
-            <div class="demo-row">
-              <div class="select" data-select data-disabled data-placeholder="Disabled">
-                <button type="button" class="select-trigger" disabled>
-                  <span class="select-value">Disabled</span>
-                </button>
-                <div class="select-content">
-                  <button type="button" class="select-item" data-value="option1">Option 1</button>
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-row">
+                <div class="select" data-select data-disabled data-placeholder="Disabled">
+                  <button type="button" class="select-trigger" disabled>
+                    <span class="select-value">Disabled</span>
+                  </button>
+                  <div class="select-content">
+                    <button type="button" class="select-item" data-value="option1">Option 1</button>
+                  </div>
                 </div>
-              </div>
 
-              <div class="select" data-select data-placeholder="With disabled option">
-                <button type="button" class="select-trigger">
-                  <span class="select-value">With disabled option</span>
-                </button>
-                <div class="select-content">
-                  <button type="button" class="select-item" data-value="available">Available</button>
-                  <button type="button" class="select-item" data-value="unavailable" aria-disabled="true" disabled>Unavailable</button>
-                  <button type="button" class="select-item" data-value="also-available">Also Available</button>
+                <div class="select" data-select data-placeholder="With disabled option">
+                  <button type="button" class="select-trigger">
+                    <span class="select-value">With disabled option</span>
+                  </button>
+                  <div class="select-content">
+                    <button type="button" class="select-item" data-value="available">Available</button>
+                    <button type="button" class="select-item" data-value="unavailable" aria-disabled="true" disabled>Unavailable</button>
+                    <button type="button" class="select-item" data-value="also-available">Also Available</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -254,25 +264,27 @@ const select = BrandUI.components.initSelect(element);</code></pre>
         <!-- Size Variants -->
         <div class="section">
           <h2 class="section-title">Size Variants</h2>
-          <div class="demo-box">
-            <div class="demo-row">
-              <div class="select" data-select data-placeholder="Small">
-                <button type="button" class="select-trigger select-trigger--sm">
-                  <span class="select-value">Small</span>
-                </button>
-                <div class="select-content">
-                  <button type="button" class="select-item" data-value="opt1">Option 1</button>
-                  <button type="button" class="select-item" data-value="opt2">Option 2</button>
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-row">
+                <div class="select" data-select data-placeholder="Small">
+                  <button type="button" class="select-trigger select-trigger--sm">
+                    <span class="select-value">Small</span>
+                  </button>
+                  <div class="select-content">
+                    <button type="button" class="select-item" data-value="opt1">Option 1</button>
+                    <button type="button" class="select-item" data-value="opt2">Option 2</button>
+                  </div>
                 </div>
-              </div>
 
-              <div class="select" data-select data-placeholder="Default">
-                <button type="button" class="select-trigger">
-                  <span class="select-value">Default</span>
-                </button>
-                <div class="select-content">
-                  <button type="button" class="select-item" data-value="opt1">Option 1</button>
-                  <button type="button" class="select-item" data-value="opt2">Option 2</button>
+                <div class="select" data-select data-placeholder="Default">
+                  <button type="button" class="select-trigger">
+                    <span class="select-value">Default</span>
+                  </button>
+                  <div class="select-content">
+                    <button type="button" class="select-item" data-value="opt1">Option 1</button>
+                    <button type="button" class="select-item" data-value="opt2">Option 2</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -299,17 +311,19 @@ const select = BrandUI.components.initSelect(element);</code></pre>
         <!-- Full Width -->
         <div class="section">
           <h2 class="section-title">Full Width</h2>
-          <div class="demo-box">
-            <div style="width: 100%;">
-              <div class="select select--full-width" data-select data-placeholder="Select a country">
-                <button type="button" class="select-trigger">
-                  <span class="select-value">Select a country</span>
-                </button>
-                <div class="select-content">
-                  <button type="button" class="select-item" data-value="us">United States</button>
-                  <button type="button" class="select-item" data-value="uk">United Kingdom</button>
-                  <button type="button" class="select-item" data-value="ca">Canada</button>
-                  <button type="button" class="select-item" data-value="de">Germany</button>
+          <div class="card">
+            <div class="card-content">
+              <div style="width: 100%;">
+                <div class="select select--full-width" data-select data-placeholder="Select a country">
+                  <button type="button" class="select-trigger">
+                    <span class="select-value">Select a country</span>
+                  </button>
+                  <div class="select-content">
+                    <button type="button" class="select-item" data-value="us">United States</button>
+                    <button type="button" class="select-item" data-value="uk">United Kingdom</button>
+                    <button type="button" class="select-item" data-value="ca">Canada</button>
+                    <button type="button" class="select-item" data-value="de">Germany</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -337,23 +351,25 @@ const select = BrandUI.components.initSelect(element);</code></pre>
         <!-- Programmatic Control -->
         <div class="section">
           <h2 class="section-title">Programmatic Control</h2>
-          <div class="demo-box">
-            <div class="demo-row" style="flex-direction: column; gap: 1rem; align-items: stretch;">
-              <div class="select" data-select data-placeholder="Controlled select" id="controlled-select">
-                <button type="button" class="select-trigger">
-                  <span class="select-value">Controlled select</span>
-                </button>
-                <div class="select-content">
-                  <button type="button" class="select-item" data-value="first">First Option</button>
-                  <button type="button" class="select-item" data-value="second">Second Option</button>
-                  <button type="button" class="select-item" data-value="third">Third Option</button>
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-row" style="flex-direction: column; gap: 1rem; align-items: stretch;">
+                <div class="select" data-select data-placeholder="Controlled select" id="controlled-select">
+                  <button type="button" class="select-trigger">
+                    <span class="select-value">Controlled select</span>
+                  </button>
+                  <div class="select-content">
+                    <button type="button" class="select-item" data-value="first">First Option</button>
+                    <button type="button" class="select-item" data-value="second">Second Option</button>
+                    <button type="button" class="select-item" data-value="third">Third Option</button>
+                  </div>
                 </div>
-              </div>
-              <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                <button class="btn btn-outline btn-sm" onclick="setSelectValue('first')">Set "First"</button>
-                <button class="btn btn-outline btn-sm" onclick="setSelectValue('second')">Set "Second"</button>
-                <button class="btn btn-outline btn-sm" onclick="clearSelect()">Clear</button>
-                <button class="btn btn-outline btn-sm" onclick="toggleSelectState()">Toggle Disabled</button>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                  <button class="btn btn-outline btn-sm" onclick="setSelectValue('first')">Set "First"</button>
+                  <button class="btn btn-outline btn-sm" onclick="setSelectValue('second')">Set "Second"</button>
+                  <button class="btn btn-outline btn-sm" onclick="clearSelect()">Clear</button>
+                  <button class="btn btn-outline btn-sm" onclick="toggleSelectState()">Toggle Disabled</button>
+                </div>
               </div>
             </div>
           </div>
@@ -396,21 +412,21 @@ selectEl.addEventListener('select:change', (e) => {
         <!-- Data Attributes Reference -->
         <div class="section">
           <h2 class="section-title">Data Attributes Reference</h2>
-          <div class="demo-box" style="padding: 0; overflow: hidden;">
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
-              <thead>
-                <tr style="background: var(--muted);">
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Attribute</th>
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+          <div class="table-container">
+            <table class="table">
+              <thead class="table-header">
+                <tr class="table-row">
+                  <th class="table-head">Attribute</th>
+                  <th class="table-head">Description</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-select</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Initialize select component (required)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-placeholder</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Placeholder text when no option is selected</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-value</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Default selected value</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-disabled</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Disable the select</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-required</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Mark as required for forms</td></tr>
-                <tr><td style="padding: 0.75rem 1rem;"><code>data-name</code></td><td style="padding: 0.75rem 1rem;">Form field name for hidden input</td></tr>
+              <tbody class="table-body">
+                <tr class="table-row"><td class="table-cell"><code>data-select</code></td><td class="table-cell">Initialize select component (required)</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>data-placeholder</code></td><td class="table-cell">Placeholder text when no option is selected</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>data-value</code></td><td class="table-cell">Default selected value</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>data-disabled</code></td><td class="table-cell">Disable the select</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>data-required</code></td><td class="table-cell">Mark as required for forms</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>data-name</code></td><td class="table-cell">Form field name for hidden input</td></tr>
               </tbody>
             </table>
           </div>
@@ -419,25 +435,25 @@ selectEl.addEventListener('select:change', (e) => {
         <!-- CSS Classes Reference -->
         <div class="section">
           <h2 class="section-title">CSS Classes Reference</h2>
-          <div class="demo-box" style="padding: 0; overflow: hidden;">
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
-              <thead>
-                <tr style="background: var(--muted);">
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Class</th>
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+          <div class="table-container">
+            <table class="table">
+              <thead class="table-header">
+                <tr class="table-row">
+                  <th class="table-head">Class</th>
+                  <th class="table-head">Description</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.select</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Container wrapper (required)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.select--full-width</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Full width select</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.select-trigger</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Clickable trigger button</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.select-trigger--sm</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Small trigger size</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.select-value</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Selected value display</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.select-content</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Dropdown content container</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.select-item</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Individual option item</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.select-group</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Group container for options</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.select-label</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Group label text</td></tr>
-                <tr><td style="padding: 0.75rem 1rem;"><code>.select-separator</code></td><td style="padding: 0.75rem 1rem;">Visual separator between items</td></tr>
+              <tbody class="table-body">
+                <tr class="table-row"><td class="table-cell"><code>.select</code></td><td class="table-cell">Container wrapper (required)</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.select--full-width</code></td><td class="table-cell">Full width select</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.select-trigger</code></td><td class="table-cell">Clickable trigger button</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.select-trigger--sm</code></td><td class="table-cell">Small trigger size</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.select-value</code></td><td class="table-cell">Selected value display</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.select-content</code></td><td class="table-cell">Dropdown content container</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.select-item</code></td><td class="table-cell">Individual option item</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.select-group</code></td><td class="table-cell">Group container for options</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.select-label</code></td><td class="table-cell">Group label text</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.select-separator</code></td><td class="table-cell">Visual separator between items</td></tr>
               </tbody>
             </table>
           </div>
@@ -446,22 +462,22 @@ selectEl.addEventListener('select:change', (e) => {
         <!-- Keyboard Navigation -->
         <div class="section">
           <h2 class="section-title">Keyboard Navigation</h2>
-          <div class="demo-box" style="padding: 0; overflow: hidden;">
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
-              <thead>
-                <tr style="background: var(--muted);">
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Key</th>
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Action</th>
+          <div class="table-container">
+            <table class="table">
+              <thead class="table-header">
+                <tr class="table-row">
+                  <th class="table-head">Key</th>
+                  <th class="table-head">Action</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><kbd>Enter</kbd> / <kbd>Space</kbd></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Open dropdown / Select highlighted option</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><kbd>Arrow Down</kbd></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Open dropdown / Navigate to next option</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><kbd>Arrow Up</kbd></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Open dropdown / Navigate to previous option</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><kbd>Home</kbd></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Jump to first option</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><kbd>End</kbd></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Jump to last option</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><kbd>Escape</kbd></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Close dropdown</td></tr>
-                <tr><td style="padding: 0.75rem 1rem;"><kbd>A-Z</kbd></td><td style="padding: 0.75rem 1rem;">Type-ahead search to jump to matching option</td></tr>
+              <tbody class="table-body">
+                <tr class="table-row"><td class="table-cell"><kbd class="kbd">Enter</kbd> / <kbd class="kbd">Space</kbd></td><td class="table-cell">Open dropdown / Select highlighted option</td></tr>
+                <tr class="table-row"><td class="table-cell"><kbd class="kbd">Arrow Down</kbd></td><td class="table-cell">Open dropdown / Navigate to next option</td></tr>
+                <tr class="table-row"><td class="table-cell"><kbd class="kbd">Arrow Up</kbd></td><td class="table-cell">Open dropdown / Navigate to previous option</td></tr>
+                <tr class="table-row"><td class="table-cell"><kbd class="kbd">Home</kbd></td><td class="table-cell">Jump to first option</td></tr>
+                <tr class="table-row"><td class="table-cell"><kbd class="kbd">End</kbd></td><td class="table-cell">Jump to last option</td></tr>
+                <tr class="table-row"><td class="table-cell"><kbd class="kbd">Escape</kbd></td><td class="table-cell">Close dropdown</td></tr>
+                <tr class="table-row"><td class="table-cell"><kbd class="kbd">A-Z</kbd></td><td class="table-cell">Type-ahead search to jump to matching option</td></tr>
               </tbody>
             </table>
           </div>

@@ -38,15 +38,13 @@
         <section class="section">
           <h2 class="section-title">Bar Chart</h2>
           <p class="section-desc">Displays data with rectangular bars proportional to the values they represent.</p>
-          <div class="demo-box">
-            <div class="card">
-              <div class="card-header">
-                <div class="card-title">Monthly Revenue</div>
-                <div class="card-description">Revenue data for the first half of 2024</div>
-              </div>
-              <div class="card-content">
-                <div id="bar-chart"></div>
-              </div>
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">Monthly Revenue</div>
+              <div class="card-description">Revenue data for the first half of 2024</div>
+            </div>
+            <div class="card-content">
+              <div id="bar-chart"></div>
             </div>
           </div>
         </section>
@@ -55,15 +53,13 @@
         <section class="section">
           <h2 class="section-title">Line Chart</h2>
           <p class="section-desc">Displays data points connected by straight line segments.</p>
-          <div class="demo-box">
-            <div class="card">
-              <div class="card-header">
-                <div class="card-title">User Growth</div>
-                <div class="card-description">Active users over the past 6 months</div>
-              </div>
-              <div class="card-content">
-                <div id="line-chart"></div>
-              </div>
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">User Growth</div>
+              <div class="card-description">Active users over the past 6 months</div>
+            </div>
+            <div class="card-content">
+              <div id="line-chart"></div>
             </div>
           </div>
         </section>
@@ -72,15 +68,13 @@
         <section class="section">
           <h2 class="section-title">Area Chart</h2>
           <p class="section-desc">Line chart with filled area under the line.</p>
-          <div class="demo-box">
-            <div class="card">
-              <div class="card-header">
-                <div class="card-title">Page Views</div>
-                <div class="card-description">Daily page views this week</div>
-              </div>
-              <div class="card-content">
-                <div id="area-chart"></div>
-              </div>
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">Page Views</div>
+              <div class="card-description">Daily page views this week</div>
+            </div>
+            <div class="card-content">
+              <div id="area-chart"></div>
             </div>
           </div>
         </section>
@@ -89,15 +83,13 @@
         <section class="section">
           <h2 class="section-title">Pie Chart</h2>
           <p class="section-desc">Displays data as proportional segments of a circle.</p>
-          <div class="demo-box">
-            <div class="card">
-              <div class="card-header">
-                <div class="card-title">Traffic Sources</div>
-                <div class="card-description">Distribution of website traffic by source</div>
-              </div>
-              <div class="card-content">
-                <div id="pie-chart"></div>
-              </div>
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">Traffic Sources</div>
+              <div class="card-description">Distribution of website traffic by source</div>
+            </div>
+            <div class="card-content">
+              <div id="pie-chart"></div>
             </div>
           </div>
         </section>
@@ -106,15 +98,13 @@
         <section class="section">
           <h2 class="section-title">Multi-Series Bar Chart</h2>
           <p class="section-desc">Compares multiple data series side by side.</p>
-          <div class="demo-box">
-            <div class="card">
-              <div class="card-header">
-                <div class="card-title">Sales Comparison</div>
-                <div class="card-description">This year vs last year sales data</div>
-              </div>
-              <div class="card-content">
-                <div id="multi-bar-chart"></div>
-              </div>
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">Sales Comparison</div>
+              <div class="card-description">This year vs last year sales data</div>
+            </div>
+            <div class="card-content">
+              <div id="multi-bar-chart"></div>
             </div>
           </div>
         </section>
@@ -123,9 +113,10 @@
         <section class="section">
           <h2 class="section-title">Usage</h2>
           <p class="section-desc">How to create charts with the Chart component.</p>
-          <div class="demo-box">
-            <div class="code-block" style="border-radius: 8px; border: 1px solid var(--border);">
-              <pre><code>// Create a bar chart
+          <div class="card">
+            <div class="card-content">
+              <div class="code-block" style="border-radius: 8px; border: 1px solid var(--border);">
+                <pre><code>// Create a bar chart
 const barChart = BrandUI.createChart(document.getElementById('my-chart'), {
   type: 'bar',
   data: [
@@ -173,6 +164,7 @@ barChart.setType('line');
 
 // Update options
 barChart.update({ showGrid: false });</code></pre>
+              </div>
             </div>
           </div>
         </section>
@@ -181,48 +173,50 @@ barChart.update({ showGrid: false });</code></pre>
         <section class="section">
           <h2 class="section-title">Tooltip Styles</h2>
           <p class="section-desc">Different tooltip indicator styles available for chart tooltips.</p>
-          <div class="demo-box">
-            <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
-              <!-- Dot indicator -->
-              <div class="chart-tooltip-content" style="position: static;">
-                <div class="chart-tooltip-label">January 2024</div>
-                <div class="chart-tooltip-items">
-                  <div class="chart-tooltip-item">
-                    <div class="chart-tooltip-indicator chart-tooltip-indicator-dot"
-                         style="--color-bg: var(--chart-1); --color-border: var(--chart-1);"></div>
-                    <div class="chart-tooltip-item-content">
-                      <span class="chart-tooltip-item-name">Revenue</span>
-                      <span class="chart-tooltip-item-value">$12,345</span>
+          <div class="card">
+            <div class="card-content">
+              <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+                <!-- Dot indicator -->
+                <div class="chart-tooltip-content" style="position: static;">
+                  <div class="chart-tooltip-label">January 2024</div>
+                  <div class="chart-tooltip-items">
+                    <div class="chart-tooltip-item">
+                      <div class="chart-tooltip-indicator chart-tooltip-indicator-dot"
+                           style="--color-bg: var(--chart-1); --color-border: var(--chart-1);"></div>
+                      <div class="chart-tooltip-item-content">
+                        <span class="chart-tooltip-item-name">Revenue</span>
+                        <span class="chart-tooltip-item-value">$12,345</span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <!-- Line indicator -->
-              <div class="chart-tooltip-content" style="position: static;">
-                <div class="chart-tooltip-label">February 2024</div>
-                <div class="chart-tooltip-items">
-                  <div class="chart-tooltip-item" style="min-height: 2rem;">
-                    <div class="chart-tooltip-indicator chart-tooltip-indicator-line"
-                         style="--color-bg: var(--chart-2); --color-border: var(--chart-2);"></div>
-                    <div class="chart-tooltip-item-content">
-                      <span class="chart-tooltip-item-name">Users</span>
-                      <span class="chart-tooltip-item-value">8,765</span>
+                <!-- Line indicator -->
+                <div class="chart-tooltip-content" style="position: static;">
+                  <div class="chart-tooltip-label">February 2024</div>
+                  <div class="chart-tooltip-items">
+                    <div class="chart-tooltip-item" style="min-height: 2rem;">
+                      <div class="chart-tooltip-indicator chart-tooltip-indicator-line"
+                           style="--color-bg: var(--chart-2); --color-border: var(--chart-2);"></div>
+                      <div class="chart-tooltip-item-content">
+                        <span class="chart-tooltip-item-name">Users</span>
+                        <span class="chart-tooltip-item-value">8,765</span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <!-- Dashed indicator -->
-              <div class="chart-tooltip-content" style="position: static;">
-                <div class="chart-tooltip-label">March 2024</div>
-                <div class="chart-tooltip-items">
-                  <div class="chart-tooltip-item" style="min-height: 2rem;">
-                    <div class="chart-tooltip-indicator chart-tooltip-indicator-dashed"
-                         style="--color-border: var(--chart-3);"></div>
-                    <div class="chart-tooltip-item-content">
-                      <span class="chart-tooltip-item-name">Sessions</span>
-                      <span class="chart-tooltip-item-value">23,456</span>
+                <!-- Dashed indicator -->
+                <div class="chart-tooltip-content" style="position: static;">
+                  <div class="chart-tooltip-label">March 2024</div>
+                  <div class="chart-tooltip-items">
+                    <div class="chart-tooltip-item" style="min-height: 2rem;">
+                      <div class="chart-tooltip-indicator chart-tooltip-indicator-dashed"
+                           style="--color-border: var(--chart-3);"></div>
+                      <div class="chart-tooltip-item-content">
+                        <span class="chart-tooltip-item-name">Sessions</span>
+                        <span class="chart-tooltip-item-value">23,456</span>
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -49,8 +49,8 @@
         <section class="section">
           <h2 class="section-title">Inline Command</h2>
           <p class="section-desc">Basic command palette embedded in the page. Use arrow keys to navigate, Enter to select.</p>
-          <div class="demo-box">
-            <div style="max-width: 28rem; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;">
+          <div class="card"><div class="card-content">
+            <div style="max-width: 28rem; border-radius: var(--radius); overflow: hidden;">
               <div class="command" data-command id="inline-command">
                 <div class="command-input-wrapper">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
@@ -96,27 +96,27 @@
               </div>
             </div>
             <div class="output" id="inline-output" style="margin-top: 1rem; padding: 0.75rem; background: var(--muted); border-radius: var(--radius); font-size: 0.875rem; font-family: var(--font-mono);">Select a command...</div>
-          </div>
+          </div></div>
         </section>
 
         <!-- Command Dialog -->
         <section class="section">
           <h2 class="section-title">Command Dialog</h2>
           <p class="section-desc">Command palette in a modal dialog. Press <kbd class="kbd">Cmd</kbd> + <kbd class="kbd">K</kbd> or click the button to open.</p>
-          <div class="demo-box">
+          <div class="card"><div class="card-content">
             <button class="btn btn-default" id="open-command-dialog">
               Open Command Palette
             </button>
             <div class="output" id="dialog-output" style="margin-top: 1rem; padding: 0.75rem; background: var(--muted); border-radius: var(--radius); font-size: 0.875rem; font-family: var(--font-mono);">Press Cmd+K or click the button...</div>
-          </div>
+          </div></div>
         </section>
 
         <!-- With Keywords -->
         <section class="section">
           <h2 class="section-title">With Keywords</h2>
           <p class="section-desc">Items can have hidden keywords to improve search. Try searching "git" or "version".</p>
-          <div class="demo-box">
-            <div style="max-width: 28rem; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;">
+          <div class="card"><div class="card-content">
+            <div style="max-width: 28rem; border-radius: var(--radius); overflow: hidden;">
               <div class="command" data-command id="keywords-command">
                 <div class="command-input-wrapper">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
@@ -149,15 +149,15 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div></div>
         </section>
 
         <!-- Disabled Items -->
         <section class="section">
           <h2 class="section-title">Disabled Items</h2>
           <p class="section-desc">Items can be disabled and will be skipped during keyboard navigation.</p>
-          <div class="demo-box">
-            <div style="max-width: 28rem; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;">
+          <div class="card"><div class="card-content">
+            <div style="max-width: 28rem; border-radius: var(--radius); overflow: hidden;">
               <div class="command" data-command id="disabled-command">
                 <div class="command-input-wrapper">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
@@ -186,7 +186,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div></div>
         </section>
 
       </div>

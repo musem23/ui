@@ -116,7 +116,9 @@
     <!-- Main -->
     <main class="app-main">
       <header class="app-header">
-        <span style="font-size: 0.875rem; font-weight: 500;">Navigation Menu</span>
+        <div class="header-left">
+          <span>Navigation Menu</span>
+        </div>
         <button class="btn btn-ghost btn-sm" id="theme-toggle">Dark</button>
       </header>
 
@@ -366,22 +368,43 @@ data-skip-delay="300"  - Time to skip delay after closing (ms)</code></pre>
         <!-- Keyboard Navigation -->
         <div class="section">
           <h2 class="section-title">Keyboard Navigation</h2>
-          <div class="demo-box" style="padding: 0; overflow: hidden;">
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
-              <thead>
-                <tr style="background: var(--muted);">
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Key</th>
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Action</th>
+          <div class="table-container">
+            <table class="table">
+              <thead class="table-header">
+                <tr class="table-row">
+                  <th class="table-head">Key</th>
+                  <th class="table-head">Action</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>Enter</code> / <code>Space</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Toggle dropdown</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>Arrow Down</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Open dropdown, then navigate items</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>Arrow Up</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Navigate items, then return to trigger</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>Arrow Left/Right</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Navigate between menu items</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>Home</code> / <code>End</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Jump to first/last menu item</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>Escape</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Close dropdown</td></tr>
-                <tr><td style="padding: 0.75rem 1rem;"><code>Tab</code></td><td style="padding: 0.75rem 1rem;">Move focus, closes menu when leaving</td></tr>
+              <tbody class="table-body">
+                <tr class="table-row">
+                  <td class="table-cell"><kbd class="kbd">Enter</kbd> / <kbd class="kbd">Space</kbd></td>
+                  <td class="table-cell">Toggle dropdown</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><kbd class="kbd">Arrow Down</kbd></td>
+                  <td class="table-cell">Open dropdown, then navigate items</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><kbd class="kbd">Arrow Up</kbd></td>
+                  <td class="table-cell">Navigate items, then return to trigger</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><kbd class="kbd">Arrow Left/Right</kbd></td>
+                  <td class="table-cell">Navigate between menu items</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><kbd class="kbd">Home</kbd> / <kbd class="kbd">End</kbd></td>
+                  <td class="table-cell">Jump to first/last menu item</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><kbd class="kbd">Escape</kbd></td>
+                  <td class="table-cell">Close dropdown</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><kbd class="kbd">Tab</kbd></td>
+                  <td class="table-cell">Move focus, closes menu when leaving</td>
+                </tr>
               </tbody>
             </table>
           </div>

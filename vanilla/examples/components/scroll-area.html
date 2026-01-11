@@ -94,7 +94,7 @@
     <!-- Main -->
     <main class="app-main">
       <header class="app-header">
-        <span style="font-size: 0.875rem; font-weight: 500;">Scroll Area</span>
+        <div class="header-left"><span>Scroll Area</span></div>
         <button class="btn btn-ghost btn-sm" id="theme-toggle">Dark</button>
       </header>
 
@@ -116,7 +116,7 @@
           <p class="section-desc">A list with vertical scrolling. The scrollbar appears on hover.</p>
 
           <div class="demo-row" style="gap: 2rem;">
-            <div class="demo-box" style="flex: 1; min-width: 280px;">
+            <div class="card" style="flex: 1; min-width: 280px;"><div class="card-content">
               <h3 style="margin: 0 0 1rem; font-size: 1rem;">Item List</h3>
               <div class="scroll-area" data-scroll-area data-scroll-area-orientation="vertical" style="height: 250px;">
                 <div class="scroll-area-viewport">
@@ -156,9 +156,9 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div></div>
 
-            <div class="demo-box" style="flex: 1; min-width: 280px;">
+            <div class="card" style="flex: 1; min-width: 280px;"><div class="card-content">
               <h3 style="margin: 0 0 1rem; font-size: 1rem;">Code Preview</h3>
               <div class="scroll-area" data-scroll-area data-scroll-area-orientation="vertical" style="height: 250px; background: var(--surface); border-radius: var(--radius-sm);">
                 <div class="scroll-area-viewport">
@@ -195,7 +195,7 @@
 }</div>
                 </div>
               </div>
-            </div>
+            </div></div>
           </div>
 
           <div class="code-tabs">
@@ -220,7 +220,7 @@
           <h2 class="section-title">Horizontal Scroll</h2>
           <p class="section-desc">Content that scrolls horizontally with a custom horizontal scrollbar.</p>
 
-          <div class="demo-box" style="max-width: 500px;">
+          <div class="card" style="max-width: 500px;"><div class="card-content">
             <h3 style="margin: 0 0 1rem; font-size: 1rem;">Tag Cloud</h3>
             <div class="scroll-area" data-scroll-area data-scroll-area-orientation="horizontal" style="height: auto;">
               <div class="scroll-area-viewport">
@@ -242,7 +242,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div></div>
 
           <div class="code-tabs">
             <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'horizontal-html')">HTML</button>
@@ -267,7 +267,7 @@
           <h2 class="section-title">Both Directions</h2>
           <p class="section-desc">Content that scrolls in both horizontal and vertical directions.</p>
 
-          <div class="demo-box" style="max-width: 450px;">
+          <div class="card" style="max-width: 450px;"><div class="card-content">
             <h3 style="margin: 0 0 1rem; font-size: 1rem;">Image Gallery</h3>
             <div class="scroll-area" data-scroll-area data-scroll-area-orientation="both" style="height: 200px;">
               <div class="scroll-area-viewport">
@@ -287,7 +287,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div></div>
 
           <div class="code-tabs">
             <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'both-html')">HTML</button>
@@ -312,7 +312,7 @@
           <p class="section-desc">Different scrollbar sizes for various use cases.</p>
 
           <div class="demo-row" style="gap: 2rem;">
-            <div class="demo-box" style="flex: 1; min-width: 200px;">
+            <div class="card" style="flex: 1; min-width: 200px;"><div class="card-content">
               <h3 style="margin: 0 0 1rem; font-size: 1rem;">Small Scrollbar</h3>
               <div class="scroll-area scroll-area-sm" data-scroll-area data-scroll-area-orientation="vertical" style="height: 150px;">
                 <div class="scroll-area-viewport">
@@ -326,9 +326,9 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div></div>
 
-            <div class="demo-box" style="flex: 1; min-width: 200px;">
+            <div class="card" style="flex: 1; min-width: 200px;"><div class="card-content">
               <h3 style="margin: 0 0 1rem; font-size: 1rem;">Large Scrollbar</h3>
               <div class="scroll-area scroll-area-lg" data-scroll-area data-scroll-area-orientation="vertical" style="height: 150px;">
                 <div class="scroll-area-viewport">
@@ -342,7 +342,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div></div>
           </div>
 
           <div class="code-tabs">
@@ -364,7 +364,7 @@
           <h2 class="section-title">Always Visible</h2>
           <p class="section-desc">Scrollbar that is always visible, not just on hover.</p>
 
-          <div class="demo-box" style="max-width: 400px;">
+          <div class="card" style="max-width: 400px;"><div class="card-content">
             <h3 style="margin: 0 0 1rem; font-size: 1rem;">Persistent Scrollbar</h3>
             <div class="scroll-area scroll-area-always-visible" data-scroll-area data-scroll-area-orientation="vertical" style="height: 150px;">
               <div class="scroll-area-viewport">
@@ -378,7 +378,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div></div>
 
           <div class="code-tabs">
             <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'visible-html')">HTML</button>
@@ -394,7 +394,7 @@
         <!-- Usage -->
         <div class="section">
           <h2 class="section-title">Usage</h2>
-          <div class="demo-box">
+          <div class="card"><div class="card-content">
             <div class="scroll-area scroll-area-always-visible" data-scroll-area data-scroll-area-orientation="vertical" style="height: 200px; background: var(--surface); border-radius: var(--radius-sm);">
               <div class="scroll-area-viewport">
                 <pre class="code-preview">&lt;!-- Basic vertical scroll area --&gt;
@@ -436,26 +436,26 @@
 &lt;div class="scroll-area scroll-area-always-visible"&gt;...&lt;/div&gt;</pre>
               </div>
             </div>
-          </div>
+          </div></div>
         </div>
 
         <!-- CSS Classes Reference -->
         <div class="section">
           <h2 class="section-title">CSS Classes Reference</h2>
-          <div class="demo-box" style="padding: 0; overflow: hidden;">
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
-              <thead>
-                <tr style="background: var(--muted);">
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Class</th>
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+          <div class="table-container">
+            <table class="table">
+              <thead class="table-header">
+                <tr class="table-row">
+                  <th class="table-head">Class</th>
+                  <th class="table-head">Description</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.scroll-area</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Container wrapper (required)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.scroll-area-viewport</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Inner scrollable container (required)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.scroll-area-sm</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Small scrollbar size</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.scroll-area-lg</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Large scrollbar size</td></tr>
-                <tr><td style="padding: 0.75rem 1rem;"><code>.scroll-area-always-visible</code></td><td style="padding: 0.75rem 1rem;">Always show scrollbar (not just on hover)</td></tr>
+              <tbody class="table-body">
+                <tr class="table-row"><td class="table-cell"><code>.scroll-area</code></td><td class="table-cell">Container wrapper (required)</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.scroll-area-viewport</code></td><td class="table-cell">Inner scrollable container (required)</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.scroll-area-sm</code></td><td class="table-cell">Small scrollbar size</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.scroll-area-lg</code></td><td class="table-cell">Large scrollbar size</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.scroll-area-always-visible</code></td><td class="table-cell">Always show scrollbar (not just on hover)</td></tr>
               </tbody>
             </table>
           </div>
@@ -464,17 +464,17 @@
         <!-- Data Attributes Reference -->
         <div class="section">
           <h2 class="section-title">Data Attributes Reference</h2>
-          <div class="demo-box" style="padding: 0; overflow: hidden;">
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
-              <thead>
-                <tr style="background: var(--muted);">
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Attribute</th>
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+          <div class="table-container">
+            <table class="table">
+              <thead class="table-header">
+                <tr class="table-row">
+                  <th class="table-head">Attribute</th>
+                  <th class="table-head">Description</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-scroll-area</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Initialize scroll area component (required)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem;"><code>data-scroll-area-orientation</code></td><td style="padding: 0.75rem 1rem;">Set to "vertical", "horizontal", or "both"</td></tr>
+              <tbody class="table-body">
+                <tr class="table-row"><td class="table-cell"><code>data-scroll-area</code></td><td class="table-cell">Initialize scroll area component (required)</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>data-scroll-area-orientation</code></td><td class="table-cell">Set to "vertical", "horizontal", or "both"</td></tr>
               </tbody>
             </table>
           </div>

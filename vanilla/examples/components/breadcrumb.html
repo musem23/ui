@@ -26,7 +26,7 @@
     <!-- Main -->
     <main class="app-main">
       <header class="app-header">
-        <span style="font-size: 0.875rem; font-weight: 500;">Breadcrumb</span>
+        <div class="header-left"><span>Breadcrumb</span></div>
         <button class="btn btn-ghost btn-sm" id="theme-toggle">Dark</button>
       </header>
 
@@ -43,8 +43,9 @@
         <!-- Basic -->
         <div class="section">
           <h2 class="section-title">Basic</h2>
-          <div class="demo-box">
-            <div class="demo-row">
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-row">
               <nav class="breadcrumb" aria-label="breadcrumb">
                 <ol class="breadcrumb-list">
                   <li class="breadcrumb-item">
@@ -68,6 +69,7 @@
                   </li>
                 </ol>
               </nav>
+              </div>
             </div>
           </div>
 
@@ -110,8 +112,9 @@
         <!-- With Ellipsis -->
         <div class="section">
           <h2 class="section-title">With Ellipsis</h2>
-          <div class="demo-box">
-            <div class="demo-row">
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-row">
               <nav class="breadcrumb" aria-label="breadcrumb">
                 <ol class="breadcrumb-list">
                   <li class="breadcrumb-item">
@@ -150,6 +153,7 @@
                   </li>
                 </ol>
               </nav>
+              </div>
             </div>
           </div>
 
@@ -171,8 +175,9 @@
         <!-- Longer Path -->
         <div class="section">
           <h2 class="section-title">Longer Path</h2>
-          <div class="demo-box">
-            <div class="demo-row">
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-row">
               <nav class="breadcrumb" aria-label="breadcrumb">
                 <ol class="breadcrumb-list">
                   <li class="breadcrumb-item">
@@ -212,6 +217,7 @@
                   </li>
                 </ol>
               </nav>
+              </div>
             </div>
           </div>
 
@@ -242,8 +248,9 @@
         <!-- Custom Separator -->
         <div class="section">
           <h2 class="section-title">Custom Separator</h2>
-          <div class="demo-box">
-            <div class="demo-row">
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-row">
               <nav class="breadcrumb" aria-label="breadcrumb">
                 <ol class="breadcrumb-list">
                   <li class="breadcrumb-item">
@@ -259,6 +266,7 @@
                   </li>
                 </ol>
               </nav>
+              </div>
             </div>
           </div>
 
@@ -276,9 +284,10 @@
         <!-- Two-Level -->
         <div class="section">
           <h2 class="section-title">Two-Level</h2>
-          <div class="demo-box">
-            <div class="demo-row">
-              <nav class="breadcrumb" aria-label="breadcrumb">
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-row">
+                <nav class="breadcrumb" aria-label="breadcrumb">
                 <ol class="breadcrumb-list">
                   <li class="breadcrumb-item">
                     <a href="#" class="breadcrumb-link">Home</a>
@@ -292,7 +301,8 @@
                     <span class="breadcrumb-page" aria-current="page">Current Page</span>
                   </li>
                 </ol>
-              </nav>
+                </nav>
+              </div>
             </div>
           </div>
 
@@ -321,22 +331,22 @@
         <!-- CSS Classes Reference -->
         <div class="section">
           <h2 class="section-title">CSS Classes Reference</h2>
-          <div class="demo-box" style="padding: 0; overflow: hidden;">
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
-              <thead>
-                <tr style="background: var(--muted);">
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Class</th>
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+          <div class="table-container">
+            <table class="table">
+              <thead class="table-header">
+                <tr class="table-row">
+                  <th class="table-head">Class</th>
+                  <th class="table-head">Description</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.breadcrumb</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Base nav container element</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.breadcrumb-list</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Ordered list wrapper with flexbox layout</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.breadcrumb-item</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">List item containing link or page text</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.breadcrumb-link</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Clickable link with hover state</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.breadcrumb-page</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Current page text (non-clickable)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.breadcrumb-separator</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Separator between items (SVG or text)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem;"><code>.breadcrumb-ellipsis</code></td><td style="padding: 0.75rem 1rem;">Ellipsis indicator for collapsed items</td></tr>
+              <tbody class="table-body">
+                <tr class="table-row"><td class="table-cell"><code>.breadcrumb</code></td><td class="table-cell">Base nav container element</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.breadcrumb-list</code></td><td class="table-cell">Ordered list wrapper with flexbox layout</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.breadcrumb-item</code></td><td class="table-cell">List item containing link or page text</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.breadcrumb-link</code></td><td class="table-cell">Clickable link with hover state</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.breadcrumb-page</code></td><td class="table-cell">Current page text (non-clickable)</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.breadcrumb-separator</code></td><td class="table-cell">Separator between items (SVG or text)</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.breadcrumb-ellipsis</code></td><td class="table-cell">Ellipsis indicator for collapsed items</td></tr>
               </tbody>
             </table>
           </div>

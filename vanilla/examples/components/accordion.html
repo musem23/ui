@@ -22,7 +22,9 @@
     <!-- Main -->
     <div class="app-main">
       <header class="app-header">
-        <span style="font-size: 0.875rem; font-weight: 500;">Accordion</span>
+        <div class="header-left">
+          <span>Accordion</span>
+        </div>
         <button class="btn btn-ghost btn-sm" id="theme-toggle">Dark</button>
       </header>
 
@@ -42,44 +44,46 @@
         <div class="section">
           <h2 class="section-title">Default</h2>
           <p class="section-desc">Single mode accordion where only one item can be open at a time. Clicking an open item collapses it.</p>
-          <div class="demo-box">
-            <div class="accordion" data-accordion data-accordion-type="single" data-accordion-collapsible="true">
-              <div class="accordion-item" data-value="item-1">
-                <button class="accordion-trigger">
-                  Is it accessible?
-                  <svg class="accordion-trigger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="m6 9 6 6 6-6"/>
-                  </svg>
-                </button>
-                <div class="accordion-content">
-                  <div class="accordion-content-inner">
-                    Yes. It adheres to the WAI-ARIA design pattern.
+          <div class="card">
+            <div class="card-content">
+              <div class="accordion" data-accordion data-accordion-type="single" data-accordion-collapsible="true">
+                <div class="accordion-item" data-value="item-1">
+                  <button class="accordion-trigger">
+                    Is it accessible?
+                    <svg class="accordion-trigger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m6 9 6 6 6-6"/>
+                    </svg>
+                  </button>
+                  <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                      Yes. It adheres to the WAI-ARIA design pattern.
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="accordion-item" data-value="item-2">
-                <button class="accordion-trigger">
-                  Is it styled?
-                  <svg class="accordion-trigger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="m6 9 6 6 6-6"/>
-                  </svg>
-                </button>
-                <div class="accordion-content">
-                  <div class="accordion-content-inner">
-                    Yes. It comes with default styles that match the other components.
+                <div class="accordion-item" data-value="item-2">
+                  <button class="accordion-trigger">
+                    Is it styled?
+                    <svg class="accordion-trigger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m6 9 6 6 6-6"/>
+                    </svg>
+                  </button>
+                  <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                      Yes. It comes with default styles that match the other components.
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="accordion-item" data-value="item-3">
-                <button class="accordion-trigger">
-                  Is it animated?
-                  <svg class="accordion-trigger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="m6 9 6 6 6-6"/>
-                  </svg>
-                </button>
-                <div class="accordion-content">
-                  <div class="accordion-content-inner">
-                    Yes. It's animated by default with smooth transitions.
+                <div class="accordion-item" data-value="item-3">
+                  <button class="accordion-trigger">
+                    Is it animated?
+                    <svg class="accordion-trigger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m6 9 6 6 6-6"/>
+                    </svg>
+                  </button>
+                  <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                      Yes. It's animated by default with smooth transitions.
+                    </div>
                   </div>
                 </div>
               </div>
@@ -157,44 +161,46 @@
             <button class="btn btn-outline btn-sm" onclick="openAllMultiple()">Open All</button>
             <button class="btn btn-outline btn-sm" onclick="closeAllMultiple()">Close All</button>
           </div>
-          <div class="demo-box">
-            <div id="accordion-multiple" class="accordion" data-accordion data-accordion-type="multiple">
-              <div class="accordion-item" data-value="section-1">
-                <button class="accordion-trigger">
-                  Section 1
-                  <svg class="accordion-trigger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="m6 9 6 6 6-6"/>
-                  </svg>
-                </button>
-                <div class="accordion-content">
-                  <div class="accordion-content-inner">
-                    Content for section 1.
+          <div class="card">
+            <div class="card-content">
+              <div id="accordion-multiple" class="accordion" data-accordion data-accordion-type="multiple">
+                <div class="accordion-item" data-value="section-1">
+                  <button class="accordion-trigger">
+                    Section 1
+                    <svg class="accordion-trigger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m6 9 6 6 6-6"/>
+                    </svg>
+                  </button>
+                  <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                      Content for section 1.
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="accordion-item" data-value="section-2">
-                <button class="accordion-trigger">
-                  Section 2
-                  <svg class="accordion-trigger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="m6 9 6 6 6-6"/>
-                  </svg>
-                </button>
-                <div class="accordion-content">
-                  <div class="accordion-content-inner">
-                    Content for section 2.
+                <div class="accordion-item" data-value="section-2">
+                  <button class="accordion-trigger">
+                    Section 2
+                    <svg class="accordion-trigger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m6 9 6 6 6-6"/>
+                    </svg>
+                  </button>
+                  <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                      Content for section 2.
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="accordion-item" data-value="section-3">
-                <button class="accordion-trigger">
-                  Section 3
-                  <svg class="accordion-trigger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="m6 9 6 6 6-6"/>
-                  </svg>
-                </button>
-                <div class="accordion-content">
-                  <div class="accordion-content-inner">
-                    Content for section 3.
+                <div class="accordion-item" data-value="section-3">
+                  <button class="accordion-trigger">
+                    Section 3
+                    <svg class="accordion-trigger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m6 9 6 6 6-6"/>
+                    </svg>
+                  </button>
+                  <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                      Content for section 3.
+                    </div>
                   </div>
                 </div>
               </div>
@@ -245,44 +251,46 @@ BrandUI.accordion.close(accordion, 'section-1');</code></pre>
         <div class="section">
           <h2 class="section-title">Non-Collapsible</h2>
           <p class="section-desc">At least one item must always remain open. Useful for settings or navigation.</p>
-          <div class="demo-box">
-            <div class="accordion" data-accordion data-accordion-type="single" data-accordion-collapsible="false" data-accordion-default-value="required-1">
-              <div class="accordion-item" data-value="required-1">
-                <button class="accordion-trigger">
-                  First Section
-                  <svg class="accordion-trigger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="m6 9 6 6 6-6"/>
-                  </svg>
-                </button>
-                <div class="accordion-content">
-                  <div class="accordion-content-inner">
-                    This accordion always has one item open. Click another item to switch.
+          <div class="card">
+            <div class="card-content">
+              <div class="accordion" data-accordion data-accordion-type="single" data-accordion-collapsible="false" data-accordion-default-value="required-1">
+                <div class="accordion-item" data-value="required-1">
+                  <button class="accordion-trigger">
+                    First Section
+                    <svg class="accordion-trigger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m6 9 6 6 6-6"/>
+                    </svg>
+                  </button>
+                  <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                      This accordion always has one item open. Click another item to switch.
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="accordion-item" data-value="required-2">
-                <button class="accordion-trigger">
-                  Second Section
-                  <svg class="accordion-trigger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="m6 9 6 6 6-6"/>
-                  </svg>
-                </button>
-                <div class="accordion-content">
-                  <div class="accordion-content-inner">
-                    Click here to open this section and close the first one.
+                <div class="accordion-item" data-value="required-2">
+                  <button class="accordion-trigger">
+                    Second Section
+                    <svg class="accordion-trigger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m6 9 6 6 6-6"/>
+                    </svg>
+                  </button>
+                  <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                      Click here to open this section and close the first one.
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="accordion-item" data-value="required-3">
-                <button class="accordion-trigger">
-                  Third Section
-                  <svg class="accordion-trigger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="m6 9 6 6 6-6"/>
-                  </svg>
-                </button>
-                <div class="accordion-content">
-                  <div class="accordion-content-inner">
-                    The third section of this non-collapsible accordion.
+                <div class="accordion-item" data-value="required-3">
+                  <button class="accordion-trigger">
+                    Third Section
+                    <svg class="accordion-trigger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m6 9 6 6 6-6"/>
+                    </svg>
+                  </button>
+                  <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                      The third section of this non-collapsible accordion.
+                    </div>
                   </div>
                 </div>
               </div>
@@ -314,44 +322,46 @@ BrandUI.accordion.close(accordion, 'section-1');</code></pre>
         <div class="section">
           <h2 class="section-title">Default Open Item</h2>
           <p class="section-desc">Specify which item(s) should be open on initial load.</p>
-          <div class="demo-box">
-            <div class="accordion" data-accordion data-accordion-type="single" data-accordion-default-value="open-2">
-              <div class="accordion-item" data-value="open-1">
-                <button class="accordion-trigger">
-                  First Item
-                  <svg class="accordion-trigger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="m6 9 6 6 6-6"/>
-                  </svg>
-                </button>
-                <div class="accordion-content">
-                  <div class="accordion-content-inner">
-                    This item is closed by default.
+          <div class="card">
+            <div class="card-content">
+              <div class="accordion" data-accordion data-accordion-type="single" data-accordion-default-value="open-2">
+                <div class="accordion-item" data-value="open-1">
+                  <button class="accordion-trigger">
+                    First Item
+                    <svg class="accordion-trigger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m6 9 6 6 6-6"/>
+                    </svg>
+                  </button>
+                  <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                      This item is closed by default.
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="accordion-item" data-value="open-2">
-                <button class="accordion-trigger">
-                  Second Item (Default Open)
-                  <svg class="accordion-trigger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="m6 9 6 6 6-6"/>
-                  </svg>
-                </button>
-                <div class="accordion-content">
-                  <div class="accordion-content-inner">
-                    This item is open by default via data-accordion-default-value.
+                <div class="accordion-item" data-value="open-2">
+                  <button class="accordion-trigger">
+                    Second Item (Default Open)
+                    <svg class="accordion-trigger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m6 9 6 6 6-6"/>
+                    </svg>
+                  </button>
+                  <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                      This item is open by default via data-accordion-default-value.
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="accordion-item" data-value="open-3">
-                <button class="accordion-trigger">
-                  Third Item
-                  <svg class="accordion-trigger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="m6 9 6 6 6-6"/>
-                  </svg>
-                </button>
-                <div class="accordion-content">
-                  <div class="accordion-content-inner">
-                    This item is closed by default.
+                <div class="accordion-item" data-value="open-3">
+                  <button class="accordion-trigger">
+                    Third Item
+                    <svg class="accordion-trigger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m6 9 6 6 6-6"/>
+                    </svg>
+                  </button>
+                  <div class="accordion-content">
+                    <div class="accordion-content-inner">
+                      This item is closed by default.
+                    </div>
                   </div>
                 </div>
               </div>
@@ -389,20 +399,35 @@ BrandUI.accordion.close(accordion, 'section-1');</code></pre>
         <!-- Keyboard Navigation -->
         <div class="section">
           <h2 class="section-title">Keyboard Navigation</h2>
-          <div class="demo-box" style="padding: 0; overflow: hidden;">
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
-              <thead>
-                <tr style="background: var(--muted);">
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Key</th>
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Action</th>
+          <div class="table-container">
+            <table class="table">
+              <thead class="table-header">
+                <tr class="table-row">
+                  <th class="table-head">Key</th>
+                  <th class="table-head">Action</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>Enter</code> / <code>Space</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Toggle the focused accordion item</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>Arrow Down</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Move focus to the next trigger</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>Arrow Up</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Move focus to the previous trigger</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>Home</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Move focus to the first trigger</td></tr>
-                <tr><td style="padding: 0.75rem 1rem;"><code>End</code></td><td style="padding: 0.75rem 1rem;">Move focus to the last trigger</td></tr>
+              <tbody class="table-body">
+                <tr class="table-row">
+                  <td class="table-cell"><kbd class="kbd">Enter</kbd> / <kbd class="kbd">Space</kbd></td>
+                  <td class="table-cell">Toggle the focused accordion item</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><kbd class="kbd">Arrow Down</kbd></td>
+                  <td class="table-cell">Move focus to the next trigger</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><kbd class="kbd">Arrow Up</kbd></td>
+                  <td class="table-cell">Move focus to the previous trigger</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><kbd class="kbd">Home</kbd></td>
+                  <td class="table-cell">Move focus to the first trigger</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><kbd class="kbd">End</kbd></td>
+                  <td class="table-cell">Move focus to the last trigger</td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -411,20 +436,35 @@ BrandUI.accordion.close(accordion, 'section-1');</code></pre>
         <!-- Data Attributes Reference -->
         <div class="section">
           <h2 class="section-title">Data Attributes Reference</h2>
-          <div class="demo-box" style="padding: 0; overflow: hidden;">
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
-              <thead>
-                <tr style="background: var(--muted);">
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Attribute</th>
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+          <div class="table-container">
+            <table class="table">
+              <thead class="table-header">
+                <tr class="table-row">
+                  <th class="table-head">Attribute</th>
+                  <th class="table-head">Description</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-accordion</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Initialize accordion on this element (required)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-accordion-type</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>"single"</code> (default) or <code>"multiple"</code></td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-accordion-collapsible</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>"true"</code> (default) or <code>"false"</code> - Allow closing all items in single mode</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-accordion-default-value</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Value of initially open item(s). String for single, JSON array for multiple.</td></tr>
-                <tr><td style="padding: 0.75rem 1rem;"><code>data-value</code></td><td style="padding: 0.75rem 1rem;">Unique identifier for each accordion item (on <code>.accordion-item</code>)</td></tr>
+              <tbody class="table-body">
+                <tr class="table-row">
+                  <td class="table-cell"><code>data-accordion</code></td>
+                  <td class="table-cell">Initialize accordion on this element (required)</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>data-accordion-type</code></td>
+                  <td class="table-cell"><code>"single"</code> (default) or <code>"multiple"</code></td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>data-accordion-collapsible</code></td>
+                  <td class="table-cell"><code>"true"</code> (default) or <code>"false"</code> - Allow closing all items in single mode</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>data-accordion-default-value</code></td>
+                  <td class="table-cell">Value of initially open item(s). String for single, JSON array for multiple.</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>data-value</code></td>
+                  <td class="table-cell">Unique identifier for each accordion item (on <code>.accordion-item</code>)</td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -433,21 +473,39 @@ BrandUI.accordion.close(accordion, 'section-1');</code></pre>
         <!-- CSS Classes Reference -->
         <div class="section">
           <h2 class="section-title">CSS Classes Reference</h2>
-          <div class="demo-box" style="padding: 0; overflow: hidden;">
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
-              <thead>
-                <tr style="background: var(--muted);">
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Class</th>
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+          <div class="table-container">
+            <table class="table">
+              <thead class="table-header">
+                <tr class="table-row">
+                  <th class="table-head">Class</th>
+                  <th class="table-head">Description</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.accordion</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Container element</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.accordion-item</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Individual accordion item wrapper</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.accordion-trigger</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Clickable header button</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.accordion-trigger-icon</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Chevron icon (rotates when open)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.accordion-content</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Collapsible content wrapper</td></tr>
-                <tr><td style="padding: 0.75rem 1rem;"><code>.accordion-content-inner</code></td><td style="padding: 0.75rem 1rem;">Inner wrapper for content padding</td></tr>
+              <tbody class="table-body">
+                <tr class="table-row">
+                  <td class="table-cell"><code>.accordion</code></td>
+                  <td class="table-cell">Container element</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>.accordion-item</code></td>
+                  <td class="table-cell">Individual accordion item wrapper</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>.accordion-trigger</code></td>
+                  <td class="table-cell">Clickable header button</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>.accordion-trigger-icon</code></td>
+                  <td class="table-cell">Chevron icon (rotates when open)</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>.accordion-content</code></td>
+                  <td class="table-cell">Collapsible content wrapper</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>.accordion-content-inner</code></td>
+                  <td class="table-cell">Inner wrapper for content padding</td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -456,17 +514,23 @@ BrandUI.accordion.close(accordion, 'section-1');</code></pre>
         <!-- Events -->
         <div class="section">
           <h2 class="section-title">Events</h2>
-          <div class="demo-box" style="padding: 0; overflow: hidden;">
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
-              <thead>
-                <tr style="background: var(--muted);">
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Event</th>
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+          <div class="table-container">
+            <table class="table">
+              <thead class="table-header">
+                <tr class="table-row">
+                  <th class="table-head">Event</th>
+                  <th class="table-head">Description</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>accordion:open</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Fired when an item opens. <code>e.detail.value</code> contains the item value.</td></tr>
-                <tr><td style="padding: 0.75rem 1rem;"><code>accordion:close</code></td><td style="padding: 0.75rem 1rem;">Fired when an item closes. <code>e.detail.value</code> contains the item value.</td></tr>
+              <tbody class="table-body">
+                <tr class="table-row">
+                  <td class="table-cell"><code>accordion:open</code></td>
+                  <td class="table-cell">Fired when an item opens. <code>e.detail.value</code> contains the item value.</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>accordion:close</code></td>
+                  <td class="table-cell">Fired when an item closes. <code>e.detail.value</code> contains the item value.</td>
+                </tr>
               </tbody>
             </table>
           </div>

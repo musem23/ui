@@ -236,7 +236,7 @@
         <section class="section">
           <h2 class="section-title">Usage</h2>
 
-          <h3 style="font-size: 1rem; margin-bottom: 0.75rem;">HTML Structure</h3>
+          <h3 class="section-subtitle">HTML Structure</h3>
           <pre style="background: var(--muted); padding: 1rem; border-radius: var(--radius); overflow-x: auto; font-size: 0.875rem; font-family: var(--font-mono);"><code>&lt;div class="carousel" data-carousel&gt;
   &lt;div class="carousel-content"&gt;
     &lt;div class="carousel-track"&gt;
@@ -248,50 +248,52 @@
   &lt;!-- Navigation buttons auto-generated, or add manually --&gt;
 &lt;/div&gt;</code></pre>
 
-          <h3 style="font-size: 1rem; margin: 1.5rem 0 0.75rem;">Data Attributes</h3>
-          <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
-            <thead>
-              <tr style="border-bottom: 1px solid var(--border);">
-                <th style="text-align: left; padding: 0.75rem 0; font-weight: 600;">Attribute</th>
-                <th style="text-align: left; padding: 0.75rem 0; font-weight: 600;">Default</th>
-                <th style="text-align: left; padding: 0.75rem 0; font-weight: 600;">Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr style="border-bottom: 1px solid var(--border);">
-                <td style="padding: 0.75rem 0; font-family: var(--font-mono);">data-carousel</td>
-                <td style="padding: 0.75rem 0;">-</td>
-                <td style="padding: 0.75rem 0; color: var(--muted-foreground);">Required. Enables carousel.</td>
-              </tr>
-              <tr style="border-bottom: 1px solid var(--border);">
-                <td style="padding: 0.75rem 0; font-family: var(--font-mono);">data-carousel-loop</td>
-                <td style="padding: 0.75rem 0;">false</td>
-                <td style="padding: 0.75rem 0; color: var(--muted-foreground);">Loop back to start/end.</td>
-              </tr>
-              <tr style="border-bottom: 1px solid var(--border);">
-                <td style="padding: 0.75rem 0; font-family: var(--font-mono);">data-carousel-show-dots</td>
-                <td style="padding: 0.75rem 0;">false</td>
-                <td style="padding: 0.75rem 0; color: var(--muted-foreground);">Show dot indicators.</td>
-              </tr>
-              <tr style="border-bottom: 1px solid var(--border);">
-                <td style="padding: 0.75rem 0; font-family: var(--font-mono);">data-carousel-autoplay</td>
-                <td style="padding: 0.75rem 0;">false</td>
-                <td style="padding: 0.75rem 0; color: var(--muted-foreground);">Auto-advance slides.</td>
-              </tr>
-              <tr style="border-bottom: 1px solid var(--border);">
-                <td style="padding: 0.75rem 0; font-family: var(--font-mono);">data-carousel-autoplay-interval</td>
-                <td style="padding: 0.75rem 0;">5000</td>
-                <td style="padding: 0.75rem 0; color: var(--muted-foreground);">Autoplay interval (ms).</td>
-              </tr>
-              <tr style="border-bottom: 1px solid var(--border);">
-                <td style="padding: 0.75rem 0; font-family: var(--font-mono);">data-carousel-orientation</td>
-                <td style="padding: 0.75rem 0;">horizontal</td>
-                <td style="padding: 0.75rem 0; color: var(--muted-foreground);">horizontal or vertical.</td>
-              </tr>
-            </tbody>
-          </table>
+          <h3 class="section-subtitle">Data Attributes</h3>
+          <div class="table-container">
+            <table class="table">
+              <thead class="table-header">
+                <tr class="table-row">
+                  <th class="table-head">Attribute</th>
+                  <th class="table-head">Default</th>
+                  <th class="table-head">Description</th>
+                </tr>
+              </thead>
+              <tbody class="table-body">
+                <tr class="table-row">
+                  <td class="table-cell"><code>data-carousel</code></td>
+                  <td class="table-cell">-</td>
+                  <td class="table-cell">Required. Enables carousel.</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>data-carousel-loop</code></td>
+                  <td class="table-cell">false</td>
+                  <td class="table-cell">Loop back to start/end.</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>data-carousel-show-dots</code></td>
+                  <td class="table-cell">false</td>
+                  <td class="table-cell">Show dot indicators.</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>data-carousel-autoplay</code></td>
+                  <td class="table-cell">false</td>
+                  <td class="table-cell">Auto-advance slides.</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>data-carousel-autoplay-interval</code></td>
+                  <td class="table-cell">5000</td>
+                  <td class="table-cell">Autoplay interval (ms).</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>data-carousel-orientation</code></td>
+                  <td class="table-cell">horizontal</td>
+                  <td class="table-cell">horizontal or vertical.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-          <h3 style="font-size: 1rem; margin: 1.5rem 0 0.75rem;">JavaScript API</h3>
+          <h3 class="section-subtitle">JavaScript API</h3>
           <pre style="background: var(--muted); padding: 1rem; border-radius: var(--radius); overflow-x: auto; font-size: 0.875rem; font-family: var(--font-mono);"><code>// Get instance
 const carousel = BrandUI.getInstance(element, 'carousel');
 
@@ -308,33 +310,35 @@ element.addEventListener('carousel:change', (e) => {
   console.log(e.detail.currentIndex, e.detail.previousIndex);
 });</code></pre>
 
-          <h3 style="font-size: 1rem; margin: 1.5rem 0 0.75rem;">Keyboard Navigation</h3>
-          <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
-            <thead>
-              <tr style="border-bottom: 1px solid var(--border);">
-                <th style="text-align: left; padding: 0.75rem 0; font-weight: 600;">Key</th>
-                <th style="text-align: left; padding: 0.75rem 0; font-weight: 600;">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr style="border-bottom: 1px solid var(--border);">
-                <td style="padding: 0.75rem 0;"><kbd style="background: var(--muted); padding: 0.25rem 0.5rem; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.75rem;">ArrowLeft</kbd> / <kbd style="background: var(--muted); padding: 0.25rem 0.5rem; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.75rem;">ArrowUp</kbd></td>
-                <td style="padding: 0.75rem 0; color: var(--muted-foreground);">Previous slide</td>
-              </tr>
-              <tr style="border-bottom: 1px solid var(--border);">
-                <td style="padding: 0.75rem 0;"><kbd style="background: var(--muted); padding: 0.25rem 0.5rem; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.75rem;">ArrowRight</kbd> / <kbd style="background: var(--muted); padding: 0.25rem 0.5rem; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.75rem;">ArrowDown</kbd></td>
-                <td style="padding: 0.75rem 0; color: var(--muted-foreground);">Next slide</td>
-              </tr>
-              <tr style="border-bottom: 1px solid var(--border);">
-                <td style="padding: 0.75rem 0;"><kbd style="background: var(--muted); padding: 0.25rem 0.5rem; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.75rem;">Home</kbd></td>
-                <td style="padding: 0.75rem 0; color: var(--muted-foreground);">First slide</td>
-              </tr>
-              <tr style="border-bottom: 1px solid var(--border);">
-                <td style="padding: 0.75rem 0;"><kbd style="background: var(--muted); padding: 0.25rem 0.5rem; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.75rem;">End</kbd></td>
-                <td style="padding: 0.75rem 0; color: var(--muted-foreground);">Last slide</td>
-              </tr>
-            </tbody>
-          </table>
+          <h3 class="section-subtitle">Keyboard Navigation</h3>
+          <div class="table-container">
+            <table class="table">
+              <thead class="table-header">
+                <tr class="table-row">
+                  <th class="table-head">Key</th>
+                  <th class="table-head">Action</th>
+                </tr>
+              </thead>
+              <tbody class="table-body">
+                <tr class="table-row">
+                  <td class="table-cell"><kbd>ArrowLeft</kbd> / <kbd>ArrowUp</kbd></td>
+                  <td class="table-cell">Previous slide</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><kbd>ArrowRight</kbd> / <kbd>ArrowDown</kbd></td>
+                  <td class="table-cell">Next slide</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><kbd>Home</kbd></td>
+                  <td class="table-cell">First slide</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><kbd>End</kbd></td>
+                  <td class="table-cell">Last slide</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </section>
       </main>
     </div>

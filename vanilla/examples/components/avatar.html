@@ -39,7 +39,7 @@
         <!-- With Image -->
         <section class="section">
           <h2 class="section-title">With Image</h2>
-          <div class="demo-box">
+          <div class="card"><div class="card-content">
             <div class="demo-row">
               <div class="avatar">
                 <img class="avatar-image" src="https://i.pravatar.cc/150?img=1" alt="User avatar">
@@ -51,7 +51,7 @@
                 <img class="avatar-image" src="https://i.pravatar.cc/150?img=3" alt="User avatar">
               </div>
             </div>
-          </div>
+          </div></div>
 
           <div class="code-tabs">
             <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'image-html')">HTML</button>
@@ -76,7 +76,7 @@
         <!-- With Fallback -->
         <section class="section">
           <h2 class="section-title">With Fallback Initials</h2>
-          <div class="demo-box">
+          <div class="card"><div class="card-content">
             <div class="demo-row">
               <div class="avatar">
                 <span class="avatar-fallback">JD</span>
@@ -88,7 +88,7 @@
                 <span class="avatar-fallback">MK</span>
               </div>
             </div>
-          </div>
+          </div></div>
 
           <div class="code-tabs">
             <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'fallback-html')">HTML</button>
@@ -113,7 +113,7 @@
         <!-- Sizes -->
         <section class="section">
           <h2 class="section-title">Sizes</h2>
-          <div class="demo-box">
+          <div class="card"><div class="card-content">
             <div class="demo-row">
               <div class="avatar avatar-xs">
                 <img class="avatar-image" src="https://i.pravatar.cc/150?img=4" alt="User avatar">
@@ -154,7 +154,7 @@
                 <span class="avatar-fallback">2XL</span>
               </div>
             </div>
-          </div>
+          </div></div>
 
           <div class="code-tabs">
             <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'sizes-html')">HTML</button>
@@ -174,7 +174,7 @@
         <!-- Avatar Group -->
         <section class="section">
           <h2 class="section-title">Avatar Group</h2>
-          <div class="demo-box">
+          <div class="card"><div class="card-content">
             <div class="demo-row">
               <div class="avatar-group">
                 <div class="avatar">
@@ -191,7 +191,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div></div>
 
           <div class="code-tabs">
             <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'group-html')">HTML</button>
@@ -216,7 +216,7 @@
         <!-- With Status -->
         <section class="section">
           <h2 class="section-title">With Status Indicator</h2>
-          <div class="demo-box">
+          <div class="card"><div class="card-content">
             <div class="demo-row">
               <div class="avatar avatar-lg">
                 <img class="avatar-image" src="https://i.pravatar.cc/150?img=13" alt="User avatar">
@@ -231,7 +231,7 @@
                 <span class="avatar-status avatar-status-busy"></span>
               </div>
             </div>
-          </div>
+          </div></div>
 
           <div class="code-tabs">
             <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'status-html')">HTML</button>
@@ -262,7 +262,7 @@
           <p class="section-desc">
             Display a verification badge. Available in gold and gray variants, or uses primary theme color by default.
           </p>
-          <div class="demo-box">
+          <div class="card"><div class="card-content">
             <div class="demo-row">
               <div class="avatar avatar-lg">
                 <img class="avatar-image" src="https://i.pravatar.cc/150?img=16" alt="User avatar">
@@ -297,7 +297,7 @@
                 </span>
               </div>
             </div>
-          </div>
+          </div></div>
 
           <div class="code-tabs">
             <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'verified-html')">HTML</button>
@@ -325,32 +325,32 @@
         <!-- CSS Classes Reference -->
         <section class="section">
           <h2 class="section-title">CSS Classes Reference</h2>
-          <div class="demo-box" style="padding: 0; overflow: hidden;">
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
-              <thead>
-                <tr style="background: var(--muted);">
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Class</th>
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+          <div class="table-container">
+            <table class="table">
+              <thead class="table-header">
+                <tr class="table-row">
+                  <th class="table-head">Class</th>
+                  <th class="table-head">Description</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.avatar</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Base avatar container (required)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.avatar-image</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Avatar image element</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.avatar-fallback</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Fallback element for initials</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.avatar-xs</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Extra small size (1.5rem)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.avatar-sm</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Small size (2rem, default)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.avatar-md</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Medium size (2.5rem)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.avatar-lg</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Large size (3rem)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.avatar-xl</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Extra large size (4rem)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.avatar-2xl</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">2x extra large size (5rem)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.avatar-group</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Container for stacked avatars</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.avatar-status</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Base status indicator</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.avatar-status-online</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Green online status</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.avatar-status-offline</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Gray offline status</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.avatar-status-busy</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Red busy status</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.verified-badge</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Verified badge (from badge.css)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.verified-badge-gold</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Gold verified badge</td></tr>
-                <tr><td style="padding: 0.75rem 1rem;"><code>.verified-badge-gray</code></td><td style="padding: 0.75rem 1rem;">Gray verified badge</td></tr>
+              <tbody class="table-body">
+                <tr class="table-row"><td class="table-cell"><code>.avatar</code></td><td class="table-cell">Base avatar container (required)</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.avatar-image</code></td><td class="table-cell">Avatar image element</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.avatar-fallback</code></td><td class="table-cell">Fallback element for initials</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.avatar-xs</code></td><td class="table-cell">Extra small size (1.5rem)</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.avatar-sm</code></td><td class="table-cell">Small size (2rem, default)</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.avatar-md</code></td><td class="table-cell">Medium size (2.5rem)</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.avatar-lg</code></td><td class="table-cell">Large size (3rem)</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.avatar-xl</code></td><td class="table-cell">Extra large size (4rem)</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.avatar-2xl</code></td><td class="table-cell">2x extra large size (5rem)</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.avatar-group</code></td><td class="table-cell">Container for stacked avatars</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.avatar-status</code></td><td class="table-cell">Base status indicator</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.avatar-status-online</code></td><td class="table-cell">Green online status</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.avatar-status-offline</code></td><td class="table-cell">Gray offline status</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.avatar-status-busy</code></td><td class="table-cell">Red busy status</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.verified-badge</code></td><td class="table-cell">Verified badge (from badge.css)</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.verified-badge-gold</code></td><td class="table-cell">Gold verified badge</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.verified-badge-gray</code></td><td class="table-cell">Gray verified badge</td></tr>
               </tbody>
             </table>
           </div>

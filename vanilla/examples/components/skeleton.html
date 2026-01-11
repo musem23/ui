@@ -34,7 +34,9 @@
     <!-- Main -->
     <div class="app-main">
       <header class="app-header">
-        <span style="font-size: 0.875rem; font-weight: 500;">Skeleton</span>
+        <div class="header-left">
+          <span>Skeleton</span>
+        </div>
         <button class="btn btn-ghost btn-sm" id="theme-toggle">Toggle Theme</button>
       </header>
 
@@ -51,11 +53,13 @@
         <!-- Text Skeleton -->
         <div class="section">
           <h2 class="section-title">Text Skeleton</h2>
-          <div class="demo-box">
-            <div class="demo-stack" style="max-width: 20rem;">
-              <div class="skeleton skeleton-text"></div>
-              <div class="skeleton skeleton-text" style="width: 80%;"></div>
-              <div class="skeleton skeleton-text" style="width: 60%;"></div>
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-stack" style="max-width: 20rem;">
+                <div class="skeleton skeleton-text"></div>
+                <div class="skeleton skeleton-text" style="width: 80%;"></div>
+                <div class="skeleton skeleton-text" style="width: 60%;"></div>
+              </div>
             </div>
           </div>
 
@@ -99,12 +103,14 @@
         <!-- Text Sizes -->
         <div class="section">
           <h2 class="section-title">Text Sizes</h2>
-          <div class="demo-box">
-            <div class="demo-stack" style="max-width: 20rem;">
-              <div class="skeleton skeleton-text-sm" style="width: 50%;"></div>
-              <div class="skeleton skeleton-text"></div>
-              <div class="skeleton skeleton-text-lg" style="width: 70%;"></div>
-              <div class="skeleton skeleton-heading"></div>
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-stack" style="max-width: 20rem;">
+                <div class="skeleton skeleton-text-sm" style="width: 50%;"></div>
+                <div class="skeleton skeleton-text"></div>
+                <div class="skeleton skeleton-text-lg" style="width: 70%;"></div>
+                <div class="skeleton skeleton-heading"></div>
+              </div>
             </div>
           </div>
 
@@ -133,11 +139,13 @@
         <!-- Circle / Avatar -->
         <div class="section">
           <h2 class="section-title">Circle (Avatar)</h2>
-          <div class="demo-box">
-            <div class="demo-row">
-              <div class="skeleton skeleton-avatar-sm"></div>
-              <div class="skeleton skeleton-avatar"></div>
-              <div class="skeleton skeleton-avatar-lg"></div>
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-row">
+                <div class="skeleton skeleton-avatar-sm"></div>
+                <div class="skeleton skeleton-avatar"></div>
+                <div class="skeleton skeleton-avatar-lg"></div>
+              </div>
             </div>
           </div>
 
@@ -178,19 +186,21 @@
         <!-- Card Layout -->
         <div class="section">
           <h2 class="section-title">Card Layout</h2>
-          <div class="demo-box">
-            <div class="demo-card">
-              <div class="demo-card-header">
-                <div class="skeleton skeleton-avatar"></div>
-                <div style="flex: 1; display: flex; flex-direction: column; gap: 0.375rem;">
-                  <div class="skeleton skeleton-text" style="width: 60%;"></div>
-                  <div class="skeleton skeleton-text-sm" style="width: 40%;"></div>
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-card">
+                <div class="demo-card-header">
+                  <div class="skeleton skeleton-avatar"></div>
+                  <div style="flex: 1; display: flex; flex-direction: column; gap: 0.375rem;">
+                    <div class="skeleton skeleton-text" style="width: 60%;"></div>
+                    <div class="skeleton skeleton-text-sm" style="width: 40%;"></div>
+                  </div>
                 </div>
-              </div>
-              <div class="demo-card-content">
-                <div class="skeleton skeleton-text"></div>
-                <div class="skeleton skeleton-text"></div>
-                <div class="skeleton skeleton-text" style="width: 75%;"></div>
+                <div class="demo-card-content">
+                  <div class="skeleton skeleton-text"></div>
+                  <div class="skeleton skeleton-text"></div>
+                  <div class="skeleton skeleton-text" style="width: 75%;"></div>
+                </div>
               </div>
             </div>
           </div>
@@ -245,13 +255,15 @@
         <!-- Button & Image -->
         <div class="section">
           <h2 class="section-title">Button & Image</h2>
-          <div class="demo-box">
-            <div class="demo-stack" style="max-width: 20rem; gap: 1rem;">
-              <div class="demo-row">
-                <div class="skeleton skeleton-button"></div>
-                <div class="skeleton skeleton-button" style="width: 8rem;"></div>
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-stack" style="max-width: 20rem; gap: 1rem;">
+                <div class="demo-row">
+                  <div class="skeleton skeleton-button"></div>
+                  <div class="skeleton skeleton-button" style="width: 8rem;"></div>
+                </div>
+                <div class="skeleton skeleton-image"></div>
               </div>
-              <div class="skeleton skeleton-image"></div>
             </div>
           </div>
 
@@ -295,26 +307,59 @@
         <!-- CSS Classes Reference -->
         <div class="section">
           <h2 class="section-title">CSS Classes Reference</h2>
-          <div class="demo-box" style="padding: 0; overflow: hidden;">
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
-              <thead>
-                <tr style="background: var(--muted);">
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Class</th>
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+          <div class="table-container">
+            <table class="table">
+              <thead class="table-header">
+                <tr class="table-row">
+                  <th class="table-head">Class</th>
+                  <th class="table-head">Description</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.skeleton</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Base skeleton class with pulse animation (required)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.skeleton-text</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Text line placeholder (height: 1rem)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.skeleton-text-sm</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Small text placeholder (height: 0.75rem)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.skeleton-text-lg</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Large text placeholder (height: 1.25rem)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.skeleton-heading</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Heading placeholder (height: 1.5rem, width: 60%)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.skeleton-avatar</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Circle avatar placeholder (2.5rem)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.skeleton-avatar-sm</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Small avatar placeholder (2rem)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.skeleton-avatar-lg</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Large avatar placeholder (3rem)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.skeleton-button</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Button placeholder (height: 2.25rem, width: 5rem)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.skeleton-image</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Image placeholder (height: 10rem)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem;"><code>.skeleton-card</code></td><td style="padding: 0.75rem 1rem;">Card placeholder (height: 12rem)</td></tr>
+              <tbody class="table-body">
+                <tr class="table-row">
+                  <td class="table-cell"><code>.skeleton</code></td>
+                  <td class="table-cell">Base skeleton class with pulse animation (required)</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>.skeleton-text</code></td>
+                  <td class="table-cell">Text line placeholder (height: 1rem)</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>.skeleton-text-sm</code></td>
+                  <td class="table-cell">Small text placeholder (height: 0.75rem)</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>.skeleton-text-lg</code></td>
+                  <td class="table-cell">Large text placeholder (height: 1.25rem)</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>.skeleton-heading</code></td>
+                  <td class="table-cell">Heading placeholder (height: 1.5rem, width: 60%)</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>.skeleton-avatar</code></td>
+                  <td class="table-cell">Circle avatar placeholder (2.5rem)</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>.skeleton-avatar-sm</code></td>
+                  <td class="table-cell">Small avatar placeholder (2rem)</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>.skeleton-avatar-lg</code></td>
+                  <td class="table-cell">Large avatar placeholder (3rem)</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>.skeleton-button</code></td>
+                  <td class="table-cell">Button placeholder (height: 2.25rem, width: 5rem)</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>.skeleton-image</code></td>
+                  <td class="table-cell">Image placeholder (height: 10rem)</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>.skeleton-card</code></td>
+                  <td class="table-cell">Card placeholder (height: 12rem)</td>
+                </tr>
               </tbody>
             </table>
           </div>

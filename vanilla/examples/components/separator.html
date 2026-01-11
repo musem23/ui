@@ -52,7 +52,9 @@
     <!-- Main -->
     <main class="app-main">
       <header class="app-header">
-        <span style="font-size: 0.875rem; font-weight: 500;">Separator</span>
+        <div class="header-left">
+          <span>Separator</span>
+        </div>
         <button class="btn btn-ghost btn-sm" id="theme-toggle">Dark</button>
       </header>
 
@@ -69,15 +71,17 @@
         <!-- Horizontal Separator -->
         <div class="section">
           <h2 class="section-title">Horizontal Separator</h2>
-          <div class="demo-box">
-            <div class="demo-content">
-              <h4>Radix Primitives</h4>
-              <p>An open-source UI component library.</p>
-            </div>
-            <div class="separator separator-horizontal" role="separator" aria-orientation="horizontal"></div>
-            <div class="demo-content">
-              <h4>Brand UI</h4>
-              <p>A CSS-only component library.</p>
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-content">
+                <h4>Radix Primitives</h4>
+                <p>An open-source UI component library.</p>
+              </div>
+              <div class="separator separator-horizontal" role="separator" aria-orientation="horizontal"></div>
+              <div class="demo-content">
+                <h4>Brand UI</h4>
+                <p>A CSS-only component library.</p>
+              </div>
             </div>
           </div>
 
@@ -113,13 +117,15 @@
         <!-- Vertical Separator -->
         <div class="section">
           <h2 class="section-title">Vertical Separator</h2>
-          <div class="demo-box">
-            <div class="vertical-demo">
-              <span>Blog</span>
-              <div class="separator separator-vertical" role="separator" aria-orientation="vertical"></div>
-              <span>Docs</span>
-              <div class="separator separator-vertical" role="separator" aria-orientation="vertical"></div>
-              <span>Source</span>
+          <div class="card">
+            <div class="card-content">
+              <div class="vertical-demo">
+                <span>Blog</span>
+                <div class="separator separator-vertical" role="separator" aria-orientation="vertical"></div>
+                <span>Docs</span>
+                <div class="separator separator-vertical" role="separator" aria-orientation="vertical"></div>
+                <span>Source</span>
+              </div>
             </div>
           </div>
 
@@ -161,13 +167,15 @@
         <!-- Decorative Separator -->
         <div class="section">
           <h2 class="section-title">Decorative (No Semantic Meaning)</h2>
-          <div class="demo-box">
-            <div class="demo-content">
-              <p>Content above the separator.</p>
-            </div>
-            <div class="separator separator-horizontal" role="none"></div>
-            <div class="demo-content">
-              <p>Content below the separator.</p>
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-content">
+                <p>Content above the separator.</p>
+              </div>
+              <div class="separator separator-horizontal" role="none"></div>
+              <div class="demo-content">
+                <p>Content below the separator.</p>
+              </div>
             </div>
           </div>
 
@@ -185,18 +193,27 @@
         <!-- CSS Classes Reference -->
         <div class="section">
           <h2 class="section-title">CSS Classes Reference</h2>
-          <div class="demo-box" style="padding: 0; overflow: hidden;">
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
-              <thead>
-                <tr style="background: var(--muted);">
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Class</th>
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+          <div class="table-container">
+            <table class="table">
+              <thead class="table-header">
+                <tr class="table-row">
+                  <th class="table-head">Class</th>
+                  <th class="table-head">Description</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.separator</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Base separator class (required)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.separator-horizontal</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Horizontal divider (full width, 1px height)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem;"><code>.separator-vertical</code></td><td style="padding: 0.75rem 1rem;">Vertical divider (full height, 1px width)</td></tr>
+              <tbody class="table-body">
+                <tr class="table-row">
+                  <td class="table-cell"><code>.separator</code></td>
+                  <td class="table-cell">Base separator class (required)</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>.separator-horizontal</code></td>
+                  <td class="table-cell">Horizontal divider (full width, 1px height)</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>.separator-vertical</code></td>
+                  <td class="table-cell">Vertical divider (full height, 1px width)</td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -205,18 +222,27 @@
         <!-- Accessibility -->
         <div class="section">
           <h2 class="section-title">Accessibility</h2>
-          <div class="demo-box" style="padding: 0; overflow: hidden;">
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
-              <thead>
-                <tr style="background: var(--muted);">
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Attribute</th>
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+          <div class="table-container">
+            <table class="table">
+              <thead class="table-header">
+                <tr class="table-row">
+                  <th class="table-head">Attribute</th>
+                  <th class="table-head">Description</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>role="separator"</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Indicates a semantic separator for assistive technologies</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>aria-orientation</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Set to "horizontal" or "vertical" to match visual orientation</td></tr>
-                <tr><td style="padding: 0.75rem 1rem;"><code>role="none"</code></td><td style="padding: 0.75rem 1rem;">Use for purely decorative separators with no semantic meaning</td></tr>
+              <tbody class="table-body">
+                <tr class="table-row">
+                  <td class="table-cell"><code>role="separator"</code></td>
+                  <td class="table-cell">Indicates a semantic separator for assistive technologies</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>aria-orientation</code></td>
+                  <td class="table-cell">Set to "horizontal" or "vertical" to match visual orientation</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>role="none"</code></td>
+                  <td class="table-cell">Use for purely decorative separators with no semantic meaning</td>
+                </tr>
               </tbody>
             </table>
           </div>

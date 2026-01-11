@@ -38,8 +38,8 @@
         <section class="section">
           <h2 class="section-title">Basic</h2>
           <p class="section-desc">A simple collapsible with default styling.</p>
-          <div class="demo-box">
-            <div class="collapsible" data-collapsible data-state="closed" style="padding: 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);">
+          <div class="card"><div class="card-content">
+            <div class="collapsible" data-collapsible data-state="closed" style="padding: 1rem; background: var(--surface); border-radius: var(--radius);">
               <button type="button" class="collapsible-trigger" aria-expanded="false" style="font-weight: 500; padding: 0.5rem 0;">
                 <span>Can I use this in my project?</span>
                 <svg class="collapsible-trigger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -53,7 +53,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div></div>
           <div class="code-tabs">
             <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'basic-html')">HTML</button>
           </div>
@@ -78,8 +78,8 @@
         <section class="section">
           <h2 class="section-title">Initially Open</h2>
           <p class="section-desc">A collapsible that starts in the open state.</p>
-          <div class="demo-box">
-            <div class="collapsible" data-collapsible data-open="true" data-state="open" style="padding: 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);">
+          <div class="card"><div class="card-content">
+            <div class="collapsible" data-collapsible data-open="true" data-state="open" style="padding: 1rem; background: var(--surface); border-radius: var(--radius);">
               <button type="button" class="collapsible-trigger" aria-expanded="true" style="font-weight: 500; padding: 0.5rem 0;">
                 <span>This section is open by default</span>
                 <svg class="collapsible-trigger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -92,7 +92,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div></div>
           <div class="code-tabs">
             <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'open-html')">HTML</button>
           </div>
@@ -110,8 +110,8 @@
         <section class="section">
           <h2 class="section-title">Styled Card</h2>
           <p class="section-desc">A collapsible styled as a card with background and borders.</p>
-          <div class="demo-box">
-            <div class="collapsible" data-collapsible data-state="closed" style="background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;">
+          <div class="card"><div class="card-content">
+            <div class="collapsible" data-collapsible data-state="closed" style="background: var(--card); border-radius: var(--radius); overflow: hidden;">
               <button type="button" class="collapsible-trigger" aria-expanded="false" style="padding: 1rem; font-weight: 500; background: var(--surface);">
                 <span>Show more details</span>
                 <svg class="collapsible-trigger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -129,15 +129,15 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div></div>
         </section>
 
         <!-- Disabled -->
         <section class="section">
           <h2 class="section-title">Disabled</h2>
           <p class="section-desc">A collapsible that cannot be toggled.</p>
-          <div class="demo-box">
-            <div class="collapsible" data-collapsible data-state="closed" style="padding: 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);">
+          <div class="card"><div class="card-content">
+            <div class="collapsible" data-collapsible data-state="closed" style="padding: 1rem; background: var(--surface); border-radius: var(--radius);">
               <button type="button" class="collapsible-trigger" aria-expanded="false" disabled style="font-weight: 500; padding: 0.5rem 0;">
                 <span>This section is disabled</span>
                 <svg class="collapsible-trigger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -150,14 +150,14 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div></div>
         </section>
 
         <!-- FAQ Example -->
         <section class="section">
           <h2 class="section-title">FAQ Example</h2>
           <p class="section-desc">Multiple collapsibles used as an FAQ section.</p>
-          <div class="demo-box" style="padding: 0;">
+          <div class="card"><div class="card-content" style="padding: 0;">
             <div style="border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;">
               <div class="collapsible" data-collapsible data-state="closed" style="padding: 0 1rem; border-bottom: 1px solid var(--border);">
                 <button type="button" class="collapsible-trigger" aria-expanded="false" style="padding: 1rem 0; font-weight: 500;">
@@ -201,15 +201,15 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div></div>
         </section>
 
         <!-- Programmatic Control -->
         <section class="section">
           <h2 class="section-title">Programmatic Control</h2>
           <p class="section-desc">Control the collapsible state via JavaScript API.</p>
-          <div class="demo-box">
-            <div class="collapsible" id="controlled-collapsible" data-collapsible data-state="closed" style="background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin-bottom: 1rem;">
+          <div class="card"><div class="card-content">
+            <div class="collapsible" id="controlled-collapsible" data-collapsible data-state="closed" style="background: var(--card); border-radius: var(--radius); overflow: hidden; margin-bottom: 1rem;">
               <button type="button" class="collapsible-trigger" aria-expanded="false" style="padding: 1rem; font-weight: 500; background: var(--surface);">
                 <span>Controlled Collapsible</span>
                 <svg class="collapsible-trigger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -232,7 +232,7 @@
             <div class="install-box" style="margin-top: 1rem; margin-bottom: 0;">
               <code id="controlled-output" style="margin: 0;">State: closed</code>
             </div>
-          </div>
+          </div></div>
           <div class="code-tabs">
             <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'api-js')">JS</button>
           </div>
@@ -260,8 +260,8 @@ const isOpen = collapsible.isOpen();</code></pre>
         <section class="section">
           <h2 class="section-title">Events</h2>
           <p class="section-desc">Listen for collapsible state changes.</p>
-          <div class="demo-box">
-            <div class="collapsible" id="event-collapsible" data-collapsible data-state="closed" style="background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin-bottom: 1rem;">
+          <div class="card"><div class="card-content">
+            <div class="collapsible" id="event-collapsible" data-collapsible data-state="closed" style="background: var(--card); border-radius: var(--radius); overflow: hidden; margin-bottom: 1rem;">
               <button type="button" class="collapsible-trigger" aria-expanded="false" style="padding: 1rem; font-weight: 500; background: var(--surface);">
                 <span>Click to trigger events</span>
                 <svg class="collapsible-trigger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -278,7 +278,7 @@ const isOpen = collapsible.isOpen();</code></pre>
             <div class="install-box" style="margin-top: 0; margin-bottom: 0;">
               <code id="event-output" style="margin: 0; white-space: pre-wrap;">Events will appear here...</code>
             </div>
-          </div>
+          </div></div>
           <div class="code-tabs">
             <button class="code-tab active" onclick="BrandUILayout.showTab(this, 'events-js')">JS</button>
           </div>

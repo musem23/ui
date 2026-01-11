@@ -32,7 +32,7 @@
     <!-- Main -->
     <main class="app-main">
       <header class="app-header">
-        <span style="font-size: 0.875rem; font-weight: 500;">Slider</span>
+        <div class="header-left"><span>Slider</span></div>
         <button class="btn btn-ghost btn-sm" id="theme-toggle">Dark</button>
       </header>
 
@@ -51,16 +51,18 @@
         <!-- Basic Slider -->
         <div class="section">
           <h2 class="section-title">Basic Slider</h2>
-          <div class="demo-box">
-            <div class="slider-demo-item">
-              <label>Volume</label>
-              <div class="slider" data-slider data-value="50" id="basic-slider">
-                <div class="slider-track">
-                  <div class="slider-range"></div>
+          <div class="card">
+            <div class="card-content">
+              <div class="slider-demo-item">
+                <label>Volume</label>
+                <div class="slider" data-slider data-value="50" id="basic-slider">
+                  <div class="slider-track">
+                    <div class="slider-range"></div>
+                  </div>
+                  <div class="slider-thumb"></div>
                 </div>
-                <div class="slider-thumb"></div>
+                <span class="slider-value" id="basic-value">50</span>
               </div>
-              <span class="slider-value" id="basic-value">50</span>
             </div>
           </div>
 
@@ -103,26 +105,28 @@ element.addEventListener('slider:change', (e) => {
         <!-- Custom Range -->
         <div class="section">
           <h2 class="section-title">Custom Range</h2>
-          <div class="demo-box">
-            <div class="slider-demo-item" style="margin-bottom: 1.5rem;">
-              <label>Temperature (0-40, step 0.5)</label>
-              <div class="slider" data-slider data-min="0" data-max="40" data-step="0.5" data-value="22" id="temp-slider">
-                <div class="slider-track">
-                  <div class="slider-range"></div>
+          <div class="card">
+            <div class="card-content">
+              <div class="slider-demo-item" style="margin-bottom: 1.5rem;">
+                <label>Temperature (0-40, step 0.5)</label>
+                <div class="slider" data-slider data-min="0" data-max="40" data-step="0.5" data-value="22" id="temp-slider">
+                  <div class="slider-track">
+                    <div class="slider-range"></div>
+                  </div>
+                  <div class="slider-thumb"></div>
                 </div>
-                <div class="slider-thumb"></div>
+                <span class="slider-value" id="temp-value">22 °C</span>
               </div>
-              <span class="slider-value" id="temp-value">22 °C</span>
-            </div>
-            <div class="slider-demo-item">
-              <label>Price ($0-$1000, step $50)</label>
-              <div class="slider" data-slider data-min="0" data-max="1000" data-step="50" data-value="250" id="price-slider">
-                <div class="slider-track">
-                  <div class="slider-range"></div>
+              <div class="slider-demo-item">
+                <label>Price ($0-$1000, step $50)</label>
+                <div class="slider" data-slider data-min="0" data-max="1000" data-step="50" data-value="250" id="price-slider">
+                  <div class="slider-track">
+                    <div class="slider-range"></div>
+                  </div>
+                  <div class="slider-thumb"></div>
                 </div>
-                <div class="slider-thumb"></div>
+                <span class="slider-value" id="price-value">$250</span>
               </div>
-              <span class="slider-value" id="price-value">$250</span>
             </div>
           </div>
 
@@ -160,34 +164,36 @@ element.addEventListener('slider:change', (e) => {
         <!-- Vertical Orientation -->
         <div class="section">
           <h2 class="section-title">Vertical Orientation</h2>
-          <div class="demo-box">
-            <div class="vertical-demo">
-              <div class="vertical-item">
-                <div class="slider" data-slider data-orientation="vertical" data-value="75" id="v1-slider">
-                  <div class="slider-track">
-                    <div class="slider-range"></div>
+          <div class="card">
+            <div class="card-content">
+              <div class="vertical-demo">
+                <div class="vertical-item">
+                  <div class="slider" data-slider data-orientation="vertical" data-value="75" id="v1-slider">
+                    <div class="slider-track">
+                      <div class="slider-range"></div>
+                    </div>
+                    <div class="slider-thumb"></div>
                   </div>
-                  <div class="slider-thumb"></div>
+                  <span class="slider-value" id="v1-value">75</span>
                 </div>
-                <span class="slider-value" id="v1-value">75</span>
-              </div>
-              <div class="vertical-item">
-                <div class="slider" data-slider data-orientation="vertical" data-value="50" id="v2-slider">
-                  <div class="slider-track">
-                    <div class="slider-range"></div>
+                <div class="vertical-item">
+                  <div class="slider" data-slider data-orientation="vertical" data-value="50" id="v2-slider">
+                    <div class="slider-track">
+                      <div class="slider-range"></div>
+                    </div>
+                    <div class="slider-thumb"></div>
                   </div>
-                  <div class="slider-thumb"></div>
+                  <span class="slider-value" id="v2-value">50</span>
                 </div>
-                <span class="slider-value" id="v2-value">50</span>
-              </div>
-              <div class="vertical-item">
-                <div class="slider" data-slider data-orientation="vertical" data-value="25" id="v3-slider">
-                  <div class="slider-track">
-                    <div class="slider-range"></div>
+                <div class="vertical-item">
+                  <div class="slider" data-slider data-orientation="vertical" data-value="25" id="v3-slider">
+                    <div class="slider-track">
+                      <div class="slider-range"></div>
+                    </div>
+                    <div class="slider-thumb"></div>
                   </div>
-                  <div class="slider-thumb"></div>
+                  <span class="slider-value" id="v3-value">25</span>
                 </div>
-                <span class="slider-value" id="v3-value">25</span>
               </div>
             </div>
           </div>
@@ -223,16 +229,18 @@ element.addEventListener('slider:change', (e) => {
         <!-- Disabled State -->
         <div class="section">
           <h2 class="section-title">Disabled State</h2>
-          <div class="demo-box">
-            <div class="slider-demo-item">
-              <label>Disabled Slider</label>
-              <div class="slider" data-slider data-value="30" data-disabled="true">
-                <div class="slider-track">
-                  <div class="slider-range"></div>
+          <div class="card">
+            <div class="card-content">
+              <div class="slider-demo-item">
+                <label>Disabled Slider</label>
+                <div class="slider" data-slider data-value="30" data-disabled="true">
+                  <div class="slider-track">
+                    <div class="slider-range"></div>
+                  </div>
+                  <div class="slider-thumb"></div>
                 </div>
-                <div class="slider-thumb"></div>
+                <span class="slider-value">30</span>
               </div>
-              <span class="slider-value">30</span>
             </div>
           </div>
 
@@ -254,23 +262,25 @@ element.addEventListener('slider:change', (e) => {
         <!-- Programmatic Control -->
         <div class="section">
           <h2 class="section-title">Programmatic Control</h2>
-          <div class="demo-box">
-            <div class="slider-demo-item">
-              <label>Controlled Slider</label>
-              <div class="slider" data-slider data-value="50" id="controlled-slider">
-                <div class="slider-track">
-                  <div class="slider-range"></div>
+          <div class="card">
+            <div class="card-content">
+              <div class="slider-demo-item">
+                <label>Controlled Slider</label>
+                <div class="slider" data-slider data-value="50" id="controlled-slider">
+                  <div class="slider-track">
+                    <div class="slider-range"></div>
+                  </div>
+                  <div class="slider-thumb"></div>
                 </div>
-                <div class="slider-thumb"></div>
+                <span class="slider-value" id="controlled-value">50</span>
               </div>
-              <span class="slider-value" id="controlled-value">50</span>
-            </div>
-            <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
-              <button class="btn btn-outline btn-sm" onclick="setSliderValue(0)">Set 0</button>
-              <button class="btn btn-outline btn-sm" onclick="setSliderValue(25)">Set 25</button>
-              <button class="btn btn-outline btn-sm" onclick="setSliderValue(50)">Set 50</button>
-              <button class="btn btn-outline btn-sm" onclick="setSliderValue(75)">Set 75</button>
-              <button class="btn btn-outline btn-sm" onclick="setSliderValue(100)">Set 100</button>
+              <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+                <button class="btn btn-outline btn-sm" onclick="setSliderValue(0)">Set 0</button>
+                <button class="btn btn-outline btn-sm" onclick="setSliderValue(25)">Set 25</button>
+                <button class="btn btn-outline btn-sm" onclick="setSliderValue(50)">Set 50</button>
+                <button class="btn btn-outline btn-sm" onclick="setSliderValue(75)">Set 75</button>
+                <button class="btn btn-outline btn-sm" onclick="setSliderValue(100)">Set 100</button>
+              </div>
             </div>
           </div>
 
@@ -304,23 +314,23 @@ element.addEventListener('slider:change', (e) => {
         <!-- Data Attributes Reference -->
         <div class="section">
           <h2 class="section-title">Data Attributes Reference</h2>
-          <div class="demo-box" style="padding: 0; overflow: hidden;">
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
-              <thead>
-                <tr style="background: var(--muted);">
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Attribute</th>
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Default</th>
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+          <div class="table-container">
+            <table class="table">
+              <thead class="table-header">
+                <tr class="table-row">
+                  <th class="table-head">Attribute</th>
+                  <th class="table-head">Default</th>
+                  <th class="table-head">Description</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-slider</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">-</td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Required. Initializes the slider component.</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-min</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">0</td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Minimum value of the slider range.</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-max</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">100</td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Maximum value of the slider range.</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-step</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">1</td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Increment/decrement step value.</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-value</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">0</td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Initial value of the slider.</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-orientation</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">horizontal</td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Slider orientation: "horizontal" or "vertical".</td></tr>
-                <tr><td style="padding: 0.75rem 1rem;"><code>data-disabled</code></td><td style="padding: 0.75rem 1rem;">false</td><td style="padding: 0.75rem 1rem;">Set to "true" to disable the slider.</td></tr>
+              <tbody class="table-body">
+                <tr class="table-row"><td class="table-cell"><code>data-slider</code></td><td class="table-cell">-</td><td class="table-cell">Required. Initializes the slider component.</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>data-min</code></td><td class="table-cell">0</td><td class="table-cell">Minimum value of the slider range.</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>data-max</code></td><td class="table-cell">100</td><td class="table-cell">Maximum value of the slider range.</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>data-step</code></td><td class="table-cell">1</td><td class="table-cell">Increment/decrement step value.</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>data-value</code></td><td class="table-cell">0</td><td class="table-cell">Initial value of the slider.</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>data-orientation</code></td><td class="table-cell">horizontal</td><td class="table-cell">Slider orientation: "horizontal" or "vertical".</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>data-disabled</code></td><td class="table-cell">false</td><td class="table-cell">Set to "true" to disable the slider.</td></tr>
               </tbody>
             </table>
           </div>
@@ -329,21 +339,21 @@ element.addEventListener('slider:change', (e) => {
         <!-- Keyboard Navigation -->
         <div class="section">
           <h2 class="section-title">Keyboard Navigation</h2>
-          <div class="demo-box" style="padding: 0; overflow: hidden;">
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
-              <thead>
-                <tr style="background: var(--muted);">
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Key</th>
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Action</th>
+          <div class="table-container">
+            <table class="table">
+              <thead class="table-header">
+                <tr class="table-row">
+                  <th class="table-head">Key</th>
+                  <th class="table-head">Action</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>Arrow Right/Up</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Increase value by step</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>Arrow Left/Down</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Decrease value by step</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>Shift + Arrow</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Increase/decrease by 10x step</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>Home</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Jump to minimum value</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>End</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Jump to maximum value</td></tr>
-                <tr><td style="padding: 0.75rem 1rem;"><code>Page Up/Down</code></td><td style="padding: 0.75rem 1rem;">Large step (10% of range)</td></tr>
+              <tbody class="table-body">
+                <tr class="table-row"><td class="table-cell"><code>Arrow Right/Up</code></td><td class="table-cell">Increase value by step</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>Arrow Left/Down</code></td><td class="table-cell">Decrease value by step</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>Shift + Arrow</code></td><td class="table-cell">Increase/decrease by 10x step</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>Home</code></td><td class="table-cell">Jump to minimum value</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>End</code></td><td class="table-cell">Jump to maximum value</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>Page Up/Down</code></td><td class="table-cell">Large step (10% of range)</td></tr>
               </tbody>
             </table>
           </div>

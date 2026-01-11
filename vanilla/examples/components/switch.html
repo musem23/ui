@@ -45,7 +45,7 @@
     <!-- Main -->
     <main class="app-main">
       <header class="app-header">
-        <span style="font-size: 0.875rem; font-weight: 500;">Switch</span>
+        <div class="header-left"><span>Switch</span></div>
         <button class="btn btn-ghost btn-sm" id="theme-toggle">Dark</button>
       </header>
 
@@ -64,12 +64,14 @@
         <!-- Default -->
         <div class="section">
           <h2 class="section-title">Default</h2>
-          <div class="demo-box">
-            <div class="switch-label">
-              <button type="button" class="switch" data-switch id="switch-default">
-                <span class="switch-thumb"></span>
-              </button>
-              <label for="switch-default">Airplane mode</label>
+          <div class="card">
+            <div class="card-content">
+              <div class="switch-label">
+                <button type="button" class="switch" data-switch id="switch-default">
+                  <span class="switch-thumb"></span>
+                </button>
+                <label for="switch-default">Airplane mode</label>
+              </div>
             </div>
           </div>
 
@@ -116,31 +118,33 @@ document.getElementById('switch-default').addEventListener('switch:change', (e) 
         <!-- States -->
         <div class="section">
           <h2 class="section-title">States</h2>
-          <div class="demo-box">
-            <div class="demo-col">
-              <div class="switch-label">
-                <button type="button" class="switch" data-switch id="switch-unchecked">
-                  <span class="switch-thumb"></span>
-                </button>
-                <label for="switch-unchecked">Unchecked</label>
-              </div>
-              <div class="switch-label">
-                <button type="button" class="switch" data-switch aria-checked="true" id="switch-checked">
-                  <span class="switch-thumb"></span>
-                </button>
-                <label for="switch-checked">Checked</label>
-              </div>
-              <div class="switch-label">
-                <button type="button" class="switch" data-switch aria-disabled="true" id="switch-disabled">
-                  <span class="switch-thumb"></span>
-                </button>
-                <label for="switch-disabled">Disabled</label>
-              </div>
-              <div class="switch-label">
-                <button type="button" class="switch" data-switch aria-checked="true" aria-disabled="true" id="switch-disabled-checked">
-                  <span class="switch-thumb"></span>
-                </button>
-                <label for="switch-disabled-checked">Disabled checked</label>
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-col">
+                <div class="switch-label">
+                  <button type="button" class="switch" data-switch id="switch-unchecked">
+                    <span class="switch-thumb"></span>
+                  </button>
+                  <label for="switch-unchecked">Unchecked</label>
+                </div>
+                <div class="switch-label">
+                  <button type="button" class="switch" data-switch aria-checked="true" id="switch-checked">
+                    <span class="switch-thumb"></span>
+                  </button>
+                  <label for="switch-checked">Checked</label>
+                </div>
+                <div class="switch-label">
+                  <button type="button" class="switch" data-switch aria-disabled="true" id="switch-disabled">
+                    <span class="switch-thumb"></span>
+                  </button>
+                  <label for="switch-disabled">Disabled</label>
+                </div>
+                <div class="switch-label">
+                  <button type="button" class="switch" data-switch aria-checked="true" aria-disabled="true" id="switch-disabled-checked">
+                    <span class="switch-thumb"></span>
+                  </button>
+                  <label for="switch-disabled-checked">Disabled checked</label>
+                </div>
               </div>
             </div>
           </div>
@@ -176,14 +180,16 @@ document.getElementById('switch-default').addEventListener('switch:change', (e) 
         <!-- With Description -->
         <div class="section">
           <h2 class="section-title">With Description</h2>
-          <div class="demo-box">
-            <div class="switch-with-desc">
-              <button type="button" class="switch" data-switch id="switch-notifications">
-                <span class="switch-thumb"></span>
-              </button>
-              <div class="switch-desc">
-                <label for="switch-notifications">Push notifications</label>
-                <p>Receive push notifications when someone mentions you.</p>
+          <div class="card">
+            <div class="card-content">
+              <div class="switch-with-desc">
+                <button type="button" class="switch" data-switch id="switch-notifications">
+                  <span class="switch-thumb"></span>
+                </button>
+                <div class="switch-desc">
+                  <label for="switch-notifications">Push notifications</label>
+                  <p>Receive push notifications when someone mentions you.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -238,33 +244,35 @@ document.getElementById('switch-default').addEventListener('switch:change', (e) 
         <!-- Settings Example -->
         <div class="section">
           <h2 class="section-title">Settings Example</h2>
-          <div class="demo-box" style="max-width: 400px;">
-            <div class="settings-row">
-              <div class="settings-info">
-                <label for="switch-marketing">Marketing emails</label>
-                <p>Receive emails about new products.</p>
+          <div class="card" style="max-width: 400px;">
+            <div class="card-content">
+              <div class="settings-row">
+                <div class="settings-info">
+                  <label for="switch-marketing">Marketing emails</label>
+                  <p>Receive emails about new products.</p>
+                </div>
+                <button type="button" class="switch" data-switch id="switch-marketing">
+                  <span class="switch-thumb"></span>
+                </button>
               </div>
-              <button type="button" class="switch" data-switch id="switch-marketing">
-                <span class="switch-thumb"></span>
-              </button>
-            </div>
-            <div class="settings-row">
-              <div class="settings-info">
-                <label for="switch-security">Security emails</label>
-                <p>Receive emails about account security.</p>
+              <div class="settings-row">
+                <div class="settings-info">
+                  <label for="switch-security">Security emails</label>
+                  <p>Receive emails about account security.</p>
+                </div>
+                <button type="button" class="switch" data-switch aria-checked="true" id="switch-security">
+                  <span class="switch-thumb"></span>
+                </button>
               </div>
-              <button type="button" class="switch" data-switch aria-checked="true" id="switch-security">
-                <span class="switch-thumb"></span>
-              </button>
-            </div>
-            <div class="settings-row">
-              <div class="settings-info">
-                <label for="switch-newsletter">Newsletter</label>
-                <p>Receive our weekly newsletter.</p>
+              <div class="settings-row">
+                <div class="settings-info">
+                  <label for="switch-newsletter">Newsletter</label>
+                  <p>Receive our weekly newsletter.</p>
+                </div>
+                <button type="button" class="switch" data-switch id="switch-newsletter">
+                  <span class="switch-thumb"></span>
+                </button>
               </div>
-              <button type="button" class="switch" data-switch id="switch-newsletter">
-                <span class="switch-thumb"></span>
-              </button>
             </div>
           </div>
 
@@ -319,10 +327,12 @@ document.getElementById('switch-default').addEventListener('switch:change', (e) 
         <!-- Standalone -->
         <div class="section">
           <h2 class="section-title">Standalone</h2>
-          <div class="demo-box">
-            <button type="button" class="switch" data-switch id="switch-standalone">
-              <span class="switch-thumb"></span>
-            </button>
+          <div class="card">
+            <div class="card-content">
+              <button type="button" class="switch" data-switch id="switch-standalone">
+                <span class="switch-thumb"></span>
+              </button>
+            </div>
           </div>
 
           <div class="code-tabs">
@@ -340,20 +350,35 @@ document.getElementById('switch-default').addEventListener('switch:change', (e) 
         <!-- Data Attributes Reference -->
         <div class="section">
           <h2 class="section-title">Data Attributes Reference</h2>
-          <div class="demo-box" style="padding: 0; overflow: hidden;">
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
-              <thead>
-                <tr style="background: var(--muted);">
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Attribute</th>
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+          <div class="table-container">
+            <table class="table">
+              <thead class="table-header">
+                <tr class="table-row">
+                  <th class="table-head">Attribute</th>
+                  <th class="table-head">Description</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>data-switch</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Initializes the switch component (required)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>aria-checked="true"</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Sets the switch to checked state</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>aria-checked="false"</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Sets the switch to unchecked state (default)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>aria-disabled="true"</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Disables the switch</td></tr>
-                <tr><td style="padding: 0.75rem 1rem;"><code>role="switch"</code></td><td style="padding: 0.75rem 1rem;">ARIA role (auto-added by JS if missing)</td></tr>
+              <tbody class="table-body">
+                <tr class="table-row">
+                  <td class="table-cell"><code>data-switch</code></td>
+                  <td class="table-cell">Initializes the switch component (required)</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>aria-checked="true"</code></td>
+                  <td class="table-cell">Sets the switch to checked state</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>aria-checked="false"</code></td>
+                  <td class="table-cell">Sets the switch to unchecked state (default)</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>aria-disabled="true"</code></td>
+                  <td class="table-cell">Disables the switch</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>role="switch"</code></td>
+                  <td class="table-cell">ARIA role (auto-added by JS if missing)</td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -362,22 +387,43 @@ document.getElementById('switch-default').addEventListener('switch:change', (e) 
         <!-- JavaScript API Reference -->
         <div class="section">
           <h2 class="section-title">JavaScript API Reference</h2>
-          <div class="demo-box" style="padding: 0; overflow: hidden;">
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
-              <thead>
-                <tr style="background: var(--muted);">
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Method / Event</th>
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+          <div class="table-container">
+            <table class="table">
+              <thead class="table-header">
+                <tr class="table-row">
+                  <th class="table-head">Method / Event</th>
+                  <th class="table-head">Description</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>toggle()</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Toggle the switch state</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>setChecked(bool)</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Set the checked state programmatically</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>getChecked()</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Get the current checked state</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>enable()</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Enable the switch</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>disable()</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Disable the switch</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>destroy()</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Remove event listeners and cleanup</td></tr>
-                <tr><td style="padding: 0.75rem 1rem;"><code>switch:change</code></td><td style="padding: 0.75rem 1rem;">Event fired when state changes (detail: { checked: boolean })</td></tr>
+              <tbody class="table-body">
+                <tr class="table-row">
+                  <td class="table-cell"><code>toggle()</code></td>
+                  <td class="table-cell">Toggle the switch state</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>setChecked(bool)</code></td>
+                  <td class="table-cell">Set the checked state programmatically</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>getChecked()</code></td>
+                  <td class="table-cell">Get the current checked state</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>enable()</code></td>
+                  <td class="table-cell">Enable the switch</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>disable()</code></td>
+                  <td class="table-cell">Disable the switch</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>destroy()</code></td>
+                  <td class="table-cell">Remove event listeners and cleanup</td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-cell"><code>switch:change</code></td>
+                  <td class="table-cell">Event fired when state changes (detail: { checked: boolean })</td>
+                </tr>
               </tbody>
             </table>
           </div>

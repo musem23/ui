@@ -22,7 +22,7 @@
     <!-- Main -->
     <div class="app-main">
       <header class="app-header">
-        <span style="font-size: 0.875rem; font-weight: 500;">Alert</span>
+        <div class="header-left"><span>Alert</span></div>
         <button class="btn btn-ghost btn-sm" id="theme-toggle">Dark</button>
       </header>
 
@@ -39,17 +39,19 @@
         <!-- Default -->
         <div class="section">
           <h2 class="section-title">Default</h2>
-          <div class="demo-box">
-            <div class="demo-row" style="flex-direction: column; max-width: 28rem;">
-              <div class="alert alert-default" role="alert">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"/>
-                  <path d="M12 16v-4"/>
-                  <path d="M12 8h.01"/>
-                </svg>
-                <div class="alert-title">Information</div>
-                <div class="alert-description">
-                  <p>This is an informational alert message.</p>
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-row" style="flex-direction: column; max-width: 28rem;">
+                <div class="alert alert-default" role="alert">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 16v-4"/>
+                    <path d="M12 8h.01"/>
+                  </svg>
+                  <div class="alert-title">Information</div>
+                  <div class="alert-description">
+                    <p>This is an informational alert message.</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -82,17 +84,19 @@
         <!-- Destructive -->
         <div class="section">
           <h2 class="section-title">Destructive</h2>
-          <div class="demo-box">
-            <div class="demo-row" style="flex-direction: column; max-width: 28rem;">
-              <div class="alert alert-destructive" role="alert">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"/>
-                  <line x1="12" y1="8" x2="12" y2="12"/>
-                  <line x1="12" y1="16" x2="12.01" y2="16"/>
-                </svg>
-                <div class="alert-title">Error</div>
-                <div class="alert-description">
-                  <p>Something went wrong. Please try again.</p>
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-row" style="flex-direction: column; max-width: 28rem;">
+                <div class="alert alert-destructive" role="alert">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="12" y1="8" x2="12" y2="12"/>
+                    <line x1="12" y1="16" x2="12.01" y2="16"/>
+                  </svg>
+                  <div class="alert-title">Error</div>
+                  <div class="alert-description">
+                    <p>Something went wrong. Please try again.</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -117,27 +121,29 @@
         <!-- With Icon -->
         <div class="section">
           <h2 class="section-title">With Icon</h2>
-          <div class="demo-box">
-            <div class="demo-row" style="flex-direction: column; max-width: 28rem;">
-              <div class="alert alert-default" role="alert">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                  <polyline points="22 4 12 14.01 9 11.01"/>
-                </svg>
-                <div class="alert-title">Success</div>
-                <div class="alert-description">
-                  <p>Your changes have been saved.</p>
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-row" style="flex-direction: column; max-width: 28rem;">
+                <div class="alert alert-default" role="alert">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                  </svg>
+                  <div class="alert-title">Success</div>
+                  <div class="alert-description">
+                    <p>Your changes have been saved.</p>
+                  </div>
                 </div>
-              </div>
-              <div class="alert alert-default" role="alert">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/>
-                  <path d="M12 9v4"/>
-                  <path d="M12 17h.01"/>
-                </svg>
-                <div class="alert-title">Warning</div>
-                <div class="alert-description">
-                  <p>Your session will expire in 5 minutes.</p>
+                <div class="alert alert-default" role="alert">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/>
+                    <path d="M12 9v4"/>
+                    <path d="M12 17h.01"/>
+                  </svg>
+                  <div class="alert-title">Warning</div>
+                  <div class="alert-description">
+                    <p>Your session will expire in 5 minutes.</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -179,18 +185,20 @@
         <!-- Without Icon -->
         <div class="section">
           <h2 class="section-title">Without Icon</h2>
-          <div class="demo-box">
-            <div class="demo-row" style="flex-direction: column; max-width: 28rem;">
-              <div class="alert alert-default" role="alert">
-                <div class="alert-title">Note</div>
-                <div class="alert-description">
-                  <p>This alert does not have an icon.</p>
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-row" style="flex-direction: column; max-width: 28rem;">
+                <div class="alert alert-default" role="alert">
+                  <div class="alert-title">Note</div>
+                  <div class="alert-description">
+                    <p>This alert does not have an icon.</p>
+                  </div>
                 </div>
-              </div>
-              <div class="alert alert-destructive" role="alert">
-                <div class="alert-title">Warning</div>
-                <div class="alert-description">
-                  <p>This action cannot be undone.</p>
+                <div class="alert alert-destructive" role="alert">
+                  <div class="alert-title">Warning</div>
+                  <div class="alert-description">
+                    <p>This action cannot be undone.</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -221,29 +229,31 @@
         <!-- Title and Description -->
         <div class="section">
           <h2 class="section-title">Title and Description</h2>
-          <div class="demo-box">
-            <div class="demo-row" style="flex-direction: column; max-width: 28rem;">
-              <div class="alert alert-default" role="alert">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"/>
-                  <path d="M12 16v-4"/>
-                  <path d="M12 8h.01"/>
-                </svg>
-                <div class="alert-title">Heads up!</div>
-                <div class="alert-description">
-                  <p>You can add components to your app using the CLI.</p>
+          <div class="card">
+            <div class="card-content">
+              <div class="demo-row" style="flex-direction: column; max-width: 28rem;">
+                <div class="alert alert-default" role="alert">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 16v-4"/>
+                    <path d="M12 8h.01"/>
+                  </svg>
+                  <div class="alert-title">Heads up!</div>
+                  <div class="alert-description">
+                    <p>You can add components to your app using the CLI.</p>
+                  </div>
                 </div>
-              </div>
-              <div class="alert alert-default" role="alert">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"/>
-                  <path d="M12 16v-4"/>
-                  <path d="M12 8h.01"/>
-                </svg>
-                <div class="alert-title">Multiple paragraphs</div>
-                <div class="alert-description">
-                  <p>This is the first paragraph of the description.</p>
-                  <p>This is the second paragraph with more details.</p>
+                <div class="alert alert-default" role="alert">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 16v-4"/>
+                    <path d="M12 8h.01"/>
+                  </svg>
+                  <div class="alert-title">Multiple paragraphs</div>
+                  <div class="alert-description">
+                    <p>This is the first paragraph of the description.</p>
+                    <p>This is the second paragraph with more details.</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -278,20 +288,20 @@
         <!-- API Reference -->
         <div class="section">
           <h2 class="section-title">CSS Classes Reference</h2>
-          <div class="demo-box" style="padding: 0; overflow: hidden;">
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
-              <thead>
-                <tr style="background: var(--muted);">
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Class</th>
-                  <th style="text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Description</th>
+          <div class="table-container">
+            <table class="table">
+              <thead class="table-header">
+                <tr class="table-row">
+                  <th class="table-head">Class</th>
+                  <th class="table-head">Description</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.alert</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Base alert class (required)</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.alert-default</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Default variant with neutral styling</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.alert-destructive</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Destructive/error variant with red styling</td></tr>
-                <tr><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);"><code>.alert-title</code></td><td style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);">Alert title element</td></tr>
-                <tr><td style="padding: 0.75rem 1rem;"><code>.alert-description</code></td><td style="padding: 0.75rem 1rem;">Alert description container</td></tr>
+              <tbody class="table-body">
+                <tr class="table-row"><td class="table-cell"><code>.alert</code></td><td class="table-cell">Base alert class (required)</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.alert-default</code></td><td class="table-cell">Default variant with neutral styling</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.alert-destructive</code></td><td class="table-cell">Destructive/error variant with red styling</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.alert-title</code></td><td class="table-cell">Alert title element</td></tr>
+                <tr class="table-row"><td class="table-cell"><code>.alert-description</code></td><td class="table-cell">Alert description container</td></tr>
               </tbody>
             </table>
           </div>
