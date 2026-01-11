@@ -159,12 +159,12 @@
 
       // Action button
       if (config.action) {
-        html += `<button type="button" class="toast-action" data-action="action">${this.escapeHtml(config.action.label)}</button>`;
+        html += `<button type="button" class="btn btn-outline btn-sm toast-action" data-action="action">${this.escapeHtml(config.action.label)}</button>`;
       }
 
       // Close button
       if (config.closable) {
-        html += `<button type="button" class="toast-close" data-action="close" aria-label="Close notification">${ICONS.close}</button>`;
+        html += `<button type="button" class="btn btn-ghost btn-icon-sm toast-close" data-action="close" aria-label="Close notification">${ICONS.close}</button>`;
       }
 
       // Progress bar
