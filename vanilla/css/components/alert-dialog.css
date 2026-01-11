@@ -23,6 +23,7 @@
 .alert-dialog-overlay[data-state="closed"] {
   opacity: 0;
   pointer-events: none;
+  visibility: hidden;
 }
 
 /* ============================================
@@ -65,6 +66,7 @@
   opacity: 0;
   transform: translate(-50%, -50%) scale(0.95);
   pointer-events: none;
+  visibility: hidden;
 }
 
 /* ============================================
@@ -126,73 +128,9 @@
 
 /* ============================================
    BUTTONS
+   Use .btn classes from button.css instead of
+   hardcoded styles. Example:
+   - Cancel: .btn .btn-outline
+   - Action: .btn .btn-default
+   - Destructive: .btn .btn-destructive
    ============================================ */
-
-.alert-dialog-action,
-.alert-dialog-cancel {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  height: 2.5rem;
-  padding: 0 1rem;
-  font-family: var(--font-sans);
-  font-size: 0.875rem;
-  font-weight: 500;
-  line-height: 1;
-  white-space: nowrap;
-  border-radius: var(--radius-md);
-  cursor: pointer;
-  transition:
-    background-color var(--transition-fast) var(--ease-default),
-    border-color var(--transition-fast) var(--ease-default),
-    color var(--transition-fast) var(--ease-default),
-    opacity var(--transition-fast) var(--ease-default);
-}
-
-.alert-dialog-action:focus-visible,
-.alert-dialog-cancel:focus-visible {
-  outline: 2px solid var(--ring);
-  outline-offset: 2px;
-}
-
-.alert-dialog-action:disabled,
-.alert-dialog-cancel:disabled {
-  pointer-events: none;
-  opacity: 0.5;
-}
-
-/* Action Button (Primary) */
-.alert-dialog-action {
-  background-color: var(--primary);
-  color: var(--primary-foreground);
-  border: none;
-}
-
-.alert-dialog-action:hover {
-  background-color: var(--primary);
-  opacity: 0.9;
-}
-
-/* Cancel Button (Outline) */
-.alert-dialog-cancel {
-  background-color: var(--background);
-  color: var(--foreground);
-  border: 1px solid var(--input);
-}
-
-.alert-dialog-cancel:hover {
-  background-color: var(--accent);
-  color: var(--accent-foreground);
-}
-
-/* Destructive Action Button */
-.alert-dialog-action[data-variant="destructive"] {
-  background-color: var(--destructive);
-  color: var(--destructive-foreground);
-}
-
-.alert-dialog-action[data-variant="destructive"]:hover {
-  background-color: var(--destructive);
-  opacity: 0.9;
-}

@@ -4,9 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sheet - Brand UI</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- All CSS via ui.css bundle -->
   <link rel="stylesheet" href="../css/ui.css">
@@ -74,7 +71,7 @@
 &lt;!-- Sheet --&gt;
 &lt;div class="sheet-overlay" id="sheet-right"&gt;&lt;/div&gt;
 &lt;div class="sheet-content" data-side="right"&gt;
-  &lt;button class="sheet-close" aria-label="Close"&gt;
+  &lt;button class="btn btn-ghost btn-icon-sm sheet-close" aria-label="Close"&gt;
     &lt;svg ...&gt;...&lt;/svg&gt;
   &lt;/button&gt;
   &lt;div class="sheet-header"&gt;
@@ -297,7 +294,7 @@ BrandUI.components.Sheet.open('sheet-bottom');</code></pre>
 
 &lt;div class="sheet-overlay" id="sheet-profile"&gt;&lt;/div&gt;
 &lt;div class="sheet-content" data-side="right"&gt;
-  &lt;button class="sheet-close" aria-label="Close"&gt;...&lt;/button&gt;
+  &lt;button class="btn btn-ghost btn-icon-sm sheet-close" aria-label="Close"&gt;...&lt;/button&gt;
   &lt;div class="sheet-header"&gt;
     &lt;h3 class="sheet-title"&gt;Edit Profile&lt;/h3&gt;
     &lt;p class="sheet-description"&gt;Make changes to your profile.&lt;/p&gt;
@@ -412,7 +409,7 @@ content.addEventListener('sheet:close', () => {
   <!-- Sheet: Right -->
   <div class="sheet-overlay" id="sheet-right"></div>
   <div class="sheet-content" data-side="right">
-    <button class="sheet-close" aria-label="Close">
+    <button class="btn btn-ghost btn-icon-sm sheet-close" aria-label="Close">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
         <line x1="18" y1="6" x2="6" y2="18"/>
         <line x1="6" y1="6" x2="18" y2="18"/>
@@ -433,7 +430,7 @@ content.addEventListener('sheet:close', () => {
   <!-- Sheet: Left -->
   <div class="sheet-overlay" id="sheet-left"></div>
   <div class="sheet-content" data-side="left">
-    <button class="sheet-close" aria-label="Close">
+    <button class="btn btn-ghost btn-icon-sm sheet-close" aria-label="Close">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
         <line x1="18" y1="6" x2="6" y2="18"/>
         <line x1="6" y1="6" x2="18" y2="18"/>
@@ -454,7 +451,7 @@ content.addEventListener('sheet:close', () => {
   <!-- Sheet: Top -->
   <div class="sheet-overlay" id="sheet-top"></div>
   <div class="sheet-content" data-side="top">
-    <button class="sheet-close" aria-label="Close">
+    <button class="btn btn-ghost btn-icon-sm sheet-close" aria-label="Close">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
         <line x1="18" y1="6" x2="6" y2="18"/>
         <line x1="6" y1="6" x2="18" y2="18"/>
@@ -475,7 +472,7 @@ content.addEventListener('sheet:close', () => {
   <!-- Sheet: Bottom -->
   <div class="sheet-overlay" id="sheet-bottom"></div>
   <div class="sheet-content" data-side="bottom">
-    <button class="sheet-close" aria-label="Close">
+    <button class="btn btn-ghost btn-icon-sm sheet-close" aria-label="Close">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
         <line x1="18" y1="6" x2="6" y2="18"/>
         <line x1="6" y1="6" x2="18" y2="18"/>
@@ -496,7 +493,7 @@ content.addEventListener('sheet:close', () => {
   <!-- Sheet: Profile Example -->
   <div class="sheet-overlay" id="sheet-profile"></div>
   <div class="sheet-content" data-side="right">
-    <button class="sheet-close" aria-label="Close">
+    <button class="btn btn-ghost btn-icon-sm sheet-close" aria-label="Close">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
         <line x1="18" y1="6" x2="6" y2="18"/>
         <line x1="6" y1="6" x2="18" y2="18"/>

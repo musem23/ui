@@ -4,9 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Drawer - Brand UI</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../css/ui.css">
 </head>
@@ -171,7 +168,7 @@
               <p class="drawer-description">Search for anything across the platform.</p>
             </div>
             <div class="drawer-body">
-              <div class="form-group" style="margin-bottom: 1rem;">
+              <div class="form-group">
                 <input class="input" type="search" placeholder="Type to search...">
               </div>
             </div>
@@ -213,7 +210,7 @@
             aria-modal="true"
             aria-labelledby="drawer-right-title"
           >
-            <button class="drawer-close" data-drawer-close aria-label="Close drawer">
+            <button class="btn btn-ghost btn-icon-sm drawer-close" data-drawer-close aria-label="Close drawer">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M18 6L6 18M6 6l12 12"/>
               </svg>
@@ -288,7 +285,7 @@
             aria-modal="true"
             aria-labelledby="drawer-left-title"
           >
-            <button class="drawer-close" data-drawer-close aria-label="Close drawer">
+            <button class="btn btn-ghost btn-icon-sm drawer-close" data-drawer-close aria-label="Close drawer">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M18 6L6 18M6 6l12 12"/>
               </svg>
@@ -373,7 +370,6 @@
             aria-modal="true"
             aria-labelledby="drawer-nodismiss-title"
           >
-            <div class="drawer-handle" style="opacity: 0.5; cursor: default;"></div>
             <div class="drawer-header">
               <h3 id="drawer-nodismiss-title" class="drawer-title">Confirm Action</h3>
               <p class="drawer-description">This drawer cannot be dismissed by dragging. You must use the buttons below.</p>
