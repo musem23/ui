@@ -108,3 +108,57 @@ a.badge-outline:hover {
   background-color: var(--accent);
   color: var(--accent-foreground);
 }
+
+/* ============================================
+   Verified Badge (Check Mark)
+   ============================================ */
+.verified-badge {
+  display: inline-block;
+  width: auto;
+  height: var(--verified-size, 1em);
+  vertical-align: middle;
+}
+
+.verified-badge svg {
+  display: block;
+  width: auto;
+  height: 100%;
+}
+
+.verified-badge .badge-bg {
+  fill: var(--verified-color, var(--primary));
+}
+
+.verified-badge .badge-check {
+  fill: white;
+}
+
+/* Color variants */
+.verified-badge-gold {
+  --verified-color: oklch(0.795 0.184 86.047);
+}
+
+.verified-badge-gray {
+  --verified-color: var(--muted-foreground);
+}
+
+/* Size variants */
+.verified-badge-xs {
+  --verified-size: 0.75em;
+}
+
+.verified-badge-sm {
+  --verified-size: 0.875em;
+}
+
+.verified-badge-md {
+  --verified-size: 1em;
+}
+
+.verified-badge-lg {
+  --verified-size: 1.25em;
+}
+
+.verified-badge-xl {
+  --verified-size: 1.5em;
+}

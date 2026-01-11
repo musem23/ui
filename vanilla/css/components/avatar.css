@@ -8,7 +8,6 @@
   position: relative;
   display: flex;
   flex-shrink: 0;
-  overflow: hidden;
   border-radius: var(--radius-full);
   width: 2rem;
   height: 2rem;
@@ -20,6 +19,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: inherit;
 }
 
 /* Avatar Fallback */
@@ -111,8 +111,8 @@
 /* Status Indicator */
 .avatar-status {
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: -1px;
+  right: -1px;
   width: 0.625rem;
   height: 0.625rem;
   border-radius: var(--radius-full);
@@ -137,4 +137,28 @@
 .avatar-2xl .avatar-status {
   width: 0.75rem;
   height: 0.75rem;
+}
+
+/* Verified Badge positioning (uses badge.css for styling) */
+.avatar .verified-badge {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  --verified-size: 0.875rem;
+}
+
+.avatar-md .verified-badge {
+  --verified-size: 1rem;
+}
+
+.avatar-lg .verified-badge {
+  --verified-size: 1.125rem;
+}
+
+.avatar-xl .verified-badge {
+  --verified-size: 1.25rem;
+}
+
+.avatar-2xl .verified-badge {
+  --verified-size: 1.5rem;
 }
