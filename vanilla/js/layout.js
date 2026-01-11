@@ -3,6 +3,16 @@
  * Shared layout functionality for example pages
  */
 
+// Apply saved theme immediately to prevent flash (runs before DOMContentLoaded)
+(function() {
+  var theme = localStorage.getItem('theme');
+  if (theme === 'dark') {
+    document.documentElement.classList.add('dark');
+  } else if (theme === 'light') {
+    document.documentElement.classList.add('light');
+  }
+})();
+
 (function () {
   'use strict';
 

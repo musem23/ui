@@ -16,12 +16,17 @@
   class Drawer {
     constructor(element, options = {}) {
       this.trigger = element;
+      const dismissible = options.dismissible !== false && options.dismissible !== 'false';
+      // If not dismissible, also disable overlay click and escape by default
+      const closeOnOverlay = dismissible && (options.closeOnOverlay !== false && options.closeOnOverlay !== 'false');
+      const closeOnEscape = dismissible && (options.closeOnEscape !== false && options.closeOnEscape !== 'false');
+
       this.options = {
-        direction: options.direction || 'bottom',
-        dismissible: options.dismissible !== false,
-        closeOnOverlay: options.closeOnOverlay !== false,
-        closeOnEscape: options.closeOnEscape !== false,
         ...options,
+        direction: options.direction || 'bottom',
+        dismissible,
+        closeOnOverlay,
+        closeOnEscape,
       };
 
       this.targetId = this.trigger.getAttribute('data-drawer-target') ||
