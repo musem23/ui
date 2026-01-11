@@ -17,13 +17,13 @@ const ROOT = join(__dirname, '..');
 // ============================================
 
 const CSS_FILES = [
-  'css/tokens.css',
-  'css/base.css',
-  'css/utilities.css',
+  'vanilla/css/tokens.css',
+  'vanilla/css/base.css',
+  'vanilla/css/utilities.css',
 ];
 
 const JS_FILES = [
-  'js/core.js',
+  'vanilla/js/core.js',
 ];
 
 const OUTPUT_DIR = 'dist';
@@ -92,7 +92,7 @@ function buildCSS() {
   console.log('\nBuilding CSS...');
 
   // Get all CSS files including components
-  const componentFiles = getComponentFiles('css/components', '.css');
+  const componentFiles = getComponentFiles('vanilla/css/components', '.css');
   const allFiles = [...CSS_FILES, ...componentFiles];
 
   // Bundle
@@ -126,7 +126,7 @@ function buildJS() {
   console.log('\nBuilding JavaScript...');
 
   // Get all JS files including components
-  const componentFiles = getComponentFiles('js/components', '.js');
+  const componentFiles = getComponentFiles('vanilla/js/components', '.js');
   const allFiles = [...JS_FILES, ...componentFiles];
 
   // Bundle
