@@ -1,0 +1,22 @@
+/**
+ * Brand UI - Local Font Definitions
+ * Self-hosted fonts for better performance
+ */
+
+/* Plus Jakarta Sans - Primary UI font */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('../fonts/plus-jakarta-sans.woff2') format('woff2');
+}
+
+/* JetBrains Mono - Monospace font for code */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url('../fonts/jetbrains-mono.woff2') format('woff2');
+}

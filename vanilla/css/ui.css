@@ -3,6 +3,9 @@
  * Import this file to include all components
  */
 
+/* Fonts (self-hosted) */
+@import "./fonts.css";
+
 /* Core */
 @import "./tokens.css";
 @import "./base.css";
